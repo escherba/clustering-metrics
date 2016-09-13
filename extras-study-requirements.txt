@@ -1,0 +1,4 @@
+pandas
+matplotlib==1.4.3
+palettable
+Jinja2==2.8

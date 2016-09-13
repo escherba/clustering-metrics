@@ -1,0 +1,23 @@
+!    -*- f90 -*-
+! Note: the context of this file is case sensitive.
+
+python module _fent ! in 
+    interface  ! in :_fent
+        subroutine minmaxr(a,n,amin,amax) ! in :_fent:_fent.f90
+            real dimension(n),intent(in) :: a
+            integer, optional,check(len(a)>=n),depend(a) :: n=len(a)
+            real intent(out) :: amin
+            real intent(out) :: amax
+        end subroutine minmaxr
+        subroutine emi_from_margins(a,r,b,c,emi) ! in :_fent:_fent.f90
+            integer(kind=8) dimension(r),intent(in) :: a
+            integer(kind=8), optional,check(len(a)>=r),depend(a) :: r=len(a)
+            integer(kind=8) dimension(c),intent(in) :: b
+            integer(kind=8), optional,check(len(b)>=c),depend(b) :: c=len(b)
+            real(kind=8) intent(out) :: emi
+        end subroutine emi_from_margins
+    end interface 
+end python module _fent
+
+! This file was auto-generated with f2py (version:2).
+! See http://cens.ioc.ee/projects/f2py2e/

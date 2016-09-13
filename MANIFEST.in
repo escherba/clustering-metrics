@@ -1,0 +1,4 @@
+include tests/data/*
+include include/*.h
+include *requirements.txt
+include LICENSE

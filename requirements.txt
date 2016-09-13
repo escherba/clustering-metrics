@@ -1,0 +1,7 @@
+virtualenv
+cython
+regex
+numpy
+scipy
+scikit-learn
+git+https://github.com/escherba/pymaptools#egg=pymaptools-0.2.20
