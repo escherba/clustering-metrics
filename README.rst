@@ -64,3 +64,9 @@ relative to the source tree root.
    git clone https://github.com/escherba/clustering-metrics.git
    cd clustering-metrics
    make test
+
+
+License
+-------
+
+This package is under a BSD 3-clause license.
