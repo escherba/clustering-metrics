@@ -1,5 +1,5 @@
 clustering_metrics.fent package
-====================
+===============================
 
 Submodules
 ----------

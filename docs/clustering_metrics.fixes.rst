@@ -1,5 +1,5 @@
 clustering_metrics.fixes module
-====================
+===============================
 
 .. automodule:: clustering_metrics.fixes
     :members:

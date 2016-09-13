@@ -1,5 +1,5 @@
 clustering_metrics.monte_carlo package
-===========================
+======================================
 
 Submodules
 ----------
@@ -7,7 +7,6 @@ Submodules
 .. toctree::
 
    clustering_metrics.monte_carlo.predictions
-   clustering_metrics.monte_carlo.strings
    clustering_metrics.monte_carlo.utils
 
 Module contents
