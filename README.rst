@@ -1,7 +1,7 @@
 Clustering Metrics
 ==================
 
-A Python implementation of various metrics (primarily external) used for clustering evaluation.
+A Python implementation of various metrics (primarily external) used for clustering evaluation. The documentation is available online at `clustring-metrics-docs <https://escherba.github.io/clustering-metrics-docs/>`_
 
 Motivation
 ----------
