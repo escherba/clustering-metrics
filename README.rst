@@ -11,6 +11,16 @@ very cheaply. The efficiency of the computation depends primarily on the in-memo
 Sparse representations are pefect for this purpose and allow us to calculate many metrics more efficiently than
 packages like Scikit-Learn.
 
+Installation
+------------
+
+At the moment, the package is not on PyPI. To install it, use ``pip`` like so:
+
+.. code-block:: bash
+
+   pip install git+https://github.com/escherba/pymaptools#egg=pymaptools-0.2.30
+   pip install git+https://github.com/escherba/clustering-metrics#egg=clustering_metrics-0.0.1
+
 Usage
 -----
 
@@ -42,3 +52,15 @@ as a set of partitions:
    >>> cm = ClusteringMetrics.from_partitions(ground_truth, predicted)
    >>> cm.split_join_distance(normalize=False)
    4
+
+Development
+-----------
+
+For development and testing, this package sets up a Python virtualenv under ``./env/``
+relative to the source tree root.
+
+.. code-block:: bash
+
+   git clone https://github.com/escherba/clustering-metrics.git
+   cd clustering-metrics
+   make test
