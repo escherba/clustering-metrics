@@ -6,7 +6,7 @@ PYENV := . ../env/bin/activate;
 PYTHON := $(PYENV) python
 
 SPHINXOPTS    =
-SPHINXBUILD   = $(PYTHON) /usr/local/bin/sphinx-build
+SPHINXBUILD   = $(PYTHON) $(shell which sphinx-build)
 PAPER         =
 BUILDDIR      = _build
 
