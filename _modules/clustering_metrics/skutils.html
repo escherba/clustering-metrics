@@ -1,0 +1,555 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>clustering_metrics.skutils &mdash; Clustering-Metrics 0.0.2 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Clustering-Metrics 0.0.2 documentation" href="../../index.html"/>
+        <link rel="up" title="Module code" href="../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Clustering-Metrics
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../clustering_metrics.html">clustering_metrics package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Clustering-Metrics</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      
+    <li>clustering_metrics.skutils</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for clustering_metrics.skutils</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This module contains code pasted verbatim from Scikit-Learn</span>
+<span class="sd">to avoid depending on scikit-learn</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.sparse</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">from</span> <span class="nn">.fixes</span> <span class="k">import</span> <span class="n">array_equal</span>
+
+
+<div class="viewcode-block" id="UndefinedMetricWarning"><a class="viewcode-back" href="../../clustering_metrics.skutils.html#clustering_metrics.skutils.UndefinedMetricWarning">[docs]</a><span class="k">class</span> <span class="nc">UndefinedMetricWarning</span><span class="p">(</span><span class="ne">UserWarning</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Warning used when the metric is invalid&quot;&quot;&quot;</span></div>
+
+
+<div class="viewcode-block" id="DataConversionWarning"><a class="viewcode-back" href="../../clustering_metrics.skutils.html#clustering_metrics.skutils.DataConversionWarning">[docs]</a><span class="k">class</span> <span class="nc">DataConversionWarning</span><span class="p">(</span><span class="ne">UserWarning</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A warning on implicit data conversions happening in the code&quot;&quot;&quot;</span>
+    <span class="k">pass</span></div>
+
+<span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s2">&quot;always&quot;</span><span class="p">,</span> <span class="n">DataConversionWarning</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="stable_cumsum"><a class="viewcode-back" href="../../clustering_metrics.skutils.html#clustering_metrics.skutils.stable_cumsum">[docs]</a><span class="k">def</span> <span class="nf">stable_cumsum</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">rtol</span><span class="o">=</span><span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">05</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">08</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Use high precision for cumsum and check that final value matches sum</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    arr : array-like</span>
+<span class="sd">        To be cumulatively summed as flat</span>
+<span class="sd">    rtol : float</span>
+<span class="sd">        Relative tolerance, see ``np.allclose``</span>
+<span class="sd">    atol : float</span>
+<span class="sd">        Absolute tolerance, see ``np.allclose``</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    <span class="n">expected</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">expected</span><span class="p">,</span> <span class="n">rtol</span><span class="o">=</span><span class="n">rtol</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="n">atol</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;cumsum was found to be unstable: &#39;</span>
+                           <span class="s1">&#39;its last element does not correspond to sum&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">out</span></div>
+
+
+<span class="k">def</span> <span class="nf">_assert_all_finite</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Like assert_all_finite, but only for ndarray.&quot;&quot;&quot;</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asanyarray</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="c1"># First try an O(n) time, O(1) space solution for the common case that</span>
+    <span class="c1"># everything is finite; fall back to O(n) space np.isfinite to prevent</span>
+    <span class="c1"># false positives from overflow in sum method.</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">char</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">typecodes</span><span class="p">[</span><span class="s1">&#39;AllFloat&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Input contains NaN, infinity or a value too large for </span><span class="si">%r</span><span class="s2">.&quot;</span> <span class="o">%</span> <span class="n">X</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="assert_all_finite"><a class="viewcode-back" href="../../clustering_metrics.skutils.html#clustering_metrics.skutils.assert_all_finite">[docs]</a><span class="k">def</span> <span class="nf">assert_all_finite</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Throw a ValueError if X contains NaN or infinity.</span>
+<span class="sd">    Input MUST be an np.ndarray instance or a scipy.sparse matrix.&quot;&quot;&quot;</span>
+    <span class="n">_assert_all_finite</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">data</span> <span class="k">if</span> <span class="n">sp</span><span class="o">.</span><span class="n">issparse</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="k">else</span> <span class="n">X</span><span class="p">)</span></div>
+
+
+<span class="k">def</span> <span class="nf">_num_samples</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return number of samples in array-like x.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;fit&#39;</span><span class="p">):</span>
+        <span class="c1"># Don&#39;t get num_samples from an ensembles length!</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Expected sequence or array-like, got &#39;</span>
+                        <span class="s1">&#39;estimator </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">x</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;__len__&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;shape&#39;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;__array__&#39;</span><span class="p">):</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Expected sequence or array-like, got </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span>
+                            <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;shape&#39;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Singleton array </span><span class="si">%r</span><span class="s2"> cannot be considered&quot;</span>
+                            <span class="s2">&quot; a valid collection.&quot;</span> <span class="o">%</span> <span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="check_consistent_length"><a class="viewcode-back" href="../../clustering_metrics.skutils.html#clustering_metrics.skutils.check_consistent_length">[docs]</a><span class="k">def</span> <span class="nf">check_consistent_length</span><span class="p">(</span><span class="o">*</span><span class="n">arrays</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Check that all arrays have consistent first dimensions.</span>
+<span class="sd">    Checks whether all objects in arrays have the same shape or length.</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    *arrays : list or tuple of input objects.</span>
+<span class="sd">        Objects that will be checked for consistent length.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">uniques</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">([</span><span class="n">_num_samples</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="n">arrays</span> <span class="k">if</span> <span class="n">X</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">])</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">uniques</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Found arrays with inconsistent numbers of samples: &quot;</span>
+                         <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">uniques</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="column_or_1d"><a class="viewcode-back" href="../../clustering_metrics.skutils.html#clustering_metrics.skutils.column_or_1d">[docs]</a><span class="k">def</span> <span class="nf">column_or_1d</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">warn</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Ravel column or 1d numpy array, else raises an error</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    y : array-like</span>
+<span class="sd">    warn : boolean, default False</span>
+<span class="sd">       To control display of warnings.</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    y : array</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">shape</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">warn</span><span class="p">:</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;A column-vector y was passed when a 1d array was&quot;</span>
+                          <span class="s2">&quot; expected. Please change the shape of y to &quot;</span>
+                          <span class="s2">&quot;(n_samples, ), for example using ravel().&quot;</span><span class="p">,</span>
+                          <span class="n">DataConversionWarning</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;bad input shape </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">shape</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="auc"><a class="viewcode-back" href="../../clustering_metrics.skutils.html#clustering_metrics.skutils.auc">[docs]</a><span class="k">def</span> <span class="nf">auc</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">reorder</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Compute Area Under the Curve (AUC) using the trapezoidal rule</span>
+<span class="sd">    This is a general function, given points on a curve.  For computing the</span>
+<span class="sd">    area under the ROC-curve, see :func:`roc_auc_score`.</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : array, shape = [n]</span>
+<span class="sd">        x coordinates.</span>
+<span class="sd">    y : array, shape = [n]</span>
+<span class="sd">        y coordinates.</span>
+<span class="sd">    reorder : boolean, optional (default=False)</span>
+<span class="sd">        If True, assume that the curve is ascending in the case of ties, as for</span>
+<span class="sd">        an ROC curve. If the curve is non-ascending, the result will be wrong.</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    auc : float</span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; from sklearn import metrics</span>
+<span class="sd">    &gt;&gt;&gt; y = np.array([1, 1, 2, 2])</span>
+<span class="sd">    &gt;&gt;&gt; pred = np.array([0.1, 0.4, 0.35, 0.8])</span>
+<span class="sd">    &gt;&gt;&gt; fpr, tpr, thresholds = metrics.roc_curve(y, pred, pos_label=2)</span>
+<span class="sd">    &gt;&gt;&gt; metrics.auc(fpr, tpr)</span>
+<span class="sd">    0.75</span>
+
+<span class="sd">    See also</span>
+<span class="sd">    --------</span>
+<span class="sd">    roc_auc_score : Computes the area under the ROC curve</span>
+<span class="sd">    precision_recall_curve :</span>
+<span class="sd">        Compute precision-recall pairs for different probability thresholds</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">check_consistent_length</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">column_or_1d</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">column_or_1d</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;At least 2 points are needed to compute&#39;</span>
+                         <span class="s1">&#39; area under curve, but x.shape = </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+    <span class="n">direction</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">reorder</span><span class="p">:</span>
+        <span class="c1"># reorder the data points according to the x axis and using y to</span>
+        <span class="c1"># break ties</span>
+        <span class="n">order</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">lexsort</span><span class="p">((</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">order</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">order</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">dx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">dx</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">dx</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="n">direction</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Reordering is not turned on, and &quot;</span>
+                                 <span class="s2">&quot;the x array is not increasing: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">x</span><span class="p">)</span>
+
+    <span class="n">area</span> <span class="o">=</span> <span class="n">direction</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">area</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">memmap</span><span class="p">):</span>
+        <span class="c1"># Reductions such as .sum used internally in np.trapz do not return a</span>
+        <span class="c1"># scalar by default for numpy.memmap instances contrary to</span>
+        <span class="c1"># regular numpy.ndarray instances.</span>
+        <span class="n">area</span> <span class="o">=</span> <span class="n">area</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">type</span><span class="p">(</span><span class="n">area</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">area</span></div>
+
+
+<span class="k">def</span> <span class="nf">_binary_clf_curve</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_score</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Calculate true and false positives per binary classification threshold.</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    y_true : array, shape = [n_samples]</span>
+<span class="sd">        True targets of binary classification</span>
+<span class="sd">    y_score : array, shape = [n_samples]</span>
+<span class="sd">        Estimated probabilities or decision function</span>
+<span class="sd">    pos_label : int, optional (default=None)</span>
+<span class="sd">        The label of the positive class</span>
+<span class="sd">    sample_weight : array-like of shape = [n_samples], optional</span>
+<span class="sd">        Sample weights.</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    fps : array, shape = [n_thresholds]</span>
+<span class="sd">        A count of false positives, at index i being the number of negative</span>
+<span class="sd">        samples assigned a score &gt;= thresholds[i]. The total number of</span>
+<span class="sd">        negative samples is equal to fps[-1] (thus true negatives are given by</span>
+<span class="sd">        fps[-1] - fps).</span>
+<span class="sd">    tps : array, shape = [n_thresholds &lt;= len(np.unique(y_score))]</span>
+<span class="sd">        An increasing count of true positives, at index i being the number</span>
+<span class="sd">        of positive samples assigned a score &gt;= thresholds[i]. The total</span>
+<span class="sd">        number of positive samples is equal to tps[-1] (thus false negatives</span>
+<span class="sd">        are given by tps[-1] - tps).</span>
+<span class="sd">    thresholds : array, shape = [n_thresholds]</span>
+<span class="sd">        Decreasing score values.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">check_consistent_length</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_score</span><span class="p">)</span>
+    <span class="n">y_true</span> <span class="o">=</span> <span class="n">column_or_1d</span><span class="p">(</span><span class="n">y_true</span><span class="p">)</span>
+    <span class="n">y_score</span> <span class="o">=</span> <span class="n">column_or_1d</span><span class="p">(</span><span class="n">y_score</span><span class="p">)</span>
+    <span class="n">assert_all_finite</span><span class="p">(</span><span class="n">y_true</span><span class="p">)</span>
+    <span class="n">assert_all_finite</span><span class="p">(</span><span class="n">y_score</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">sample_weight</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">sample_weight</span> <span class="o">=</span> <span class="n">column_or_1d</span><span class="p">(</span><span class="n">sample_weight</span><span class="p">)</span>
+
+    <span class="c1"># ensure binary classification if pos_label is not specified</span>
+    <span class="n">classes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y_true</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">pos_label</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span>
+        <span class="ow">not</span> <span class="p">(</span><span class="n">array_equal</span><span class="p">(</span><span class="n">classes</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="ow">or</span>
+             <span class="n">array_equal</span><span class="p">(</span><span class="n">classes</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="ow">or</span>
+             <span class="n">array_equal</span><span class="p">(</span><span class="n">classes</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="ow">or</span>
+             <span class="n">array_equal</span><span class="p">(</span><span class="n">classes</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="ow">or</span>
+             <span class="n">array_equal</span><span class="p">(</span><span class="n">classes</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">]))):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Data is not binary and pos_label is not specified&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">pos_label</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">pos_label</span> <span class="o">=</span> <span class="mf">1.</span>
+
+    <span class="c1"># make y_true a boolean vector</span>
+    <span class="n">y_true</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_true</span> <span class="o">==</span> <span class="n">pos_label</span><span class="p">)</span>
+
+    <span class="c1"># sort scores and corresponding truth values</span>
+    <span class="n">desc_score_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">y_score</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;mergesort&quot;</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">y_score</span> <span class="o">=</span> <span class="n">y_score</span><span class="p">[</span><span class="n">desc_score_indices</span><span class="p">]</span>
+    <span class="n">y_true</span> <span class="o">=</span> <span class="n">y_true</span><span class="p">[</span><span class="n">desc_score_indices</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">sample_weight</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">weight</span> <span class="o">=</span> <span class="n">sample_weight</span><span class="p">[</span><span class="n">desc_score_indices</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">weight</span> <span class="o">=</span> <span class="mf">1.</span>
+
+    <span class="c1"># y_score typically has many tied values. Here we extract</span>
+    <span class="c1"># the indices associated with the distinct values. We also</span>
+    <span class="c1"># concatenate a value for the end of the curve.</span>
+    <span class="n">distinct_value_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">y_score</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">threshold_idxs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">distinct_value_indices</span><span class="p">,</span> <span class="n">y_true</span><span class="o">.</span><span class="n">size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+
+    <span class="c1"># accumulate the true positives with decreasing threshold</span>
+    <span class="n">tps</span> <span class="o">=</span> <span class="n">stable_cumsum</span><span class="p">(</span><span class="n">y_true</span> <span class="o">*</span> <span class="n">weight</span><span class="p">)[</span><span class="n">threshold_idxs</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">sample_weight</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">fps</span> <span class="o">=</span> <span class="n">stable_cumsum</span><span class="p">(</span><span class="n">weight</span><span class="p">)[</span><span class="n">threshold_idxs</span><span class="p">]</span> <span class="o">-</span> <span class="n">tps</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">fps</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">threshold_idxs</span> <span class="o">-</span> <span class="n">tps</span>
+    <span class="k">return</span> <span class="n">fps</span><span class="p">,</span> <span class="n">tps</span><span class="p">,</span> <span class="n">y_score</span><span class="p">[</span><span class="n">threshold_idxs</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="roc_curve"><a class="viewcode-back" href="../../clustering_metrics.skutils.html#clustering_metrics.skutils.roc_curve">[docs]</a><span class="k">def</span> <span class="nf">roc_curve</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_score</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+              <span class="n">drop_intermediate</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Compute Receiver operating characteristic (ROC)</span>
+<span class="sd">    Note: this implementation is restricted to the binary classification task.</span>
+<span class="sd">    Read more in the :ref:`User Guide &lt;roc_metrics&gt;`.</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    y_true : array, shape = [n_samples]</span>
+<span class="sd">        True binary labels in range {0, 1} or {-1, 1}.  If labels are not</span>
+<span class="sd">        binary, pos_label should be explicitly given.</span>
+<span class="sd">    y_score : array, shape = [n_samples]</span>
+<span class="sd">        Target scores, can either be probability estimates of the positive</span>
+<span class="sd">        class, confidence values, or non-thresholded measure of decisions</span>
+<span class="sd">        (as returned by &quot;decision_function&quot; on some classifiers).</span>
+<span class="sd">    pos_label : int</span>
+<span class="sd">        Label considered as positive and others are considered negative.</span>
+<span class="sd">    sample_weight : array-like of shape = [n_samples], optional</span>
+<span class="sd">        Sample weights.</span>
+<span class="sd">    drop_intermediate : boolean, optional (default=True)</span>
+<span class="sd">        Whether to drop some suboptimal thresholds which would not appear</span>
+<span class="sd">        on a plotted ROC curve. This is useful in order to create lighter</span>
+<span class="sd">        ROC curves.</span>
+<span class="sd">        .. versionadded:: 0.17</span>
+<span class="sd">           parameter *drop_intermediate*.</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    fpr : array, shape = [&gt;2]</span>
+<span class="sd">        Increasing false positive rates such that element i is the false</span>
+<span class="sd">        positive rate of predictions with score &gt;= thresholds[i].</span>
+<span class="sd">    tpr : array, shape = [&gt;2]</span>
+<span class="sd">        Increasing true positive rates such that element i is the true</span>
+<span class="sd">        positive rate of predictions with score &gt;= thresholds[i].</span>
+<span class="sd">    thresholds : array, shape = [n_thresholds]</span>
+<span class="sd">        Decreasing thresholds on the decision function used to compute</span>
+<span class="sd">        fpr and tpr. `thresholds[0]` represents no instances being predicted</span>
+<span class="sd">        and is arbitrarily set to `max(y_score) + 1`.</span>
+<span class="sd">    See also</span>
+<span class="sd">    --------</span>
+<span class="sd">    roc_auc_score : Compute Area Under the Curve (AUC) from prediction scores</span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Since the thresholds are sorted from low to high values, they</span>
+<span class="sd">    are reversed upon returning them to ensure they correspond to both ``fpr``</span>
+<span class="sd">    and ``tpr``, which are sorted in reversed order during their calculation.</span>
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    .. [1] `Wikipedia entry for the Receiver operating characteristic</span>
+<span class="sd">            &lt;https://en.wikipedia.org/wiki/Receiver_operating_characteristic&gt;`_</span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; from sklearn import metrics</span>
+<span class="sd">    &gt;&gt;&gt; y = np.array([1, 1, 2, 2])</span>
+<span class="sd">    &gt;&gt;&gt; scores = np.array([0.1, 0.4, 0.35, 0.8])</span>
+<span class="sd">    &gt;&gt;&gt; fpr, tpr, thresholds = metrics.roc_curve(y, scores, pos_label=2)</span>
+<span class="sd">    &gt;&gt;&gt; fpr</span>
+<span class="sd">    array([ 0. ,  0.5,  0.5,  1. ])</span>
+<span class="sd">    &gt;&gt;&gt; tpr</span>
+<span class="sd">    array([ 0.5,  0.5,  1. ,  1. ])</span>
+<span class="sd">    &gt;&gt;&gt; thresholds</span>
+<span class="sd">    array([ 0.8 ,  0.4 ,  0.35,  0.1 ])</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">fps</span><span class="p">,</span> <span class="n">tps</span><span class="p">,</span> <span class="n">thresholds</span> <span class="o">=</span> <span class="n">_binary_clf_curve</span><span class="p">(</span>
+        <span class="n">y_true</span><span class="p">,</span> <span class="n">y_score</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="n">pos_label</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="n">sample_weight</span><span class="p">)</span>
+
+    <span class="c1"># Attempt to drop thresholds corresponding to points in between and</span>
+    <span class="c1"># collinear with other points. These are always suboptimal and do not</span>
+    <span class="c1"># appear on a plotted ROC curve (and thus do not affect the AUC).</span>
+    <span class="c1"># Here np.diff(_, 2) is used as a &quot;second derivative&quot; to tell if there</span>
+    <span class="c1"># is a corner at the point. Both fps and tps must be tested to handle</span>
+    <span class="c1"># thresholds with multiple data points (which are combined in</span>
+    <span class="c1"># _binary_clf_curve). This keeps all cases where the point should be kept,</span>
+    <span class="c1"># but does not drop more complicated cases like fps = [1, 3, 7],</span>
+    <span class="c1"># tps = [1, 2, 4]; there is no harm in keeping too many thresholds.</span>
+    <span class="k">if</span> <span class="n">drop_intermediate</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">fps</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">optimal_idxs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="kc">True</span><span class="p">,</span>
+                                      <span class="n">np</span><span class="o">.</span><span class="n">logical_or</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">fps</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+                                                    <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">tps</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span>
+                                      <span class="kc">True</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">fps</span> <span class="o">=</span> <span class="n">fps</span><span class="p">[</span><span class="n">optimal_idxs</span><span class="p">]</span>
+        <span class="n">tps</span> <span class="o">=</span> <span class="n">tps</span><span class="p">[</span><span class="n">optimal_idxs</span><span class="p">]</span>
+        <span class="n">thresholds</span> <span class="o">=</span> <span class="n">thresholds</span><span class="p">[</span><span class="n">optimal_idxs</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">tps</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">fps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># Add an extra threshold position if necessary</span>
+        <span class="n">tps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">tps</span><span class="p">]</span>
+        <span class="n">fps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">fps</span><span class="p">]</span>
+        <span class="n">thresholds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">thresholds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">thresholds</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">fps</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;No negative samples in y_true, &quot;</span>
+                      <span class="s2">&quot;false positive value should be meaningless&quot;</span><span class="p">,</span>
+                      <span class="n">UndefinedMetricWarning</span><span class="p">)</span>
+        <span class="n">fpr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">fps</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">fpr</span> <span class="o">=</span> <span class="n">fps</span> <span class="o">/</span> <span class="n">fps</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">tps</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;No positive samples in y_true, &quot;</span>
+                      <span class="s2">&quot;true positive value should be meaningless&quot;</span><span class="p">,</span>
+                      <span class="n">UndefinedMetricWarning</span><span class="p">)</span>
+        <span class="n">tpr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">tps</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">tpr</span> <span class="o">=</span> <span class="n">tps</span> <span class="o">/</span> <span class="n">tps</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">thresholds</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Eugene Scherba.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.0.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,395 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>clustering_metrics.skutils module &mdash; Clustering-Metrics 0.0.2 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Clustering-Metrics 0.0.2 documentation" href="index.html"/>
+        <link rel="up" title="clustering_metrics package" href="clustering_metrics.html"/>
+        <link rel="next" title="clustering_metrics.utils module" href="clustering_metrics.utils.html"/>
+        <link rel="prev" title="clustering_metrics.ranking module" href="clustering_metrics.ranking.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Clustering-Metrics
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="clustering_metrics.html">clustering_metrics package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="clustering_metrics.html#subpackages">Subpackages</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="clustering_metrics.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="clustering_metrics.entropy.html">clustering_metrics.entropy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clustering_metrics.ext.html">clustering_metrics.ext module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clustering_metrics.fixes.html">clustering_metrics.fixes module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clustering_metrics.hungarian.html">clustering_metrics.hungarian module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clustering_metrics.metrics.html">clustering_metrics.metrics module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clustering_metrics.ranking.html">clustering_metrics.ranking module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">clustering_metrics.skutils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clustering_metrics.utils.html">clustering_metrics.utils module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="clustering_metrics.html#module-clustering_metrics">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Clustering-Metrics</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="clustering_metrics.html">clustering_metrics package</a> &raquo;</li>
+      
+    <li>clustering_metrics.skutils module</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/clustering_metrics.skutils.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-clustering_metrics.skutils">
+<span id="clustering-metrics-skutils-module"></span><h1>clustering_metrics.skutils module<a class="headerlink" href="#module-clustering_metrics.skutils" title="Permalink to this headline">¶</a></h1>
+<p>This module contains code pasted verbatim from Scikit-Learn
+to avoid depending on scikit-learn</p>
+<dl class="exception">
+<dt id="clustering_metrics.skutils.DataConversionWarning">
+<em class="property">exception </em><code class="descclassname">clustering_metrics.skutils.</code><code class="descname">DataConversionWarning</code><a class="reference internal" href="_modules/clustering_metrics/skutils.html#DataConversionWarning"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.skutils.DataConversionWarning" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">exceptions.UserWarning</span></code></p>
+<p>A warning on implicit data conversions happening in the code</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="clustering_metrics.skutils.UndefinedMetricWarning">
+<em class="property">exception </em><code class="descclassname">clustering_metrics.skutils.</code><code class="descname">UndefinedMetricWarning</code><a class="reference internal" href="_modules/clustering_metrics/skutils.html#UndefinedMetricWarning"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.skutils.UndefinedMetricWarning" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">exceptions.UserWarning</span></code></p>
+<p>Warning used when the metric is invalid</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.skutils.assert_all_finite">
+<code class="descclassname">clustering_metrics.skutils.</code><code class="descname">assert_all_finite</code><span class="sig-paren">(</span><em>X</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/skutils.html#assert_all_finite"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.skutils.assert_all_finite" title="Permalink to this definition">¶</a></dt>
+<dd><p>Throw a ValueError if X contains NaN or infinity.
+Input MUST be an np.ndarray instance or a scipy.sparse matrix.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.skutils.auc">
+<code class="descclassname">clustering_metrics.skutils.</code><code class="descname">auc</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>reorder=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/skutils.html#auc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.skutils.auc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute Area Under the Curve (AUC) using the trapezoidal rule
+This is a general function, given points on a curve.  For computing the
+area under the ROC-curve, see <code class="xref py py-func docutils literal"><span class="pre">roc_auc_score()</span></code>.
+Parameters
+&#8212;&#8212;&#8212;-
+x : array, shape = [n]</p>
+<blockquote>
+<div>x coordinates.</div></blockquote>
+<dl class="docutils">
+<dt>y</dt>
+ <span class="classifier-delimiter">:</span> <span class="classifier">array, shape = [n]</span><dd>y coordinates.</dd>
+<dt>reorder</dt>
+ <span class="classifier-delimiter">:</span> <span class="classifier">boolean, optional (default=False)</span><dd>If True, assume that the curve is ascending in the case of ties, as for
+an ROC curve. If the curve is non-ascending, the result will be wrong.</dd>
+</dl>
+<p>auc : float
+Examples
+&#8212;&#8212;&#8211;</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">metrics</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.35</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">thresholds</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">roc_curve</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">pred</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metrics</span><span class="o">.</span><span class="n">auc</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">)</span>
+<span class="go">0.75</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><code class="xref py py-obj docutils literal"><span class="pre">roc_auc_score</span></code></dt>
+<dd>Computes the area under the ROC curve</dd>
+<dt><code class="xref py py-obj docutils literal"><span class="pre">precision_recall_curve</span></code></dt>
+<dd>Compute precision-recall pairs for different probability thresholds</dd>
+</dl>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.skutils.check_consistent_length">
+<code class="descclassname">clustering_metrics.skutils.</code><code class="descname">check_consistent_length</code><span class="sig-paren">(</span><em>*arrays</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/skutils.html#check_consistent_length"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.skutils.check_consistent_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check that all arrays have consistent first dimensions.
+Checks whether all objects in arrays have the same shape or length.
+Parameters
+&#8212;&#8212;&#8212;-
+<a href="#id1"><span class="problematic" id="id2">*</span></a>arrays : list or tuple of input objects.</p>
+<blockquote>
+<div>Objects that will be checked for consistent length.</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.skutils.column_or_1d">
+<code class="descclassname">clustering_metrics.skutils.</code><code class="descname">column_or_1d</code><span class="sig-paren">(</span><em>y</em>, <em>warn=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/skutils.html#column_or_1d"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.skutils.column_or_1d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ravel column or 1d numpy array, else raises an error
+Parameters
+&#8212;&#8212;&#8212;-
+y : array-like
+warn : boolean, default False</p>
+<blockquote>
+<div>To control display of warnings.</div></blockquote>
+<p>y : array</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.skutils.roc_curve">
+<code class="descclassname">clustering_metrics.skutils.</code><code class="descname">roc_curve</code><span class="sig-paren">(</span><em>y_true</em>, <em>y_score</em>, <em>pos_label=None</em>, <em>sample_weight=None</em>, <em>drop_intermediate=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/skutils.html#roc_curve"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.skutils.roc_curve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute Receiver operating characteristic (ROC)
+Note: this implementation is restricted to the binary classification task.
+Read more in the <span class="xref std std-ref">User Guide</span>.
+Parameters
+&#8212;&#8212;&#8212;-
+y_true : array, shape = [n_samples]</p>
+<blockquote>
+<div>True binary labels in range {0, 1} or {-1, 1}.  If labels are not
+binary, pos_label should be explicitly given.</div></blockquote>
+<dl class="docutils">
+<dt>y_score</dt>
+ <span class="classifier-delimiter">:</span> <span class="classifier">array, shape = [n_samples]</span><dd>Target scores, can either be probability estimates of the positive
+class, confidence values, or non-thresholded measure of decisions
+(as returned by &#8220;decision_function&#8221; on some classifiers).</dd>
+<dt>pos_label</dt>
+ <span class="classifier-delimiter">:</span> <span class="classifier">int</span><dd>Label considered as positive and others are considered negative.</dd>
+<dt>sample_weight</dt>
+ <span class="classifier-delimiter">:</span> <span class="classifier">array-like of shape = [n_samples], optional</span><dd>Sample weights.</dd>
+<dt>drop_intermediate</dt>
+ <span class="classifier-delimiter">:</span> <span class="classifier">boolean, optional (default=True)</span><dd><p class="first">Whether to drop some suboptimal thresholds which would not appear
+on a plotted ROC curve. This is useful in order to create lighter
+ROC curves.
+.. versionadded:: 0.17</p>
+<blockquote class="last">
+<div>parameter <em>drop_intermediate</em>.</div></blockquote>
+</dd>
+</dl>
+<dl class="docutils">
+<dt>fpr</dt>
+ <span class="classifier-delimiter">:</span> <span class="classifier">array, shape = [&gt;2]</span><dd>Increasing false positive rates such that element i is the false
+positive rate of predictions with score &gt;= thresholds[i].</dd>
+<dt>tpr</dt>
+ <span class="classifier-delimiter">:</span> <span class="classifier">array, shape = [&gt;2]</span><dd>Increasing true positive rates such that element i is the true
+positive rate of predictions with score &gt;= thresholds[i].</dd>
+<dt>thresholds</dt>
+ <span class="classifier-delimiter">:</span> <span class="classifier">array, shape = [n_thresholds]</span><dd>Decreasing thresholds on the decision function used to compute
+fpr and tpr. <cite>thresholds[0]</cite> represents no instances being predicted
+and is arbitrarily set to <cite>max(y_score) + 1</cite>.</dd>
+</dl>
+<p>roc_auc_score : Compute Area Under the Curve (AUC) from prediction scores
+Notes
+&#8212;&#8211;
+Since the thresholds are sorted from low to high values, they
+are reversed upon returning them to ensure they correspond to both <code class="docutils literal"><span class="pre">fpr</span></code>
+and <code class="docutils literal"><span class="pre">tpr</span></code>, which are sorted in reversed order during their calculation.
+References
+&#8212;&#8212;&#8212;-
+.. [R45] <a href="#id3"><span class="problematic" id="id4">`</span></a>Wikipedia entry for the Receiver operating characteristic</p>
+<blockquote>
+<div>&lt;<a class="reference external" href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic">https://en.wikipedia.org/wiki/Receiver_operating_characteristic</a>&gt;`_</div></blockquote>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">metrics</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.35</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">thresholds</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">roc_curve</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">scores</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fpr</span>
+<span class="go">array([ 0. ,  0.5,  0.5,  1. ])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tpr</span>
+<span class="go">array([ 0.5,  0.5,  1. ,  1. ])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">thresholds</span>
+<span class="go">array([ 0.8 ,  0.4 ,  0.35,  0.1 ])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.skutils.stable_cumsum">
+<code class="descclassname">clustering_metrics.skutils.</code><code class="descname">stable_cumsum</code><span class="sig-paren">(</span><em>arr</em>, <em>rtol=1e-05</em>, <em>atol=1e-08</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/skutils.html#stable_cumsum"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.skutils.stable_cumsum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use high precision for cumsum and check that final value matches sum
+Parameters
+&#8212;&#8212;&#8212;-
+arr : array-like</p>
+<blockquote>
+<div>To be cumulatively summed as flat</div></blockquote>
+<dl class="docutils">
+<dt>rtol</dt>
+ <span class="classifier-delimiter">:</span> <span class="classifier">float</span><dd>Relative tolerance, see <code class="docutils literal"><span class="pre">np.allclose</span></code></dd>
+<dt>atol</dt>
+ <span class="classifier-delimiter">:</span> <span class="classifier">float</span><dd>Absolute tolerance, see <code class="docutils literal"><span class="pre">np.allclose</span></code></dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="clustering_metrics.utils.html" class="btn btn-neutral float-right" title="clustering_metrics.utils module" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="clustering_metrics.ranking.html" class="btn btn-neutral" title="clustering_metrics.ranking module" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Eugene Scherba.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
