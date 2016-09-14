@@ -1,4 +1,4 @@
-.PHONY: clean coverage develop env extras package release test virtualenv build_ext shell docs doc-sources gh-pages
+.PHONY: clean coverage develop env extras package release test virtualenv build_ext shell doc-html doc-sources doc-view doc-publish gh-pages
 
 PYMODULE := clustering_metrics
 PYPI_HOST := pypi
@@ -25,6 +25,12 @@ PYTHON := $(PYENV) python
 PIP := $(PYENV) pip
 HTML_DOCS := docs/_build/html
 
+ifeq ($(shell uname -s), Darwin)
+	BROWSER := open
+else
+	BROWSER := x-www-browser
+endif
+
 doc-sources:
 	sphinx-apidoc \
 		-A "`$(PYTHON) setup.py --author`" \
@@ -36,11 +42,13 @@ doc-sources:
 	-git add docs/index.rst
 	-git commit -m"update doc sources"
 
-docs: env build_ext
+doc-html: env build_ext
 	make --directory=docs html
-	@echo "The doc index is: $(HTML_DOCS)/index.html"
 
-gh-pages:
+doc-view:
+	$(BROWSER) $(HTML_DOCS)/index.html
+
+doc-publish:
 	git checkout --orphan gh-pages || git checkout gh-pages
 	git reset
 	find . -path ./.git -prune -o -path ./env -prune -o -path ./$(HTML_DOCS) -prune -o -type f -exec rm -f {} \;
@@ -60,12 +68,8 @@ package: env build_ext
 release: env build_ext
 	$(PYTHON) setup.py $(DISTRIBUTE) upload -r $(PYPI_HOST)
 
-# if in local dev on Mac, `make coverage` will run tests and open
-# coverage report in the browser
-ifeq ($(shell uname -s), Darwin)
 coverage: test
-	open cover/index.html
-endif
+	$(BROWSER) cover/index.html
 
 test: env build_ext
 	# make sure package can be pip-installed from local directory

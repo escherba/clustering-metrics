@@ -70,8 +70,8 @@ The above should finish without interruptions and all tests should pass. To gene
 .. code-block:: bash
 
    make doc-sources
-   make docs
-   make gh-pages
+   make doc-html
+   make doc-publish
 
 License
 -------
