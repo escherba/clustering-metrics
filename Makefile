@@ -49,8 +49,8 @@ gh-pages:
 	echo "docs/" >> .gitignore
 	echo "env/" >> .gitignore
 	touch .nojekyll
-	git commit -a -m"add github pages"
-	git push origin || git push --set-upstream origin gh-pages
+	-git commit -a -m"add github pages"
+	git push --set-upstream origin gh-pages || git push origin
 	git checkout master
 
 package: env build_ext
