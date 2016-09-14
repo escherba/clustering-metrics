@@ -18,8 +18,8 @@ At the moment, the package is not on PyPI. To install it, use ``pip`` like so:
 
 .. code-block:: bash
 
-   pip install git+https://github.com/escherba/pymaptools#egg=pymaptools-0.2.30
-   pip install git+https://github.com/escherba/clustering-metrics#egg=clustering_metrics-0.0.1
+   pip install git+https://github.com/escherba/pymaptools#egg=pymaptools-0.2.31
+   pip install git+https://github.com/escherba/clustering-metrics#egg=clustering_metrics-0.0.2
 
 Usage
 -----
