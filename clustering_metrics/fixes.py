@@ -22,6 +22,34 @@ def _parse_version(version_string):
 np_version = _parse_version(np.__version__)
 
 
+if np_version < (1, 8, 1):
+    def array_equal(a1, a2):
+        # copy-paste from numpy 1.8.1
+        try:
+            a1, a2 = np.asarray(a1), np.asarray(a2)
+        except:
+            return False
+        if a1.shape != a2.shape:
+            return False
+        return bool(np.asarray(a1 == a2).all())
+else:
+    from numpy import array_equal
+
+
+def _parse_version(version_string):
+    version = []
+    for x in version_string.split('.'):
+        try:
+            version.append(int(x))
+        except ValueError:
+            # x may be of the form dev-1ea1592
+            version.append(x)
+    return tuple(version)
+
+
+np_version = _parse_version(np.__version__)
+
+
 if np_version < (1, 6, 2):
     # Allow bincount to accept empty arrays
     # https://github.com/numpy/numpy/commit/40f0844846a9d7665616b142407a3d74cb65a040

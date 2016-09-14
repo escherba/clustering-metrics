@@ -19,7 +19,7 @@ from clustering_metrics.fent import minmaxr
 from clustering_metrics.utils import _div
 from clustering_metrics.metrics import ClusteringMetrics, ConfusionMatrix2
 from clustering_metrics.ranking import dist_auc
-from sklearn.metrics.ranking import auc
+from clustering_metrics.skutils import auc
 
 
 def parse_args(args=None):

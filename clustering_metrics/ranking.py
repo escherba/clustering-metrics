@@ -1,35 +1,33 @@
 """
 
-Problem Statement
------------------
+Motivation
+----------
 
-Assume that there is a large data set of mostly unique samples where a hidden
-binary variable is dependent on the number of similar samples that exist in the
-set (i.e. a sample is called positive if it has many neighbors) and that our
-goal is to label all samples in this set. It is easy to see that, given sparse
-enough data, if a clustering method relies on the same sample property on which
-the ground truth similarity space is defined, it will naturally separate the
-samples into two groups -- those found in clusters and containing mostly
-positives, and those found outside clusters and containing mostly negatives.
-There would exist only one possible perfect clustering -- the one with a
-single, entirely homogeneous cluster C that covers all positives present in the
-data set. If one were to obtain such clustering, one could correctly label all
-positive samples in one step with the simple rule, *all positive samples belong
-to cluster C*. Under an imperfect clustering, on the other hand, the presence
-of the given sample in a cluster of size two or more implies the sample is only
-likely to be positive, with the confidence of the positive call monotonously
-increasing with the size of the cluster.
+Assume that there is a data set of mostly unique samples where a hidden binary
+variable is dependent on the number of similar samples that exist in the set
+(i.e. a sample is called positive if it has many neighbors) and that our goal
+is to label all samples in this set. Given sparse enough data, if a clustering
+method relies on the same sample property on which the ground truth similarity
+space is defined, it will naturally separate the samples into two groups --
+those found in clusters and containing mostly positives, and those found
+outside clusters and containing mostly negatives.  There would exist only one
+possible perfect clustering---one with a single, entirely homogeneous cluster C
+that covers all positives present in the data set. If we were to produce such a
+clustering, we could correctly label all positive samples in one step with the
+simple rule, *all positive samples belong to cluster C*. Under an imperfect
+clustering, however, the presence of the given sample in a cluster of size two
+or more implies the sample is only somewhat more likely to be positive, with
+the confidence of the positive call monotonously increasing with the size of
+the cluster.  In other words, our expectation from a good clustering is that it
+will help us minimize the amount of work labeling samples.
 
-In other words, our expectation from a good clustering is that it will help us
-minimize the amount of work labeling samples.
-
-The application that inspired the design of this metric was mining for positive
-spam examples in large data sets of short user-generated content.  Given large
-enough data sets, spam content naturally forms clusters either because creative
-rewriting of every single individual spam message is too expensive for spammers
-to employ, or because, even if human or algorithmic rewriting is applied, one
-can still find features that link individual spam messages to their creator or
-to the product or service being promoted in the spam campaign. The finding was
+This idea for this metric originated when mining for positive spam examples in
+large data sets of short user-generated content.  Given large enough data sets,
+spam content naturally forms clusters either because creative rewriting of
+every single individual spam message is too expensive for spammers to employ,
+or because, even if human or algorithmic rewriting is applied, one can still
+find features that link individual spam messages to their creator or to the
+product or service being promoted in the spam campaign. The finding was
 consistent with what is reported in literature [104]_.
 
 Algorithm
@@ -96,9 +94,9 @@ import warnings
 import numpy as np
 from itertools import izip, chain
 from operator import itemgetter
-from sklearn.metrics.ranking import auc, roc_curve
 from pymaptools.iter import aggregate_tuples
 from pymaptools.containers import labels_to_clusters
+from clustering_metrics.skutils import auc, roc_curve
 
 
 def num2bool(num):
