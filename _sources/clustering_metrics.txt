@@ -20,6 +20,7 @@ Submodules
    clustering_metrics.hungarian
    clustering_metrics.metrics
    clustering_metrics.ranking
+   clustering_metrics.skutils
    clustering_metrics.utils
 
 Module contents

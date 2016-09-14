@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>clustering_metrics.ranking module &mdash; Clustering-Metrics 0.0.1 documentation</title>
+  <title>clustering_metrics.ranking module &mdash; Clustering-Metrics 0.0.2 documentation</title>
   
 
   
@@ -30,9 +30,9 @@
   
 
   
-    <link rel="top" title="Clustering-Metrics 0.0.1 documentation" href="index.html"/>
+    <link rel="top" title="Clustering-Metrics 0.0.2 documentation" href="index.html"/>
         <link rel="up" title="clustering_metrics package" href="clustering_metrics.html"/>
-        <link rel="next" title="clustering_metrics.utils module" href="clustering_metrics.utils.html"/>
+        <link rel="next" title="clustering_metrics.skutils module" href="clustering_metrics.skutils.html"/>
         <link rel="prev" title="clustering_metrics.metrics module" href="clustering_metrics.metrics.html"/> 
 
   
@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                0.0.1
+                0.0.2
               </div>
             
           
@@ -92,11 +92,12 @@
 <li class="toctree-l3"><a class="reference internal" href="clustering_metrics.hungarian.html">clustering_metrics.hungarian module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="clustering_metrics.metrics.html">clustering_metrics.metrics module</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">clustering_metrics.ranking module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#problem-statement">Problem Statement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#motivation">Motivation</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#algorithm">Algorithm</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="clustering_metrics.skutils.html">clustering_metrics.skutils module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="clustering_metrics.utils.html">clustering_metrics.utils module</a></li>
 </ul>
 </li>
@@ -151,33 +152,32 @@
             
   <div class="section" id="module-clustering_metrics.ranking">
 <span id="clustering-metrics-ranking-module"></span><h1>clustering_metrics.ranking module<a class="headerlink" href="#module-clustering_metrics.ranking" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="problem-statement">
-<h2>Problem Statement<a class="headerlink" href="#problem-statement" title="Permalink to this headline">¶</a></h2>
-<p>Assume that there is a large data set of mostly unique samples where a hidden
-binary variable is dependent on the number of similar samples that exist in the
-set (i.e. a sample is called positive if it has many neighbors) and that our
-goal is to label all samples in this set. It is easy to see that, given sparse
-enough data, if a clustering method relies on the same sample property on which
-the ground truth similarity space is defined, it will naturally separate the
-samples into two groups &#8211; those found in clusters and containing mostly
-positives, and those found outside clusters and containing mostly negatives.
-There would exist only one possible perfect clustering &#8211; the one with a
-single, entirely homogeneous cluster C that covers all positives present in the
-data set. If one were to obtain such clustering, one could correctly label all
-positive samples in one step with the simple rule, <em>all positive samples belong
-to cluster C</em>. Under an imperfect clustering, on the other hand, the presence
-of the given sample in a cluster of size two or more implies the sample is only
-likely to be positive, with the confidence of the positive call monotonously
-increasing with the size of the cluster.</p>
-<p>In other words, our expectation from a good clustering is that it will help us
-minimize the amount of work labeling samples.</p>
-<p>The application that inspired the design of this metric was mining for positive
-spam examples in large data sets of short user-generated content.  Given large
-enough data sets, spam content naturally forms clusters either because creative
-rewriting of every single individual spam message is too expensive for spammers
-to employ, or because, even if human or algorithmic rewriting is applied, one
-can still find features that link individual spam messages to their creator or
-to the product or service being promoted in the spam campaign. The finding was
+<div class="section" id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
+<p>Assume that there is a data set of mostly unique samples where a hidden binary
+variable is dependent on the number of similar samples that exist in the set
+(i.e. a sample is called positive if it has many neighbors) and that our goal
+is to label all samples in this set. Given sparse enough data, if a clustering
+method relies on the same sample property on which the ground truth similarity
+space is defined, it will naturally separate the samples into two groups &#8211;
+those found in clusters and containing mostly positives, and those found
+outside clusters and containing mostly negatives.  There would exist only one
+possible perfect clustering&#8212;one with a single, entirely homogeneous cluster C
+that covers all positives present in the data set. If we were to produce such a
+clustering, we could correctly label all positive samples in one step with the
+simple rule, <em>all positive samples belong to cluster C</em>. Under an imperfect
+clustering, however, the presence of the given sample in a cluster of size two
+or more implies the sample is only somewhat more likely to be positive, with
+the confidence of the positive call monotonously increasing with the size of
+the cluster.  In other words, our expectation from a good clustering is that it
+will help us minimize the amount of work labeling samples.</p>
+<p>This idea for this metric originated when mining for positive spam examples in
+large data sets of short user-generated content.  Given large enough data sets,
+spam content naturally forms clusters either because creative rewriting of
+every single individual spam message is too expensive for spammers to employ,
+or because, even if human or algorithmic rewriting is applied, one can still
+find features that link individual spam messages to their creator or to the
+product or service being promoted in the spam campaign. The finding was
 consistent with what is reported in literature <a class="footnote-reference" href="#id5" id="id1">[104]</a>.</p>
 </div>
 <div class="section" id="algorithm">
@@ -547,7 +547,7 @@ being negative.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="clustering_metrics.utils.html" class="btn btn-neutral float-right" title="clustering_metrics.utils module" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="clustering_metrics.skutils.html" class="btn btn-neutral float-right" title="clustering_metrics.skutils module" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="clustering_metrics.metrics.html" class="btn btn-neutral" title="clustering_metrics.metrics module" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -581,7 +581,7 @@ being negative.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.0.1',
+            VERSION:'0.0.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

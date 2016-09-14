@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>clustering_metrics.ranking &mdash; Clustering-Metrics 0.0.1 documentation</title>
+  <title>clustering_metrics.ranking &mdash; Clustering-Metrics 0.0.2 documentation</title>
   
 
   
@@ -30,7 +30,7 @@
   
 
   
-    <link rel="top" title="Clustering-Metrics 0.0.1 documentation" href="../../index.html"/>
+    <link rel="top" title="Clustering-Metrics 0.0.2 documentation" href="../../index.html"/>
         <link rel="up" title="Module code" href="../index.html"/> 
 
   
@@ -59,7 +59,7 @@
             
             
               <div class="version">
-                0.0.1
+                0.0.2
               </div>
             
           
@@ -129,36 +129,34 @@
   <h1>Source code for clustering_metrics.ranking</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
 
-<span class="sd">Problem Statement</span>
-<span class="sd">-----------------</span>
+<span class="sd">Motivation</span>
+<span class="sd">----------</span>
 
-<span class="sd">Assume that there is a large data set of mostly unique samples where a hidden</span>
-<span class="sd">binary variable is dependent on the number of similar samples that exist in the</span>
-<span class="sd">set (i.e. a sample is called positive if it has many neighbors) and that our</span>
-<span class="sd">goal is to label all samples in this set. It is easy to see that, given sparse</span>
-<span class="sd">enough data, if a clustering method relies on the same sample property on which</span>
-<span class="sd">the ground truth similarity space is defined, it will naturally separate the</span>
-<span class="sd">samples into two groups -- those found in clusters and containing mostly</span>
-<span class="sd">positives, and those found outside clusters and containing mostly negatives.</span>
-<span class="sd">There would exist only one possible perfect clustering -- the one with a</span>
-<span class="sd">single, entirely homogeneous cluster C that covers all positives present in the</span>
-<span class="sd">data set. If one were to obtain such clustering, one could correctly label all</span>
-<span class="sd">positive samples in one step with the simple rule, *all positive samples belong</span>
-<span class="sd">to cluster C*. Under an imperfect clustering, on the other hand, the presence</span>
-<span class="sd">of the given sample in a cluster of size two or more implies the sample is only</span>
-<span class="sd">likely to be positive, with the confidence of the positive call monotonously</span>
-<span class="sd">increasing with the size of the cluster.</span>
+<span class="sd">Assume that there is a data set of mostly unique samples where a hidden binary</span>
+<span class="sd">variable is dependent on the number of similar samples that exist in the set</span>
+<span class="sd">(i.e. a sample is called positive if it has many neighbors) and that our goal</span>
+<span class="sd">is to label all samples in this set. Given sparse enough data, if a clustering</span>
+<span class="sd">method relies on the same sample property on which the ground truth similarity</span>
+<span class="sd">space is defined, it will naturally separate the samples into two groups --</span>
+<span class="sd">those found in clusters and containing mostly positives, and those found</span>
+<span class="sd">outside clusters and containing mostly negatives.  There would exist only one</span>
+<span class="sd">possible perfect clustering---one with a single, entirely homogeneous cluster C</span>
+<span class="sd">that covers all positives present in the data set. If we were to produce such a</span>
+<span class="sd">clustering, we could correctly label all positive samples in one step with the</span>
+<span class="sd">simple rule, *all positive samples belong to cluster C*. Under an imperfect</span>
+<span class="sd">clustering, however, the presence of the given sample in a cluster of size two</span>
+<span class="sd">or more implies the sample is only somewhat more likely to be positive, with</span>
+<span class="sd">the confidence of the positive call monotonously increasing with the size of</span>
+<span class="sd">the cluster.  In other words, our expectation from a good clustering is that it</span>
+<span class="sd">will help us minimize the amount of work labeling samples.</span>
 
-<span class="sd">In other words, our expectation from a good clustering is that it will help us</span>
-<span class="sd">minimize the amount of work labeling samples.</span>
-
-<span class="sd">The application that inspired the design of this metric was mining for positive</span>
-<span class="sd">spam examples in large data sets of short user-generated content.  Given large</span>
-<span class="sd">enough data sets, spam content naturally forms clusters either because creative</span>
-<span class="sd">rewriting of every single individual spam message is too expensive for spammers</span>
-<span class="sd">to employ, or because, even if human or algorithmic rewriting is applied, one</span>
-<span class="sd">can still find features that link individual spam messages to their creator or</span>
-<span class="sd">to the product or service being promoted in the spam campaign. The finding was</span>
+<span class="sd">This idea for this metric originated when mining for positive spam examples in</span>
+<span class="sd">large data sets of short user-generated content.  Given large enough data sets,</span>
+<span class="sd">spam content naturally forms clusters either because creative rewriting of</span>
+<span class="sd">every single individual spam message is too expensive for spammers to employ,</span>
+<span class="sd">or because, even if human or algorithmic rewriting is applied, one can still</span>
+<span class="sd">find features that link individual spam messages to their creator or to the</span>
+<span class="sd">product or service being promoted in the spam campaign. The finding was</span>
 <span class="sd">consistent with what is reported in literature [104]_.</span>
 
 <span class="sd">Algorithm</span>
@@ -225,9 +223,9 @@
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">itertools</span> <span class="k">import</span> <span class="n">izip</span><span class="p">,</span> <span class="n">chain</span>
 <span class="kn">from</span> <span class="nn">operator</span> <span class="k">import</span> <span class="n">itemgetter</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics.ranking</span> <span class="k">import</span> <span class="n">auc</span><span class="p">,</span> <span class="n">roc_curve</span>
 <span class="kn">from</span> <span class="nn">pymaptools.iter</span> <span class="k">import</span> <span class="n">aggregate_tuples</span>
 <span class="kn">from</span> <span class="nn">pymaptools.containers</span> <span class="k">import</span> <span class="n">labels_to_clusters</span>
+<span class="kn">from</span> <span class="nn">clustering_metrics.skutils</span> <span class="k">import</span> <span class="n">auc</span><span class="p">,</span> <span class="n">roc_curve</span>
 
 
 <div class="viewcode-block" id="num2bool"><a class="viewcode-back" href="../../clustering_metrics.ranking.html#clustering_metrics.ranking.num2bool">[docs]</a><span class="k">def</span> <span class="nf">num2bool</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
@@ -700,7 +698,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.0.1',
+            VERSION:'0.0.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
