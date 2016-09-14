@@ -1,4 +1,4 @@
-.PHONY: clean coverage develop env extras package release test virtualenv build_ext shell docs doc_sources
+.PHONY: clean coverage develop env extras package release test virtualenv build_ext shell docs doc-sources gh-pages
 
 PYMODULE := clustering_metrics
 PYPI_HOST := pypi
