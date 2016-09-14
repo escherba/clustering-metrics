@@ -65,6 +65,13 @@ relative to the source tree root.
    cd clustering-metrics
    make test
 
+The above should finish without interruptions and all tests should pass. To generate documentation:
+
+.. code-block:: bash
+
+   make doc-sources
+   make docs
+   make gh-pages
 
 License
 -------
