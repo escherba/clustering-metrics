@@ -45,10 +45,11 @@ gh-pages:
 	git reset
 	find . -path ./.git -prune -o -path ./env -prune -o -path ./docs/_build/html -prune -o -type f -exec rm -f {} \;
 	cp -R docs/_build/html/* .
+	echo "" > .gitignore
 	echo "docs/" >> .gitignore
 	echo "env/" >> .gitignore
 	touch .nojekyll
-	git commit -m"add github pages"
+	git commit -a -m"add github pages"
 	git push origin || git push --set-upstream origin gh-pages
 	git checkout master
 
