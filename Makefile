@@ -49,7 +49,8 @@ gh-pages:
 	echo "docs/" >> .gitignore
 	echo "env/" >> .gitignore
 	touch .nojekyll
-	-git commit -a -m"add github pages"
+	-git add -A
+	-git commit -a -m"update github pages"
 	git push --set-upstream origin gh-pages || git push origin
 	git checkout master
 
