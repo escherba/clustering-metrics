@@ -3,4 +3,4 @@ cython
 regex
 numpy
 scipy
-git+https://github.com/escherba/pymaptools#egg=pymaptools-0.2.30
+git+https://github.com/escherba/pymaptools#egg=pymaptools-0.2.31
