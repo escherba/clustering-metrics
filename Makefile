@@ -25,7 +25,7 @@ PYTHON := $(PYENV) python
 PIP := $(PYENV) pip
 
 
-doc_sources:
+doc-sources:
 	sphinx-apidoc \
 		-A "`$(PYTHON) setup.py --author`" \
 		-H "`$(PYTHON) setup.py --name`" \
@@ -33,10 +33,24 @@ doc_sources:
 		-f -e -d 4 -F -o docs $(PYMODULE)
 	-git checkout docs/conf.py
 	-git checkout docs/Makefile
+	-git add docs/index.rst
+	-git commit -m"update doc sources"
 
 docs: env build_ext
 	$(PYENV) cd docs; make html; cd ..
 	@echo "The doc index is: docs/_build/html/index.html"
+
+gh-pages:
+	git checkout --orphan gh-pages || git checkout gh-pages
+	git reset
+	find . -path ./.git -prune -o -path ./env -prune -o -path ./docs/_build/html -prune -o -type f -exec rm -f {} \;
+	cp -R docs/_build/html/* .
+	echo "docs/" >> .gitignore
+	echo "env/" >> .gitignore
+	touch .nojekyll
+	git commit -m"add github pages"
+	git push origin || git push --set-upstream origin gh-pages
+	git checkout master
 
 package: env build_ext
 	$(PYTHON) setup.py $(DISTRIBUTE)
