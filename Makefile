@@ -23,7 +23,7 @@ EXTRAS_REQS := $(wildcard extras-*-requirements.txt)
 PYENV := . env/bin/activate;
 PYTHON := $(PYENV) python
 PIP := $(PYENV) pip
-
+HTML_DOCS := docs/_build/html
 
 doc-sources:
 	sphinx-apidoc \
@@ -37,14 +37,14 @@ doc-sources:
 	-git commit -m"update doc sources"
 
 docs: env build_ext
-	$(PYENV) cd docs; make html; cd ..
-	@echo "The doc index is: docs/_build/html/index.html"
+	make --directory=docs html
+	@echo "The doc index is: $(HTML_DOCS)/index.html"
 
 gh-pages:
 	git checkout --orphan gh-pages || git checkout gh-pages
 	git reset
-	find . -path ./.git -prune -o -path ./env -prune -o -path ./docs/_build/html -prune -o -type f -exec rm -f {} \;
-	cp -R docs/_build/html/* .
+	find . -path ./.git -prune -o -path ./env -prune -o -path ./$(HTML_DOCS) -prune -o -type f -exec rm -f {} \;
+	cp -R $(HTML_DOCS)/* .
 	echo "" > .gitignore
 	echo "docs/" >> .gitignore
 	echo "env/" >> .gitignore
