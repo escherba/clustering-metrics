@@ -1,0 +1,403 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>clustering_metrics.monte_carlo.predictions module &mdash; Clustering-Metrics 0.0.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Clustering-Metrics 0.0.1 documentation" href="index.html"/>
+        <link rel="up" title="clustering_metrics.monte_carlo package" href="clustering_metrics.monte_carlo.html"/>
+        <link rel="next" title="clustering_metrics.monte_carlo.utils module" href="clustering_metrics.monte_carlo.utils.html"/>
+        <link rel="prev" title="clustering_metrics.monte_carlo package" href="clustering_metrics.monte_carlo.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Clustering-Metrics
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="clustering_metrics.html">clustering_metrics package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="clustering_metrics.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="clustering_metrics.fent.html">clustering_metrics.fent package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="clustering_metrics.monte_carlo.html">clustering_metrics.monte_carlo package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="clustering_metrics.monte_carlo.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="clustering_metrics.monte_carlo.html#module-clustering_metrics.monte_carlo">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="clustering_metrics.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clustering_metrics.html#module-clustering_metrics">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Clustering-Metrics</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="clustering_metrics.html">clustering_metrics package</a> &raquo;</li>
+      
+          <li><a href="clustering_metrics.monte_carlo.html">clustering_metrics.monte_carlo package</a> &raquo;</li>
+      
+    <li>clustering_metrics.monte_carlo.predictions module</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/clustering_metrics.monte_carlo.predictions.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-clustering_metrics.monte_carlo.predictions">
+<span id="clustering-metrics-monte-carlo-predictions-module"></span><h1>clustering_metrics.monte_carlo.predictions module<a class="headerlink" href="#module-clustering_metrics.monte_carlo.predictions" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="clustering_metrics.monte_carlo.predictions.Grid">
+<em class="property">class </em><code class="descclassname">clustering_metrics.monte_carlo.predictions.</code><code class="descname">Grid</code><span class="sig-paren">(</span><em>seed=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/monte_carlo/predictions.html#Grid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.monte_carlo.predictions.Grid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="clustering_metrics.monte_carlo.predictions.Grid.best_clustering_by_score">
+<code class="descname">best_clustering_by_score</code><span class="sig-paren">(</span><em>score</em>, <em>flip_sign=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/monte_carlo/predictions.html#Grid.best_clustering_by_score"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.monte_carlo.predictions.Grid.best_clustering_by_score" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.monte_carlo.predictions.Grid.compare">
+<code class="descname">compare</code><span class="sig-paren">(</span><em>others</em>, <em>scores</em>, <em>dtype=&lt;type 'numpy.float16'&gt;</em>, <em>plot=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/monte_carlo/predictions.html#Grid.compare"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.monte_carlo.predictions.Grid.compare" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.monte_carlo.predictions.Grid.compute">
+<code class="descname">compute</code><span class="sig-paren">(</span><em>scores</em>, <em>show_progress=False</em>, <em>dtype=&lt;type 'numpy.float16'&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/monte_carlo/predictions.html#Grid.compute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.monte_carlo.predictions.Grid.compute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.monte_carlo.predictions.Grid.corrplot">
+<code class="descname">corrplot</code><span class="sig-paren">(</span><em>compute_result</em>, <em>save_to</em>, <em>symmetric=False</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/monte_carlo/predictions.html#Grid.corrplot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.monte_carlo.predictions.Grid.corrplot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.monte_carlo.predictions.Grid.describe_matrices">
+<code class="descname">describe_matrices</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/monte_carlo/predictions.html#Grid.describe_matrices"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.monte_carlo.predictions.Grid.describe_matrices" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.monte_carlo.predictions.Grid.fill_clusters">
+<code class="descname">fill_clusters</code><span class="sig-paren">(</span><em>n=None</em>, <em>size=None</em>, <em>max_classes=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/monte_carlo/predictions.html#Grid.fill_clusters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.monte_carlo.predictions.Grid.fill_clusters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.monte_carlo.predictions.Grid.fill_matrices">
+<code class="descname">fill_matrices</code><span class="sig-paren">(</span><em>max_counts=None</em>, <em>n=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/monte_carlo/predictions.html#Grid.fill_matrices"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.monte_carlo.predictions.Grid.fill_matrices" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.monte_carlo.predictions.Grid.fill_sim_clusters">
+<code class="descname">fill_sim_clusters</code><span class="sig-paren">(</span><em>n=None</em>, <em>size=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/monte_carlo/predictions.html#Grid.fill_sim_clusters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.monte_carlo.predictions.Grid.fill_sim_clusters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.monte_carlo.predictions.Grid.find_highest">
+<code class="descname">find_highest</code><span class="sig-paren">(</span><em>score</em>, <em>flip_sign=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/monte_carlo/predictions.html#Grid.find_highest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.monte_carlo.predictions.Grid.find_highest" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.monte_carlo.predictions.Grid.find_matching_matrix">
+<code class="descname">find_matching_matrix</code><span class="sig-paren">(</span><em>matches</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/monte_carlo/predictions.html#Grid.find_matching_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.monte_carlo.predictions.Grid.find_matching_matrix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.monte_carlo.predictions.Grid.iter_clusters">
+<code class="descname">iter_clusters</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#clustering_metrics.monte_carlo.predictions.Grid.iter_clusters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.monte_carlo.predictions.Grid.iter_grid">
+<code class="descname">iter_grid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/monte_carlo/predictions.html#Grid.iter_grid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.monte_carlo.predictions.Grid.iter_grid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.monte_carlo.predictions.Grid.iter_matrices">
+<code class="descname">iter_matrices</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/monte_carlo/predictions.html#Grid.iter_matrices"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.monte_carlo.predictions.Grid.iter_matrices" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="clustering_metrics.monte_carlo.predictions.Grid.matrix_from_labels">
+<em class="property">static </em><code class="descname">matrix_from_labels</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/monte_carlo/predictions.html#Grid.matrix_from_labels"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.monte_carlo.predictions.Grid.matrix_from_labels" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="clustering_metrics.monte_carlo.predictions.Grid.matrix_from_matrices">
+<em class="property">static </em><code class="descname">matrix_from_matrices</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/monte_carlo/predictions.html#Grid.matrix_from_matrices"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.monte_carlo.predictions.Grid.matrix_from_matrices" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="clustering_metrics.monte_carlo.predictions.Grid.plot">
+<em class="property">static </em><code class="descname">plot</code><span class="sig-paren">(</span><em>pairs</em>, <em>xlim=None</em>, <em>ylim=None</em>, <em>title=None</em>, <em>dither=0.0002</em>, <em>marker='.'</em>, <em>s=0.01</em>, <em>color='black'</em>, <em>alpha=1.0</em>, <em>save_to=None</em>, <em>label=None</em>, <em>xlabel=None</em>, <em>ylabel=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/monte_carlo/predictions.html#Grid.plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.monte_carlo.predictions.Grid.plot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.monte_carlo.predictions.Grid.show_cluster">
+<code class="descname">show_cluster</code><span class="sig-paren">(</span><em>idx</em>, <em>inverse=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/monte_carlo/predictions.html#Grid.show_cluster"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.monte_carlo.predictions.Grid.show_cluster" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.monte_carlo.predictions.Grid.show_matrix">
+<code class="descname">show_matrix</code><span class="sig-paren">(</span><em>idx</em>, <em>inverse=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/monte_carlo/predictions.html#Grid.show_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.monte_carlo.predictions.Grid.show_matrix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="clustering_metrics.monte_carlo.predictions.Grid.with_clusters">
+<em class="property">classmethod </em><code class="descname">with_clusters</code><span class="sig-paren">(</span><em>n=1000</em>, <em>size=200</em>, <em>max_classes=5</em>, <em>seed=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/monte_carlo/predictions.html#Grid.with_clusters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.monte_carlo.predictions.Grid.with_clusters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="clustering_metrics.monte_carlo.predictions.Grid.with_matrices">
+<em class="property">classmethod </em><code class="descname">with_matrices</code><span class="sig-paren">(</span><em>n=1000</em>, <em>max_counts=100</em>, <em>seed=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/monte_carlo/predictions.html#Grid.with_matrices"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.monte_carlo.predictions.Grid.with_matrices" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="clustering_metrics.monte_carlo.predictions.Grid.with_sim_clusters">
+<em class="property">classmethod </em><code class="descname">with_sim_clusters</code><span class="sig-paren">(</span><em>n=1000</em>, <em>size=200</em>, <em>seed=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/monte_carlo/predictions.html#Grid.with_sim_clusters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.monte_carlo.predictions.Grid.with_sim_clusters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.monte_carlo.predictions.auc_xscaled">
+<code class="descclassname">clustering_metrics.monte_carlo.predictions.</code><code class="descname">auc_xscaled</code><span class="sig-paren">(</span><em>xs</em>, <em>ys</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/monte_carlo/predictions.html#auc_xscaled"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.monte_carlo.predictions.auc_xscaled" title="Permalink to this definition">¶</a></dt>
+<dd><p>AUC score scaled to fill x interval</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.monte_carlo.predictions.create_plots">
+<code class="descclassname">clustering_metrics.monte_carlo.predictions.</code><code class="descname">create_plots</code><span class="sig-paren">(</span><em>args</em>, <em>df</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/monte_carlo/predictions.html#create_plots"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.monte_carlo.predictions.create_plots" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.monte_carlo.predictions.do_mapper">
+<code class="descclassname">clustering_metrics.monte_carlo.predictions.</code><code class="descname">do_mapper</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/monte_carlo/predictions.html#do_mapper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.monte_carlo.predictions.do_mapper" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.monte_carlo.predictions.do_reducer">
+<code class="descclassname">clustering_metrics.monte_carlo.predictions.</code><code class="descname">do_reducer</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/monte_carlo/predictions.html#do_reducer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.monte_carlo.predictions.do_reducer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.monte_carlo.predictions.get_conf">
+<code class="descclassname">clustering_metrics.monte_carlo.predictions.</code><code class="descname">get_conf</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/monte_carlo/predictions.html#get_conf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.monte_carlo.predictions.get_conf" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.monte_carlo.predictions.join_clusters">
+<code class="descclassname">clustering_metrics.monte_carlo.predictions.</code><code class="descname">join_clusters</code><span class="sig-paren">(</span><em>clusters</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/monte_carlo/predictions.html#join_clusters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.monte_carlo.predictions.join_clusters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reduce number of clusters 2x by joining</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.monte_carlo.predictions.parse_args">
+<code class="descclassname">clustering_metrics.monte_carlo.predictions.</code><code class="descname">parse_args</code><span class="sig-paren">(</span><em>args=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/monte_carlo/predictions.html#parse_args"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.monte_carlo.predictions.parse_args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.monte_carlo.predictions.relabel_negatives">
+<code class="descclassname">clustering_metrics.monte_carlo.predictions.</code><code class="descname">relabel_negatives</code><span class="sig-paren">(</span><em>clusters</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/monte_carlo/predictions.html#relabel_negatives"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.monte_carlo.predictions.relabel_negatives" title="Permalink to this definition">¶</a></dt>
+<dd><p>Place each negative label in its own class</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.monte_carlo.predictions.run">
+<code class="descclassname">clustering_metrics.monte_carlo.predictions.</code><code class="descname">run</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/monte_carlo/predictions.html#run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.monte_carlo.predictions.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.monte_carlo.predictions.sample_with_error">
+<code class="descclassname">clustering_metrics.monte_carlo.predictions.</code><code class="descname">sample_with_error</code><span class="sig-paren">(</span><em>label</em>, <em>error_distribution</em>, <em>null_distribution</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/monte_carlo/predictions.html#sample_with_error"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.monte_carlo.predictions.sample_with_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return label given error probability and null distributions</p>
+<p>error_distribution must be of form {False: 1.0 - p_err, True: p_err}</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.monte_carlo.predictions.simulate_clustering">
+<code class="descclassname">clustering_metrics.monte_carlo.predictions.</code><code class="descname">simulate_clustering</code><span class="sig-paren">(</span><em>galpha=2</em>, <em>gbeta=10</em>, <em>nclusters=20</em>, <em>pos_ratio=0.2</em>, <em>p_err=0.05</em>, <em>population_size=2000</em>, <em>split_join=0</em>, <em>join_negatives=False</em>, <em>with_warnings=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/monte_carlo/predictions.html#simulate_clustering"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.monte_carlo.predictions.simulate_clustering" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.monte_carlo.predictions.simulate_labeling">
+<code class="descclassname">clustering_metrics.monte_carlo.predictions.</code><code class="descname">simulate_labeling</code><span class="sig-paren">(</span><em>sample_size=2000</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/monte_carlo/predictions.html#simulate_labeling"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.monte_carlo.predictions.simulate_labeling" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.monte_carlo.predictions.split_clusters">
+<code class="descclassname">clustering_metrics.monte_carlo.predictions.</code><code class="descname">split_clusters</code><span class="sig-paren">(</span><em>clusters</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/monte_carlo/predictions.html#split_clusters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.monte_carlo.predictions.split_clusters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Increase number of clusters 2x by splitting</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="clustering_metrics.monte_carlo.utils.html" class="btn btn-neutral float-right" title="clustering_metrics.monte_carlo.utils module" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="clustering_metrics.monte_carlo.html" class="btn btn-neutral" title="clustering_metrics.monte_carlo package" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Eugene Scherba.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

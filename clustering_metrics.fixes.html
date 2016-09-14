@@ -1,0 +1,380 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>clustering_metrics.fixes module &mdash; Clustering-Metrics 0.0.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Clustering-Metrics 0.0.1 documentation" href="index.html"/>
+        <link rel="up" title="clustering_metrics package" href="clustering_metrics.html"/>
+        <link rel="next" title="clustering_metrics.hungarian module" href="clustering_metrics.hungarian.html"/>
+        <link rel="prev" title="clustering_metrics.ext module" href="clustering_metrics.ext.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Clustering-Metrics
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="clustering_metrics.html">clustering_metrics package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="clustering_metrics.html#subpackages">Subpackages</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="clustering_metrics.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="clustering_metrics.entropy.html">clustering_metrics.entropy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clustering_metrics.ext.html">clustering_metrics.ext module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">clustering_metrics.fixes module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clustering_metrics.hungarian.html">clustering_metrics.hungarian module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clustering_metrics.metrics.html">clustering_metrics.metrics module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clustering_metrics.ranking.html">clustering_metrics.ranking module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clustering_metrics.utils.html">clustering_metrics.utils module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="clustering_metrics.html#module-clustering_metrics">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Clustering-Metrics</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="clustering_metrics.html">clustering_metrics package</a> &raquo;</li>
+      
+    <li>clustering_metrics.fixes module</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/clustering_metrics.fixes.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-clustering_metrics.fixes">
+<span id="clustering-metrics-fixes-module"></span><h1>clustering_metrics.fixes module<a class="headerlink" href="#module-clustering_metrics.fixes" title="Permalink to this headline">¶</a></h1>
+<p>Augments/fixes NumPy. All code in this module is from Scikit-Learn</p>
+<dl class="function">
+<dt id="clustering_metrics.fixes.bincount">
+<code class="descclassname">clustering_metrics.fixes.</code><code class="descname">bincount</code><span class="sig-paren">(</span><em>x</em>, <em>weights=None</em>, <em>minlength=None</em><span class="sig-paren">)</span><a class="headerlink" href="#clustering_metrics.fixes.bincount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Count number of occurrences of each value in array of non-negative ints.</p>
+<p>The number of bins (of size 1) is one larger than the largest value in
+<cite>x</cite>. If <cite>minlength</cite> is specified, there will be at least this number
+of bins in the output array (though it will be longer if necessary,
+depending on the contents of <cite>x</cite>).
+Each bin gives the number of occurrences of its index value in <cite>x</cite>.
+If <cite>weights</cite> is specified the input array is weighted by it, i.e. if a
+value <code class="docutils literal"><span class="pre">n</span></code> is found at position <code class="docutils literal"><span class="pre">i</span></code>, <code class="docutils literal"><span class="pre">out[n]</span> <span class="pre">+=</span> <span class="pre">weight[i]</span></code> instead
+of <code class="docutils literal"><span class="pre">out[n]</span> <span class="pre">+=</span> <span class="pre">1</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>x</strong> : array_like, 1 dimension, nonnegative ints</p>
+<blockquote>
+<div><p>Input array.</p>
+</div></blockquote>
+<p><strong>weights</strong> : array_like, optional</p>
+<blockquote>
+<div><p>Weights, array of the same shape as <cite>x</cite>.</p>
+</div></blockquote>
+<p><strong>minlength</strong> : int, optional</p>
+<blockquote>
+<div><p>A minimum number of bins for the output array.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.6.0.</span></p>
+</div>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>out</strong> : ndarray of ints</p>
+<blockquote>
+<div><p>The result of binning the input array.
+The length of <cite>out</cite> is equal to <code class="docutils literal"><span class="pre">np.amax(x)+1</span></code>.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><strong>ValueError</strong></p>
+<blockquote>
+<div><p>If the input is not 1-dimensional, or contains elements with negative
+values, or if <cite>minlength</cite> is non-positive.</p>
+</div></blockquote>
+<p><strong>TypeError</strong></p>
+<blockquote class="last">
+<div><p>If the type of the input is float or complex.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><code class="xref py py-obj docutils literal"><span class="pre">histogram</span></code>, <code class="xref py py-obj docutils literal"><span class="pre">digitize</span></code>, <code class="xref py py-obj docutils literal"><span class="pre">unique</span></code></p>
+</div>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="go">array([1, 1, 1, 1, 1])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">]))</span>
+<span class="go">array([1, 3, 1, 1, 0, 0, 0, 1])</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">23</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>The input array needs to be of integer dtype, otherwise a
+TypeError is raised:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float</span><span class="p">))</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">TypeError</span>: <span class="n">array cannot be safely cast to required type</span>
+</pre></div>
+</div>
+<p>A possible use of <code class="docutils literal"><span class="pre">bincount</span></code> is to perform sums over
+variable-size chunks of an array, using the <code class="docutils literal"><span class="pre">weights</span></code> keyword.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.6</span><span class="p">])</span> <span class="c1"># weights</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">x</span><span class="p">,</span>  <span class="n">weights</span><span class="o">=</span><span class="n">w</span><span class="p">)</span>
+<span class="go">array([ 0.3,  0.7,  1.1])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.fixes.isclose">
+<code class="descclassname">clustering_metrics.fixes.</code><code class="descname">isclose</code><span class="sig-paren">(</span><em>a</em>, <em>b</em>, <em>rtol=1e-05</em>, <em>atol=1e-08</em>, <em>equal_nan=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/numpy/core/numeric.html#isclose"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.fixes.isclose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a boolean array where two arrays are element-wise equal within a
+tolerance.</p>
+<p>The tolerance values are positive, typically very small numbers.  The
+relative difference (<cite>rtol</cite> * abs(<cite>b</cite>)) and the absolute difference
+<cite>atol</cite> are added together to compare against the absolute difference
+between <cite>a</cite> and <cite>b</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a, b</strong> : array_like</p>
+<blockquote>
+<div><p>Input arrays to compare.</p>
+</div></blockquote>
+<p><strong>rtol</strong> : float</p>
+<blockquote>
+<div><p>The relative tolerance parameter (see Notes).</p>
+</div></blockquote>
+<p><strong>atol</strong> : float</p>
+<blockquote>
+<div><p>The absolute tolerance parameter (see Notes).</p>
+</div></blockquote>
+<p><strong>equal_nan</strong> : bool</p>
+<blockquote>
+<div><p>Whether to compare NaN&#8217;s as equal.  If True, NaN&#8217;s in <cite>a</cite> will be
+considered equal to NaN&#8217;s in <cite>b</cite> in the output array.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>y</strong> : array_like</p>
+<blockquote class="last">
+<div><p>Returns a boolean array of where <cite>a</cite> and <cite>b</cite> are equal within the
+given tolerance. If both <cite>a</cite> and <cite>b</cite> are scalars, returns a single
+boolean value.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><code class="xref py py-obj docutils literal"><span class="pre">allclose</span></code></p>
+</div>
+<p class="rubric">Notes</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.7.0.</span></p>
+</div>
+<p>For finite values, isclose uses the following equation to test whether
+two floating point values are equivalent.</p>
+<blockquote>
+<div>absolute(<cite>a</cite> - <cite>b</cite>) &lt;= (<cite>atol</cite> + <cite>rtol</cite> * absolute(<cite>b</cite>))</div></blockquote>
+<p>The above equation is not symmetric in <cite>a</cite> and <cite>b</cite>, so that
+<cite>isclose(a, b)</cite> might be different from <cite>isclose(b, a)</cite> in
+some rare cases.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">([</span><span class="mi">1</span><span class="n">e10</span><span class="p">,</span><span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">7</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.00001e10</span><span class="p">,</span><span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">8</span><span class="p">])</span>
+<span class="go">array([True, False])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">([</span><span class="mi">1</span><span class="n">e10</span><span class="p">,</span><span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">8</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.00001e10</span><span class="p">,</span><span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">9</span><span class="p">])</span>
+<span class="go">array([True, True])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">([</span><span class="mi">1</span><span class="n">e10</span><span class="p">,</span><span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">8</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.0001e10</span><span class="p">,</span><span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">9</span><span class="p">])</span>
+<span class="go">array([False, True])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">])</span>
+<span class="go">array([True, False])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> <span class="n">equal_nan</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">array([True, True])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="clustering_metrics.hungarian.html" class="btn btn-neutral float-right" title="clustering_metrics.hungarian module" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="clustering_metrics.ext.html" class="btn btn-neutral" title="clustering_metrics.ext module" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Eugene Scherba.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,731 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>clustering_metrics.ranking &mdash; Clustering-Metrics 0.0.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Clustering-Metrics 0.0.1 documentation" href="../../index.html"/>
+        <link rel="up" title="Module code" href="../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Clustering-Metrics
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../clustering_metrics.html">clustering_metrics package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Clustering-Metrics</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      
+    <li>clustering_metrics.ranking</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for clustering_metrics.ranking</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">Problem Statement</span>
+<span class="sd">-----------------</span>
+
+<span class="sd">Assume that there is a large data set of mostly unique samples where a hidden</span>
+<span class="sd">binary variable is dependent on the number of similar samples that exist in the</span>
+<span class="sd">set (i.e. a sample is called positive if it has many neighbors) and that our</span>
+<span class="sd">goal is to label all samples in this set. It is easy to see that, given sparse</span>
+<span class="sd">enough data, if a clustering method relies on the same sample property on which</span>
+<span class="sd">the ground truth similarity space is defined, it will naturally separate the</span>
+<span class="sd">samples into two groups -- those found in clusters and containing mostly</span>
+<span class="sd">positives, and those found outside clusters and containing mostly negatives.</span>
+<span class="sd">There would exist only one possible perfect clustering -- the one with a</span>
+<span class="sd">single, entirely homogeneous cluster C that covers all positives present in the</span>
+<span class="sd">data set. If one were to obtain such clustering, one could correctly label all</span>
+<span class="sd">positive samples in one step with the simple rule, *all positive samples belong</span>
+<span class="sd">to cluster C*. Under an imperfect clustering, on the other hand, the presence</span>
+<span class="sd">of the given sample in a cluster of size two or more implies the sample is only</span>
+<span class="sd">likely to be positive, with the confidence of the positive call monotonously</span>
+<span class="sd">increasing with the size of the cluster.</span>
+
+<span class="sd">In other words, our expectation from a good clustering is that it will help us</span>
+<span class="sd">minimize the amount of work labeling samples.</span>
+
+<span class="sd">The application that inspired the design of this metric was mining for positive</span>
+<span class="sd">spam examples in large data sets of short user-generated content.  Given large</span>
+<span class="sd">enough data sets, spam content naturally forms clusters either because creative</span>
+<span class="sd">rewriting of every single individual spam message is too expensive for spammers</span>
+<span class="sd">to employ, or because, even if human or algorithmic rewriting is applied, one</span>
+<span class="sd">can still find features that link individual spam messages to their creator or</span>
+<span class="sd">to the product or service being promoted in the spam campaign. The finding was</span>
+<span class="sd">consistent with what is reported in literature [104]_.</span>
+
+<span class="sd">Algorithm</span>
+<span class="sd">---------</span>
+
+<span class="sd">Given a clustering, we order the clusters from the largest one to the smallest</span>
+<span class="sd">one. We then plot a cumulative step function where the width of the bin under a</span>
+<span class="sd">given &quot;step&quot; is proportional to cluster size, and the height of the bin is</span>
+<span class="sd">proportional to the expected number of positive samples seen so far [103]_. If a</span>
+<span class="sd">sample is in a cluster of size one, we assume it is likely to be negative and</span>
+<span class="sd">is therefore checked on an individual basis (the specific setting of cluster</span>
+<span class="sd">size at which the expectation changes is our &#39;threshold&#39; parameter. The result</span>
+<span class="sd">of this assumption is that the expected contribution from unclustered</span>
+<span class="sd">samples is equal to their actual contribution (we assume individual checking</span>
+<span class="sd">always gives a correct answer). After two-way normalization, a perfect</span>
+<span class="sd">clustering (i.e. where a single perfectly homogeneous cluster covers the entire</span>
+<span class="sd">set of positives) will have the AUL score of 1.0. A failure to will result in</span>
+<span class="sd">the AUL of 0.5. A perverse clustering, i.e. one where many negative samples fall</span>
+<span class="sd">into clusters whose size is above our threshold, or where many positive samples</span>
+<span class="sd">remain unclustered (fall into clusters of size below the threshold one) the AUL</span>
+<span class="sd">somewhere between 0.0 and 0.5.</span>
+
+<span class="sd">A special treatment is necessary for cases where clusters are tied by size. If</span>
+<span class="sd">one were to treat tied clusters as a single group, one would obtain AUL of 1.0</span>
+<span class="sd">when no clusters at all are present, which is against our desiderata.  On the</span>
+<span class="sd">other hand, if one were to treat tied clusters entirely separately, one would</span>
+<span class="sd">obtain different results depending on the properties of the sorting algorithm,</span>
+<span class="sd">also an undesirable situation. Always placing &quot;heavy&quot; clusters (i.e. those</span>
+<span class="sd">containing more positives) towards the beginning or towards the end of the tied</span>
+<span class="sd">group will result in, respectively, overestimating or underestimating the true</span>
+<span class="sd">AUL. The solution here is to average the positive counts among all clusters in a</span>
+<span class="sd">tied group, and then walk through them one by one, with the stepwise cumulative</span>
+<span class="sd">function asymptotically approaching a diagonal from the group&#39;s bottom left</span>
+<span class="sd">corner to the top right one. This way, a complete absence of clustering (i.e.</span>
+<span class="sd">all clusters are of size one) will always result in AUL of 0.5.</span>
+
+<span class="sd">The resulting AUL measure has some similarity with the Gini coefficient of</span>
+<span class="sd">inequality [105]_ except we plot the corresponding curve in the opposite</span>
+<span class="sd">direction (from &quot;richest&quot; to &quot;poorest&quot;), and do not subtract 0.5 from the</span>
+<span class="sd">resulting score.</span>
+
+
+<span class="sd">.. [103] We take the expected number of positives and not the actual number seen</span>
+<span class="sd">       so far as the vertical scale in order to penalize non-homogeneous</span>
+<span class="sd">       clusters. Otherwise the y=1.0 ceiling would be reached early in the</span>
+<span class="sd">       process even in very bad cases, for example when there is only one giant</span>
+<span class="sd">       non-homogeneous cluster.</span>
+
+<span class="sd">References</span>
+<span class="sd">----------</span>
+
+<span class="sd">.. [104] `Whissell, J. S., &amp; Clarke, C. L. (2011, September). Clustering for</span>
+<span class="sd">         semi-supervised spam filtering. In Proceedings of the 8th Annual</span>
+<span class="sd">         Collaboration, Electronic messaging, Anti-Abuse and Spam Conference</span>
+<span class="sd">         (pp. 125-134). ACM.</span>
+<span class="sd">         &lt;https://doi.org/10.1145/2030376.2030391&gt;`_</span>
+
+<span class="sd">.. [105] `Wikipedia entry for Gini coefficient of inequality</span>
+<span class="sd">         &lt;https://en.wikipedia.org/wiki/Gini_coefficient&gt;`_</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="k">import</span> <span class="n">izip</span><span class="p">,</span> <span class="n">chain</span>
+<span class="kn">from</span> <span class="nn">operator</span> <span class="k">import</span> <span class="n">itemgetter</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics.ranking</span> <span class="k">import</span> <span class="n">auc</span><span class="p">,</span> <span class="n">roc_curve</span>
+<span class="kn">from</span> <span class="nn">pymaptools.iter</span> <span class="k">import</span> <span class="n">aggregate_tuples</span>
+<span class="kn">from</span> <span class="nn">pymaptools.containers</span> <span class="k">import</span> <span class="n">labels_to_clusters</span>
+
+
+<div class="viewcode-block" id="num2bool"><a class="viewcode-back" href="../../clustering_metrics.ranking.html#clustering_metrics.ranking.num2bool">[docs]</a><span class="k">def</span> <span class="nf">num2bool</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;True if zero or positive real, False otherwise</span>
+
+<span class="sd">    When binarizing class labels, this lets us be consistent with Scikit-Learn</span>
+<span class="sd">    where binary labels can be {0, 1} with 0 being negative or {-1, 1} with -1</span>
+<span class="sd">    being negative.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">num</span> <span class="o">&gt;</span> <span class="mi">0</span></div>
+
+
+<div class="viewcode-block" id="LiftCurve"><a class="viewcode-back" href="../../clustering_metrics.ranking.html#clustering_metrics.ranking.LiftCurve">[docs]</a><span class="k">class</span> <span class="nc">LiftCurve</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;Lift Curve for cluster-size correlated classification</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">score_groups</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_score_groups</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">score_groups</span><span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="LiftCurve.from_counts"><a class="viewcode-back" href="../../clustering_metrics.ranking.html#clustering_metrics.ranking.LiftCurve.from_counts">[docs]</a>    <span class="k">def</span> <span class="nf">from_counts</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">counts_true</span><span class="p">,</span> <span class="n">counts_pred</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Instantiates class from arrays of true and predicted counts</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+
+<span class="sd">        counts_true : array, shape = [n_clusters]</span>
+<span class="sd">            Count of positives in cluster</span>
+
+<span class="sd">        counts_pred : array, shape = [n_clusters]</span>
+<span class="sd">            Predicted number of positives in each cluster</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># convert input to a series of tuples</span>
+        <span class="n">count_groups</span> <span class="o">=</span> <span class="n">izip</span><span class="p">(</span><span class="n">counts_pred</span><span class="p">,</span> <span class="n">counts_true</span><span class="p">)</span>
+
+        <span class="c1"># sort tuples by predicted count in descending order</span>
+        <span class="n">count_groups</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">count_groups</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">itemgetter</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="c1"># group tuples by predicted count so as to handle ties correctly</span>
+        <span class="k">return</span> <span class="n">cls</span><span class="p">(</span><span class="n">aggregate_tuples</span><span class="p">(</span><span class="n">count_groups</span><span class="p">))</span></div>
+
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="LiftCurve.from_clusters"><a class="viewcode-back" href="../../clustering_metrics.ranking.html#clustering_metrics.ranking.LiftCurve.from_clusters">[docs]</a>    <span class="k">def</span> <span class="nf">from_clusters</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">clusters</span><span class="p">,</span> <span class="n">is_class_pos</span><span class="o">=</span><span class="n">num2bool</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Instantiates class from clusters of class-coded points</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+
+<span class="sd">        clusters : collections.Iterable</span>
+<span class="sd">            List of lists of class labels</span>
+
+<span class="sd">        is_class_pos: label_true -&gt; Bool</span>
+<span class="sd">            Boolean predicate used to binarize true (class) labels</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># take all non-empty clusters, score them by size and by number of</span>
+        <span class="c1"># ground truth positives</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">cluster</span><span class="p">),</span> <span class="nb">sum</span><span class="p">(</span><span class="n">is_class_pos</span><span class="p">(</span><span class="n">class_label</span><span class="p">)</span> <span class="k">for</span> <span class="n">class_label</span> <span class="ow">in</span> <span class="n">cluster</span><span class="p">))</span>
+                <span class="k">for</span> <span class="n">cluster</span> <span class="ow">in</span> <span class="n">clusters</span> <span class="k">if</span> <span class="n">cluster</span><span class="p">)</span>
+        <span class="n">scores_pred</span><span class="p">,</span> <span class="n">scores_true</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">)</span> <span class="ow">or</span> <span class="p">([],</span> <span class="p">[])</span>
+        <span class="k">return</span> <span class="n">cls</span><span class="o">.</span><span class="n">from_counts</span><span class="p">(</span><span class="n">scores_true</span><span class="p">,</span> <span class="n">scores_pred</span><span class="p">)</span></div>
+
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="LiftCurve.from_labels"><a class="viewcode-back" href="../../clustering_metrics.ranking.html#clustering_metrics.ranking.LiftCurve.from_labels">[docs]</a>    <span class="k">def</span> <span class="nf">from_labels</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">labels_true</span><span class="p">,</span> <span class="n">labels_pred</span><span class="p">,</span> <span class="n">is_class_pos</span><span class="o">=</span><span class="n">num2bool</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Instantiates class from arrays of classes and cluster sizes</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+
+<span class="sd">        labels_true : array, shape = [n_samples]</span>
+<span class="sd">            Class labels. If binary, &#39;is_class_pos&#39; is optional</span>
+
+<span class="sd">        labels_pred : array, shape = [n_samples]</span>
+<span class="sd">            Cluster labels to evaluate</span>
+
+<span class="sd">        is_class_pos: label_true -&gt; Bool</span>
+<span class="sd">            Boolean predicate used to binarize true (class) labels</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">clusters</span> <span class="o">=</span> <span class="n">labels_to_clusters</span><span class="p">(</span><span class="n">labels_true</span><span class="p">,</span> <span class="n">labels_pred</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">cls</span><span class="o">.</span><span class="n">from_clusters</span><span class="p">(</span><span class="n">clusters</span><span class="p">,</span> <span class="n">is_class_pos</span><span class="o">=</span><span class="n">is_class_pos</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="LiftCurve.aul_score"><a class="viewcode-back" href="../../clustering_metrics.ranking.html#clustering_metrics.ranking.LiftCurve.aul_score">[docs]</a>    <span class="k">def</span> <span class="nf">aul_score</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Calculate AUL score</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+
+<span class="sd">        threshold : int, optional (default=1)</span>
+<span class="sd">            only predicted scores above this number considered accurate</span>
+
+<span class="sd">        plot : bool, optional (default=False)</span>
+<span class="sd">            whether to return X and Y data series for plotting</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">total_any</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">total_true</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">assumed_vertical</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">aul</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+        <span class="k">if</span> <span class="n">plot</span><span class="p">:</span>
+            <span class="n">xs</span><span class="p">,</span> <span class="n">ys</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+            <span class="n">bin_height</span> <span class="o">=</span> <span class="mf">0.0</span>
+            <span class="n">bin_right_edge</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+        <span class="c1"># second pass: iterate over each group of predicted scores of the same</span>
+        <span class="c1"># size and calculate the AUL metric</span>
+        <span class="k">for</span> <span class="n">pred_score</span><span class="p">,</span> <span class="n">true_scores</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_score_groups</span><span class="p">:</span>
+            <span class="c1"># number of clusters</span>
+            <span class="n">num_true_scores</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">true_scores</span><span class="p">)</span>
+
+            <span class="c1"># sum total of positives in all clusters of given size</span>
+            <span class="n">group_height</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">true_scores</span><span class="p">)</span>
+
+            <span class="n">total_true</span> <span class="o">+=</span> <span class="n">group_height</span>
+
+            <span class="c1"># cluster size x number of clusters of given size</span>
+            <span class="n">group_width</span> <span class="o">=</span> <span class="n">pred_score</span> <span class="o">*</span> <span class="n">num_true_scores</span>
+
+            <span class="n">total_any</span> <span class="o">+=</span> <span class="n">group_width</span>
+
+            <span class="k">if</span> <span class="n">pred_score</span> <span class="o">&gt;</span> <span class="n">threshold</span><span class="p">:</span>
+                <span class="c1"># penalize non-homogeneous clusters simply by assuming that they</span>
+                <span class="c1"># are homogeneous, in which case their expected vertical</span>
+                <span class="c1"># contribution should be equal to their horizontal contribution.</span>
+                <span class="n">height_incr</span> <span class="o">=</span> <span class="n">group_width</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># clusters of size one are by definition homogeneous so their</span>
+                <span class="c1"># expected vertical contribution equals sum total of any</span>
+                <span class="c1"># remaining true positives.</span>
+                <span class="n">height_incr</span> <span class="o">=</span> <span class="n">group_height</span>
+
+            <span class="n">assumed_vertical</span> <span class="o">+=</span> <span class="n">height_incr</span>
+
+            <span class="k">if</span> <span class="n">plot</span><span class="p">:</span>
+                <span class="n">avg_true_score</span> <span class="o">=</span> <span class="n">group_height</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">num_true_scores</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">true_scores</span><span class="p">:</span>
+                    <span class="n">bin_height</span> <span class="o">+=</span> <span class="n">avg_true_score</span>
+                    <span class="n">aul</span> <span class="o">+=</span> <span class="n">bin_height</span> <span class="o">*</span> <span class="n">pred_score</span>
+                    <span class="k">if</span> <span class="n">plot</span><span class="p">:</span>
+                        <span class="n">xs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bin_right_edge</span><span class="p">)</span>
+                        <span class="n">bin_right_edge</span> <span class="o">+=</span> <span class="n">pred_score</span>
+                        <span class="n">xs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bin_right_edge</span><span class="p">)</span>
+                        <span class="n">ys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bin_height</span><span class="p">)</span>
+                        <span class="n">ys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bin_height</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># if not tasked with generating plots, use a geometric method</span>
+                <span class="c1"># instead of looping</span>
+                <span class="n">aul</span> <span class="o">+=</span> <span class="p">(</span><span class="n">total_true</span> <span class="o">*</span> <span class="n">group_width</span> <span class="o">-</span>
+                        <span class="p">((</span><span class="n">num_true_scores</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">pred_score</span> <span class="o">*</span> <span class="n">group_height</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">total_true</span> <span class="o">&gt;</span> <span class="n">total_any</span><span class="p">:</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                <span class="s2">&quot;Number of positives found (</span><span class="si">%d</span><span class="s2">) exceeds total count of </span><span class="si">%d</span><span class="s2">&quot;</span>
+                <span class="o">%</span> <span class="p">(</span><span class="n">total_true</span><span class="p">,</span> <span class="n">total_any</span><span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="n">rect_area</span> <span class="o">=</span> <span class="n">assumed_vertical</span> <span class="o">*</span> <span class="n">total_any</span>
+
+        <span class="c1"># special case: since normalizing the AUL defines it as always smaller</span>
+        <span class="c1"># than the bounding rectangle, when denominator in the expression below</span>
+        <span class="c1"># is zero, the AUL score is also equal to zero.</span>
+        <span class="n">aul</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="k">if</span> <span class="n">rect_area</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">aul</span> <span class="o">/</span> <span class="n">rect_area</span>
+
+        <span class="k">if</span> <span class="n">plot</span><span class="p">:</span>
+            <span class="n">xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span> <span class="o">/</span> <span class="n">total_any</span>
+            <span class="n">ys</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ys</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span> <span class="o">/</span> <span class="n">assumed_vertical</span>
+            <span class="k">return</span> <span class="n">aul</span><span class="p">,</span> <span class="n">xs</span><span class="p">,</span> <span class="n">ys</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">aul</span></div>
+
+<div class="viewcode-block" id="LiftCurve.plot"><a class="viewcode-back" href="../../clustering_metrics.ranking.html#clustering_metrics.ranking.LiftCurve.plot">[docs]</a>    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">save_to</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>  <span class="c1"># pragma: no cover</span>
+        <span class="sd">&quot;&quot;&quot;Create a graphical representation of Lift Curve</span>
+
+<span class="sd">        Requires Matplotlib</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        threshold : int, optional (default=1)</span>
+<span class="sd">            only predicted scores above this number considered accurate</span>
+
+<span class="sd">        marker : str, optional (default=None)</span>
+<span class="sd">            Whether to draw marker at each bend</span>
+
+<span class="sd">        save_to : str, optional (default=None)</span>
+<span class="sd">            If specified, save the plot to path instead of displaying</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+        <span class="n">score</span><span class="p">,</span> <span class="n">xs</span><span class="p">,</span> <span class="n">ys</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">aul_score</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="n">threshold</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="n">marker</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">fill</span><span class="p">:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">fill</span><span class="p">([</span><span class="mf">0.0</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">ys</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">],</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">xmin</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mf">1.03</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">ymin</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mf">1.04</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;portion total&quot;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;portion expected positive&quot;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Lift Curve (AUL=</span><span class="si">%.3f</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="n">score</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">save_to</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">save_to</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="aul_score_from_clusters"><a class="viewcode-back" href="../../clustering_metrics.ranking.html#clustering_metrics.ranking.aul_score_from_clusters">[docs]</a><span class="k">def</span> <span class="nf">aul_score_from_clusters</span><span class="p">(</span><span class="n">clusters</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Calculate AUL score given clusters of class-coded points</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+
+<span class="sd">    clusters : collections.Iterable</span>
+<span class="sd">         List of clusters where each point is binary-coded according to true</span>
+<span class="sd">         class.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+
+<span class="sd">    aul : float</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">LiftCurve</span><span class="o">.</span><span class="n">from_clusters</span><span class="p">(</span><span class="n">clusters</span><span class="p">)</span><span class="o">.</span><span class="n">aul_score</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="aul_score_from_labels"><a class="viewcode-back" href="../../clustering_metrics.ranking.html#clustering_metrics.ranking.aul_score_from_labels">[docs]</a><span class="k">def</span> <span class="nf">aul_score_from_labels</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">labels_pred</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;AUL score given array of classes and array of cluster sizes</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+
+<span class="sd">    y_true : array, shape = [n_samples]</span>
+<span class="sd">         True binary labels in range {0, 1}</span>
+
+<span class="sd">    labels_pred : array, shape = [n_samples]</span>
+<span class="sd">         Cluster labels to evaluate</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+
+<span class="sd">    aul : float</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">LiftCurve</span><span class="o">.</span><span class="n">from_labels</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">labels_pred</span><span class="p">)</span><span class="o">.</span><span class="n">aul_score</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="RocCurve"><a class="viewcode-back" href="../../clustering_metrics.ranking.html#clustering_metrics.ranking.RocCurve">[docs]</a><span class="k">class</span> <span class="nc">RocCurve</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;Receiver Operating Characteristic (ROC)</span>
+
+<span class="sd">    ::</span>
+
+<span class="sd">        &gt;&gt;&gt; c = RocCurve.from_labels([0, 0, 1, 1],</span>
+<span class="sd">        ...                          [0.1, 0.4, 0.35, 0.8])</span>
+<span class="sd">        &gt;&gt;&gt; c.auc_score()</span>
+<span class="sd">        0.75</span>
+<span class="sd">        &gt;&gt;&gt; c.max_informedness()</span>
+<span class="sd">        0.5</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fprs</span><span class="p">,</span> <span class="n">tprs</span><span class="p">,</span> <span class="n">thresholds</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fprs</span> <span class="o">=</span> <span class="n">fprs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tprs</span> <span class="o">=</span> <span class="n">tprs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">thresholds</span> <span class="o">=</span> <span class="n">thresholds</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pos_label</span> <span class="o">=</span> <span class="n">pos_label</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sample_weight</span> <span class="o">=</span> <span class="n">sample_weight</span>
+
+<div class="viewcode-block" id="RocCurve.plot"><a class="viewcode-back" href="../../clustering_metrics.ranking.html#clustering_metrics.ranking.RocCurve.plot">[docs]</a>    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">save_to</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>  <span class="c1"># pragma: no cover</span>
+        <span class="sd">&quot;&quot;&quot;Plot the ROC curve</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+        <span class="n">score</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auc_score</span><span class="p">()</span>
+        <span class="n">xs</span><span class="p">,</span> <span class="n">ys</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fprs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tprs</span>
+
+        <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="n">marker</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">fill</span><span class="p">:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">fill</span><span class="p">([</span><span class="mf">0.0</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">ys</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">],</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">xmin</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mf">1.03</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">ymin</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mf">1.04</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;TPR&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;FPR&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;ROC Curve (AUC=</span><span class="si">%.3f</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="n">score</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">save_to</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">save_to</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span></div>
+
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="RocCurve.from_scores"><a class="viewcode-back" href="../../clustering_metrics.ranking.html#clustering_metrics.ranking.RocCurve.from_scores">[docs]</a>    <span class="k">def</span> <span class="nf">from_scores</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">scores_neg</span><span class="p">,</span> <span class="n">scores_pos</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Instantiate given scores of two ground truth classes</span>
+
+<span class="sd">        The score arrays don&#39;t have to be the same length.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">scores_pos</span> <span class="o">=</span> <span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">scores_pos</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">scores_neg</span> <span class="o">=</span> <span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">scores_neg</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">all_scores</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">chain</span><span class="p">(</span><span class="n">scores_neg</span><span class="p">,</span> <span class="n">scores_pos</span><span class="p">))</span> <span class="ow">or</span> <span class="p">([],</span> <span class="p">[])</span>
+        <span class="k">return</span> <span class="n">cls</span><span class="o">.</span><span class="n">from_labels</span><span class="p">(</span><span class="o">*</span><span class="n">all_scores</span><span class="p">)</span></div>
+
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="RocCurve.from_labels"><a class="viewcode-back" href="../../clustering_metrics.ranking.html#clustering_metrics.ranking.RocCurve.from_labels">[docs]</a>    <span class="k">def</span> <span class="nf">from_labels</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">labels_true</span><span class="p">,</span> <span class="n">y_score</span><span class="p">,</span> <span class="n">is_class_pos</span><span class="o">=</span><span class="n">num2bool</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Instantiate assuming binary labeling of {0, 1}</span>
+
+<span class="sd">        labels_true : array, shape = [n_samples]</span>
+<span class="sd">            Class labels. If binary, &#39;is_class_pos&#39; is optional</span>
+
+<span class="sd">        y_score : array, shape = [n_samples]</span>
+<span class="sd">            Predicted scores</span>
+
+<span class="sd">        is_class_pos: label_true -&gt; Bool</span>
+<span class="sd">            Boolean predicate used to binarize true (class) labels</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># num2bool Y labels</span>
+        <span class="n">y_true</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="n">is_class_pos</span><span class="p">,</span> <span class="n">labels_true</span><span class="p">)</span>
+
+        <span class="c1"># calculate axes</span>
+        <span class="n">fprs</span><span class="p">,</span> <span class="n">tprs</span><span class="p">,</span> <span class="n">thresholds</span> <span class="o">=</span> <span class="n">roc_curve</span><span class="p">(</span>
+            <span class="n">y_true</span><span class="p">,</span> <span class="n">y_score</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">cls</span><span class="p">(</span><span class="n">fprs</span><span class="p">,</span> <span class="n">tprs</span><span class="p">,</span> <span class="n">thresholds</span><span class="o">=</span><span class="n">thresholds</span><span class="p">)</span></div>
+
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="RocCurve.from_clusters"><a class="viewcode-back" href="../../clustering_metrics.ranking.html#clustering_metrics.ranking.RocCurve.from_clusters">[docs]</a>    <span class="k">def</span> <span class="nf">from_clusters</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">clusters</span><span class="p">,</span> <span class="n">is_class_pos</span><span class="o">=</span><span class="n">num2bool</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Instantiates class from clusters of class-coded points</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+
+<span class="sd">        clusters : collections.Iterable</span>
+<span class="sd">            List of lists of class labels</span>
+
+<span class="sd">        is_class_pos: label_true -&gt; Bool</span>
+<span class="sd">            Boolean predicate used to binarize true (class) labels</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">y_true</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">y_score</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">cluster</span> <span class="ow">in</span> <span class="n">clusters</span><span class="p">:</span>
+            <span class="n">pred_cluster</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">cluster</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">point</span> <span class="ow">in</span> <span class="n">cluster</span><span class="p">:</span>
+                <span class="n">true_cluster</span> <span class="o">=</span> <span class="n">is_class_pos</span><span class="p">(</span><span class="n">point</span><span class="p">)</span>
+                <span class="n">y_true</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">true_cluster</span><span class="p">)</span>
+                <span class="n">y_score</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pred_cluster</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">cls</span><span class="o">.</span><span class="n">from_labels</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_score</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="RocCurve.auc_score"><a class="viewcode-back" href="../../clustering_metrics.ranking.html#clustering_metrics.ranking.RocCurve.auc_score">[docs]</a>    <span class="k">def</span> <span class="nf">auc_score</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Replacement for Scikit-Learn&#39;s method</span>
+
+<span class="sd">        If number of Y classes is other than two, a warning will be triggered</span>
+<span class="sd">        but no exception thrown (the return value will be a NaN).  Also, we</span>
+<span class="sd">        don&#39;t reorder arrays during ROC calculation since they are assumed to be</span>
+<span class="sd">        in order.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">auc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fprs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tprs</span><span class="p">,</span> <span class="n">reorder</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="RocCurve.optimal_cutoff"><a class="viewcode-back" href="../../clustering_metrics.ranking.html#clustering_metrics.ranking.RocCurve.optimal_cutoff">[docs]</a>    <span class="k">def</span> <span class="nf">optimal_cutoff</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scoring_method</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Optimal cutoff point on ROC curve under scoring method</span>
+
+<span class="sd">        The scoring method must take two arguments: fpr and tpr.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">max_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">NINF</span>
+        <span class="n">opt_pair</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">izip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fprs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tprs</span><span class="p">):</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="n">scoring_method</span><span class="p">(</span><span class="o">*</span><span class="n">pair</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">index</span> <span class="o">&gt;</span> <span class="n">max_index</span><span class="p">:</span>
+                <span class="n">opt_pair</span> <span class="o">=</span> <span class="n">pair</span>
+                <span class="n">max_index</span> <span class="o">=</span> <span class="n">index</span>
+        <span class="k">return</span> <span class="n">opt_pair</span><span class="p">,</span> <span class="n">max_index</span></div>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_informedness</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">tpr</span> <span class="o">-</span> <span class="n">fpr</span>
+
+<div class="viewcode-block" id="RocCurve.max_informedness"><a class="viewcode-back" href="../../clustering_metrics.ranking.html#clustering_metrics.ranking.RocCurve.max_informedness">[docs]</a>    <span class="k">def</span> <span class="nf">max_informedness</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Maximum value of Informedness (TPR minus FPR) on a ROC curve</span>
+
+<span class="sd">        A diagram of what this measure looks like is shown in [101]_. Note a</span>
+<span class="sd">        correspondence between the definitions of this measure and that of</span>
+<span class="sd">        Kolmogorov-Smirnov&#39;s supremum statistic.</span>
+
+<span class="sd">        References</span>
+<span class="sd">        ----------</span>
+
+<span class="sd">        .. [101] `Wikipedia entry for Youden&#39;s J statistic</span>
+<span class="sd">                 &lt;https://en.wikipedia.org/wiki/Youden%27s_J_statistic&gt;`_</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">optimal_cutoff</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_informedness</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="roc_auc_score"><a class="viewcode-back" href="../../clustering_metrics.ranking.html#clustering_metrics.ranking.roc_auc_score">[docs]</a><span class="k">def</span> <span class="nf">roc_auc_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_score</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;AUC score for a ROC curve</span>
+
+<span class="sd">    Replaces Scikit Learn implementation (given binary ``y_true``).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">RocCurve</span><span class="o">.</span><span class="n">from_labels</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_score</span><span class="p">)</span><span class="o">.</span><span class="n">auc_score</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="dist_auc"><a class="viewcode-back" href="../../clustering_metrics.ranking.html#clustering_metrics.ranking.dist_auc">[docs]</a><span class="k">def</span> <span class="nf">dist_auc</span><span class="p">(</span><span class="n">scores0</span><span class="p">,</span> <span class="n">scores1</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;AUC score for two distributions, with NaN correction</span>
+
+<span class="sd">    Note: arithmetic mean appears to be appropriate here, as other means don&#39;t</span>
+<span class="sd">    result in total of 1.0 when sides are switched.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">scores0_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">scores0</span><span class="p">)</span>
+    <span class="n">scores1_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">scores1</span><span class="p">)</span>
+
+    <span class="n">scores0p</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">scores0</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)]</span>
+    <span class="n">scores1p</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">scores1</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)]</span>
+
+    <span class="n">scores0n_len</span> <span class="o">=</span> <span class="n">scores0_len</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">scores0p</span><span class="p">)</span>
+    <span class="n">scores1n_len</span> <span class="o">=</span> <span class="n">scores1_len</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">scores1p</span><span class="p">)</span>
+
+    <span class="c1"># ``nan_pairs`` are pairs for which it is impossible to define order, due</span>
+    <span class="c1"># to at least one of the members of each being a NaN. ``def_pairs`` are</span>
+    <span class="c1"># pairs for which order can be established.</span>
+    <span class="n">all_pairs</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">scores0_len</span> <span class="o">*</span> <span class="n">scores1_len</span>
+    <span class="n">nan_pairs</span> <span class="o">=</span> <span class="n">scores0n_len</span> <span class="o">*</span> <span class="n">scores1_len</span> <span class="o">+</span> <span class="n">scores1n_len</span> <span class="o">*</span> <span class="n">scores0_len</span>
+    <span class="n">def_pairs</span> <span class="o">=</span> <span class="n">all_pairs</span> <span class="o">-</span> <span class="n">nan_pairs</span>
+
+    <span class="c1"># the final score is the average of the score for the defined portion and</span>
+    <span class="c1"># of random-chance AUC (0.5), weighted according to the number of pairs in</span>
+    <span class="c1"># each group.</span>
+    <span class="n">auc_score</span> <span class="o">=</span> <span class="n">RocCurve</span><span class="o">.</span><span class="n">from_scores</span><span class="p">(</span><span class="n">scores0p</span><span class="p">,</span> <span class="n">scores1p</span><span class="p">)</span><span class="o">.</span><span class="n">auc_score</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">([</span><span class="n">auc_score</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span> <span class="n">weights</span><span class="o">=</span><span class="p">[</span><span class="n">def_pairs</span><span class="p">,</span> <span class="n">nan_pairs</span><span class="p">])</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Eugene Scherba.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

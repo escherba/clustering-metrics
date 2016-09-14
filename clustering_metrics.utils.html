@@ -1,0 +1,387 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>clustering_metrics.utils module &mdash; Clustering-Metrics 0.0.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Clustering-Metrics 0.0.1 documentation" href="index.html"/>
+        <link rel="up" title="clustering_metrics package" href="clustering_metrics.html"/>
+        <link rel="prev" title="clustering_metrics.ranking module" href="clustering_metrics.ranking.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Clustering-Metrics
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="clustering_metrics.html">clustering_metrics package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="clustering_metrics.html#subpackages">Subpackages</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="clustering_metrics.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="clustering_metrics.entropy.html">clustering_metrics.entropy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clustering_metrics.ext.html">clustering_metrics.ext module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clustering_metrics.fixes.html">clustering_metrics.fixes module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clustering_metrics.hungarian.html">clustering_metrics.hungarian module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clustering_metrics.metrics.html">clustering_metrics.metrics module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clustering_metrics.ranking.html">clustering_metrics.ranking module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">clustering_metrics.utils module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="clustering_metrics.html#module-clustering_metrics">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Clustering-Metrics</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="clustering_metrics.html">clustering_metrics package</a> &raquo;</li>
+      
+    <li>clustering_metrics.utils module</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/clustering_metrics.utils.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-clustering_metrics.utils">
+<span id="clustering-metrics-utils-module"></span><h1>clustering_metrics.utils module<a class="headerlink" href="#module-clustering_metrics.utils" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="clustering_metrics.utils.fill_with_last">
+<code class="descclassname">clustering_metrics.utils.</code><code class="descname">fill_with_last</code><span class="sig-paren">(</span><em>lst</em>, <em>k</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/utils.html#fill_with_last"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.utils.fill_with_last" title="Permalink to this definition">¶</a></dt>
+<dd><p>extend a list to length k by duplicating last item</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fill_with_last</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="mi">5</span><span class="p">)</span>
+<span class="go">[1, 2, 3, 3, 3]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.utils.gapply">
+<code class="descclassname">clustering_metrics.utils.</code><code class="descname">gapply</code><span class="sig-paren">(</span><em>n</em>, <em>func</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/utils.html#gapply"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.utils.gapply" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply a generating function n times to the argument list</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>n</strong> (<em>integer</em>) &#8211; number of times to apply a function</li>
+<li><strong>func</strong> (<em>instancemethod</em>) &#8211; a function to apply</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">collections.iterable</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.utils.get_df_subset">
+<code class="descclassname">clustering_metrics.utils.</code><code class="descname">get_df_subset</code><span class="sig-paren">(</span><em>df</em>, <em>fields</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/utils.html#get_df_subset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.utils.get_df_subset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Give a subset of a <code class="docutils literal"><span class="pre">pandas.DataFrame</span></code> instance</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.utils.getpropval">
+<code class="descclassname">clustering_metrics.utils.</code><code class="descname">getpropval</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/utils.html#getpropval"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.utils.getpropval" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a generator of properties and their values</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.utils.lapply">
+<code class="descclassname">clustering_metrics.utils.</code><code class="descname">lapply</code><span class="sig-paren">(</span><em>n</em>, <em>func</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/utils.html#lapply"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.utils.lapply" title="Permalink to this definition">¶</a></dt>
+<dd><p>Same as gapply, except returns a list</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>n</strong> (<em>integer</em>) &#8211; number of times to apply a function</li>
+<li><strong>func</strong> (<em>instancemethod</em>) &#8211; a function to apply</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.utils.random_string">
+<code class="descclassname">clustering_metrics.utils.</code><code class="descname">random_string</code><span class="sig-paren">(</span><em>length</em>, <em>alphabet='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/utils.html#random_string"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.utils.random_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a random string</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>length</strong> (<em>int</em>) &#8211; length of the string</li>
+<li><strong>alphabet</strong> (<em>str</em>) &#8211; alphabet to draw letters from</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">random string of specified length</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.utils.randset">
+<code class="descclassname">clustering_metrics.utils.</code><code class="descname">randset</code><span class="sig-paren">(</span><em>value_range=(0</em>, <em>10)</em>, <em>sample_range=(5</em>, <em>20)</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/utils.html#randset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.utils.randset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a random set of integers sampled</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a list of integers</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">tuple</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.utils.sigsim">
+<code class="descclassname">clustering_metrics.utils.</code><code class="descname">sigsim</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>dim</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/utils.html#sigsim"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.utils.sigsim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the similarity of the two signatures</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<em>object</em>) &#8211; signature 1</li>
+<li><strong>y</strong> (<em>object</em>) &#8211; signature 2</li>
+<li><strong>dim</strong> (<em>int</em>) &#8211; number of dimensions</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">similarity between two signatures</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.utils.sort_by_length">
+<code class="descclassname">clustering_metrics.utils.</code><code class="descname">sort_by_length</code><span class="sig-paren">(</span><em>els</em>, <em>reverse=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/utils.html#sort_by_length"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.utils.sort_by_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a list of els, sort its elements by len()
+in descending order. Returns a generator</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>els</strong> (<em>list</em>) &#8211; input list</li>
+<li><strong>reverse</strong> (<em>bool</em>) &#8211; Whether to reverse a list</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">collections.iterable</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.utils.tsorted">
+<code class="descclassname">clustering_metrics.utils.</code><code class="descname">tsorted</code><span class="sig-paren">(</span><em>a</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/utils.html#tsorted"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.utils.tsorted" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sort a tuple</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.utils.wrap_scalar">
+<code class="descclassname">clustering_metrics.utils.</code><code class="descname">wrap_scalar</code><span class="sig-paren">(</span><em>a</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/utils.html#wrap_scalar"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.utils.wrap_scalar" title="Permalink to this definition">¶</a></dt>
+<dd><p>If scalar, convert to tuple</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="clustering_metrics.ranking.html" class="btn btn-neutral" title="clustering_metrics.ranking module" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Eugene Scherba.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

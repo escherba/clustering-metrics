@@ -1,0 +1,312 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>clustering_metrics.hungarian module &mdash; Clustering-Metrics 0.0.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Clustering-Metrics 0.0.1 documentation" href="index.html"/>
+        <link rel="up" title="clustering_metrics package" href="clustering_metrics.html"/>
+        <link rel="next" title="clustering_metrics.metrics module" href="clustering_metrics.metrics.html"/>
+        <link rel="prev" title="clustering_metrics.fixes module" href="clustering_metrics.fixes.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Clustering-Metrics
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="clustering_metrics.html">clustering_metrics package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="clustering_metrics.html#subpackages">Subpackages</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="clustering_metrics.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="clustering_metrics.entropy.html">clustering_metrics.entropy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clustering_metrics.ext.html">clustering_metrics.ext module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clustering_metrics.fixes.html">clustering_metrics.fixes module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">clustering_metrics.hungarian module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clustering_metrics.metrics.html">clustering_metrics.metrics module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clustering_metrics.ranking.html">clustering_metrics.ranking module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clustering_metrics.utils.html">clustering_metrics.utils module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="clustering_metrics.html#module-clustering_metrics">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Clustering-Metrics</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="clustering_metrics.html">clustering_metrics package</a> &raquo;</li>
+      
+    <li>clustering_metrics.hungarian module</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/clustering_metrics.hungarian.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-clustering_metrics.hungarian">
+<span id="clustering-metrics-hungarian-module"></span><h1>clustering_metrics.hungarian module<a class="headerlink" href="#module-clustering_metrics.hungarian" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="clustering_metrics.hungarian.linear_sum_assignment">
+<code class="descclassname">clustering_metrics.hungarian.</code><code class="descname">linear_sum_assignment</code><span class="sig-paren">(</span><em>cost_matrix</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/hungarian.html#linear_sum_assignment"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.hungarian.linear_sum_assignment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Solve the linear sum assignment problem.</p>
+<p>The linear sum assignment problem is also known as minimum weight matching
+in bipartite graphs. A problem instance is described by a matrix C, where
+each C[i,j] is the cost of matching vertex i of the first partite set
+(a &#8220;worker&#8221;) and vertex j of the second set (a &#8220;job&#8221;). The goal is to find
+a complete assignment of workers to jobs of minimal cost.</p>
+<p>Formally, let X be a boolean matrix where <span class="math">\(X[i,j] = 1\)</span> iff row i is
+assigned to column j. Then the optimal assignment has cost</p>
+<div class="math">
+\[\min \sum_i \sum_j C_{i,j} X_{i,j}\]</div>
+<p>s.t. each row is assignment to at most one column, and each column to at
+most one row.</p>
+<p>This function can also solve a generalization of the classic assignment
+problem where the cost matrix is rectangular. If it has more rows than
+columns, then not every row needs to be assigned to a column, and vice
+versa.</p>
+<p>The method used is the Hungarian algorithm, also known as the Munkres or
+Kuhn-Munkres algorithm.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>cost_matrix</strong> : array</p>
+<blockquote>
+<div><p>The cost matrix of the bipartite graph.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>row_ind, col_ind</strong> : array</p>
+<blockquote class="last">
+<div><p>An array of row indices and one of corresponding column indices giving
+the optimal assignment. The cost of the assignment can be computed
+as <code class="docutils literal"><span class="pre">cost_matrix[row_ind,</span> <span class="pre">col_ind].sum()</span></code>. The row indices will be
+sorted; in the case of a square cost matrix they will be equal to
+<code class="docutils literal"><span class="pre">numpy.arange(cost_matrix.shape[0])</span></code>.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.17.0.</span></p>
+</div>
+<p class="rubric">References</p>
+<table class="docutils footnote" frame="void" id="id1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id6">[991]</a></td><td><a class="reference external" href="http://csclab.murraystate.edu/bob.pilgrim/445/munkres.html">R.A. Pilgrim&#8217;s page on Munkres&#8217; Assignemnt Algorithm</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id7">[992]</a></td><td><a class="reference external" href="http://doi.org/10.1002/nav.3800020109">Harold W. Kuhn. The Hungarian Method for the assignment problem.
+Naval Research Logistics Quarterly, 2:83-97, 1955.</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id8">[993]</a></td><td><a class="reference external" href="http://doi.org/10.1002/nav.3800030404">Harold W. Kuhn. Variants of the Hungarian method for assignment
+problems. Naval Research Logistics Quarterly, 3: 253-258, 1956.</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id9">[994]</a></td><td><a class="reference external" href="http://doi.org/10.1137/0105003">Munkres, J. Algorithms for the Assignment and Transportation Problems.
+J. SIAM, 5(1):32-38, March, 1957.</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id5" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id10">[995]</a></td><td><a class="reference external" href="https://en.wikipedia.org/wiki/Hungarian_algorithm">Wikipedia entry for the Hungarian algorithm</a></td></tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cost</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">row_ind</span><span class="p">,</span> <span class="n">col_ind</span> <span class="o">=</span> <span class="n">linear_sum_assignment</span><span class="p">(</span><span class="n">cost</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">col_ind</span>
+<span class="go">array([1, 0, 2])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cost</span><span class="p">[</span><span class="n">row_ind</span><span class="p">,</span> <span class="n">col_ind</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="go">5</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="clustering_metrics.metrics.html" class="btn btn-neutral float-right" title="clustering_metrics.metrics module" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="clustering_metrics.fixes.html" class="btn btn-neutral" title="clustering_metrics.fixes module" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Eugene Scherba.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

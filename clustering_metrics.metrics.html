@@ -1,0 +1,1901 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>clustering_metrics.metrics module &mdash; Clustering-Metrics 0.0.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Clustering-Metrics 0.0.1 documentation" href="index.html"/>
+        <link rel="up" title="clustering_metrics package" href="clustering_metrics.html"/>
+        <link rel="next" title="clustering_metrics.ranking module" href="clustering_metrics.ranking.html"/>
+        <link rel="prev" title="clustering_metrics.hungarian module" href="clustering_metrics.hungarian.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Clustering-Metrics
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="clustering_metrics.html">clustering_metrics package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="clustering_metrics.html#subpackages">Subpackages</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="clustering_metrics.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="clustering_metrics.entropy.html">clustering_metrics.entropy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clustering_metrics.ext.html">clustering_metrics.ext module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clustering_metrics.fixes.html">clustering_metrics.fixes module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clustering_metrics.hungarian.html">clustering_metrics.hungarian module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">clustering_metrics.metrics module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clustering_metrics.ranking.html">clustering_metrics.ranking module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clustering_metrics.utils.html">clustering_metrics.utils module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="clustering_metrics.html#module-clustering_metrics">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Clustering-Metrics</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="clustering_metrics.html">clustering_metrics package</a> &raquo;</li>
+      
+    <li>clustering_metrics.metrics module</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/clustering_metrics.metrics.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-clustering_metrics.metrics">
+<span id="clustering-metrics-metrics-module"></span><h1>clustering_metrics.metrics module<a class="headerlink" href="#module-clustering_metrics.metrics" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="clustering_metrics.metrics.ClusteringMetrics">
+<em class="property">class </em><code class="descclassname">clustering_metrics.metrics.</code><code class="descname">ClusteringMetrics</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ClusteringMetrics"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ClusteringMetrics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#clustering_metrics.metrics.ContingencyTable" title="clustering_metrics.metrics.ContingencyTable"><code class="xref py py-class docutils literal"><span class="pre">clustering_metrics.metrics.ContingencyTable</span></code></a></p>
+<p>Provides external clustering evaluation metrics</p>
+<p>A subclass of ContingencyTable that builds a pairwise co-association matrix
+for clustering comparisons.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Y1</span> <span class="o">=</span> <span class="p">{(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Y2</span> <span class="o">=</span> <span class="p">{(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">6</span><span class="p">,)}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cm</span> <span class="o">=</span> <span class="n">ClusteringMetrics</span><span class="o">.</span><span class="n">from_partitions</span><span class="p">(</span><span class="n">Y1</span><span class="p">,</span> <span class="n">Y2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cm</span><span class="o">.</span><span class="n">split_join_similarity</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="go">0.75</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="clustering_metrics.metrics.ClusteringMetrics.adjusted_fowlkes_mallows">
+<code class="descname">adjusted_fowlkes_mallows</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ClusteringMetrics.adjusted_fowlkes_mallows"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ClusteringMetrics.adjusted_fowlkes_mallows" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fowlkes-Mallows index adjusted for chance</p>
+<p>Adjustmend for chance done by subtracting the expected (Model 3)
+pairwise matrix from the actual one. This coefficient appears to be
+uniformly more powerful than the unadjusted version. Compared to ARI
+and product-moment correlation coefficients, this index is generally
+less powerful except in particularly poorly specified cases, e.g.
+clusters of unequal size sampled with high error rate from a large
+population.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ClusteringMetrics.adjusted_rand_index">
+<code class="descname">adjusted_rand_index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ClusteringMetrics.adjusted_rand_index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ClusteringMetrics.adjusted_rand_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rand score (accuracy) corrected for chance</p>
+<p>This is a memory-efficient replacement for a similar Scikit-Learn
+function.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ClusteringMetrics.fowlkes_mallows">
+<code class="descname">fowlkes_mallows</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ClusteringMetrics.fowlkes_mallows"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ClusteringMetrics.fowlkes_mallows" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fowlkes-Mallows index for partition comparison</p>
+<p>Defined as the Ochiai coefficient on the pairwise matrix</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ClusteringMetrics.get_score">
+<code class="descname">get_score</code><span class="sig-paren">(</span><em>scoring_method</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ClusteringMetrics.get_score"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ClusteringMetrics.get_score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate specified scoring method</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ClusteringMetrics.mirkin_match_coeff">
+<code class="descname">mirkin_match_coeff</code><span class="sig-paren">(</span><em>normalize=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ClusteringMetrics.mirkin_match_coeff"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ClusteringMetrics.mirkin_match_coeff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Equivalence match (similarity) coefficient</p>
+<p>Derivation of distance variant described in <a class="reference internal" href="#r1" id="id1">[R1]</a>. This measure is
+nearly identical to pairwise unadjusted Rand index, as can be seen from
+the definition (Mirkin match formula uses square while pairwise
+accuracy uses n choose 2).</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">C3</span> <span class="o">=</span> <span class="p">[{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">},</span> <span class="p">{</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">},</span> <span class="p">{</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">}]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C4</span> <span class="o">=</span> <span class="p">[{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">},</span> <span class="p">{</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">},</span> <span class="p">{</span><span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">}]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">ClusteringMetrics</span><span class="o">.</span><span class="n">from_partitions</span><span class="p">(</span><span class="n">C3</span><span class="p">,</span> <span class="n">C4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">mirkin_match_coeff</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="go">216.0</span>
+</pre></div>
+</div>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R1]</td><td><em>(<a class="fn-backref" href="#id1">1</a>, <a class="fn-backref" href="#id2">2</a>)</em> <a class="reference external" href="http://www.amazon.com/dp/0792341597">Mirkin, B (1996). Mathematical Classification and Clustering.
+Kluwer Academic Press: Boston-Dordrecht.</a></td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ClusteringMetrics.mirkin_mismatch_coeff">
+<code class="descname">mirkin_mismatch_coeff</code><span class="sig-paren">(</span><em>normalize=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ClusteringMetrics.mirkin_mismatch_coeff"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ClusteringMetrics.mirkin_mismatch_coeff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Equivalence mismatch (distance) coefficient</p>
+<p>Direct formulation (without the pairwise abstraction):</p>
+<div class="math">
+\[M = \sum_{i=1}^{R} r_{i}^2 + \sum_{j=1}^{C} c_{j}^2 - \sum_{i=1}^{R}\sum_{j=1}^{C} n_{ij}^2,\]</div>
+<p>where <span class="math">\(r\)</span> and <span class="math">\(c\)</span> are row and column margins, respectively,
+with <span class="math">\(R\)</span> and <span class="math">\(C\)</span> cardinalities.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">C1</span> <span class="o">=</span> <span class="p">[{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">},</span> <span class="p">{</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">}]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C2</span> <span class="o">=</span> <span class="p">[{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">},</span> <span class="p">{</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">}]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">ClusteringMetrics</span><span class="o">.</span><span class="n">from_partitions</span><span class="p">(</span><span class="n">C1</span><span class="p">,</span> <span class="n">C2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">mirkin_mismatch_coeff</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="go">56.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="clustering_metrics.metrics.ClusteringMetrics.pairwise">
+<code class="descname">pairwise</code><a class="headerlink" href="#clustering_metrics.metrics.ClusteringMetrics.pairwise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Confusion matrix on all pair assignments from two partitions</p>
+<p>A partition of N is a set of disjoint clusters s.t. every point in N
+belongs to one and only one cluster and every cluster consists of at
+least one point. Given two partitions A and B and a co-occurrence
+matrix of point pairs,</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="3%" />
+<col width="97%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>TP</td>
+<td>count of pairs found in the same partition in both A and B</td>
+</tr>
+<tr class="row-even"><td>FP</td>
+<td>count of pairs found in the same partition in A but not in B</td>
+</tr>
+<tr class="row-odd"><td>FN</td>
+<td>count of pairs found in the same partition in B but not in A</td>
+</tr>
+<tr class="row-even"><td>TN</td>
+<td>count of pairs in different partitions in both A and B</td>
+</tr>
+</tbody>
+</table>
+<p>Note that although the resulting confusion matrix has the form of a
+correlation table for two binary variables, it is not symmetric if the
+original partitions are not symmetric.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ClusteringMetrics.rand_index">
+<code class="descname">rand_index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ClusteringMetrics.rand_index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ClusteringMetrics.rand_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pairwise accuracy (uncorrected for chance)</p>
+<p>Don&#8217;t use this metric; it is only added here as the &#8220;worst reference&#8221;</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2">
+<em class="property">class </em><code class="descclassname">clustering_metrics.metrics.</code><code class="descname">ConfusionMatrix2</code><span class="sig-paren">(</span><em>TP=None</em>, <em>FN=None</em>, <em>FP=None</em>, <em>TN=None</em>, <em>rows=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#clustering_metrics.metrics.ContingencyTable" title="clustering_metrics.metrics.ContingencyTable"><code class="xref py py-class docutils literal"><span class="pre">clustering_metrics.metrics.ContingencyTable</span></code></a>, <code class="xref py py-class docutils literal"><span class="pre">pymaptools.containers.OrderedCrossTab</span></code></p>
+<p>A confusion matrix (2x2 contingency table)</p>
+<p>For a binary variable (where one is measuring either presence vs absence of
+a particular feature), a confusion matrix where the ground truth levels are
+rows looks like this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cm</span> <span class="o">=</span> <span class="n">ConfusionMatrix2</span><span class="p">(</span><span class="n">TP</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">FN</span><span class="o">=</span><span class="mi">31</span><span class="p">,</span> <span class="n">FP</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">TN</span><span class="o">=</span><span class="mi">156</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cm</span>
+<span class="go">ConfusionMatrix2(rows=[[20, 31], [14, 156]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cm</span><span class="o">.</span><span class="n">to_array</span><span class="p">()</span>
+<span class="go">array([[ 20,  31],</span>
+<span class="go">       [ 14, 156]])</span>
+</pre></div>
+</div>
+<p>For a nominal variable, the negative class becomes a distinct label, and
+TP/FP/FN/TN terminology does not apply, although the algorithms should work
+the same way (with the obvious distinction that different assumptions will
+be made). For a convenient reference about some of the attributes and
+methods defined here see <a class="reference internal" href="#r2" id="id3">[R2]</a>.</p>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R2]</td><td><em>(<a class="fn-backref" href="#id3">1</a>, <a class="fn-backref" href="#id4">2</a>)</em> <a class="reference external" href="https://en.wikipedia.org/wiki/Confusion_matrix">Wikipedia entry for Confusion Matrix</a></td></tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="83%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>TP :</td>
+<td>True positive count</td>
+</tr>
+<tr class="row-even"><td>FP :</td>
+<td>False positive count</td>
+</tr>
+<tr class="row-odd"><td>TN :</td>
+<td>True negative count</td>
+</tr>
+<tr class="row-even"><td>FN :</td>
+<td>False negative count</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.ACC">
+<code class="descname">ACC</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.ACC"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.ACC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accuracy (Rand Index)</p>
+<p>Synonyms: Simple Matching Coefficient, Rand Index</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.DOR">
+<code class="descname">DOR</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.DOR"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.DOR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Diagnostics odds ratio</p>
+<p>Defined as</p>
+<div class="math">
+\[DOR = \frac{PLL}{NLL}.\]</div>
+<p>Odds ratio has a number of interesting/desirable properties, however
+its one peculiarity that leaves us looking for an alternative measure
+is that on L-shaped matrices like,</p>
+<div class="math">
+\[\begin{split}\begin{matrix} 77 &amp; 0 \\ 5 &amp; 26 \end{matrix}\end{split}\]</div>
+<p>its value will be infinity.</p>
+<p>Also known as: crude odds ratio, Mantel-Haenszel estimate.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.FDR">
+<code class="descname">FDR</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.FDR"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.FDR" title="Permalink to this definition">¶</a></dt>
+<dd><p>False discovery rate</p>
+<p>Synonyms: false alarm ratio, probability of false alarm</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.FN">
+<code class="descname">FN</code><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.FN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.FNR">
+<code class="descname">FNR</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.FNR"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.FNR" title="Permalink to this definition">¶</a></dt>
+<dd><p>False Negative Rate</p>
+<p>Synonyms: miss rate, frequency of misses</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.FOR">
+<code class="descname">FOR</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.FOR"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.FOR" title="Permalink to this definition">¶</a></dt>
+<dd><p>False omission rate</p>
+<p>Synonyms: detection failure ratio, miss ratio</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.FP">
+<code class="descname">FP</code><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.FP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.FPR">
+<code class="descname">FPR</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.FPR"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.FPR" title="Permalink to this definition">¶</a></dt>
+<dd><p>False Positive Rate</p>
+<p>Synonyms: fallout</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.NLL">
+<code class="descname">NLL</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.NLL"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.NLL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Negative likelihood ratio</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.NPV">
+<code class="descname">NPV</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.NPV"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.NPV" title="Permalink to this definition">¶</a></dt>
+<dd><p>Negative Predictive Value</p>
+<p>Synonyms: frequency of correct null forecasts</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.PLL">
+<code class="descname">PLL</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.PLL"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.PLL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Positive likelihood ratio</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.PPV">
+<code class="descname">PPV</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.PPV"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.PPV" title="Permalink to this definition">¶</a></dt>
+<dd><p>Positive Predictive Value (Precision)</p>
+<p>Synonyms: precision, frequency of hits, post agreement, success ratio,
+correct alarm ratio</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.TN">
+<code class="descname">TN</code><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.TN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.TNR">
+<code class="descname">TNR</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.TNR"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.TNR" title="Permalink to this definition">¶</a></dt>
+<dd><p>True Negative Rate (Specificity)</p>
+<p>Synonyms: specificity</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.TP">
+<code class="descname">TP</code><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.TP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.TPR">
+<code class="descname">TPR</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.TPR"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.TPR" title="Permalink to this definition">¶</a></dt>
+<dd><p>True Positive Rate (Recall, Sensitivity)</p>
+<p>Synonyms: recall, sensitivity, hit rate, probability of detection,
+prefigurance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.accuracy">
+<code class="descname">accuracy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.accuracy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accuracy (Rand Index)</p>
+<p>Synonyms: Simple Matching Coefficient, Rand Index</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.bias_index">
+<code class="descname">bias_index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.bias_index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.bias_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bias Index</p>
+<p>In interrater agreement studies, bias is the extent to which the raters
+disagree on the positive-negative ratio of the binary variable studied.
+Example of a confusion matrix with high bias of rater A (represented by
+rows) towards negative rating:</p>
+<div class="math">
+\[\begin{split}\begin{matrix} 17 &amp; 14 \\ 78 &amp; 81 \end{matrix}\end{split}\]</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#clustering_metrics.metrics.ConfusionMatrix2.prevalence_index" title="clustering_metrics.metrics.ConfusionMatrix2.prevalence_index"><code class="xref py py-obj docutils literal"><span class="pre">prevalence_index</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.cole_coeff">
+<code class="descname">cole_coeff</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.cole_coeff"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.cole_coeff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cole coefficient</p>
+<p>This is exactly the same coefficient as <em>Lewontin&#8217;s D&#8217;</em>. It is defined
+as:</p>
+<div class="math">
+\[D' = \frac{cov}{cov_{max}},\]</div>
+<p>where <span class="math">\(cov_{max}\)</span> is the maximum covariance attainable under the
+given marginal distribution. When <span class="math">\(ad \geq bc\)</span>, this coefficient
+is equivalent to Loevinger&#8217;s H.</p>
+<p>Synonyms: C7, Lewontin&#8217;s D&#8217;.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#clustering_metrics.metrics.ConfusionMatrix2.diseq_coeff" title="clustering_metrics.metrics.ConfusionMatrix2.diseq_coeff"><code class="xref py py-obj docutils literal"><span class="pre">diseq_coeff</span></code></a>, <a class="reference internal" href="#clustering_metrics.metrics.ConfusionMatrix2.loevinger_coeff" title="clustering_metrics.metrics.ConfusionMatrix2.loevinger_coeff"><code class="xref py py-obj docutils literal"><span class="pre">loevinger_coeff</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.covar">
+<code class="descname">covar</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.covar"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.covar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Covariance (determinant of a 2x2 matrix)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.dice_coeff">
+<code class="descname">dice_coeff</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.dice_coeff"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.dice_coeff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dice similarity (Nei-Li coefficient)</p>
+<p>This is the same as F1-score, but calculated slightly differently here.
+Note that Dice can be zero if total number of positives is zero, but
+F-score is undefined in that case (because recall is undefined).</p>
+<p>When adjusted for chance, this coefficient becomes identical to
+<code class="docutils literal"><span class="pre">kappa</span></code> <a class="reference internal" href="#r3" id="id5">[R3]</a>.</p>
+<p>Since this coefficient is monotonic with respect to Jaccard and Sokal
+Sneath coefficients, its resolving power is identical to that of the
+other two.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#clustering_metrics.metrics.ConfusionMatrix2.jaccard_coeff" title="clustering_metrics.metrics.ConfusionMatrix2.jaccard_coeff"><code class="xref py py-obj docutils literal"><span class="pre">jaccard_coeff</span></code></a>, <a class="reference internal" href="#clustering_metrics.metrics.ConfusionMatrix2.sokal_sneath_coeff" title="clustering_metrics.metrics.ConfusionMatrix2.sokal_sneath_coeff"><code class="xref py py-obj docutils literal"><span class="pre">sokal_sneath_coeff</span></code></a></p>
+</div>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R3]</td><td><em>(<a class="fn-backref" href="#id5">1</a>, <a class="fn-backref" href="#id6">2</a>)</em> <a class="reference external" href="http://doi.org/10.1007/s00357-006-0017-z">Albatineh, A. N., Niewiadomska-Bugaj, M., &amp; Mihalko, D. (2006).
+On similarity indices and correction for chance agreement.
+Journal of Classification, 23(2), 301-313.</a></td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.diseq_coeff">
+<code class="descname">diseq_coeff</code><span class="sig-paren">(</span><em>standardize=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.diseq_coeff"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.diseq_coeff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Linkage disequilibrium</p>
+<div class="math">
+\[D = \frac{a}{n} - \frac{p_1}{n}\frac{p_2}{n} = \frac{cov}{n^2}\]</div>
+<p>If <code class="docutils literal"><span class="pre">standardize=True</span></code>, this measure is further normalized to maximum
+covariance attainable under given marginal distribution, and the
+resulting index is called <em>Lewontin&#8217;s D&#8217;</em>.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#clustering_metrics.metrics.ConfusionMatrix2.cole_coeff" title="clustering_metrics.metrics.ConfusionMatrix2.cole_coeff"><code class="xref py py-obj docutils literal"><span class="pre">cole_coeff</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.frequency_bias">
+<code class="descname">frequency_bias</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.frequency_bias"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.frequency_bias" title="Permalink to this definition">¶</a></dt>
+<dd><p>Frequency bias</p>
+<p>How much more often is rater B is predicting TP</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.from_ccw">
+<em class="property">classmethod </em><code class="descname">from_ccw</code><span class="sig-paren">(</span><em>TP</em>, <em>FP</em>, <em>TN</em>, <em>FN</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.from_ccw"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.from_ccw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate from counter-clockwise form of TP FP TN FN</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.from_random_counts">
+<em class="property">classmethod </em><code class="descname">from_random_counts</code><span class="sig-paren">(</span><em>low=0</em>, <em>high=100</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.from_random_counts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.from_random_counts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate from random values</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.from_sets">
+<em class="property">classmethod </em><code class="descname">from_sets</code><span class="sig-paren">(</span><em>set1</em>, <em>set2</em>, <em>universe_size=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.from_sets"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.from_sets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate from two sets</p>
+<p>Accepts an optional universe_size parameter which allows us to take into
+account TN class and use probability-based similarity metrics.  Most of
+the time, however, set comparisons are performed ignoring this parameter
+and relying instead on non-probabilistic indices such as Jaccard&#8217;s or
+Dice.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.fscore">
+<code class="descname">fscore</code><span class="sig-paren">(</span><em>beta=1.0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.fscore"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.fscore" title="Permalink to this definition">¶</a></dt>
+<dd><p>F-score</p>
+<p>As beta tends to infinity, F-score will approach recall.  As beta tends
+to zero, F-score will approach precision. A similarity coefficient that
+uses a similar definition is called Dice coefficient.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#clustering_metrics.metrics.ConfusionMatrix2.dice_coeff" title="clustering_metrics.metrics.ConfusionMatrix2.dice_coeff"><code class="xref py py-obj docutils literal"><span class="pre">dice_coeff</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.get_score">
+<code class="descname">get_score</code><span class="sig-paren">(</span><em>scoring_method</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.get_score"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.get_score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate specified scoring method</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.hypergeometric">
+<code class="descname">hypergeometric</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.hypergeometric"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.hypergeometric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hypergeometric association score</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.informedness">
+<code class="descname">informedness</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.informedness"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.informedness" title="Permalink to this definition">¶</a></dt>
+<dd><p>Informedness (recall corrected for chance)</p>
+<p>A complement to markedness. Can be thought of as recall corrected for
+chance. Alternative formulations:</p>
+<div class="math">
+\[\begin{split}Informedness &amp;= Sensitivity + Specificity - 1.0 \\
+             &amp;= TPR - FPR\end{split}\]</div>
+<p>In the case of ranked predictions, TPR can be plotted on the y-axis
+with FPR on the x-axis. The resulting plot is known as Receiver
+Operating Characteristic (ROC) curve <a class="reference internal" href="#r4" id="id7">[R4]</a>. The delta between a point on
+the ROC curve and the diagonal is equal to the value of informedness at
+the given FPR threshold.</p>
+<p>This measure was first proposed for evaluating medical diagnostics
+tests in <a class="reference internal" href="#r5" id="id8">[R5]</a>, and was also used in meteorology under the name &#8220;True
+Skill Score&#8221; <a class="reference internal" href="#r6" id="id9">[R6]</a>.</p>
+<p>Synonyms: Youden&#8217;s J, True Skill Score, Hannssen-Kuiper Score,
+Attributable Risk, DeltaP.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#clustering_metrics.metrics.ConfusionMatrix2.markedness" title="clustering_metrics.metrics.ConfusionMatrix2.markedness"><code class="xref py py-obj docutils literal"><span class="pre">markedness</span></code></a></p>
+</div>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R4]</td><td><em>(<a class="fn-backref" href="#id7">1</a>, <a class="fn-backref" href="#id10">2</a>)</em> <a class="reference external" href="http://doi.org/10.1016/j.patrec.2005.10.010">Fawcett, T. (2006). An introduction to ROC analysis. Pattern
+recognition letters, 27(8), 861-874.</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="r5" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R5]</td><td><em>(<a class="fn-backref" href="#id8">1</a>, <a class="fn-backref" href="#id11">2</a>)</em> <a class="reference external" href="http://www.ncbi.nlm.nih.gov/pubmed/15405679">Youden, W. J. (1950). Index for rating diagnostic tests. Cancer,
+3(1), 32-35.</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="r6" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R6]</td><td><em>(<a class="fn-backref" href="#id9">1</a>, <a class="fn-backref" href="#id12">2</a>)</em> <a class="reference external" href="http://journals.ametsoc.org/doi/abs/10.1175/1520-0434%281990%29005%3C0576%3AOSMOSI%3E2.0.CO%3B2">Doswell III, C. A., Davies-Jones, R., &amp; Keller, D. L. (1990). On
+summary measures of skill in rare event forecasting based on
+contingency tables. Weather and Forecasting, 5(4), 576-585.</a></td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.jaccard_coeff">
+<code class="descname">jaccard_coeff</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.jaccard_coeff"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.jaccard_coeff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Jaccard similarity coefficient</p>
+<p>Jaccard coefficient has an interesting property in that in L-shaped
+matrices where either FP or FN are close to zero, its scale becomes
+equivalent to the scale of either recall or precision respectively.</p>
+<p>Since this coefficient is monotonic with respect to Dice (F-score) and
+Sokal Sneath coefficients, its resolving power is identical to that of
+the other two.</p>
+<p>Jaccard index does not belong to the L-family of association indices
+and thus cannot be adjusted for chance by subtracting the its value
+under fixed-margin null model. Instead, its expectation must be
+calculated, for which no analytical solution exists <a class="reference internal" href="#r7" id="id13">[R7]</a>.</p>
+<p>Synonyms: critical success index</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#clustering_metrics.metrics.ConfusionMatrix2.dice_coeff" title="clustering_metrics.metrics.ConfusionMatrix2.dice_coeff"><code class="xref py py-obj docutils literal"><span class="pre">dice_coeff</span></code></a>, <a class="reference internal" href="#clustering_metrics.metrics.ConfusionMatrix2.sokal_sneath_coeff" title="clustering_metrics.metrics.ConfusionMatrix2.sokal_sneath_coeff"><code class="xref py py-obj docutils literal"><span class="pre">sokal_sneath_coeff</span></code></a></p>
+</div>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r7" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R7]</td><td><em>(<a class="fn-backref" href="#id13">1</a>, <a class="fn-backref" href="#id14">2</a>)</em> <a class="reference external" href="http://doi.org/10.1007/s11634-011-0090-y">Albatineh, A. N., &amp; Niewiadomska-Bugaj, M. (2011). Correcting
+Jaccard and other similarity indices for chance agreement in
+cluster analysis. Advances in Data Analysis and Classification,
+5(3), 179-200.</a></td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.kappa">
+<code class="descname">kappa</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.kappa"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.kappa" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cohen&#8217;s Kappa (Interrater Agreement)</p>
+<p>Kappa coefficient is best known in the psychology field where it was
+introduced to measure interrater agreement <a class="reference internal" href="#r8" id="id15">[R8]</a>. It has also been used
+in replication studies <a class="reference internal" href="#r9" id="id16">[R9]</a>, clustering evaluation <a class="reference internal" href="#r10" id="id17">[R10]</a>, image
+segmentation <a class="reference internal" href="#r11" id="id18">[R11]</a>, feature selection <a class="reference internal" href="#r12" id="id19">[R12]</a> <a class="reference internal" href="#r13" id="id20">[R13]</a>, forecasting <a class="reference internal" href="#r14" id="id21">[R14]</a>, and
+network link prediction <a class="reference internal" href="#r15" id="id22">[R15]</a>. The first derivation of this measure is
+in <a class="reference internal" href="#r16" id="id23">[R16]</a>.</p>
+<p>Kappa can be derived by correcting either Accuracy (Simple Matching
+Coefficient, Rand Index) or F1-score (Dice Coefficient) for chance.
+Conversely, Dice coefficient can be derived from Kappa by obtaining its
+limit as <span class="math">\(d \rightarrow \infty\)</span>. Normalizing Kappa by its
+maximum value given fixed-margin table gives Loevinger&#8217;s H.</p>
+<p>Synonyms: Adjusted Rand Index, Heidke Skill Score</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#clustering_metrics.metrics.ConfusionMatrix2.kappas" title="clustering_metrics.metrics.ConfusionMatrix2.kappas"><code class="xref py py-obj docutils literal"><span class="pre">kappas</span></code></a>, <a class="reference internal" href="#clustering_metrics.metrics.ConfusionMatrix2.loevinger_coeff" title="clustering_metrics.metrics.ConfusionMatrix2.loevinger_coeff"><code class="xref py py-obj docutils literal"><span class="pre">loevinger_coeff</span></code></a>, <a class="reference internal" href="#clustering_metrics.metrics.ConfusionMatrix2.matthews_corr" title="clustering_metrics.metrics.ConfusionMatrix2.matthews_corr"><code class="xref py py-obj docutils literal"><span class="pre">matthews_corr</span></code></a>, <a class="reference internal" href="#clustering_metrics.metrics.ConfusionMatrix2.dice_coeff" title="clustering_metrics.metrics.ConfusionMatrix2.dice_coeff"><code class="xref py py-obj docutils literal"><span class="pre">dice_coeff</span></code></a></p>
+</div>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r8" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R8]</td><td><em>(<a class="fn-backref" href="#id15">1</a>, <a class="fn-backref" href="#id25">2</a>)</em> <a class="reference external" href="https://doi.org/10.1177/001316446002000104">Cohen, J. (1960). A coefficient of agreement for nominal scales.
+Educational and psychological measurement, 20(1), 37-46.</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="r9" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R9]</td><td><em>(<a class="fn-backref" href="#id16">1</a>, <a class="fn-backref" href="#id26">2</a>)</em> <a class="reference external" href="https://doi.org/10.1142/9789812832153_0010">Arabie, P., Hubert, L. J., &amp; De Soete, G. (1996). Clustering
+validation: results and implications for applied analyses (p.
+341).  World Scientific Pub Co Inc.</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="r10" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R10]</td><td><em>(<a class="fn-backref" href="#id17">1</a>, <a class="fn-backref" href="#id27">2</a>)</em> <a class="reference external" href="https://doi.org/10.1007/s00357-008-9023-7">Warrens, M. J. (2008). On the equivalence of Cohen&#8217;s kappa and
+the Hubert-Arabie adjusted Rand index. Journal of Classification,
+25(2), 177-183.</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="r11" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R11]</td><td><em>(<a class="fn-backref" href="#id18">1</a>, <a class="fn-backref" href="#id28">2</a>)</em> <a class="reference external" href="http://books.nips.cc/papers/files/nips22/NIPS2009_0084.pdf">Briggman, K., Denk, W., Seung, S., Helmstaedter, M. N., &amp;
+Turaga, S. C. (2009). Maximin affinity learning of image
+segmentation. In Advances in Neural Information Processing
+Systems (pp. 1865-1873).</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="r12" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R12]</td><td><em>(<a class="fn-backref" href="#id19">1</a>, <a class="fn-backref" href="#id29">2</a>)</em> <a class="reference external" href="https://doi.org/10.1007/978-3-642-04277-5_18">Santos, J. M., &amp; Embrechts, M. (2009). On the use of the
+adjusted rand index as a metric for evaluating supervised
+classification. In Artificial neural networks - ICANN 2009 (pp.
+175-184).  Springer Berlin Heidelberg.</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="r13" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R13]</td><td><em>(<a class="fn-backref" href="#id20">1</a>, <a class="fn-backref" href="#id30">2</a>)</em> <a class="reference external" href="http://dx.doi.org/10.1109/ISDA.2010.5687073">Santos, J. M., &amp; Ramos, S. (2010, November). Using a clustering
+similarity measure for feature selection in high dimensional
+data sets.  In Intelligent Systems Design and Applications
+(ISDA), 2010 10th International Conference on (pp. 900-905).
+IEEE.</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="r14" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R14]</td><td><em>(<a class="fn-backref" href="#id21">1</a>, <a class="fn-backref" href="#id31">2</a>)</em> <a class="reference external" href="http://journals.ametsoc.org/doi/abs/10.1175/1520-0434%281990%29005%3C0576%3AOSMOSI%3E2.0.CO%3B2">Doswell III, C. A., Davies-Jones, R., &amp; Keller, D. L. (1990). On
+summary measures of skill in rare event forecasting based on
+contingency tables. Weather and Forecasting, 5(4), 576-585.</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="r15" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R15]</td><td><em>(<a class="fn-backref" href="#id22">1</a>, <a class="fn-backref" href="#id32">2</a>)</em> <a class="reference external" href="http://dx.doi.org/10.1016/j.socnet.2015.03.002">Hoffman, M., Steinley, D., &amp; Brusco, M. J. (2015). A note on
+using the adjusted Rand index for link prediction in networks.
+Social Networks, 42, 72-79.</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="r16" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R16]</td><td><em>(<a class="fn-backref" href="#id23">1</a>, <a class="fn-backref" href="#id33">2</a>)</em> <a class="reference external" href="http://www.jstor.org/stable/519729">Heidke, Paul. &#8220;Berechnung des Erfolges und der Gute der
+Windstarkevorhersagen im Sturmwarnungsdienst.&#8221; Geografiska
+Annaler (1926): 301-349.</a></td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.kappas">
+<code class="descname">kappas</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.kappas"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.kappas" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pairwise precision and recall corrected for chance</p>
+<p>Kappa decomposes into a pair of components (regression coefficients),
+<span class="math">\(\kappa_0\)</span> (precision-like) and <span class="math">\(\kappa_1\)</span> (recall-like),
+of which it is a harmonic mean:</p>
+<div class="math">
+\[\kappa_0 = \frac{cov}{p_2 q_1}, \quad \kappa_1 = \frac{cov}{p_1 q_2}.\]</div>
+<p>These coefficients are interesting because they represent precision and
+recall, respectively, corrected for chance by subtracting the
+fixed-margin null model. In clustering context, <span class="math">\(\kappa_0\)</span>
+corresponds to pairwise homogeneity, while <span class="math">\(\kappa_1\)</span>
+corresponds to pairwise completeness. The geometric mean of the two
+components is equal to Matthews&#8217; Correlation Coefficient, while their
+maximum is equal to Loevinger&#8217;s H when <span class="math">\(ad \geq bc\)</span>.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#clustering_metrics.metrics.ConfusionMatrix2.kappa" title="clustering_metrics.metrics.ConfusionMatrix2.kappa"><code class="xref py py-obj docutils literal"><span class="pre">kappa</span></code></a>, <a class="reference internal" href="#clustering_metrics.metrics.ConfusionMatrix2.loevinger_coeff" title="clustering_metrics.metrics.ConfusionMatrix2.loevinger_coeff"><code class="xref py py-obj docutils literal"><span class="pre">loevinger_coeff</span></code></a>, <a class="reference internal" href="#clustering_metrics.metrics.ConfusionMatrix2.matthews_corr" title="clustering_metrics.metrics.ConfusionMatrix2.matthews_corr"><code class="xref py py-obj docutils literal"><span class="pre">matthews_corr</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.lform">
+<code class="descname">lform</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.lform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.lform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Factory creating L-form version of current table</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.loevinger_coeff">
+<code class="descname">loevinger_coeff</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.loevinger_coeff"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.loevinger_coeff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loevinger&#8217;s Index of Homogeneity (Loevinger&#8217;s H)</p>
+<p>Given a clustering (numbers correspond to class labels, inner groups to
+clusters) with perfect homogeneity but imperfect completeness, Loevinger
+coefficient returns a perfect score on the corresponding pairwise
+co-association matrix:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">clusters</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">ClusteringMetrics</span><span class="o">.</span><span class="n">from_clusters</span><span class="p">(</span><span class="n">clusters</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">pairwise</span><span class="o">.</span><span class="n">loevinger_coeff</span><span class="p">()</span>
+<span class="go">1.0</span>
+</pre></div>
+</div>
+<p>At the same time, kappa and Matthews coefficients are 0.63 and 0.68,
+respectively. Loevinger coefficient will also return a perfect score
+for the dual situation:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">clusters</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">ClusteringMetrics</span><span class="o">.</span><span class="n">from_clusters</span><span class="p">(</span><span class="n">clusters</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">pairwise</span><span class="o">.</span><span class="n">loevinger_coeff</span><span class="p">()</span>
+<span class="go">1.0</span>
+</pre></div>
+</div>
+<p>Loevinger&#8217;s coefficient has a unique property: all two-way correlation
+coefficients on a 2x2 table that are in L-family (including Kappa and
+Matthews&#8217; correlation coefficient) become Loevinger&#8217;s coefficient after
+normalization by maximum value <a class="reference internal" href="#r18" id="id34">[R18]</a>. However, this measure is not
+symmetric: when <span class="math">\(ad &lt; bc\)</span>, it does not have a lower bound. For an
+equivalent symmetric measure, use Cole coefficient.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#clustering_metrics.metrics.ConfusionMatrix2.cole_coeff" title="clustering_metrics.metrics.ConfusionMatrix2.cole_coeff"><code class="xref py py-obj docutils literal"><span class="pre">cole_coeff</span></code></a></p>
+</div>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r18" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R18]</td><td><em>(<a class="fn-backref" href="#id34">1</a>, <a class="fn-backref" href="#id35">2</a>)</em> <a class="reference external" href="https://doi.org/10.1007/s11336-008-9070-3">Warrens, M. J. (2008). On association coefficients for 2x2
+tables and properties that do not depend on the marginal
+distributions.  Psychometrika, 73(4), 777-789.</a></td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.markedness">
+<code class="descname">markedness</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.markedness"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.markedness" title="Permalink to this definition">¶</a></dt>
+<dd><p>Markedness (precision corrected for chance)</p>
+<p>A complement to informedness. Can be thought of as precision corrected
+for chance. Alternative formulations:</p>
+<div class="math">
+\[\begin{split}Markedness &amp;= PPV + NPV - 1.0 \\
+           &amp;= PPV - FOR\end{split}\]</div>
+<p>In the case of ranked predictions, PPV can be plotted on the y-axis
+with FOR on the x-axis. The resulting plot is known as Relative
+Operating Level (ROL) curve <a class="reference internal" href="#r19" id="id36">[R19]</a>. The delta between a point on the ROL
+curve and the diagonal is equal to the value of markedness at the given
+FOR threshold.</p>
+<p>Synonyms: DeltaP′</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#clustering_metrics.metrics.ConfusionMatrix2.informedness" title="clustering_metrics.metrics.ConfusionMatrix2.informedness"><code class="xref py py-obj docutils literal"><span class="pre">informedness</span></code></a></p>
+</div>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r19" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R19]</td><td><em>(<a class="fn-backref" href="#id36">1</a>, <a class="fn-backref" href="#id37">2</a>)</em> <a class="reference external" href="https://doi.org/10.1256/003590002320603584">Mason, S. J., &amp; Graham, N. E. (2002). Areas beneath the
+relative operating characteristics (ROC) and relative
+operating levels (ROL) curves: Statistical significance
+and interpretation. Quarterly Journal of the Royal
+Meteorological Society, 128(584), 2145-2166.</a></td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.matthews_corr">
+<code class="descname">matthews_corr</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.matthews_corr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.matthews_corr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Matthews Correlation Coefficient (Phi coefficient)</p>
+<p>MCC is directly related to the Chi-square statistic. Its value is equal
+to the Chi-square value normalized by the maximum value the Chi-square
+can achieve with given margins (for a 2x2 table, the maximum Chi-square
+score is equal to the grand total N) transformed to correlation space
+by taking a square root.</p>
+<p>MCC is a also a geometric mean of informedness and markedness (the
+regression coefficients of the problem and its dual). As <span class="math">\(d
+\rightarrow \infty\)</span>, MCC turns into Ochiai coefficient. Unlike with
+Kappa, normalizing the corresponding similarity coefficient for chance
+by subtracting the fixed-margin null model does not produce MCC in
+return, but gives a different index with equivalent discriminating
+power to that of MCC. Normalizing MCC by its maximum value under fixed-
+margin model gives Loevinger&#8217;s H.</p>
+<p>Empirically, the discriminating power of MCC is sligtly better than
+that of <code class="docutils literal"><span class="pre">mp_corr</span></code> and <code class="docutils literal"><span class="pre">kappa</span></code>, and is only lower than that of
+<code class="docutils literal"><span class="pre">loevinger_coeff</span></code> under highly biased conditions. While MCC is a
+commonly used and recently preferred measure of prediction and
+reproducibility <a class="reference internal" href="#r20" id="id38">[R20]</a>, it is somewhat strange that one can hardly find
+any literature that uses this index in clustering comparison context,
+with some rare exceptions <a class="reference internal" href="#r21" id="id39">[R21]</a> <a class="reference internal" href="#r22" id="id40">[R22]</a>.</p>
+<p>Synonyms: Phi Coefficient, Product-Moment Correlation</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#clustering_metrics.metrics.ConfusionMatrix2.kappa" title="clustering_metrics.metrics.ConfusionMatrix2.kappa"><code class="xref py py-obj docutils literal"><span class="pre">kappa</span></code></a>, <a class="reference internal" href="#clustering_metrics.metrics.ConfusionMatrix2.mp_corr" title="clustering_metrics.metrics.ConfusionMatrix2.mp_corr"><code class="xref py py-obj docutils literal"><span class="pre">mp_corr</span></code></a>, <a class="reference internal" href="#clustering_metrics.metrics.ConfusionMatrix2.ochiai_coeff" title="clustering_metrics.metrics.ConfusionMatrix2.ochiai_coeff"><code class="xref py py-obj docutils literal"><span class="pre">ochiai_coeff</span></code></a></p>
+</div>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r20" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R20]</td><td><em>(<a class="fn-backref" href="#id38">1</a>, <a class="fn-backref" href="#id41">2</a>)</em> <a class="reference external" href="http://doi.org/10.1038/nbt.1665">MAQC Consortium. (2010). The MicroArray Quality Control
+(MAQC)-II study of common practices for the development and
+validation of microarray-based predictive models. Nature
+biotechnology, 28(8), 827-838.</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="r21" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R21]</td><td><em>(<a class="fn-backref" href="#id39">1</a>, <a class="fn-backref" href="#id42">2</a>)</em> <a class="reference external" href="http://dx.doi.org/10.1016/S1671-2927%2808%2960032-2">Xiao, J., Wang, X. F., Yang, Z. F., &amp; Xu, C. W. (2008).
+Comparison of Supervised Clustering Methods for the Analysis of
+DNA Microarray Expression Data. Agricultural Sciences in China,
+7(2), 129-139.</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="r22" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R22]</td><td><em>(<a class="fn-backref" href="#id40">1</a>, <a class="fn-backref" href="#id43">2</a>)</em> <a class="reference external" href="http://blog.nextgenetics.net/?e=47">Kao, D. (2012). Using Matthews correlation coefficient to
+cluster annotations.  NextGenetics (personal blog).</a></td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.mic_scores">
+<code class="descname">mic_scores</code><span class="sig-paren">(</span><em>mean='harmonic'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.mic_scores"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.mic_scores" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mutual information-based correlation</p>
+<p>The coefficient decomposes into regression coefficients defined
+according to fixed-margin tables. The <code class="docutils literal"><span class="pre">mic1</span></code> coefficient, for
+example, is obtained by dividing the G-score by the maximum achievable
+value on a table with fixed true class counts (which here correspond to
+row totals).  The <code class="docutils literal"><span class="pre">mic0</span></code> is its dual, defined by dividing the G-score
+by its maximum achievable value with fixed predicted label counts (here
+represented as column totals).</p>
+<p><code class="docutils literal"><span class="pre">mic0</span></code> roughly corresponds to precision (homogeneity) while <code class="docutils literal"><span class="pre">mic1</span></code>
+roughly corresponds to recall (completeness).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.mp_corr">
+<code class="descname">mp_corr</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.mp_corr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.mp_corr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maxwell &amp; Pilliner&#8217;s association index</p>
+<p>Another covariance-based association index corrected for chance. Like
+MCC, based on a mean of informedness and markedness, except uses a
+harmonic mean instead of geometric. Like Kappa, turns into Dice
+coefficient (F-score) as &#8216;d&#8217; approaches infinity.</p>
+<p>On typical problems, the resolving power of this coefficient is nearly
+identical to that of Cohen&#8217;s Kappa and is only very slightly below that
+of Matthews&#8217; correlation coefficient.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#clustering_metrics.metrics.ConfusionMatrix2.kappa" title="clustering_metrics.metrics.ConfusionMatrix2.kappa"><code class="xref py py-obj docutils literal"><span class="pre">kappa</span></code></a>, <a class="reference internal" href="#clustering_metrics.metrics.ConfusionMatrix2.matthews_corr" title="clustering_metrics.metrics.ConfusionMatrix2.matthews_corr"><code class="xref py py-obj docutils literal"><span class="pre">matthews_corr</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.ochiai_coeff">
+<code class="descname">ochiai_coeff</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.ochiai_coeff"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.ochiai_coeff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ochiai similarity coefficient (Fowlkes-Mallows)</p>
+<p>One interpretation of this coefficient that it is equal to the
+geometric mean of the conditional probability of an element (in the
+case of pairwise clustering comparison, a pair of elements) belonging
+to the same cluster given that they belong to the same class <a class="reference internal" href="#r23" id="id44">[R23]</a>.</p>
+<p>This coefficient is in the L-family, and thus it can be corrected for
+chance by subtracting its value under fixed-margin null model. The
+resulting adjusted index is very close to, but not the same as,
+Matthews Correlation Coefficient. Empirically, the discriminating power
+of the adjusted coefficient is equal to that of Matthews&#8217; Correlation
+Coefficient to within rounding error.</p>
+<p>Synonyms: Cosine Similarity, Fowlkes-Mallows Index</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#clustering_metrics.metrics.ConfusionMatrix2.jaccard_coeff" title="clustering_metrics.metrics.ConfusionMatrix2.jaccard_coeff"><code class="xref py py-obj docutils literal"><span class="pre">jaccard_coeff</span></code></a>, <a class="reference internal" href="#clustering_metrics.metrics.ConfusionMatrix2.dice_coeff" title="clustering_metrics.metrics.ConfusionMatrix2.dice_coeff"><code class="xref py py-obj docutils literal"><span class="pre">dice_coeff</span></code></a>, <a class="reference internal" href="#clustering_metrics.metrics.ConfusionMatrix2.ochiai_coeff_adj" title="clustering_metrics.metrics.ConfusionMatrix2.ochiai_coeff_adj"><code class="xref py py-obj docutils literal"><span class="pre">ochiai_coeff_adj</span></code></a></p>
+</div>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r23" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R23]</td><td><em>(<a class="fn-backref" href="#id44">1</a>, <a class="fn-backref" href="#id45">2</a>)</em> <a class="reference external" href="http://dx.doi.org/10.1016/j.neucom.2011.04.032">Ramirez, E. H., Brena, R., Magatti, D., &amp; Stella, F. (2012).
+Topic model validation. Neurocomputing, 76(1), 125-133.</a></td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.ochiai_coeff_adj">
+<code class="descname">ochiai_coeff_adj</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.ochiai_coeff_adj"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.ochiai_coeff_adj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ochiai coefficient adjusted for chance</p>
+<p>This index is nearly identical to Mattthews&#8217; Correlation Coefficient,
+which should be used instead.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#clustering_metrics.metrics.ConfusionMatrix2.matthews_corr" title="clustering_metrics.metrics.ConfusionMatrix2.matthews_corr"><code class="xref py py-obj docutils literal"><span class="pre">matthews_corr</span></code></a>, <a class="reference internal" href="#clustering_metrics.metrics.ConfusionMatrix2.ochiai_coeff" title="clustering_metrics.metrics.ConfusionMatrix2.ochiai_coeff"><code class="xref py py-obj docutils literal"><span class="pre">ochiai_coeff</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.overlap_coeff">
+<code class="descname">overlap_coeff</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.overlap_coeff"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.overlap_coeff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Overlap coefficient (Szymkiewicz-Simpson coefficient)</p>
+<p>Can be obtained by standardizing Dice or Ochiai coefficients by their
+maximum possible value given fixed marginals. Not corrected for chance.</p>
+<p>Note that <span class="math">\(min(p_1, p_2)\)</span> is equal to the maximum value of
+<span class="math">\(a\)</span> given fixed marginals.</p>
+<p>When adjusted for chance, this coefficient turns into Loevinger&#8217;s H.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#clustering_metrics.metrics.ConfusionMatrix2.loevinger_coeff" title="clustering_metrics.metrics.ConfusionMatrix2.loevinger_coeff"><code class="xref py py-obj docutils literal"><span class="pre">loevinger_coeff</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.pairwise_hcv">
+<code class="descname">pairwise_hcv</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.pairwise_hcv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.pairwise_hcv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pairwise homogeneity, completeness, and their geometric mean</p>
+<p>Each of the two one-sided measures is defined as follows:</p>
+<div class="math">
+\[\hat{M}_{adj} = \frac{M - E[M]}{M_{max} - min(E[M], M)}.\]</div>
+<p>It is clear from the definition above that <em>iff</em> <span class="math">\(M &lt; E[M]\)</span> and
+<span class="math">\(M \leq M_{max}\)</span>, the denominator will switch from the standard
+normalization interval to a larger one, thereby ensuring that
+<span class="math">\(-1.0 \leq \hat{M}_{adj} \leq 1.0\)</span>.  The definition for the
+bottom half of the range can also be expressed in terms of the standard
+adjusted value:</p>
+<div class="math">
+\[\hat{M}_{adj} = \frac{M_{adj}}{(1 + |M_{adj}|^n)^{1/n}}, \quad M_{adj} &lt; 0, n = 1.\]</div>
+<p>The resulting measure is not symmetric over its range (negative values
+are scaled differently from positive values), however this should not
+matter for applications where negative correlation does not carry any
+special meaning other than being additional evidence for absence of
+positive correlation.  Such as a situation occurs in pairwise confusion
+matrices used in cluster analysis. Nevertheless, if more symmetric
+behavior near zero is desired, the upper part of the negative range can
+be linearized either by increasing <span class="math">\(n\)</span> in the definition above or
+by replacing it with <span class="math">\(\hat{M}_{adj} = tanh(M_{adj})\)</span> transform.</p>
+<p>For the compound measure, the geometric mean was chosen over the
+harmonic after the results of a Monte Carlo power analysis, due to
+slightly better discriminating performance. For positive matrices, the
+geometric mean is equal to <code class="docutils literal"><span class="pre">matthews_corr</span></code>, while the harmonic mean
+would have been equal to <code class="docutils literal"><span class="pre">kappa</span></code>. For negative matrices, the harmonic
+mean would have remained monotonic (though not equal) to Kappa, while
+the geometric mean is neither monotonic nor equal to MCC, despite the
+two being closely correlated. The discriminating performance indices of
+the geometric mean and of MCC are empirically the same (equal to within
+rounding error).</p>
+<p>For matrices with negative covariance, it is possible to switch to
+<code class="docutils literal"><span class="pre">markedness</span></code> and <code class="docutils literal"><span class="pre">informedness</span></code> as one-sided components
+(homogeneity and completeness, respectively). However, the desirable
+property of measure orthogonality will not be preserved then, since
+markedness and informedness exhibit strong correlation under the
+assumed null model.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.precision">
+<code class="descname">precision</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.precision" title="Permalink to this definition">¶</a></dt>
+<dd><p>Positive Predictive Value (Precision)</p>
+<p>Synonyms: precision, frequency of hits, post agreement, success ratio,
+correct alarm ratio</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.prevalence_index">
+<code class="descname">prevalence_index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.prevalence_index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.prevalence_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prevalence</p>
+<p>In interrater agreement studies, prevalence is high when the proportion
+of agreements on the positive classification differs from that of the
+negative classification.  Example of a confusion matrix with high
+prevalence of negative response (note that this happens regardless of
+which rater we look at):</p>
+<div class="math">
+\[\begin{split}\begin{matrix} 3 &amp; 27 \\ 28 &amp; 132 \end{matrix}\end{split}\]</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#clustering_metrics.metrics.ConfusionMatrix2.bias_index" title="clustering_metrics.metrics.ConfusionMatrix2.bias_index"><code class="xref py py-obj docutils literal"><span class="pre">bias_index</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.recall">
+<code class="descname">recall</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.recall" title="Permalink to this definition">¶</a></dt>
+<dd><p>True Positive Rate (Recall, Sensitivity)</p>
+<p>Synonyms: recall, sensitivity, hit rate, probability of detection,
+prefigurance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.sensitivity">
+<code class="descname">sensitivity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.sensitivity" title="Permalink to this definition">¶</a></dt>
+<dd><p>True Positive Rate (Recall, Sensitivity)</p>
+<p>Synonyms: recall, sensitivity, hit rate, probability of detection,
+prefigurance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.sokal_sneath_coeff">
+<code class="descname">sokal_sneath_coeff</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.sokal_sneath_coeff"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.sokal_sneath_coeff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sokal and Sneath similarity index</p>
+<p>In a 2x2 matrix</p>
+<div class="math">
+\[\begin{split}\begin{matrix} a &amp; b \\ c &amp; d \end{matrix}\end{split}\]</div>
+<p>Dice places more weight on <span class="math">\(a\)</span> component, Jaccard places equal
+weight on <span class="math">\(a\)</span> and <span class="math">\(b + c\)</span>, while Sokal and Sneath places
+more weight on <span class="math">\(b + c\)</span>.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#clustering_metrics.metrics.ConfusionMatrix2.dice_coeff" title="clustering_metrics.metrics.ConfusionMatrix2.dice_coeff"><code class="xref py py-obj docutils literal"><span class="pre">dice_coeff</span></code></a>, <a class="reference internal" href="#clustering_metrics.metrics.ConfusionMatrix2.jaccard_coeff" title="clustering_metrics.metrics.ConfusionMatrix2.jaccard_coeff"><code class="xref py py-obj docutils literal"><span class="pre">jaccard_coeff</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.specificity">
+<code class="descname">specificity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.specificity" title="Permalink to this definition">¶</a></dt>
+<dd><p>True Negative Rate (Specificity)</p>
+<p>Synonyms: specificity</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.to_ccw">
+<code class="descname">to_ccw</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.to_ccw"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.to_ccw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert to counter-clockwise form of TP FP TN FN</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.xcoeff">
+<code class="descname">xcoeff</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.xcoeff"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.xcoeff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alternative to <code class="docutils literal"><span class="pre">loevinger_coeff</span></code> but with -1 lower bound</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.yule_q">
+<code class="descname">yule_q</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.yule_q"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.yule_q" title="Permalink to this definition">¶</a></dt>
+<dd><p>Yule&#8217;s Q (association index)</p>
+<p>Yule&#8217;s Q relates to the odds ratio (DOR) as follows:</p>
+<div class="math">
+\[Q = \frac{DOR - 1}{DOR + 1}.\]</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ConfusionMatrix2.yule_y">
+<code class="descname">yule_y</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ConfusionMatrix2.yule_y"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ConfusionMatrix2.yule_y" title="Permalink to this definition">¶</a></dt>
+<dd><p>Yule&#8217;s Y (colligation coefficient)</p>
+<p>The Y coefficient was used as basis of a new association
+measure by accounting for entropy in <a class="reference internal" href="#r24" id="id46">[R24]</a>.</p>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r24" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R24]</td><td><em>(<a class="fn-backref" href="#id46">1</a>, <a class="fn-backref" href="#id47">2</a>)</em> <a class="reference external" href="http://arxiv.org/pdf/1302.6161v1.pdf">Hasenclever, D., &amp; Scholz, M. (2013). Comparing measures of
+association in 2x2 probability tables. arXiv preprint
+arXiv:1302.6161.</a></td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="clustering_metrics.metrics.ContingencyTable">
+<em class="property">class </em><code class="descclassname">clustering_metrics.metrics.</code><code class="descname">ContingencyTable</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ContingencyTable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ContingencyTable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pymaptools.containers.CrossTab</span></code></p>
+<dl class="method">
+<dt id="clustering_metrics.metrics.ContingencyTable.adjust_to_null">
+<code class="descname">adjust_to_null</code><span class="sig-paren">(</span><em>measure</em>, <em>model='m3'</em>, <em>with_warnings=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ContingencyTable.adjust_to_null"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ContingencyTable.adjust_to_null" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adjust a measure to null model</p>
+<p>The general formula for chance correction of an association measure
+<span class="math">\(M\)</span> is:</p>
+<div class="math">
+\[M_{adj} = \frac{M - E(M)}{M_{max} - E(M)},\]</div>
+<p>where <span class="math">\(M_{max}\)</span> is the maximum value a measure <span class="math">\(M\)</span> can
+achieve, and <span class="math">\(E(M)\)</span> is the expected value of <span class="math">\(M\)</span> under
+statistical independence given fixed table margins. In simple cases,
+the expected value of a measure is the same as the value of the measure
+given a null model. This is not always the case, however, and, to
+properly adjust for chance, sometimes one has average over all possible
+contingency tables using hypergeometric distribution for example.</p>
+<p>The method returns a tuple for two different measure ceilings: row-
+diagonal and column-diagonal. For symmetric measures, the two values
+will be the same.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ContingencyTable.adjusted_mutual_info">
+<code class="descname">adjusted_mutual_info</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ContingencyTable.adjusted_mutual_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ContingencyTable.adjusted_mutual_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adjusted Mutual Information for two partitions</p>
+<p>For a mathematical definition, see <a class="reference internal" href="#r25" id="id48">[R25]</a>, <a class="reference internal" href="#r26" id="id49">[R26]</a>, and <a class="reference internal" href="#r26" id="id50">[R26]</a>.</p>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r25" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R25]</td><td><em>(<a class="fn-backref" href="#id48">1</a>, <a class="fn-backref" href="#id51">2</a>)</em> <a class="reference external" href="https://doi.org/10.1145/1553374.1553511">Vinh, N. X., Epps, J., &amp; Bailey, J. (2009, June). Information
+theoretic measures for clusterings comparison: is a correction
+for chance necessary?. In Proceedings of the 26th Annual
+International Conference on Machine Learning (pp. 1073-1080).
+ACM.</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="r26" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R26]</td><td><em>(<a class="fn-backref" href="#id49">1</a>, <a class="fn-backref" href="#id50">2</a>, <a class="fn-backref" href="#id52">3</a>)</em> <a class="reference external" href="http://dx.doi.org/10.1109/BIBE.2009.19">Vinh, N. X., &amp; Epps, J. (2009, June). A novel approach for
+automatic number of clusters detection in microarray data based
+on consensus clustering. In Bioinformatics and BioEngineering,
+2009.  BIBE&#8216;09. Ninth IEEE International Conference on (pp.
+84-91). IEEE.</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="r27" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id53">[R27]</a></td><td><a class="reference external" href="http://www.jmlr.org/papers/v11/vinh10a.html">Vinh, N. X., Epps, J., &amp; Bailey, J. (2010). Information theoretic
+measures for clusterings comparison: Variants, properties,
+normalization and correction for chance. The Journal of Machine
+Learning Research, 11, 2837-2854.</a></td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ContingencyTable.assignment_score">
+<code class="descname">assignment_score</code><span class="sig-paren">(</span><em>normalize=True</em>, <em>model='m1'</em>, <em>discrete=False</em>, <em>redraw=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ContingencyTable.assignment_score"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ContingencyTable.assignment_score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Similarity score by solving the Linear Sum Assignment Problem</p>
+<p>This metric is uniformly more powerful than the similarly behaved
+<code class="docutils literal"><span class="pre">split_join_similarity</span></code> which relies on an approximation to the
+optimal solution evaluated here. The split-join approximation
+asymptotically approaches the optimal solution as the clustering
+quality improves.</p>
+<p>On the <code class="docutils literal"><span class="pre">model</span></code> parameter: adjusting assignment cost for chance
+by relying on the hypergeometric distribution is extremely
+computationally expensive, but one way to get a better behaved metric
+is to just subtract the cost of a null model from the obtained score
+(in case of normalization, the null cost also has to be subtracted from
+the maximum cost). Note that on large tables even finding the null cost
+is too expensive, since expected tables have a lot less sparsity. Hence
+the parameter is off by default.</p>
+<p>Alternatively this problem can be recast as that of finding a <em>maximum
+weighted bipartite match</em> <a class="reference internal" href="#r28" id="id54">[R28]</a>.</p>
+<p>This method of partition comparison was first mentioned in <a class="reference internal" href="#r29" id="id55">[R29]</a>, given
+an approximation in <a class="reference internal" href="#r30" id="id56">[R30]</a>, formally elaborated in <a class="reference internal" href="#r31" id="id57">[R31]</a> and empirically
+compared with other measures in <a class="reference internal" href="#r32" id="id58">[R32]</a>.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#clustering_metrics.metrics.ContingencyTable.split_join_similarity" title="clustering_metrics.metrics.ContingencyTable.split_join_similarity"><code class="xref py py-obj docutils literal"><span class="pre">split_join_similarity</span></code></a></p>
+</div>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r28" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R28]</td><td><em>(<a class="fn-backref" href="#id54">1</a>, <a class="fn-backref" href="#id59">2</a>)</em> <a class="reference external" href="https://en.wikipedia.org/wiki/Matching_%28graph_theory%28#In_weighted_bipartite_graphs">Wikipedia entry on weighted bipartite graph matching</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="r29" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R29]</td><td><em>(<a class="fn-backref" href="#id55">1</a>, <a class="fn-backref" href="#id60">2</a>)</em> <a class="reference external" href="http://www.jstor.org/stable/1400594">Almudevar, A., &amp; Field, C. (1999). Estimation of
+single-generation sibling relationships based on DNA markers.
+Journal of agricultural, biological, and environmental
+statistics, 136-165.</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="r30" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R30]</td><td><em>(<a class="fn-backref" href="#id56">1</a>, <a class="fn-backref" href="#id61">2</a>)</em> <a class="reference external" href="http://doi.org/10.1385/1-59259-364-X:159">Ben-Hur, A., &amp; Guyon, I. (2003). Detecting stable clusters
+using principal component analysis. In Functional Genomics (pp.
+159-182). Humana press.</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="r31" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R31]</td><td><em>(<a class="fn-backref" href="#id57">1</a>, <a class="fn-backref" href="#id62">2</a>)</em> <a class="reference external" href="http://doi.org/10.1016/S0020-0190%2801%2900263-0">Gusfield, D. (2002). Partition-distance: A problem and class of
+perfect graphs arising in clustering. Information Processing
+Letters, 82(3), 159-164.</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="r32" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R32]</td><td><em>(<a class="fn-backref" href="#id58">1</a>, <a class="fn-backref" href="#id63">2</a>)</em> <a class="reference external" href="http://dl.acm.org/citation.cfm?id=1289345">Giurcaneanu, C. D., &amp; Tabus, I. (2004). Cluster structure
+inference based on clustering stability with applications to
+microarray data analysis. EURASIP Journal on Applied Signal
+Processing, 2004, 64-80.</a></td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ContingencyTable.assignment_score_m1">
+<code class="descname">assignment_score_m1</code><span class="sig-paren">(</span><em>normalize=True</em>, <em>redraw=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ContingencyTable.assignment_score_m1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ContingencyTable.assignment_score_m1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ContingencyTable.assignment_score_m2c">
+<code class="descname">assignment_score_m2c</code><span class="sig-paren">(</span><em>normalize=True</em>, <em>redraw=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ContingencyTable.assignment_score_m2c"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ContingencyTable.assignment_score_m2c" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ContingencyTable.assignment_score_m2r">
+<code class="descname">assignment_score_m2r</code><span class="sig-paren">(</span><em>normalize=True</em>, <em>redraw=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ContingencyTable.assignment_score_m2r"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ContingencyTable.assignment_score_m2r" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ContingencyTable.assignment_score_m3">
+<code class="descname">assignment_score_m3</code><span class="sig-paren">(</span><em>normalize=True</em>, <em>redraw=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ContingencyTable.assignment_score_m3"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ContingencyTable.assignment_score_m3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ContingencyTable.bc_metrics">
+<code class="descname">bc_metrics</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ContingencyTable.bc_metrics"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ContingencyTable.bc_metrics" title="Permalink to this definition">¶</a></dt>
+<dd><p>&#8216;B-cubed&#8217; precision, recall, and fscore</p>
+<p>As described in <a class="reference internal" href="#r33" id="id64">[R33]</a> and <a class="reference internal" href="#r34" id="id65">[R34]</a>. Was extended to overlapping clusters in
+<a class="reference internal" href="#r35" id="id66">[R35]</a>.  These metrics perform very similarly to normalized entropy
+metrics (homogeneity, completeness, V-measure).</p>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r33" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R33]</td><td><em>(<a class="fn-backref" href="#id64">1</a>, <a class="fn-backref" href="#id67">2</a>)</em> <a class="reference external" href="https://aclweb.org/anthology/P/P98/P98-1012.pdf">Bagga, A., &amp; Baldwin, B. (1998, August). Entity-based cross-
+document coreferencing using the vector space model. In
+Proceedings of the 36th Annual Meeting of the Association for
+Computational Linguistics and 17th International Conference on
+Computational Linguistics-Volume 1 (pp. 79-85).  Association for
+Computational Linguistics.</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="r34" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R34]</td><td><em>(<a class="fn-backref" href="#id65">1</a>, <a class="fn-backref" href="#id68">2</a>)</em> <a class="reference external" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.47.5848">Bagga, A., &amp; Baldwin, B. (1998, May). Algorithms for scoring
+coreference chains. In The first international conference on
+language resources and evaluation workshop on linguistics
+coreference (Vol. 1, pp. 563-566).</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="r35" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R35]</td><td><em>(<a class="fn-backref" href="#id66">1</a>, <a class="fn-backref" href="#id69">2</a>)</em> <a class="reference external" href="http://doi.org/10.1007/s10791-008-9066-8">Amigó, E., Gonzalo, J., Artiles, J., &amp; Verdejo, F. (2009). A
+comparison of extrinsic clustering evaluation metrics based on
+formal constraints. Information retrieval, 12(4), 461-486.</a></td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ContingencyTable.chisq_score">
+<code class="descname">chisq_score</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ContingencyTable.chisq_score"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ContingencyTable.chisq_score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pearson&#8217;s chi-square statistic</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span> <span class="mi">2</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span> <span class="mi">3</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">5</span><span class="p">}}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cm</span> <span class="o">=</span> <span class="n">ContingencyTable</span><span class="p">(</span><span class="n">rows</span><span class="o">=</span><span class="n">r</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">chisq_score</span><span class="p">(),</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">19.256</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ContingencyTable.col_diag">
+<code class="descname">col_diag</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ContingencyTable.col_diag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ContingencyTable.col_diag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Factory creating diagonal table given current column margin</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ContingencyTable.entropy_scores">
+<code class="descname">entropy_scores</code><span class="sig-paren">(</span><em>mean='harmonic'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ContingencyTable.entropy_scores"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ContingencyTable.entropy_scores" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gives three entropy-based metrics for a RxC table</p>
+<p>The metrics are: Homogeneity, Completeness, and V-measure</p>
+<p>The V-measure metric is also known as Normalized Mutual Information
+(NMI), and is calculated here as the harmonic mean of Homogeneity and
+Completeness (<span class="math">\(NMI_{sum}\)</span>). There exist other definitions of NMI (see
+Table 2 in <a class="reference internal" href="#r36" id="id70">[R36]</a> for a good review).</p>
+<p>Homogeneity and Completeness are duals of each other and can be thought
+of (although this is not technically accurate) as squared regression
+coefficients of a given clustering vs true labels (homogeneity) and of
+the dual problem of true labels vs given clustering (completeness).
+Because of the dual property, in a symmetric matrix, all three scores
+are the same. Homogeneity has an overall profile similar to that of
+precision in information retrieval. Completeness roughly corresponds to
+recall.</p>
+<p>This method replaces <code class="docutils literal"><span class="pre">homogeneity_completeness_v_measure</span></code> method in
+Scikit-Learn.  The Scikit-Learn version takes up <span class="math">\(O(n^2)\)</span> space
+because it stores data in a dense NumPy array, while the given version
+is sub-quadratic because of sparse underlying storage.</p>
+<p>Note that the entropy variables H in the code below are improperly
+defined because they ought to be divided by N (the grand total for the
+contingency table). However, the N variable cancels out during
+normalization.</p>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r36" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R36]</td><td><em>(<a class="fn-backref" href="#id70">1</a>, <a class="fn-backref" href="#id72">2</a>)</em> <a class="reference external" href="http://www.jmlr.org/papers/v11/vinh10a.html">Vinh, N. X., Epps, J., &amp; Bailey, J. (2010). Information theoretic
+measures for clusterings comparison: Variants, properties,
+normalization and correction for chance. The Journal of Machine
+Learning Research, 11, 2837-2854.</a></td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ContingencyTable.expected">
+<code class="descname">expected</code><span class="sig-paren">(</span><em>model='m3'</em>, <em>discrete=False</em>, <em>redraw=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ContingencyTable.expected"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ContingencyTable.expected" title="Permalink to this definition">¶</a></dt>
+<dd><p>Factory creating expected table given current margins</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ContingencyTable.expected_freqs_">
+<code class="descname">expected_freqs_</code><span class="sig-paren">(</span><em>model='m3'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ContingencyTable.expected_freqs_"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ContingencyTable.expected_freqs_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ContingencyTable.g_score">
+<code class="descname">g_score</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ContingencyTable.g_score"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ContingencyTable.g_score" title="Permalink to this definition">¶</a></dt>
+<dd><p>G-statistic for RxC contingency table</p>
+<p>This method does not perform any corrections to this statistic (e.g.
+Williams&#8217;, Yates&#8217; corrections).</p>
+<p>The statistic is equivalent to the negative of Mutual Information times
+two.  Mututal Information on a contingency table is defined as the
+difference between the information in the table and the information in
+an independent table with the same margins.  For application of mutual
+information (in the form of G-score) to search for collocated words in
+NLP, see <a class="reference internal" href="#r37" id="id73">[R37]</a> and <a class="reference internal" href="#r38" id="id74">[R38]</a>.</p>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r37" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R37]</td><td><em>(<a class="fn-backref" href="#id73">1</a>, <a class="fn-backref" href="#id75">2</a>)</em> <a class="reference external" href="http://dl.acm.org/citation.cfm?id=972454">Dunning, T. (1993). Accurate methods for the statistics of
+surprise and coincidence. Computational linguistics, 19(1), 61-74.</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="r38" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R38]</td><td><em>(<a class="fn-backref" href="#id74">1</a>, <a class="fn-backref" href="#id76">2</a>)</em> <a class="reference external" href="http://tdunning.blogspot.com/2008/03/surprise-and-coincidence.html">Ted Dunning&#8217;s personal blog entry and the discussion under it.</a></td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ContingencyTable.muc_scores">
+<code class="descname">muc_scores</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ContingencyTable.muc_scores"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ContingencyTable.muc_scores" title="Permalink to this definition">¶</a></dt>
+<dd><p>MUC similarity indices for coreference scoring</p>
+<p>Implemented after description in <a class="reference internal" href="#r39" id="id77">[R39]</a>. The compound fscore-like metric
+has good resolving power on sparse models, similar to
+<code class="docutils literal"><span class="pre">fowlkes_mallows</span></code> (pairwise <code class="docutils literal"><span class="pre">ochiai_coeff</span></code>), however it becomes
+useless on dense matrices as it relies on category cardinalities (how
+many types were seen) rather than on observation counts (how many
+instances of each type were seen).</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p1</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;A B C&quot;</span><span class="p">,</span> <span class="s2">&quot;D E F G&quot;</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p2</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;A B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;F G&quot;</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cm</span> <span class="o">=</span> <span class="n">ClusteringMetrics</span><span class="o">.</span><span class="n">from_partitions</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cm</span><span class="o">.</span><span class="n">muc_scores</span><span class="p">()[:</span><span class="mi">2</span><span class="p">]</span>
+<span class="go">(1.0, 0.4)</span>
+</pre></div>
+</div>
+<p>Elements that are part of neither partition (in this case, E) are
+excluded from consideration:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p1</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;A B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;F G&quot;</span><span class="p">,</span> <span class="s2">&quot;H&quot;</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p2</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;A B&quot;</span><span class="p">,</span> <span class="s2">&quot;C D&quot;</span><span class="p">,</span> <span class="s2">&quot;F G H&quot;</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cm</span> <span class="o">=</span> <span class="n">ClusteringMetrics</span><span class="o">.</span><span class="n">from_partitions</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cm</span><span class="o">.</span><span class="n">muc_scores</span><span class="p">()[:</span><span class="mi">2</span><span class="p">]</span>
+<span class="go">(0.5, 1.0)</span>
+</pre></div>
+</div>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r39" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R39]</td><td><em>(<a class="fn-backref" href="#id77">1</a>, <a class="fn-backref" href="#id78">2</a>)</em> <a class="reference external" href="http://www.aclweb.org/anthology/M/M95/M95-1005.pdf">Vilain, M., Burger, J., Aberdeen, J., Connolly, D., &amp;
+Hirschman, L. (1995, November). A model-theoretic coreference
+scoring scheme. In Proceedings of the 6th conference on Message
+understanding (pp. 45-52).  Association for Computational
+Linguistics.</a></td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ContingencyTable.mutual_info_score">
+<code class="descname">mutual_info_score</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ContingencyTable.mutual_info_score"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ContingencyTable.mutual_info_score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mutual Information Score</p>
+<p>Mutual Information (divided by N).</p>
+<p>The metric is equal to the Kullback-Leibler divergence of the joint
+distribution with the product distribution of the marginals.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ContingencyTable.row_diag">
+<code class="descname">row_diag</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ContingencyTable.row_diag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ContingencyTable.row_diag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Factory creating diagonal table given current row margin</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ContingencyTable.split_join_distance">
+<code class="descname">split_join_distance</code><span class="sig-paren">(</span><em>normalize=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ContingencyTable.split_join_distance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ContingencyTable.split_join_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Distance metric based on <code class="docutils literal"><span class="pre">split_join_similarity</span></code></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ContingencyTable.split_join_similarity">
+<code class="descname">split_join_similarity</code><span class="sig-paren">(</span><em>normalize=True</em>, <em>model='m1'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ContingencyTable.split_join_similarity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ContingencyTable.split_join_similarity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Split-join similarity score</p>
+<p>Split-join similarity is a two-way assignment-based score first
+proposed in <a class="reference internal" href="#r40" id="id79">[R40]</a>. The distance variant of this measure has metric
+properties.  Like the better known purity score (a one-way
+coefficient), this measure implicitly performs class-cluster
+assignment, except the assignment is performed twice: based on the
+corresponding maximum frequency in the contingency table, each class is
+given a cluster with the assignment weighted according to the
+frequency, then the procedure is inversed to assign a class to each
+cluster. The final unnormalized distance score comprises of a simple
+sum of the two one-way assignment scores.</p>
+<p>By default, <code class="docutils literal"><span class="pre">m1</span></code> null model is subtracted, to make the final
+score independent of the number of clusters:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t2</span> <span class="o">=</span> <span class="n">ClusteringMetrics</span><span class="p">(</span><span class="n">rows</span><span class="o">=</span><span class="mi">10</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t2</span><span class="o">.</span><span class="n">split_join_similarity</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="go">0.5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t2</span><span class="o">.</span><span class="n">split_join_similarity</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;m1&#39;</span><span class="p">)</span>
+<span class="go">0.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t8</span> <span class="o">=</span> <span class="n">ClusteringMetrics</span><span class="p">(</span><span class="n">rows</span><span class="o">=</span><span class="mi">10</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t8</span><span class="o">.</span><span class="n">split_join_similarity</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="go">0.125</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t8</span><span class="o">.</span><span class="n">split_join_similarity</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;m1&#39;</span><span class="p">)</span>
+<span class="go">0.0</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#clustering_metrics.metrics.ContingencyTable.assignment_score" title="clustering_metrics.metrics.ContingencyTable.assignment_score"><code class="xref py py-obj docutils literal"><span class="pre">assignment_score</span></code></a></p>
+</div>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r40" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R40]</td><td><em>(<a class="fn-backref" href="#id79">1</a>, <a class="fn-backref" href="#id80">2</a>)</em> <a class="reference external" href="http://dl.acm.org/citation.cfm?id=868979">Dongen, S. V. (2000). Performance criteria for graph clustering
+and Markov cluster experiments. Information Systems [INS],
+(R 0012), 1-36.</a></td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ContingencyTable.split_join_similarity_m1">
+<code class="descname">split_join_similarity_m1</code><span class="sig-paren">(</span><em>normalize=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ContingencyTable.split_join_similarity_m1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ContingencyTable.split_join_similarity_m1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ContingencyTable.split_join_similarity_m2c">
+<code class="descname">split_join_similarity_m2c</code><span class="sig-paren">(</span><em>normalize=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ContingencyTable.split_join_similarity_m2c"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ContingencyTable.split_join_similarity_m2c" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ContingencyTable.split_join_similarity_m2r">
+<code class="descname">split_join_similarity_m2r</code><span class="sig-paren">(</span><em>normalize=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ContingencyTable.split_join_similarity_m2r"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ContingencyTable.split_join_similarity_m2r" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ContingencyTable.split_join_similarity_m3">
+<code class="descname">split_join_similarity_m3</code><span class="sig-paren">(</span><em>normalize=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ContingencyTable.split_join_similarity_m3"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ContingencyTable.split_join_similarity_m3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ContingencyTable.talburt_wang_index">
+<code class="descname">talburt_wang_index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ContingencyTable.talburt_wang_index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ContingencyTable.talburt_wang_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Talburt-Wang index of similarity of two partitions</p>
+<p>On sparse matrices, the resolving power of this measure asymptotically
+approaches that of assignment-based scores such as <code class="docutils literal"><span class="pre">assignment_score</span></code>
+and <code class="docutils literal"><span class="pre">split_join_similarity</span></code>, however on dense matrices this measure
+will not perform well due to its reliance on category cardinalities
+(how many types were seen) rather than on observation counts (how many
+instances of each type were seen).</p>
+<p>A relatively decent clustering:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">43</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">66</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">ContingencyTable</span><span class="o">.</span><span class="n">from_labels</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">talburt_wang_index</span><span class="p">(),</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">0.816</span>
+</pre></div>
+</div>
+<p>Less good clustering (example from <a class="reference internal" href="#r41" id="id81">[R41]</a>):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">clusters</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<span class="gp">... </span>            <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">ContingencyTable</span><span class="o">.</span><span class="n">from_clusters</span><span class="p">(</span><span class="n">clusters</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">talburt_wang_index</span><span class="p">(),</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">0.49</span>
+</pre></div>
+</div>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r41" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R41]</td><td><em>(<a class="fn-backref" href="#id81">1</a>, <a class="fn-backref" href="#id82">2</a>)</em> <a class="reference external" href="http://www.igi-global.com/chapter/algebraic-approach-data-quality-metrics/23022">Talburt, J., Wang, R., Hess, K., &amp; Kuo, E. (2007). An algebraic
+approach to data quality metrics for entity resolution over large
+datasets.  Information quality management: Theory and
+applications, 1-22.</a></td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ContingencyTable.to_array">
+<code class="descname">to_array</code><span class="sig-paren">(</span><em>default=0</em>, <em>cpad=False</em>, <em>rpad=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ContingencyTable.to_array"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ContingencyTable.to_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert to NumPy array</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ContingencyTable.vi_distance">
+<code class="descname">vi_distance</code><span class="sig-paren">(</span><em>normalize=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ContingencyTable.vi_distance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ContingencyTable.vi_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Variation of Information distance</p>
+<p>Defined in <a class="reference internal" href="#r42" id="id83">[R42]</a>. This is one of several possible entropy-based distance
+measures that could be defined on a RxC matrix. The given measure is
+equivalent to <span class="math">\(2 D_{sum}\)</span> as listed in Table 2 in <a class="reference internal" href="#r43" id="id84">[R43]</a>.</p>
+<p>Note that the entropy variables H below are calculated using natural
+logs, so a base correction may be necessary if you need your result in
+base 2 for example.</p>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r42" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R42]</td><td><em>(<a class="fn-backref" href="#id83">1</a>, <a class="fn-backref" href="#id86">2</a>)</em> <a class="reference external" href="https://doi.org/10.1016/j.jmva.2006.11.013">Meila, M. (2007). Comparing clusterings &#8211; an information based
+distance. Journal of multivariate analysis, 98(5), 873-895.</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="r43" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R43]</td><td><em>(<a class="fn-backref" href="#id84">1</a>, <a class="fn-backref" href="#id87">2</a>)</em> <a class="reference external" href="http://www.jmlr.org/papers/v11/vinh10a.html">Vinh, N. X., Epps, J., &amp; Bailey, J. (2010). Information theoretic
+measures for clusterings comparison: Variants, properties,
+normalization and correction for chance. The Journal of Machine
+Learning Research, 11, 2837-2854.</a></td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ContingencyTable.vi_similarity">
+<code class="descname">vi_similarity</code><span class="sig-paren">(</span><em>normalize=True</em>, <em>model='m1'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ContingencyTable.vi_similarity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ContingencyTable.vi_similarity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inverse of <code class="docutils literal"><span class="pre">vi_distance</span></code></p>
+<p>The m1 adjustment is monotonic for tables of fixed size. The m3
+adjustment turns this measure into Normalized Mutual Information (NMI)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ContingencyTable.vi_similarity_m1">
+<code class="descname">vi_similarity_m1</code><span class="sig-paren">(</span><em>normalize=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ContingencyTable.vi_similarity_m1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ContingencyTable.vi_similarity_m1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ContingencyTable.vi_similarity_m2c">
+<code class="descname">vi_similarity_m2c</code><span class="sig-paren">(</span><em>normalize=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ContingencyTable.vi_similarity_m2c"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ContingencyTable.vi_similarity_m2c" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ContingencyTable.vi_similarity_m2r">
+<code class="descname">vi_similarity_m2r</code><span class="sig-paren">(</span><em>normalize=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ContingencyTable.vi_similarity_m2r"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ContingencyTable.vi_similarity_m2r" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.metrics.ContingencyTable.vi_similarity_m3">
+<code class="descname">vi_similarity_m3</code><span class="sig-paren">(</span><em>normalize=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ContingencyTable.vi_similarity_m3"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ContingencyTable.vi_similarity_m3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.metrics.adjusted_mutual_info_score">
+<code class="descclassname">clustering_metrics.metrics.</code><code class="descname">adjusted_mutual_info_score</code><span class="sig-paren">(</span><em>labels_true</em>, <em>labels_pred</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#adjusted_mutual_info_score"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.adjusted_mutual_info_score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adjusted Mutual Information for two partitions</p>
+<p>This is a memory-efficient replacement for the equivalently named
+Scikit-Learn function.</p>
+<p>Perfect labelings are both homogeneous and complete, hence AMI has the
+perfect score of one:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">adjusted_mutual_info_score</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="go">1.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">adjusted_mutual_info_score</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="go">1.0</span>
+</pre></div>
+</div>
+<p>If classes members are completely split across different clusters, the
+assignment is utterly incomplete, hence AMI equals zero:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">adjusted_mutual_info_score</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="go">0.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.metrics.adjusted_rand_score">
+<code class="descclassname">clustering_metrics.metrics.</code><code class="descname">adjusted_rand_score</code><span class="sig-paren">(</span><em>labels_true</em>, <em>labels_pred</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#adjusted_rand_score"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.adjusted_rand_score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rand score (accuracy) corrected for chance</p>
+<p>This is a memory-efficient replacement for the equivalently named
+Scikit-Learn function</p>
+<p>In a supplement to <a class="reference internal" href="#r44" id="id88">[R44]</a>, the following example is given:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">classes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">clusters</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="n">adjusted_rand_score</span><span class="p">(</span><span class="n">classes</span><span class="p">,</span> <span class="n">clusters</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">0.313</span>
+</pre></div>
+</div>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r44" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R44]</td><td><em>(<a class="fn-backref" href="#id88">1</a>, <a class="fn-backref" href="#id89">2</a>)</em> <a class="reference external" href="http://faculty.washington.edu/kayee/pca/">Yeung, K. Y., &amp; Ruzzo, W. L. (2001). Details of the adjusted Rand
+index and clustering algorithms, supplement to the paper &#8220;An empirical
+study on principal component analysis for clustering gene expression
+data&#8221;. Bioinformatics, 17(9), 763-774.</a></td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.metrics.cohen_kappa">
+<code class="descclassname">clustering_metrics.metrics.</code><code class="descname">cohen_kappa</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#cohen_kappa"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.cohen_kappa" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return Cohen&#8217;s Kappa for a 2x2 contingency table</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="clustering_metrics.metrics.confmat2_type">
+<code class="descclassname">clustering_metrics.metrics.</code><code class="descname">confmat2_type</code><a class="headerlink" href="#clustering_metrics.metrics.confmat2_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#clustering_metrics.metrics.ConfusionMatrix2" title="clustering_metrics.metrics.ConfusionMatrix2"><code class="xref py py-class docutils literal"><span class="pre">ConfusionMatrix2</span></code></a></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.metrics.geometric_mean">
+<code class="descclassname">clustering_metrics.metrics.</code><code class="descname">geometric_mean</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#geometric_mean"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.geometric_mean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Geometric mean of two numbers. Always returns a float</p>
+<p>Although geometric mean is defined for negative numbers, Scipy function
+doesn&#8217;t allow it. Hence this function</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.metrics.geometric_mean_weighted">
+<code class="descclassname">clustering_metrics.metrics.</code><code class="descname">geometric_mean_weighted</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>ratio=1.0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#geometric_mean_weighted"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.geometric_mean_weighted" title="Permalink to this definition">¶</a></dt>
+<dd><p>Geometric mean of two numbers with a weight ratio. Returns a float</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">geometric_mean_weighted</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">ratio</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="go">2.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">geometric_mean_weighted</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">ratio</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="go">1.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">geometric_mean_weighted</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">ratio</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">))</span>
+<span class="go">4.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.metrics.harmonic_mean">
+<code class="descclassname">clustering_metrics.metrics.</code><code class="descname">harmonic_mean</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#harmonic_mean"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.harmonic_mean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Harmonic mean of two numbers. Always returns a float</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.metrics.harmonic_mean_weighted">
+<code class="descclassname">clustering_metrics.metrics.</code><code class="descname">harmonic_mean_weighted</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>ratio=1.0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#harmonic_mean_weighted"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.harmonic_mean_weighted" title="Permalink to this definition">¶</a></dt>
+<dd><p>Harmonic mean of two numbers with a weight ratio. Returns a float</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">harmonic_mean_weighted</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">ratio</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="go">1.5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">harmonic_mean_weighted</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">ratio</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="go">1.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">harmonic_mean_weighted</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">ratio</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">))</span>
+<span class="go">3.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.metrics.homogeneity_completeness_v_measure">
+<code class="descclassname">clustering_metrics.metrics.</code><code class="descname">homogeneity_completeness_v_measure</code><span class="sig-paren">(</span><em>labels_true</em>, <em>labels_pred</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#homogeneity_completeness_v_measure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.homogeneity_completeness_v_measure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Memory-efficient replacement for equivalently named Scikit-Learn function</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.metrics.jaccard_similarity">
+<code class="descclassname">clustering_metrics.metrics.</code><code class="descname">jaccard_similarity</code><span class="sig-paren">(</span><em>iterable1</em>, <em>iterable2</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#jaccard_similarity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.jaccard_similarity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Jaccard similarity between two sets</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>iterable1</strong> : collections.Iterable</p>
+<blockquote>
+<div><p>first bag of items (order irrelevant)</p>
+</div></blockquote>
+<p><strong>iterable2</strong> : collections.Iterable</p>
+<blockquote>
+<div><p>second bag of items (order irrelevant)</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>jaccard_similarity</strong> : float</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.metrics.mutual_info_score">
+<code class="descclassname">clustering_metrics.metrics.</code><code class="descname">mutual_info_score</code><span class="sig-paren">(</span><em>labels_true</em>, <em>labels_pred</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#mutual_info_score"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.mutual_info_score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Memory-efficient replacement for equivalently named Sklean function</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.metrics.product_moment">
+<code class="descclassname">clustering_metrics.metrics.</code><code class="descname">product_moment</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#product_moment"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.product_moment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return MCC score for a 2x2 contingency table</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.metrics.ratio2weights">
+<code class="descclassname">clustering_metrics.metrics.</code><code class="descname">ratio2weights</code><span class="sig-paren">(</span><em>ratio</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#ratio2weights"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.ratio2weights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Numerically accurate conversion of ratio of two weights to weights</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.metrics.unitsq_sigmoid">
+<code class="descclassname">clustering_metrics.metrics.</code><code class="descname">unitsq_sigmoid</code><span class="sig-paren">(</span><em>x</em>, <em>s=0.5</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/metrics.html#unitsq_sigmoid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.metrics.unitsq_sigmoid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unit square sigmoid (for transforming P-like scales)</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="n">unitsq_sigmoid</span><span class="p">(</span><span class="mf">0.1</span><span class="p">),</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">0.25</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="n">unitsq_sigmoid</span><span class="p">(</span><span class="mf">0.9</span><span class="p">),</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">0.75</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="clustering_metrics.ranking.html" class="btn btn-neutral float-right" title="clustering_metrics.ranking module" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="clustering_metrics.hungarian.html" class="btn btn-neutral" title="clustering_metrics.hungarian module" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Eugene Scherba.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

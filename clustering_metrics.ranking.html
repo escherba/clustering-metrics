@@ -1,0 +1,612 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>clustering_metrics.ranking module &mdash; Clustering-Metrics 0.0.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Clustering-Metrics 0.0.1 documentation" href="index.html"/>
+        <link rel="up" title="clustering_metrics package" href="clustering_metrics.html"/>
+        <link rel="next" title="clustering_metrics.utils module" href="clustering_metrics.utils.html"/>
+        <link rel="prev" title="clustering_metrics.metrics module" href="clustering_metrics.metrics.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Clustering-Metrics
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="clustering_metrics.html">clustering_metrics package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="clustering_metrics.html#subpackages">Subpackages</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="clustering_metrics.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="clustering_metrics.entropy.html">clustering_metrics.entropy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clustering_metrics.ext.html">clustering_metrics.ext module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clustering_metrics.fixes.html">clustering_metrics.fixes module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clustering_metrics.hungarian.html">clustering_metrics.hungarian module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clustering_metrics.metrics.html">clustering_metrics.metrics module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">clustering_metrics.ranking module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#problem-statement">Problem Statement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#algorithm">Algorithm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="clustering_metrics.utils.html">clustering_metrics.utils module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="clustering_metrics.html#module-clustering_metrics">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Clustering-Metrics</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="clustering_metrics.html">clustering_metrics package</a> &raquo;</li>
+      
+    <li>clustering_metrics.ranking module</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/clustering_metrics.ranking.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-clustering_metrics.ranking">
+<span id="clustering-metrics-ranking-module"></span><h1>clustering_metrics.ranking module<a class="headerlink" href="#module-clustering_metrics.ranking" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="problem-statement">
+<h2>Problem Statement<a class="headerlink" href="#problem-statement" title="Permalink to this headline">¶</a></h2>
+<p>Assume that there is a large data set of mostly unique samples where a hidden
+binary variable is dependent on the number of similar samples that exist in the
+set (i.e. a sample is called positive if it has many neighbors) and that our
+goal is to label all samples in this set. It is easy to see that, given sparse
+enough data, if a clustering method relies on the same sample property on which
+the ground truth similarity space is defined, it will naturally separate the
+samples into two groups &#8211; those found in clusters and containing mostly
+positives, and those found outside clusters and containing mostly negatives.
+There would exist only one possible perfect clustering &#8211; the one with a
+single, entirely homogeneous cluster C that covers all positives present in the
+data set. If one were to obtain such clustering, one could correctly label all
+positive samples in one step with the simple rule, <em>all positive samples belong
+to cluster C</em>. Under an imperfect clustering, on the other hand, the presence
+of the given sample in a cluster of size two or more implies the sample is only
+likely to be positive, with the confidence of the positive call monotonously
+increasing with the size of the cluster.</p>
+<p>In other words, our expectation from a good clustering is that it will help us
+minimize the amount of work labeling samples.</p>
+<p>The application that inspired the design of this metric was mining for positive
+spam examples in large data sets of short user-generated content.  Given large
+enough data sets, spam content naturally forms clusters either because creative
+rewriting of every single individual spam message is too expensive for spammers
+to employ, or because, even if human or algorithmic rewriting is applied, one
+can still find features that link individual spam messages to their creator or
+to the product or service being promoted in the spam campaign. The finding was
+consistent with what is reported in literature <a class="footnote-reference" href="#id5" id="id1">[104]</a>.</p>
+</div>
+<div class="section" id="algorithm">
+<h2>Algorithm<a class="headerlink" href="#algorithm" title="Permalink to this headline">¶</a></h2>
+<p>Given a clustering, we order the clusters from the largest one to the smallest
+one. We then plot a cumulative step function where the width of the bin under a
+given &#8220;step&#8221; is proportional to cluster size, and the height of the bin is
+proportional to the expected number of positive samples seen so far <a class="footnote-reference" href="#id4" id="id2">[103]</a>. If a
+sample is in a cluster of size one, we assume it is likely to be negative and
+is therefore checked on an individual basis (the specific setting of cluster
+size at which the expectation changes is our &#8216;threshold&#8217; parameter. The result
+of this assumption is that the expected contribution from unclustered
+samples is equal to their actual contribution (we assume individual checking
+always gives a correct answer). After two-way normalization, a perfect
+clustering (i.e. where a single perfectly homogeneous cluster covers the entire
+set of positives) will have the AUL score of 1.0. A failure to will result in
+the AUL of 0.5. A perverse clustering, i.e. one where many negative samples fall
+into clusters whose size is above our threshold, or where many positive samples
+remain unclustered (fall into clusters of size below the threshold one) the AUL
+somewhere between 0.0 and 0.5.</p>
+<p>A special treatment is necessary for cases where clusters are tied by size. If
+one were to treat tied clusters as a single group, one would obtain AUL of 1.0
+when no clusters at all are present, which is against our desiderata.  On the
+other hand, if one were to treat tied clusters entirely separately, one would
+obtain different results depending on the properties of the sorting algorithm,
+also an undesirable situation. Always placing &#8220;heavy&#8221; clusters (i.e. those
+containing more positives) towards the beginning or towards the end of the tied
+group will result in, respectively, overestimating or underestimating the true
+AUL. The solution here is to average the positive counts among all clusters in a
+tied group, and then walk through them one by one, with the stepwise cumulative
+function asymptotically approaching a diagonal from the group&#8217;s bottom left
+corner to the top right one. This way, a complete absence of clustering (i.e.
+all clusters are of size one) will always result in AUL of 0.5.</p>
+<p>The resulting AUL measure has some similarity with the Gini coefficient of
+inequality <a class="footnote-reference" href="#id6" id="id3">[105]</a> except we plot the corresponding curve in the opposite
+direction (from &#8220;richest&#8221; to &#8220;poorest&#8221;), and do not subtract 0.5 from the
+resulting score.</p>
+<table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[103]</a></td><td>We take the expected number of positives and not the actual number seen
+so far as the vertical scale in order to penalize non-homogeneous
+clusters. Otherwise the y=1.0 ceiling would be reached early in the
+process even in very bad cases, for example when there is only one giant
+non-homogeneous cluster.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<table class="docutils footnote" frame="void" id="id5" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[104]</a></td><td><a class="reference external" href="https://doi.org/10.1145/2030376.2030391">Whissell, J. S., &amp; Clarke, C. L. (2011, September). Clustering for
+semi-supervised spam filtering. In Proceedings of the 8th Annual
+Collaboration, Electronic messaging, Anti-Abuse and Spam Conference
+(pp. 125-134). ACM.</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id6" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[105]</a></td><td><a class="reference external" href="https://en.wikipedia.org/wiki/Gini_coefficient">Wikipedia entry for Gini coefficient of inequality</a></td></tr>
+</tbody>
+</table>
+<dl class="class">
+<dt id="clustering_metrics.ranking.LiftCurve">
+<em class="property">class </em><code class="descclassname">clustering_metrics.ranking.</code><code class="descname">LiftCurve</code><span class="sig-paren">(</span><em>score_groups</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/ranking.html#LiftCurve"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.ranking.LiftCurve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Lift Curve for cluster-size correlated classification</p>
+<dl class="method">
+<dt id="clustering_metrics.ranking.LiftCurve.aul_score">
+<code class="descname">aul_score</code><span class="sig-paren">(</span><em>threshold=1</em>, <em>plot=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/ranking.html#LiftCurve.aul_score"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.ranking.LiftCurve.aul_score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate AUL score</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>threshold</strong> : int, optional (default=1)</p>
+<blockquote>
+<div><p>only predicted scores above this number considered accurate</p>
+</div></blockquote>
+<p><strong>plot</strong> : bool, optional (default=False)</p>
+<blockquote class="last">
+<div><p>whether to return X and Y data series for plotting</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="clustering_metrics.ranking.LiftCurve.from_clusters">
+<em class="property">classmethod </em><code class="descname">from_clusters</code><span class="sig-paren">(</span><em>clusters</em>, <em>is_class_pos=&lt;function num2bool&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/ranking.html#LiftCurve.from_clusters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.ranking.LiftCurve.from_clusters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiates class from clusters of class-coded points</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>clusters</strong> : collections.Iterable</p>
+<blockquote>
+<div><p>List of lists of class labels</p>
+</div></blockquote>
+<p><strong>is_class_pos: label_true -&gt; Bool</strong></p>
+<blockquote class="last">
+<div><p>Boolean predicate used to binarize true (class) labels</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="clustering_metrics.ranking.LiftCurve.from_counts">
+<em class="property">classmethod </em><code class="descname">from_counts</code><span class="sig-paren">(</span><em>counts_true</em>, <em>counts_pred</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/ranking.html#LiftCurve.from_counts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.ranking.LiftCurve.from_counts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiates class from arrays of true and predicted counts</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>counts_true</strong> : array, shape = [n_clusters]</p>
+<blockquote>
+<div><p>Count of positives in cluster</p>
+</div></blockquote>
+<p><strong>counts_pred</strong> : array, shape = [n_clusters]</p>
+<blockquote class="last">
+<div><p>Predicted number of positives in each cluster</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="clustering_metrics.ranking.LiftCurve.from_labels">
+<em class="property">classmethod </em><code class="descname">from_labels</code><span class="sig-paren">(</span><em>labels_true</em>, <em>labels_pred</em>, <em>is_class_pos=&lt;function num2bool&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/ranking.html#LiftCurve.from_labels"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.ranking.LiftCurve.from_labels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiates class from arrays of classes and cluster sizes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>labels_true</strong> : array, shape = [n_samples]</p>
+<blockquote>
+<div><p>Class labels. If binary, &#8216;is_class_pos&#8217; is optional</p>
+</div></blockquote>
+<p><strong>labels_pred</strong> : array, shape = [n_samples]</p>
+<blockquote>
+<div><p>Cluster labels to evaluate</p>
+</div></blockquote>
+<p><strong>is_class_pos: label_true -&gt; Bool</strong></p>
+<blockquote class="last">
+<div><p>Boolean predicate used to binarize true (class) labels</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.ranking.LiftCurve.plot">
+<code class="descname">plot</code><span class="sig-paren">(</span><em>threshold=1</em>, <em>fill=True</em>, <em>marker=None</em>, <em>save_to=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/ranking.html#LiftCurve.plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.ranking.LiftCurve.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a graphical representation of Lift Curve</p>
+<p>Requires Matplotlib</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>threshold</strong> : int, optional (default=1)</p>
+<blockquote>
+<div><p>only predicted scores above this number considered accurate</p>
+</div></blockquote>
+<p><strong>marker</strong> : str, optional (default=None)</p>
+<blockquote>
+<div><p>Whether to draw marker at each bend</p>
+</div></blockquote>
+<p><strong>save_to</strong> : str, optional (default=None)</p>
+<blockquote class="last">
+<div><p>If specified, save the plot to path instead of displaying</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="clustering_metrics.ranking.RocCurve">
+<em class="property">class </em><code class="descclassname">clustering_metrics.ranking.</code><code class="descname">RocCurve</code><span class="sig-paren">(</span><em>fprs</em>, <em>tprs</em>, <em>thresholds=None</em>, <em>pos_label=None</em>, <em>sample_weight=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/ranking.html#RocCurve"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.ranking.RocCurve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Receiver Operating Characteristic (ROC)</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">RocCurve</span><span class="o">.</span><span class="n">from_labels</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+<span class="gp">... </span>                         <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.35</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">auc_score</span><span class="p">()</span>
+<span class="go">0.75</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">max_informedness</span><span class="p">()</span>
+<span class="go">0.5</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="clustering_metrics.ranking.RocCurve.auc_score">
+<code class="descname">auc_score</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/ranking.html#RocCurve.auc_score"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.ranking.RocCurve.auc_score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replacement for Scikit-Learn&#8217;s method</p>
+<p>If number of Y classes is other than two, a warning will be triggered
+but no exception thrown (the return value will be a NaN).  Also, we
+don&#8217;t reorder arrays during ROC calculation since they are assumed to be
+in order.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="clustering_metrics.ranking.RocCurve.from_clusters">
+<em class="property">classmethod </em><code class="descname">from_clusters</code><span class="sig-paren">(</span><em>clusters</em>, <em>is_class_pos=&lt;function num2bool&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/ranking.html#RocCurve.from_clusters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.ranking.RocCurve.from_clusters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiates class from clusters of class-coded points</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>clusters</strong> : collections.Iterable</p>
+<blockquote>
+<div><p>List of lists of class labels</p>
+</div></blockquote>
+<p><strong>is_class_pos: label_true -&gt; Bool</strong></p>
+<blockquote class="last">
+<div><p>Boolean predicate used to binarize true (class) labels</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="clustering_metrics.ranking.RocCurve.from_labels">
+<em class="property">classmethod </em><code class="descname">from_labels</code><span class="sig-paren">(</span><em>labels_true</em>, <em>y_score</em>, <em>is_class_pos=&lt;function num2bool&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/ranking.html#RocCurve.from_labels"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.ranking.RocCurve.from_labels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate assuming binary labeling of {0, 1}</p>
+<dl class="docutils">
+<dt>labels_true</dt>
+ <span class="classifier-delimiter">:</span> <span class="classifier">array, shape = [n_samples]</span><dd>Class labels. If binary, &#8216;is_class_pos&#8217; is optional</dd>
+<dt>y_score</dt>
+ <span class="classifier-delimiter">:</span> <span class="classifier">array, shape = [n_samples]</span><dd>Predicted scores</dd>
+<dt>is_class_pos: label_true -&gt; Bool</dt>
+<dd>Boolean predicate used to binarize true (class) labels</dd>
+</dl>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="clustering_metrics.ranking.RocCurve.from_scores">
+<em class="property">classmethod </em><code class="descname">from_scores</code><span class="sig-paren">(</span><em>scores_neg</em>, <em>scores_pos</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/ranking.html#RocCurve.from_scores"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.ranking.RocCurve.from_scores" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate given scores of two ground truth classes</p>
+<p>The score arrays don&#8217;t have to be the same length.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.ranking.RocCurve.max_informedness">
+<code class="descname">max_informedness</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/ranking.html#RocCurve.max_informedness"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.ranking.RocCurve.max_informedness" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum value of Informedness (TPR minus FPR) on a ROC curve</p>
+<p>A diagram of what this measure looks like is shown in <a class="footnote-reference" href="#id8" id="id7">[101]</a>. Note a
+correspondence between the definitions of this measure and that of
+Kolmogorov-Smirnov&#8217;s supremum statistic.</p>
+<p class="rubric">References</p>
+<table class="docutils footnote" frame="void" id="id8" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[101]</td><td><em>(<a class="fn-backref" href="#id7">1</a>, <a class="fn-backref" href="#id9">2</a>)</em> <a class="reference external" href="https://en.wikipedia.org/wiki/Youden%27s_J_statistic">Wikipedia entry for Youden&#8217;s J statistic</a></td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.ranking.RocCurve.optimal_cutoff">
+<code class="descname">optimal_cutoff</code><span class="sig-paren">(</span><em>scoring_method</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/ranking.html#RocCurve.optimal_cutoff"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.ranking.RocCurve.optimal_cutoff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Optimal cutoff point on ROC curve under scoring method</p>
+<p>The scoring method must take two arguments: fpr and tpr.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clustering_metrics.ranking.RocCurve.plot">
+<code class="descname">plot</code><span class="sig-paren">(</span><em>fill=True</em>, <em>marker=None</em>, <em>save_to=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/ranking.html#RocCurve.plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.ranking.RocCurve.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the ROC curve</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.ranking.aul_score_from_clusters">
+<code class="descclassname">clustering_metrics.ranking.</code><code class="descname">aul_score_from_clusters</code><span class="sig-paren">(</span><em>clusters</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/ranking.html#aul_score_from_clusters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.ranking.aul_score_from_clusters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate AUL score given clusters of class-coded points</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>clusters</strong> : collections.Iterable</p>
+<blockquote>
+<div><p>List of clusters where each point is binary-coded according to true
+class.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>aul</strong> : float</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.ranking.aul_score_from_labels">
+<code class="descclassname">clustering_metrics.ranking.</code><code class="descname">aul_score_from_labels</code><span class="sig-paren">(</span><em>y_true</em>, <em>labels_pred</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/ranking.html#aul_score_from_labels"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.ranking.aul_score_from_labels" title="Permalink to this definition">¶</a></dt>
+<dd><p>AUL score given array of classes and array of cluster sizes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>y_true</strong> : array, shape = [n_samples]</p>
+<blockquote>
+<div><p>True binary labels in range {0, 1}</p>
+</div></blockquote>
+<p><strong>labels_pred</strong> : array, shape = [n_samples]</p>
+<blockquote>
+<div><p>Cluster labels to evaluate</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>aul</strong> : float</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.ranking.dist_auc">
+<code class="descclassname">clustering_metrics.ranking.</code><code class="descname">dist_auc</code><span class="sig-paren">(</span><em>scores0</em>, <em>scores1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/ranking.html#dist_auc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.ranking.dist_auc" title="Permalink to this definition">¶</a></dt>
+<dd><p>AUC score for two distributions, with NaN correction</p>
+<p>Note: arithmetic mean appears to be appropriate here, as other means don&#8217;t
+result in total of 1.0 when sides are switched.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.ranking.num2bool">
+<code class="descclassname">clustering_metrics.ranking.</code><code class="descname">num2bool</code><span class="sig-paren">(</span><em>num</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/ranking.html#num2bool"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.ranking.num2bool" title="Permalink to this definition">¶</a></dt>
+<dd><p>True if zero or positive real, False otherwise</p>
+<p>When binarizing class labels, this lets us be consistent with Scikit-Learn
+where binary labels can be {0, 1} with 0 being negative or {-1, 1} with -1
+being negative.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="clustering_metrics.ranking.roc_auc_score">
+<code class="descclassname">clustering_metrics.ranking.</code><code class="descname">roc_auc_score</code><span class="sig-paren">(</span><em>y_true</em>, <em>y_score</em>, <em>sample_weight=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/clustering_metrics/ranking.html#roc_auc_score"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clustering_metrics.ranking.roc_auc_score" title="Permalink to this definition">¶</a></dt>
+<dd><p>AUC score for a ROC curve</p>
+<p>Replaces Scikit Learn implementation (given binary <code class="docutils literal"><span class="pre">y_true</span></code>).</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="clustering_metrics.utils.html" class="btn btn-neutral float-right" title="clustering_metrics.utils module" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="clustering_metrics.metrics.html" class="btn btn-neutral" title="clustering_metrics.metrics module" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Eugene Scherba.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
