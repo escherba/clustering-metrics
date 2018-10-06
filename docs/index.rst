@@ -1,10 +1,10 @@
-.. clustering-metrics documentation master file, created by
-   sphinx-quickstart on Tue Sep 13 22:16:39 2016.
+..  documentation master file, created by
+   sphinx-quickstart on Fri Oct  5 21:37:11 2018.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to clustering-metrics's documentation!
-==============================================
+Welcome to 's documentation!
+============================
 
 Contents:
 
