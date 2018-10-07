@@ -3,4 +3,6 @@ cython
 regex
 numpy
 scipy
-git+https://github.com/escherba/pymaptools#egg=pymaptools-0.2.31
+joblib
+tqdm
+unicodecsv

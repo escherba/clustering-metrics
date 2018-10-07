@@ -15,7 +15,7 @@ from pymaptools.io import GzipFileType, PathArgumentParser, write_json_line, rea
 from pymaptools.benchmark import PMTimer
 
 from clustering_metrics.monte_carlo import utils
-from clustering_metrics.fent import minmaxr
+# from clustering_metrics.fent import minmaxr
 from clustering_metrics.utils import _div
 from clustering_metrics.metrics import ClusteringMetrics, ConfusionMatrix2
 from clustering_metrics.ranking import dist_auc
@@ -103,7 +103,8 @@ def do_mapper(args):
 def auc_xscaled(xs, ys):
     """AUC score scaled to fill x interval
     """
-    xmin, xmax = minmaxr(xs)
+    xmin, xmax = xs.min(), xs.max()
+    # xmin, xmax = minmaxr(xs)
     denom = float(xmax - xmin)
     xs_corr = [(x - xmin) / denom for x in xs]
     return auc(xs_corr, ys)
