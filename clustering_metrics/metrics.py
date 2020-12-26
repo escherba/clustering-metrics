@@ -1268,6 +1268,14 @@ class ConfusionMatrix2(ContingencyTable, OrderedCrossTab):
         ad, bc = a * d, b * c
         return _div(ad, bc)
 
+    def ETS(self):
+        """Equitable Threat Score
+        """
+        random_hits = _div((self.TP + self.FN) * (self.TP + self.FP), self.grand_total)
+        numer = self.TP - random_hits
+        denom = self.TP + self.FP + self.FN - random_hits
+        return _div(numer, denom)
+
     def fscore(self, beta=1.0):
         """F-score
 
@@ -1346,7 +1354,7 @@ class ConfusionMatrix2(ContingencyTable, OrderedCrossTab):
         under fixed-margin null model. Instead, its expectation must be
         calculated, for which no analytical solution exists [1]_.
 
-        Synonyms: critical success index
+        Synonyms: critical success index, threat score
 
         See Also
         --------
@@ -2171,7 +2179,7 @@ class ConfusionMatrix2(ContingencyTable, OrderedCrossTab):
     precision = PPV
     recall = TPR
     accuracy = ACC
-    # fallout = FPR
+    fallout = FPR
 
     # clinical diagnostics
     sensitivity = TPR
