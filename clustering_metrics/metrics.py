@@ -1775,11 +1775,11 @@ class ConfusionMatrix2(ContingencyTable, OrderedCrossTab):
             1.0
 
         Loevinger's coefficient has a unique property: all two-way correlation
-        coefficients on a 2x2 table that are in L-family (including Kappa and
-        Matthews' correlation coefficient) become Loevinger's coefficient after
-        normalization by maximum value [1]_. However, this measure is not
-        symmetric: when :math:`ad < bc`, it does not have a lower bound. For an
-        equivalent symmetric measure, use Cole coefficient.
+        coefficients on a 2x2 table that are in L-family (including Precision,
+        Kappa and Matthews' correlation coefficient) become Loevinger's
+        coefficient after normalization by maximum value [1]_. However, this
+        measure is not symmetric: when :math:`ad < bc`, it does not have a
+        lower bound. For an equivalent symmetric measure, use Cole coefficient.
 
         See Also
         --------
