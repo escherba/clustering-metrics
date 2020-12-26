@@ -6,13 +6,14 @@ from glob import glob
 from setuptools import setup, find_packages, Extension
 from setuptools.dist import Distribution
 from Cython.Distutils import build_ext
-from pkg_resources import resource_string
+# from pkg_resources import resource_string
+from importlib_resources import files
 
 
 # remove the "-Wstrict-prototypes" compiler option (not valid for C++)
 CFG_VARS = distutils.sysconfig.get_config_vars()
 for key, value in CFG_VARS.items():
-    if isinstance(value, basestring):
+    if isinstance(value, str):
         CFG_VARS[key] = value.replace("-Wstrict-prototypes", "")
 
 
@@ -91,9 +92,13 @@ def build_extras(glob_pattern):
 
 
 INSTALL_REQUIRES, INSTALL_DEPS = parse_reqs(
-    resource_string(__name__, 'requirements.txt').splitlines())
+    # resource_string(__name__, 'requirements.txt').splitlines()
+    files('clustering_metrics').joinpath('../requirements.txt').read_text().splitlines()
+)
 TESTS_REQUIRE, TESTS_DEPS = parse_reqs(
-    resource_string(__name__, 'dev-requirements.txt').splitlines())
+    # resource_string(__name__, 'dev-requirements.txt').splitlines()
+    files('clustering_metrics').joinpath('../dev-requirements.txt').read_text().splitlines()
+)
 EXTRAS_REQUIRE, EXTRAS_DEPS = build_extras('extras-*-requirements.txt')
 DEPENDENCY_LINKS = list(set(itertools.chain(
     INSTALL_DEPS,
@@ -175,6 +180,6 @@ setup(
         'Topic :: Scientific/Engineering :: Information Analysis',
         'Topic :: Text Processing :: Filters',
     ],
-    long_description=resource_string(__name__, 'README.rst'),
+    long_description=files('clustering_metrics').joinpath('../README.rst').read_text(),
     distclass=BinaryDistribution,
 )

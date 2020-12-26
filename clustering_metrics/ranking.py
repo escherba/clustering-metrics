@@ -92,7 +92,7 @@ References
 
 import warnings
 import numpy as np
-from itertools import izip, chain
+from itertools import chain
 from operator import itemgetter
 from pymaptools.iter import aggregate_tuples
 from pymaptools.containers import labels_to_clusters
@@ -135,7 +135,7 @@ class LiftCurve(object):
         """
 
         # convert input to a series of tuples
-        count_groups = izip(counts_pred, counts_true)
+        count_groups = zip(counts_pred, counts_true)
 
         # sort tuples by predicted count in descending order
         count_groups = sorted(count_groups, key=itemgetter(0), reverse=True)
@@ -425,7 +425,7 @@ class RocCurve(object):
         """
 
         # num2bool Y labels
-        y_true = map(is_class_pos, labels_true)
+        y_true = list(map(is_class_pos, labels_true))
 
         # calculate axes
         fprs, tprs, thresholds = roc_curve(
@@ -474,7 +474,7 @@ class RocCurve(object):
         """
         max_index = np.NINF
         opt_pair = (np.nan, np.nan)
-        for pair in izip(self.fprs, self.tprs):
+        for pair in zip(self.fprs, self.tprs):
             index = scoring_method(*pair)
             if index > max_index:
                 opt_pair = pair

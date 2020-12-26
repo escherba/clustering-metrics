@@ -15,8 +15,8 @@ if __name__ == '__main__':
     sys.argv.extend([
         "config_fc",
         "--fcompiler=gnu95",
-        "--f90flags='-Wall -Wextra -Wconversion -pedantic -fno-range-check -O3'",
-        "--f77flags='-Wall -Wextra -Wconversion -pedantic -fno-range-check -O3 -ffixed-form -ffixed-line-length-none'"
+        "--f90flags=-Wall -Wextra -Wconversion -pedantic -fno-range-check -O3",
+        "--f77flags=-Wall -Wextra -Wconversion -pedantic -fno-range-check -O3 -ffixed-form -ffixed-line-length-none"
     ])
     from numpy.distutils.core import setup
     setup(**configuration(top_path='').todict())

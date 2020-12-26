@@ -21,6 +21,13 @@ At the moment, the package is not on PyPI. To install it, use ``pip`` like so:
    pip install git+https://github.com/escherba/pymaptools#egg=pymaptools-0.2.31
    pip install git+https://github.com/escherba/clustering-metrics#egg=clustering_metrics-0.0.2
 
+To build Fortran extension:
+
+.. code-block:: bash
+
+    python clustering_metrics/fent/setup.py build_ext --inplace
+
+
 Usage
 -----
 

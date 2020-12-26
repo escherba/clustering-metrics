@@ -5,7 +5,7 @@ import random
 import sys
 import logging
 import scipy
-from itertools import product, izip, chain, cycle
+from itertools import product, chain, cycle
 from collections import defaultdict
 from functools import partial
 from pymaptools.iter import izip_with_cycles, isiterable, take
@@ -22,12 +22,12 @@ from clustering_metrics.ranking import dist_auc
 from clustering_metrics.skutils import auc
 
 
-def parse_args(args=None):
+def make_parser():
     parser = PathArgumentParser()
 
     parser.add_argument(
         '--logging', type=str, default='WARN', help="Logging level",
-        choices=[key for key in logging._levelNames.keys() if isinstance(key, str)])
+        choices=['DEBUG', 'INFO', 'WARN', 'ERROR'])
 
     subparsers = parser.add_subparsers()
 
@@ -56,10 +56,10 @@ def parse_args(args=None):
 
     p_reducer = subparsers.add_parser('reducer')
     p_reducer.add_argument(
-        '--group_by', type=str, default=None,
+        '--group_by', type=str, required=True,
         help='Field to group by')
     p_reducer.add_argument(
-        '--x_axis', type=str, default=None,
+        '--x_axis', type=str, required=True,
         help='Which column to plot as X axis')
     p_reducer.add_argument(
         '--metrics', type=str, required=True, nargs='*',
@@ -67,7 +67,7 @@ def parse_args(args=None):
     p_reducer.add_argument(
         '--input', type=GzipFileType('r'), default=sys.stdin, help='File input')
     p_reducer.add_argument(
-        '--output', type=str, metavar='DIR', help='Output directory')
+        '--output', required=True, type=str, metavar='DIR', help='Output directory')
     p_reducer.add_argument(
         '--fig_title', type=str, default=None, help='Title (for figures generated)')
     p_reducer.add_argument(
@@ -77,8 +77,7 @@ def parse_args(args=None):
         help='legend location')
     p_reducer.set_defaults(func=do_reducer)
 
-    namespace = parser.parse_args(args)
-    return namespace
+    return parser
 
 
 def do_mapper(args):
@@ -119,17 +118,17 @@ def create_plots(args, df):
     fontP.set_size('xx-small')
 
     #groups = df.set_index(args.x_axis).groupby([args.group_by])
-    groups = df.groupby([args.group_by])
+    groups = df.groupby(args.group_by)
     metrics = list(set(args.metrics) & set(df.keys()))
     colors = take(len(metrics), cycle(chain(
         colorbrewer.qualitative.Dark2_8.mpl_colors,
         colorbrewer.qualitative.Set2_8.mpl_colors,
     )))
 
-    template_loader = jinja2.FileSystemLoader(os.path.join(args.output, '..'))
-    template_env = jinja2.Environment(loader=template_loader)
-    template_interactive = template_env.get_template('template_fig_interactive.html')
-    template_static = template_env.get_template('template_fig_static.html')
+    # template_loader = jinja2.FileSystemLoader(os.path.join(args.output, '..'))
+    # template_env = jinja2.Environment(loader=template_loader)
+    # template_interactive = template_env.get_template('template_fig_interactive.html')
+    # template_static = template_env.get_template('template_fig_static.html')
 
     table_interactive = []
     table_static = []
@@ -137,7 +136,7 @@ def create_plots(args, df):
     for group_name, group in groups:
 
         # always sort by X values
-        group = group.sort([args.x_axis])
+        group = group.sort_values(by=args.x_axis)
 
         if args.fig_title is None:
             fig_title = '%s=%s' % (args.group_by, group_name)
@@ -180,11 +179,11 @@ def create_plots(args, df):
         fig.savefig(fig_path, format=args.fig_format)
         plt.close(fig)
 
-    with open(os.path.join(args.output, 'fig_interactive.html'), 'w') as fh:
-        fh.write(template_interactive.render(table=table_interactive))
+    # with open(os.path.join(args.output, 'fig_interactive.html'), 'w') as fh:
+    #     fh.write(template_interactive.render(table=table_interactive))
 
-    with open(os.path.join(args.output, 'fig_static.html'), 'w') as fh:
-        fh.write(template_static.render(table=table_static))
+    # with open(os.path.join(args.output, 'fig_static.html'), 'w') as fh:
+    #     fh.write(template_static.render(table=table_static))
 
 
 def do_reducer(args):
@@ -197,9 +196,13 @@ def do_reducer(args):
     create_plots(args, df)
 
 
-def run(args):
-    logging.basicConfig(level=getattr(logging, args.logging))
-    args.func(args)
+def run(parser, args=None):
+    args = parser.parse_args(args)
+    if hasattr(args, 'func'):
+        args.func(args)
+    else:
+        parser.print_usage()
+        sys.exit(1)
 
 
 def get_conf(obj):
@@ -251,7 +254,7 @@ def join_clusters(clusters):
     assert len(even) == len(odd)
 
     result = []
-    for c1, c2 in izip(even, odd):
+    for c1, c2 in zip(even, odd):
         result.append(c1 + c2)
     return result
 
@@ -278,7 +281,7 @@ def simulate_clustering(galpha=2, gbeta=10, nclusters=20, pos_ratio=0.2,
     if not 0.0 <= p_err <= 1.0:
         raise ValueError(p_err)
 
-    csizes = map(randround, np.random.gamma(galpha, gbeta, nclusters))
+    csizes = list(map(randround, np.random.gamma(galpha, gbeta, nclusters)))
 
     # make sure at least one cluster is generated
     num_pos = sum(csizes)
@@ -306,7 +309,7 @@ def simulate_clustering(galpha=2, gbeta=10, nclusters=20, pos_ratio=0.2,
 
     # negative case first
     negatives = []
-    for _ in xrange(num_neg):
+    for _ in range(num_neg):
         class_label = sample_with_error(0, error_dist, null_dist)
         negatives.append([class_label])
 
@@ -316,19 +319,19 @@ def simulate_clustering(galpha=2, gbeta=10, nclusters=20, pos_ratio=0.2,
         if csize < 1:
             continue
         cluster = []
-        for _ in xrange(csize):
+        for _ in range(csize):
             class_label = sample_with_error(idx, error_dist, null_dist)
             cluster.append(class_label)
         positives.append(cluster)
 
     if split_join > 0:
-        for _ in xrange(split_join):
+        for _ in range(split_join):
             positives = split_clusters(positives)
     elif split_join < 0:
-        for _ in xrange(-split_join):
+        for _ in range(-split_join):
             positives = join_clusters(positives)
         if join_negatives:
-            for _ in xrange(-split_join):
+            for _ in range(-split_join):
                 negatives = join_clusters(negatives)
 
     return relabel_negatives(positives + negatives)
@@ -337,7 +340,7 @@ def simulate_clustering(galpha=2, gbeta=10, nclusters=20, pos_ratio=0.2,
 def simulate_labeling(sample_size=2000, **kwargs):
 
     clusters = simulate_clustering(**kwargs)
-    tuples = zip(*clusters_to_labels(clusters))
+    tuples = list(zip(*clusters_to_labels(clusters)))
     random.shuffle(tuples)
     tuples = tuples[:sample_size]
     ltrue, lpred = zip(*tuples) or ([], [])
@@ -417,7 +420,7 @@ class Grid(object):
         return ConfusionMatrix2.from_ccw(*arr)
 
     def iter_grid(self):
-        return enumerate(izip(*self.grid))
+        return enumerate(zip(*self.grid))
 
     iter_clusters = iter_grid
 
@@ -434,7 +437,7 @@ class Grid(object):
             tup = tuple(get_conf(matrix).to_ccw())
             max_idx = tup.index(max(tup))
             if max_idx != 2:
-                print idx, tup
+                print(idx, tup)
 
     def fill_clusters(self, n=None, size=None, max_classes=None):
         if n is None:
@@ -468,7 +471,7 @@ class Grid(object):
 
         classes = np.empty((n, size), dtype=np.int64)
         clusters = np.empty((n, size), dtype=np.int64)
-        for idx in xrange(n):
+        for idx in range(n):
             ltrue, lpred = simulate_labeling(sample_size=size, **kwargs)
             classes[idx, :] = ltrue
             clusters[idx, :] = lpred
@@ -543,7 +546,7 @@ class Grid(object):
                 colors = colorbrewer.get_map('Set1', 'qualitative', 9).mpl_colors
 
             result_row = {}
-            for score_name, scores0 in result0.iteritems():
+            for score_name, scores0 in result0.items():
                 scores1 = result1[score_name]
                 auc_score = dist_auc(scores0, scores1)
                 result_row[score_name] = auc_score
@@ -635,4 +638,4 @@ class Grid(object):
 
 
 if __name__ == "__main__":
-    run(parse_args())
+    run(make_parser())
