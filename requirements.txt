@@ -1,7 +1,11 @@
-virtualenv
 cython
-regex
-numpy
-scipy
-scikit-learn
 joblib
+numpy
+pytest
+regex
+scipy
+PyYAML>=3.10
+scikit-learn
+tqdm
+virtualenv
+unicodecsv

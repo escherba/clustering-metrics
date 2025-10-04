@@ -1,8 +1,8 @@
-from collections import Iterable
+from collections import abc
 from heapq import heappush, heapreplace, nsmallest, nlargest, heappop
 
 
-class Heap(Iterable):
+class Heap(abc.Iterable):
     """A simple object-oriented interface for Python's heap queue
 
     Allows one to easily maintain fixed-sized heaps

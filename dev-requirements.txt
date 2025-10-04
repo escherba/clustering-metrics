@@ -6,4 +6,6 @@ PyYAML>=3.10
 ipdb>=0.8
 ipython>=2.2.0
 coverage==4.0.1
+pytest
 scikit-learn
+tqdm

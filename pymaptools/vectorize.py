@@ -15,11 +15,11 @@ assigned in the order of first access. You can use it to vectorize strings.
     2
 """
 
-import collections
+from collections import abc
 from pymaptools.utils import doc
 
 
-class Enumerator(collections.Mapping):
+class Enumerator(abc.Mapping):
     """A simple vectorizer for text tokens
 
     ``Enumerator`` is a key-value mapping that maps keys to numeric indices

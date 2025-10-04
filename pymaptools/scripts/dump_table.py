@@ -17,8 +17,8 @@ import subprocess
 import unicodecsv as csv
 
 
-_RE_ALL = re.compile(ur'^\s*INSERT INTO (\w+) \(([^\(\)]*)\) VALUES \((.*)\);\s*$', re.UNICODE)
-_RE_NAME = re.compile(ur'\w+', re.UNICODE)
+_RE_ALL = re.compile(r'^\s*INSERT INTO (\w+) \(([^\(\)]*)\) VALUES \((.*)\);\s*$', re.UNICODE)
+_RE_NAME = re.compile(r'\w+', re.UNICODE)
 
 
 DELIMITERS = {

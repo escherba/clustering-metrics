@@ -53,7 +53,7 @@ import operator
 from copy import deepcopy
 from collections import defaultdict
 from itertools import chain, product
-from StringIO import StringIO
+from io import StringIO
 from contextlib import closing
 from pymaptools.io import SimplePicklableMixin
 
