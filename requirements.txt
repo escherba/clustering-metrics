@@ -3,3 +3,5 @@ cython
 regex
 numpy
 scipy
+scikit-learn
+joblib

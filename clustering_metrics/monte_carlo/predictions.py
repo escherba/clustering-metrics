@@ -12,7 +12,6 @@ from pymaptools.iter import izip_with_cycles, isiterable, take
 from pymaptools.containers import labels_to_clusters, clusters_to_labels
 from pymaptools.sample import discrete_sample, freqs2probas, randround
 from pymaptools.io import GzipFileType, PathArgumentParser, write_json_line, read_json_lines, ndjson2col
-from pymaptools.benchmark import PMTimer
 
 from clustering_metrics.monte_carlo import utils
 from clustering_metrics.utils import _div
@@ -98,10 +97,8 @@ def do_mapper(args):
     )
     h0 = Grid.with_sim_clusters(p_err=args.h0_err, **params)
     h1 = Grid.with_sim_clusters(p_err=args.h1_err, **params)
-    with PMTimer() as timer:
-        results = h0.compare(h1, args.metrics)
+    results = h0.compare(h1, args.metrics)
     for result in results:
-        result.update(timer.to_dict())
         result.update(utils.serialize_args(args))
         write_json_line(args.output, result)
 
@@ -440,7 +437,7 @@ class Grid(object):
             tup = tuple(get_conf(matrix).to_ccw())
             max_idx = tup.index(max(tup))
             if max_idx != 2:
-                print idx, tup
+                print(idx, tup)
 
     def fill_clusters(self, n=None, size=None, max_classes=None):
         if n is None:

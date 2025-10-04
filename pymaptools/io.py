@@ -7,6 +7,7 @@ import joblib
 import os
 import codecs
 import logging
+from collections import abc
 from gzip import open as gzip_open
 from bz2 import BZ2File
 from zipfile import ZipFile
@@ -17,7 +18,7 @@ from pymaptools.utils import joint_context
 from pymaptools.iter import isiterable
 
 
-SUPPORTED_EXTENSION = re.compile(ur'(\.(?:gz|bz2|zip))$', re.IGNORECASE)
+SUPPORTED_EXTENSION = re.compile(r'(\.(?:gz|bz2|zip))$', re.IGNORECASE)
 
 
 def get_extension(fname, regex=SUPPORTED_EXTENSION, lowercase=True):
@@ -119,7 +120,7 @@ def write_json_line(handle, obj, default=default_encode_json, **kwargs):
     handle.write(u"%s\n" % json.dumps(obj, default=default, **kwargs))
 
 
-class FileReader(collections.Iterator):
+class FileReader(abc.Iterator):
     """Read files sequentially and return lines from each
 
     This is basically a quirky reimplementation of FileInput

@@ -39,7 +39,7 @@ A more complex example:
             for num in array:
                 yield int(num)
         except:
-            print "failed to deserialize `{}`".format(obj)
+            print("failed to deserialize `{}`".format(obj))
 
     def filter_even(obj):
         # demonstrate that values can be dropped

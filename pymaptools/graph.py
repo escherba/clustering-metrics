@@ -626,15 +626,15 @@ class Graph(Bigraph):
 def describe_graph(g, graph_name=None):
     with closing(StringIO()) as sio:
         if graph_name is not None:
-            print >>sio, graph_name
-        print >>sio, "Edges (%d):\n\t%s\n" % (len(g.edges), g.edges)
-        print >>sio, "V2U mapping (%d):\n\t%s\n" % (len(g.V2U), g.V2U)
-        print >>sio, "U2V mapping (%d):\n\t%s\n" % (len(g.U2V), g.U2V)
-        print >>sio, "Nodes (%d):\n\t%s\n" % (len(g.V), g.V)
-        print >>sio, "Connected components:"
+            print(sio, graph_name)
+        sio.writeln("Edges (%d):\n\t%s" % (len(g.edges), g.edges))
+        sio.writeln("V2U mapping (%d):\n\t%s" % (len(g.V2U), g.V2U))
+        sio.writeln("U2V mapping (%d):\n\t%s" % (len(g.U2V), g.U2V))
+        sio.writeln("Nodes (%d):\n\t%s" % (len(g.V), g.V))
+        sio.writeln("Connected components:")
         for comp in g.find_connected_components():
-            print >>sio, "\tComponent density: %.3f" % comp.get_density()
-            print >>sio, "\tMaximal cliques:"
+            sio.writeln("\tComponent density: %.3f" % comp.get_density())
+            sio.writeln("\tMaximal cliques:")
             for jdx, clique in enumerate(g.find_cliques(comp), start=1):
-                print >>sio, "\t\t%d: %s" % (jdx, str(clique))
+                sio.writeln("\t\t%d: %s" % (jdx, str(clique)))
         return sio.getvalue()

@@ -6,7 +6,7 @@ from clustering_metrics.ranking import RocCurve, LiftCurve, dist_auc, \
 from nose.tools import assert_almost_equal
 from pymaptools.sample import discrete_sample, random_seed
 from clustering_metrics.monte_carlo.predictions import simulate_clustering
-from sklearn.metrics.ranking import roc_auc_score as auc_sklearn
+from sklearn.metrics import roc_auc_score as auc_sklearn
 
 
 def simulate_predictions(n=100, seed=None):

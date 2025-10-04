@@ -47,7 +47,7 @@ ARGS = parse_args()
 
 ipython = get_ipython()
 if ipython is None:
-    print "You should run this script with ``ipython`` interpreter"
+    print("You should run this script with ``ipython`` interpreter")
     sys.exit(0)
 
 
@@ -56,14 +56,14 @@ PATH = "out-c%d-k%d-s%d.pickle" % (
 
 
 if os.path.exists(PATH):
-    print "Loading data from %s" % PATH
+    print("Loading data from %s" % PATH)
     with open(PATH, 'r') as fh:
         ltrue, lpred = pickle.load(fh)
 else:
     shape = (ARGS.num_samples,)
     ltrue = np.random.randint(low=0, high=ARGS.max_classes, size=shape)
     lpred = np.random.randint(low=0, high=ARGS.max_clusters, size=shape)
-    print "Saving generated data to %s" % PATH
+    print("Saving generated data to %s" % PATH)
     with open(PATH, 'w') as fh:
         pickle.dump((ltrue, lpred), fh, protocol=pickle.HIGHEST_PROTOCOL)
 
@@ -85,9 +85,9 @@ else:
     raise argparse.ArgumentError('Unknown value for --implementation')
 
 
-print "Sanity check:"
-print "\t{} = {}".format(ARGS.method, eval(line))
+print("Sanity check:")
+print("\t{} = {}".format(ARGS.method, eval(line)))
 
 for idx in range(ARGS.num_tests):
-    print "Running test {}/{}...".format(idx + 1, ARGS.num_tests)
+    print("Running test {}/{}...".format(idx + 1, ARGS.num_tests))
     ipython.magic("timeit " + line)
