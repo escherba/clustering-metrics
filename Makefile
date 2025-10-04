@@ -83,7 +83,7 @@ test: env build_ext
 	# make sure package can be pip-installed from local directory
 	$(PIP) install -e .
 	# run tests
-	$(PYENV) pytest
+	$(PYENV) pytest --disable-warnings
 
 shell: extras build_ext
 	$(PYENV) PYTHONSTARTUP=$(SHELL_PRELOAD) ipython
