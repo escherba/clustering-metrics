@@ -22,6 +22,9 @@ from clustering_metrics.skutils import auc
 
 
 def minmaxr(arr):
+    if len(arr) == 0:
+        return np.inf, -np.inf
+    arr = np.asarray(arr)
     return arr.min(), arr.max()
 
 
