@@ -199,7 +199,7 @@ class CrossTab(object):
     The length of a ``CrossTab`` is defined to be as the number of non-zero
     entries (this becomes important for efficient equality comparisons)::
 
-        >>> map(len, [t1, t2, t3])
+        >>> list(map(len, [t1, t2, t3]))
         [4, 3, 3]
         >>> t1 != t2
         True
