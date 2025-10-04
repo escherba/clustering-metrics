@@ -16,6 +16,7 @@ from IPython import get_ipython
 
 
 METHODS = {
+    'kappa': ['pairwise_hcv', 'pairwise_hcv'],
     'hcv': ('homogeneity_completeness_v_measure', 'entropy_scores'),
     'ami': ('adjusted_mutual_info_score', 'adjusted_mutual_info'),
     'ari': ('adjusted_rand_score', 'adjusted_rand_index')

@@ -2206,6 +2206,13 @@ def homogeneity_completeness_v_measure(labels_true, labels_pred):
     return ct.entropy_scores()
 
 
+def pairwise_hcv(labels_true, labels_pred):
+    """Memory-efficient replacement for equivalently named Scikit-Learn function
+    """
+    ct = ConfusionMatrix2.from_labels(labels_true, labels_pred)
+    return ct.pairwise_hcv()
+
+
 def adjusted_rand_score(labels_true, labels_pred):
     """Rand score (accuracy) corrected for chance
 
