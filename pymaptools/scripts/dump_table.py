@@ -61,7 +61,7 @@ def parse_args(args=None):
 def unescape_row(row):
     unescaped = []
     for v in row:
-        if isinstance(v, basestring):
+        if isinstance(v, str):
             unescaped.append(v.replace('\\', ''))
         else:
             unescaped.append(v)

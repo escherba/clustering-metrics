@@ -259,7 +259,7 @@ def isiterable(obj):
 
     We don't need to check for the Python 2 ``unicode`` type, because it
     doesn't have an ``__iter__`` attribute anyway, but for the sake of
-    completeness, we call isinstance on ``basestring`` type.
+    completeness, we call isinstance on ``str`` type.
 
     This method was originally written by Luminoso Technologies [10]_.
 
@@ -269,7 +269,7 @@ def isiterable(obj):
     .. [10] `Github repository by LuminosoInsight
            <https://github.com/LuminosoInsight/ordered-set>`_
     """
-    return hasattr(obj, '__iter__') and not isinstance(obj, basestring)
+    return hasattr(obj, '__iter__') and not isinstance(obj, str)
 
 
 def ismonotonic(oper, iterable):

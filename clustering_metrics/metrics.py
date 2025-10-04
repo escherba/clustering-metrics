@@ -17,6 +17,9 @@ from clustering_metrics.entropy import fentropy, fnum_pairs, fsum_pairs, \
 from scipy.stats import fisher_exact
 
 
+NINF = float("-inf")
+
+
 def jaccard_similarity(iterable1, iterable2):
     """Jaccard similarity between two sets
 
@@ -1739,9 +1742,9 @@ class ConfusionMatrix2(ContingencyTable, OrderedCrossTab):
         if a == n or d == n:
             k0, k1 = np.nan, np.nan
         elif b == n:
-            k0, k1 = np.NINF, -0.0
+            k0, k1 = NINF, -0.0
         elif c == n:
-            k0, k1 = -0.0, np.NINF
+            k0, k1 = -0.0, NINF
         elif p1 == n or q2 == n:
             k0, k1 = np.nan, 0.0
         elif p2 == n or q1 == n:

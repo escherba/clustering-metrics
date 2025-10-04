@@ -823,7 +823,7 @@ def labels_to_clusters(labels_true, labels_pred):
     result = defaultdict(list)
     for label_true, label_pred in zip(labels_true, labels_pred):
         result[label_pred].append(label_true)
-    return result.values()
+    return list(result.values())
 
 
 def clusters_to_labels(iterable):

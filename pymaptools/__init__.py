@@ -1,7 +1,7 @@
 __version__ = '0.2.35'
 
 from collections import defaultdict
-from functools import partial
+from functools import partial, reduce
 from pymaptools.func import compose
 
 
@@ -23,7 +23,7 @@ def amap(f, g):
     [10, 11, 12, 13, 14]
 
     """
-    return compose(partial(imap, f), g)
+    return compose(partial(map, f), g)
 
 
 def all_equal(xs):
@@ -171,4 +171,4 @@ def excise(lst, idx):
     >>> excise(lst, 0)
     [1, 2, 3, 4, 5, 6, 7, 8, 9]
     """
-    return lst[:idx] + lst[idx + 1:]
+    return list(lst[:idx]) + list(lst[idx + 1:])

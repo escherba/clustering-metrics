@@ -9,7 +9,7 @@ clusters from a graph. An example:
     >>> uf.union(2, 3)
     >>> uf.union(3, 0)
     >>> uf.union(4, 5)
-    >>> uf.sets()
+    >>> list(uf.sets())
     [[0, 1, 2, 3], [4, 5]]
 
 """
@@ -40,7 +40,7 @@ class UnionFind(object):
         >>> uf.union(2, 3)
         >>> uf.union(3, 0)
         >>> uf.union(4, 5)
-        >>> uf.sets()
+        >>> list(uf.sets())
         [[0, 1, 2, 3], [4, 5]]
 
     Source code based on [1]_ and [2]_, with modifications.

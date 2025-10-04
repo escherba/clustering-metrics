@@ -192,7 +192,7 @@ class Pipe(object):
         results = [obj]
         for step in self.steps:
             apply_step = partial(self.apply_step, step)
-            # note: some exceptions may not be caught if imap is used
+            # note: some exceptions may not be caught if map is used
             # instead of map here below:
             results = list(it.chain(*map(apply_step, results)))
         for result in results:

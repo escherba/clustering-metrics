@@ -343,7 +343,7 @@ def pickle_dump(obj, output_file, protocol=2):
     `protocol` defaults to 2 so pickled objects are compatible across
     Python 2.x and 3.x.
     """
-    if isinstance(output_file, basestring):
+    if isinstance(output_file, str):
         with open_gz(output_file, 'wb') as fhandle:
             pickle.dump(obj, fhandle, protocol=protocol)
     else:
@@ -352,7 +352,7 @@ def pickle_dump(obj, output_file, protocol=2):
 
 def pickle_load(input_file):
     """Load pickled object from `input_file`"""
-    if isinstance(input_file, basestring):
+    if isinstance(input_file, str):
         with open_gz(input_file, 'rb') as fhandle:
             return pickle.load(fhandle)
     else:
