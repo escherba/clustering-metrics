@@ -272,7 +272,7 @@ class CrossTab(object):
         ::
 
             >>> t = OrderedCrossTab.from_vals([1, 2, 3, 4, 5, 6], num_cols=2)
-            >>> t.row_totals.values()
+            >>> list(t.row_totals.values())
             [3, 7, 11]
 
         Ensure attribute caching::
@@ -294,7 +294,7 @@ class CrossTab(object):
         ::
 
             >>> t = OrderedCrossTab.from_vals([1, 2, 3, 4, 5, 6], num_cols=2)
-            >>> t.col_totals.values()
+            >>> list(t.col_totals.values())
             [9, 12]
 
         Ensure attribute caching::
@@ -433,7 +433,7 @@ class CrossTab(object):
                 ptrue[ri].append(point)
                 ppred[ci].append(point)
                 point += 1
-        return ptrue.values(), ppred.values()
+        return list(ptrue.values()), list(ppred.values())
 
     @classmethod
     def from_partitions(cls, partitions1, partitions2):
