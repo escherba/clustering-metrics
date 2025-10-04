@@ -2668,7 +2668,6 @@ static const char __pyx_k_digest[] = "digest";
 static const char __pyx_k_enable[] = "enable";
 static const char __pyx_k_encode[] = "encode";
 static const char __pyx_k_hashes[] = "hashes";
-static const char __pyx_k_maxint[] = "maxint";
 static const char __pyx_k_module[] = "__module__";
 static const char __pyx_k_reduce[] = "__reduce__";
 static const char __pyx_k_struct[] = "struct";
@@ -2677,6 +2676,7 @@ static const char __pyx_k_combine[] = "combine";
 static const char __pyx_k_disable[] = "disable";
 static const char __pyx_k_genexpr[] = "genexpr";
 static const char __pyx_k_hashlib[] = "hashlib";
+static const char __pyx_k_maxsize[] = "maxsize";
 static const char __pyx_k_getstate[] = "__getstate__";
 static const char __pyx_k_hashable[] = "hashable";
 static const char __pyx_k_long2int[] = "long2int";
@@ -2699,7 +2699,7 @@ static const char __pyx_k_hash_md5_128[] = "hash_md5_128";
 static const char __pyx_k_initializing[] = "_initializing";
 static const char __pyx_k_is_coroutine[] = "_is_coroutine";
 static const char __pyx_k_stringsource[] = "<stringsource>";
-static const char __pyx_k_3hb_3at3e2V2Q[] = "\200\001\360\024\000\005\014\2103\210h\220b\230\001\330\004\013\2103\210a\210t\2203\220e\2302\230V\2402\240Q";
+static const char __pyx_k_3ir_3at3e2V2Q[] = "\200\001\360\024\000\005\014\2103\210i\220r\230\021\330\004\013\2103\210a\210t\2203\220e\2302\230V\2402\240Q";
 static const char __pyx_k_PHashCombiner[] = "PHashCombiner";
 static const char __pyx_k_reduce_cython[] = "__reduce_cython__";
 static const char __pyx_k_b_2Q_Cq_2S_Cq_1[] = "\200\001\360\010\000\005\n\210\025\210b\220\003\2202\220Q\330\004\n\210\"\210C\210q\330\004\t\210\022\2102\210S\220\002\220!\330\004\n\210\"\210C\210q\330\004\t\210\021\330\004\013\2101";
@@ -2905,7 +2905,7 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_kp_u_isenabled __pyx_string_tab[44]
 #define __pyx_n_u_long2int __pyx_string_tab[45]
 #define __pyx_n_u_main __pyx_string_tab[46]
-#define __pyx_n_u_maxint __pyx_string_tab[47]
+#define __pyx_n_u_maxsize __pyx_string_tab[47]
 #define __pyx_n_u_md5 __pyx_string_tab[48]
 #define __pyx_n_u_module __pyx_string_tab[49]
 #define __pyx_n_u_name __pyx_string_tab[50]
@@ -6810,12 +6810,12 @@ static PyObject *__pyx_f_18clustering_metrics_3ext_long2int(PyObject *__pyx_v_nu
   /* "clustering_metrics/ext.pyx":166
  *     """
  * 
- *     smi1 = sys.maxint + 1             # <<<<<<<<<<<<<<
+ *     smi1 = sys.maxsize + 1             # <<<<<<<<<<<<<<
  *     return int(num % (smi1 + smi1) - smi1)
 */
   __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_sys); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 166, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_maxint); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 166, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_maxsize); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 166, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_1 = __Pyx_PyLong_AddObjC(__pyx_t_2, __pyx_mstate_global->__pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 166, __pyx_L1_error)
@@ -6826,7 +6826,7 @@ static PyObject *__pyx_f_18clustering_metrics_3ext_long2int(PyObject *__pyx_v_nu
 
   /* "clustering_metrics/ext.pyx":167
  * 
- *     smi1 = sys.maxint + 1
+ *     smi1 = sys.maxsize + 1
  *     return int(num % (smi1 + smi1) - smi1)             # <<<<<<<<<<<<<<
 */
   __Pyx_XDECREF(__pyx_r);
@@ -8267,7 +8267,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_isenabled, sizeof(__pyx_k_isenabled), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_isenabled */
   {__pyx_k_long2int, sizeof(__pyx_k_long2int), 0, 1, 1}, /* PyObject cname: __pyx_n_u_long2int */
   {__pyx_k_main, sizeof(__pyx_k_main), 0, 1, 1}, /* PyObject cname: __pyx_n_u_main */
-  {__pyx_k_maxint, sizeof(__pyx_k_maxint), 0, 1, 1}, /* PyObject cname: __pyx_n_u_maxint */
+  {__pyx_k_maxsize, sizeof(__pyx_k_maxsize), 0, 1, 1}, /* PyObject cname: __pyx_n_u_maxsize */
   {__pyx_k_md5, sizeof(__pyx_k_md5), 0, 1, 1}, /* PyObject cname: __pyx_n_u_md5 */
   {__pyx_k_module, sizeof(__pyx_k_module), 0, 1, 1}, /* PyObject cname: __pyx_n_u_module */
   {__pyx_k_name, sizeof(__pyx_k_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_name */
@@ -8471,7 +8471,7 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 156, 36};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_num};
-    __pyx_mstate_global->__pyx_codeobj_tab[15] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_clustering_metrics_ext_pyx, __pyx_mstate->__pyx_n_u_long2int, __pyx_k_3hb_3at3e2V2Q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[15])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[15] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_clustering_metrics_ext_pyx, __pyx_mstate->__pyx_n_u_long2int, __pyx_k_3ir_3at3e2V2Q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[15])) goto bad;
   }
   Py_DECREF(tuple_dedup_map);
   return 0;

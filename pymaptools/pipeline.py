@@ -195,13 +195,13 @@ class Pipe(object):
             # note: some exceptions may not be caught if map is used
             # instead of map here below:
             results = list(it.chain(*map(apply_step, results)))
-        for result in results:
-            yield result
+        yield from results
 
     def run(self, input_iter):
         """Runs all the steps on input iterator
         """
-        with contextlib.nested(*self.steps) as entered_steps:
+        with contextlib.ExitStack() as stack:
+            entered_steps = [stack.enter_context(step) for step in self.steps]
             for i, step in enumerate(entered_steps):
                 self.steps[i] = step
             for obj in input_iter:
