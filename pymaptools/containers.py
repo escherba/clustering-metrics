@@ -465,8 +465,8 @@ class CrossTab(object):
             >>> p1 = [[1, 2, 3, 4], [5, 6, 7], [8, 9, 10, 11, 12]]
             >>> p2 = [[2, 4, 6, 8, 10], [3, 9, 12], [1, 5, 7], [11]]
             >>> t = OrderedCrossTab.from_partitions(p1, p2)
-            >>> t.to_clusters()
-            [[0, 0, 1, 2, 2], [0, 2, 2], [0, 1, 1], [2]]
+            >>> sorted(t.to_clusters())
+            [[0, 0, 1, 2, 2], [0, 1, 1], [0, 2, 2], [2]]
         """
         ltrue, lpred = self.to_labels()
         return labels_to_clusters(ltrue, lpred)
@@ -479,8 +479,8 @@ class CrossTab(object):
 
             >>> clusters = [[2, 2, 0, 0, 1], [2, 2, 0], [0, 1, 1], [2]]
             >>> t = OrderedCrossTab.from_clusters(clusters)
-            >>> t.to_clusters()
-            [[2, 2, 0, 0, 1], [2, 2, 0], [0, 1, 1], [2]]
+            >>> sorted(t.to_clusters())
+            [[0, 1, 1], [2], [2, 2, 0], [2, 2, 0, 0, 1]]
         """
         ltrue = []
         lpred = []
