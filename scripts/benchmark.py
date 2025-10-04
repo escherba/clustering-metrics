@@ -11,7 +11,7 @@ import os
 import sys
 import argparse
 import numpy as np
-import cPickle as pickle
+import pickle
 from IPython import get_ipython
 
 
@@ -57,14 +57,14 @@ PATH = "out-c%d-k%d-s%d.pickle" % (
 
 if os.path.exists(PATH):
     print("Loading data from %s" % PATH)
-    with open(PATH, 'r') as fh:
+    with open(PATH, 'rb') as fh:
         ltrue, lpred = pickle.load(fh)
 else:
     shape = (ARGS.num_samples,)
     ltrue = np.random.randint(low=0, high=ARGS.max_classes, size=shape)
     lpred = np.random.randint(low=0, high=ARGS.max_clusters, size=shape)
     print("Saving generated data to %s" % PATH)
-    with open(PATH, 'w') as fh:
+    with open(PATH, 'wb') as fh:
         pickle.dump((ltrue, lpred), fh, protocol=pickle.HIGHEST_PROTOCOL)
 
 
