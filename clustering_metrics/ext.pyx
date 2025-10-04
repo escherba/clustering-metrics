@@ -163,5 +163,5 @@ cpdef long2int(num):
 
     """
 
-    smi1 = sys.maxint + 1
+    smi1 = sys.maxsize + 1
     return int(num % (smi1 + smi1) - smi1)

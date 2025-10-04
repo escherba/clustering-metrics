@@ -27,7 +27,7 @@ def bitlist(num):
 
         >>> import sys
         >>> import random
-        >>> num = random.randint(0, sys.maxint)
+        >>> num = random.randint(0, sys.maxsize)
         >>> bitlist(num) == bitlist(-num)
         True
         >>> bitlist(0)
