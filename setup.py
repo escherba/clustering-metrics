@@ -1,12 +1,13 @@
+import os
 import re
 import numpy
+import pathlib
 import itertools
 import distutils.sysconfig
 from glob import glob
 from setuptools import setup, find_packages, Extension
 from setuptools.dist import Distribution
 from Cython.Distutils import build_ext
-from pkg_resources import resource_string
 
 
 # remove the "-Wstrict-prototypes" compiler option (not valid for C++)
@@ -16,13 +17,13 @@ for key, value in CFG_VARS.items():
         CFG_VARS[key] = value.replace("-Wstrict-prototypes", "")
 
 
-class BinaryDistribution(Distribution):
-    """
-    Subclass the setuptools Distribution to flip the purity flag to false.
-    See http://lucumr.pocoo.org/2014/1/27/python-on-wheels/
-    """
-    def is_pure(self):
-        return False
+# class BinaryDistribution(Distribution):
+#     """
+#     Subclass the setuptools Distribution to flip the purity flag to false.
+#     See http://lucumr.pocoo.org/2014/1/27/python-on-wheels/
+#     """
+#     def is_pure(self):
+#         return False
 
 
 # dependency links
@@ -90,10 +91,19 @@ def build_extras(glob_pattern):
     return result, dep_links
 
 
-INSTALL_REQUIRES, INSTALL_DEPS = parse_reqs(
-    resource_string(__name__, 'requirements.txt').splitlines())
-TESTS_REQUIRE, TESTS_DEPS = parse_reqs(
-    resource_string(__name__, 'dev-requirements.txt').splitlines())
+SCRIPT_DIR = pathlib.Path(__file__).parent.resolve()
+
+def get_lines(fname):
+    fpath = os.path.join(SCRIPT_DIR, fname)
+    lines = []
+    with open(fpath) as fh:
+        for line in fh:
+            lines.append(line.rstrip("\n"))
+    return lines
+
+
+INSTALL_REQUIRES, INSTALL_DEPS = parse_reqs(get_lines('requirements.txt'))
+TESTS_REQUIRE, TESTS_DEPS = parse_reqs(get_lines('dev-requirements.txt'))
 EXTRAS_REQUIRE, EXTRAS_DEPS = build_extras('extras-*-requirements.txt')
 DEPENDENCY_LINKS = list(set(itertools.chain(
     INSTALL_DEPS,
@@ -175,6 +185,6 @@ setup(
         'Topic :: Scientific/Engineering :: Information Analysis',
         'Topic :: Text Processing :: Filters',
     ],
-    long_description=resource_string(__name__, 'README.rst'),
-    distclass=BinaryDistribution,
+    long_description="\n".join(get_lines('README.rst')),
+    # distclass=BinaryDistribution,
 )
