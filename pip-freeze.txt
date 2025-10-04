@@ -1,9 +1,12 @@
 Cython==3.1.4
 distlib==0.4.0
 filelock==3.19.1
+joblib==1.5.2
 numpy==2.2.6
 platformdirs==4.4.0
 regex==2025.9.18
+scikit-learn==1.7.2
 scipy==1.15.3
+threadpoolctl==3.6.0
 typing_extensions==4.15.0
 virtualenv==20.34.0
