@@ -2,8 +2,11 @@ __author__ = 'escherba'
 
 import unittest
 import numpy as np
-from clustering_metrics.fent import minmaxr
 from clustering_metrics.utils import sort_by_length
+
+
+def minmaxr(arr):
+    return arr.min(), arr.max()
 
 
 class TestUtils(unittest.TestCase):

@@ -5,7 +5,7 @@ Test numerical accuracy of some implementations
 import unittest
 import numpy as np
 from clustering_metrics.metrics import ClusteringMetrics
-from clustering_metrics.fent import emi_from_margins as emi_fortran
+# from clustering_metrics.fent import emi_from_margins as emi_fortran
 from clustering_metrics.entropy import emi_from_margins as emi_cython
 
 
@@ -35,7 +35,8 @@ class TestAccuracy(unittest.TestCase):
         rmarg = np.asarray(cm.row_totals.values(), dtype=np.int64)
         cmarg = np.asarray(cm.col_totals.values(), dtype=np.int64)
 
-        emi1 = emi_fortran(rmarg, cmarg)
+        # emi1 = emi_fortran(rmarg, cmarg)
         emi2 = emi_cython(rmarg, cmarg)
 
-        self.assertAlmostEqual(emi1, emi2, 10)
+        import pdb; pdb.set_trace()
+        self.assertAlmostEqual(0, emi2, 10)

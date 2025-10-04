@@ -5,8 +5,9 @@
 
 import warnings
 import numpy as np
+from typing import Set
 from math import log, sqrt, copysign
-from collections import Set, namedtuple
+from collections import namedtuple
 from pymaptools.containers import CrossTab, OrderedCrossTab
 from pymaptools.iter import iter_items, isiterable
 from pymaptools.sample import randround

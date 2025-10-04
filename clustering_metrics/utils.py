@@ -3,7 +3,6 @@ import random
 import operator
 import string
 from math import log
-from itertools import imap
 from operator import itemgetter
 from pymaptools.iter import isiterable
 
@@ -112,7 +111,7 @@ def randset(value_range=(0, 10), sample_range=(5, 20)):
     return tuple(sorted(set(gapply(n, random.choice, source))))
 
 
-def random_string(length, alphabet=string.letters):
+def random_string(length, alphabet="abcdefghijklmnopqrstvwxyz"):
     """Generate a random string
 
     :param length: length of the string

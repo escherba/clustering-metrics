@@ -4,7 +4,6 @@
 
 from libc.math cimport exp, log
 from scipy.special import gammaln
-from collections import Mapping, Iterator
 import numbers
 import numpy as np
 cimport numpy as np
@@ -131,11 +130,11 @@ cpdef ndarray_from_iter(iterable, dtype=None, contiguous=False):
     If the input object is an instance of ``collections.Mapping``, assumes that
     we are interesting in creating a NumPy array from the values.
     """
-    if isinstance(iterable, Iterator):
+    if hasattr(iterable, "__next__"):  # Iterator
         arr = np.fromiter(iterable, dtype=dtype)
         if contiguous:
             arr = np.ascontiguousarray(arr, dtype=dtype)
-    elif isinstance(iterable, Mapping):
+    elif hasattr(iterable, "__getitem__"):  # Mapping
         arr = np.fromiter(iterable.itervalues(), dtype=dtype)
         if contiguous:
             arr = np.ascontiguousarray(arr, dtype=dtype)
@@ -211,7 +210,7 @@ cpdef np.float64_t centropy(counts):
     cdef np.int64_t c, n
     cdef np.float64_t sum_c_logn_c, result
 
-    if isinstance(counts, Mapping):
+    if hasattr(counts, "__getitem__"):   # Mapping
         counts = counts.itervalues()
 
     n = 0LL
@@ -243,7 +242,7 @@ cpdef np.float64_t fentropy(freqs):
 
     cdef np.float64_t f, s, sum_f_logn_f
 
-    if isinstance(freqs, Mapping):
+    if hasattr(freqs, "__getitem__"):  # Mapping
         freqs = freqs.itervalues()
 
     s = 0.0

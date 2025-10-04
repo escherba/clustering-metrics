@@ -27,6 +27,7 @@ __pycache__
 
 # Installer logs
 pip-log.txt
+pyvenv.cfg
 
 # Unit test / coverage reports
 .coverage

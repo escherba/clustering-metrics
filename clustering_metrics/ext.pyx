@@ -93,7 +93,7 @@ cpdef uint64 hash_md5_64(x, uint64 seed=0):
 cpdef hash_md5_128(x, seed=0):
     """Return value is 128 bits
     """
-    ab = hash_combine_boost(seed, long(md5(hashable(x)).hexdigest(), 16))
+    ab = hash_combine_boost(seed, int(md5(hashable(x)).hexdigest(), 16))
     return ab & ((1 << 128) - 1)
 
 

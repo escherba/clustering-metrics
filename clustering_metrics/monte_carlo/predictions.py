@@ -15,11 +15,14 @@ from pymaptools.io import GzipFileType, PathArgumentParser, write_json_line, rea
 from pymaptools.benchmark import PMTimer
 
 from clustering_metrics.monte_carlo import utils
-from clustering_metrics.fent import minmaxr
 from clustering_metrics.utils import _div
 from clustering_metrics.metrics import ClusteringMetrics, ConfusionMatrix2
 from clustering_metrics.ranking import dist_auc
 from clustering_metrics.skutils import auc
+
+
+def minmaxr(arr):
+    return arr.min(), arr.max()
 
 
 def parse_args(args=None):

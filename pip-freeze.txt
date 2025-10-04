@@ -1,0 +1,9 @@
+Cython==3.1.4
+distlib==0.4.0
+filelock==3.19.1
+numpy==2.2.6
+platformdirs==4.4.0
+regex==2025.9.18
+scipy==1.15.3
+typing_extensions==4.15.0
+virtualenv==20.34.0
