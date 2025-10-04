@@ -96,7 +96,7 @@ def reservoir_dict(iterator, field, Kdict, random_state=None):
                 if sample_idx < Kdict[field_val]:
                     field_list[sample_idx] = row
             field_indices[field_val] += 1
-    return list(chain.from_iterable(sample.itervalues()))
+    return list(chain.from_iterable(sample.values()))
 
 
 def discrete_sample(prob_dist, random_state=None):
@@ -133,8 +133,8 @@ def freqs2probas(freqs):
     {'x': 1.0}
     """
     if isinstance(freqs, Mapping):
-        total = float(sum(freqs.itervalues()))
-        return {k: v / total for k, v in freqs.iteritems()}
+        total = float(sum(freqs.values()))
+        return {k: v / total for k, v in freqs.items()}
     else:
         total = float(sum(freqs))
         return [v / total for v in freqs]

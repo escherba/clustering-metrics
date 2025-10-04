@@ -539,7 +539,7 @@ class Grid(object):
                 colors = colorbrewer.get_map('Set1', 'qualitative', 9).mpl_colors
 
             result_row = {}
-            for score_name, scores0 in result0.iteritems():
+            for score_name, scores0 in result0.items():
                 scores1 = result1[score_name]
                 auc_score = dist_auc(scores0, scores1)
                 result_row[score_name] = auc_score

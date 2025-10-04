@@ -152,10 +152,10 @@ class Bigraph(SimplePicklableMixin):
         return g
 
     def iter_edges(self):
-        return self.edges.iterkeys()
+        return self.edges.keys()
 
     def iter_edge_weights(self):
-        return self.edges.iteritems()
+        return self.edges.items()
 
     def rename_nodes(self, unode_renamer=None, vnode_renamer=None):
         """Factory method that produces another graph just like current one
@@ -172,7 +172,7 @@ class Bigraph(SimplePicklableMixin):
         return new_graph
 
     def get_weight(self):
-        return sum(self.edges.itervalues())
+        return sum(self.edges.values())
 
     def get_vnode_weight(self, node):
         neighbors = self.V2U[node]
@@ -471,7 +471,7 @@ class Graph(Bigraph):
             self.V2U.update(deepcopy(base.U2V))
             self.U2V = self.V2U
             edge_map = defaultdict(weight_type)
-            for (node1, node2), weight in base.edges.iteritems():
+            for (node1, node2), weight in base.edges.items():
                 edge_map[self.make_edge(node1, node2)] = deepcopy(weight)
             self.edges = edge_map
         else:

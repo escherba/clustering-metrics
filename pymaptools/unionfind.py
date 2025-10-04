@@ -109,7 +109,7 @@ class UnionFind(object):
         :rtype: list
         """
         result = defaultdict(list)
-        for element in self.parents.iterkeys():
+        for element in self.parents.keys():
             result[self[element]].append(element)
         return result.values()
 

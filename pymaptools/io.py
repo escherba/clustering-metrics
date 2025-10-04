@@ -65,11 +65,11 @@ def ndjson2col(iterator):
         obj = next(iterator)
     except StopIteration:
         return result
-    fields = frozenset(obj.iterkeys())
+    fields = frozenset(obj.keys())
     for field in fields:
         result[field].append(obj[field])
     for idx, obj in enumerate(iterator, start=2):
-        missing_fields = fields - frozenset(obj.iterkeys())
+        missing_fields = fields - frozenset(obj.keys())
         if missing_fields:
             raise RuntimeError("Missing fields %s at line %d" %
                                (list(missing_fields), idx))

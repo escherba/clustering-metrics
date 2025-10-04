@@ -67,7 +67,7 @@ class Struct(object):
         self_dict = self.__dict__
         readwrite_attrs = self.readwrite_attrs
         readonly_attrs = self.readonly_attrs
-        for name, value in entries.iteritems():
+        for name, value in entries.items():
             if (name in readwrite_attrs) or (name in readonly_attrs):
                 self_dict[name] = value
             else:
@@ -380,7 +380,7 @@ class CrossTab(object):
         """
         ltrue = []
         lpred = []
-        for (ri, ci), count in self.iteritems():
+        for (ri, ci), count in self.items():
             for _ in range(count):
                 ltrue.append(ri)
                 lpred.append(ci)
@@ -571,26 +571,26 @@ class CrossTab(object):
     def __len__(self):
         return plen(self.values())
 
-    def iterkeys(self):
+    def keys(self):
         for ri, row in iter_items(self.rows):
             for ci in iter_keys(row):
                 yield ri, ci
 
-    __iter__ = iterkeys
+    __iter__ = keys
 
     def values(self):
         for row in self.iter_rows():
             for cell in row:
                 yield cell
 
-    def iteritems(self):
+    def items(self):
         for ri, row in iter_items(self.rows):
             for ci, cell in iter_items(row):
                 yield (ri, ci), cell
 
     # Other
     def iter_all(self):
-        """Like iteritems but goes over all cells
+        """Like `items()` but goes over all cells
 
         ::
 

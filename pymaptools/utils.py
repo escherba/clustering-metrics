@@ -69,7 +69,7 @@ def deepupdate(dest, source):
     :return: updated mapping
     :rtype: dict
     """
-    for key, value in source.iteritems():
+    for key, value in source.items():
         dest[key] = deepupdate(dest.get(key, {}), value) \
             if isinstance(value, collections.Mapping) \
             else value

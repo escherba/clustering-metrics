@@ -213,7 +213,7 @@ class ContingencyTable(CrossTab):
             rows = self._row_type_2d()
 
             # create a sparse instance
-            for (ri, ci), expected in continuous.iteritems():
+            for (ri, ci), expected in continuous.items():
                 expected = randround(expected)
                 if expected != 0:
                     rows[ri][ci] = expected

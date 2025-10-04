@@ -14,16 +14,16 @@ def dd2coo(dd, dtype=np.float32):
 
     # first level
     row_list = dd.keys()
-    col_list = list(set(k for row in dd.itervalues() for k in row.iterkeys()))
+    col_list = list(set(k for row in dd.values() for k in row.keys()))
     row_map = {k: idx for idx, k in enumerate(row_list)}
     col_map = {k: idx for idx, k in enumerate(col_list)}
 
     values = []
     row_indices = []
     col_indices = []
-    for row_key, row in dd.iteritems():
+    for row_key, row in dd.items():
         row_idx = row_map[row_key]
-        for col_key, val in row.iteritems():
+        for col_key, val in row.items():
             values.append(val)
             row_indices.append(row_idx)
             col_indices.append(col_map[col_key])
