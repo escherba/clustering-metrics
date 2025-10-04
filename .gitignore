@@ -32,10 +32,8 @@ pyvenv.cfg
 # Unit test / coverage reports
 .coverage
 .tox
-nosetests.xml
 
 .ropeproject/
-.noseids
 cover/
 coverage.xml
 *~

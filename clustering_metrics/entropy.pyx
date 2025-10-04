@@ -135,7 +135,7 @@ cpdef ndarray_from_iter(iterable, dtype=None, contiguous=False):
         if contiguous:
             arr = np.ascontiguousarray(arr, dtype=dtype)
     elif hasattr(iterable, "__getitem__"):  # Mapping
-        arr = np.fromiter(iterable.itervalues(), dtype=dtype)
+        arr = np.fromiter(iterable.values(), dtype=dtype)
         if contiguous:
             arr = np.ascontiguousarray(arr, dtype=dtype)
     elif contiguous:
@@ -211,7 +211,7 @@ cpdef np.float64_t centropy(counts):
     cdef np.float64_t sum_c_logn_c, result
 
     if hasattr(counts, "__getitem__"):   # Mapping
-        counts = counts.itervalues()
+        counts = counts.values()
 
     n = 0LL
     sum_c_logn_c = 0.0
@@ -243,7 +243,7 @@ cpdef np.float64_t fentropy(freqs):
     cdef np.float64_t f, s, sum_f_logn_f
 
     if hasattr(freqs, "__getitem__"):  # Mapping
-        freqs = freqs.itervalues()
+        freqs = freqs.values()
 
     s = 0.0
     sum_f_logn_f = 0.0

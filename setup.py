@@ -137,7 +137,6 @@ setup(
     tests_require=TESTS_REQUIRE,
     dependency_links=DEPENDENCY_LINKS,
     zip_safe=False,
-    test_suite='nose.collector',
     cmdclass={'build_ext': build_ext},
     keywords=['clustering', 'evaluation', 'metrics', 'validation', 'analysis'],
     ext_modules=[

@@ -340,7 +340,7 @@ class ContingencyTable(CrossTab):
         """
         H_C = fentropy(self.row_totals)
         H_K = fentropy(self.col_totals)
-        H_actual = fentropy(self.itervalues())
+        H_actual = fentropy(self.values())
         H_expected = H_C + H_K
         I_CK = H_expected - H_actual
         return H_C, H_K, I_CK
@@ -555,12 +555,12 @@ class ContingencyTable(CrossTab):
         elif (not discrete) and model == 'm2r':
             # fixed row margin, assignment also doesn't matter
             sum_top_rows = N if R <= C else \
-                sum(sorted(self.row_totals.itervalues(), reverse=True)[:C])
+                sum(sorted(self.row_totals.values(), reverse=True)[:C])
             null_cost = sum_top_rows / float(C)
         elif (not discrete) and model == 'm2c':
             # fixed column margin, assignment also doesn't matter
             sum_top_cols = N if C <= R else \
-                sum(sorted(self.col_totals.itervalues(), reverse=True)[:R])
+                sum(sorted(self.col_totals.values(), reverse=True)[:R])
             null_cost = sum_top_cols / float(R)
         else:
             # all margins fixed, assignment matters
@@ -733,13 +733,13 @@ class ContingencyTable(CrossTab):
         elif model == 'm1':         # only N is fixed
             null_score = N / float(R) + N / float(C)
         elif model == 'm2r':        # fixed row margin
-            null_score = max(self.row_totals.itervalues()) + N / float(C)
+            null_score = max(self.row_totals.values()) + N / float(C)
         elif model == 'm2c':        # fixed column margin
-            null_score = N / float(R) + max(self.col_totals.itervalues())
+            null_score = N / float(R) + max(self.col_totals.values())
         elif model == 'm3':         # both row and column margins fixed
             null_score = \
-                max(self.row_totals.itervalues()) + \
-                max(self.col_totals.itervalues())
+                max(self.row_totals.values()) + \
+                max(self.col_totals.values())
         else:
             expected = self.expected(model)
             null_score = expected.split_join_similarity(normalize=False, model=None)
@@ -923,7 +923,7 @@ class ClusteringMetrics(ContingencyTable):
         if pairwise is None:
             actual_positives = fsum_pairs(self.iter_row_totals())
             called_positives = fsum_pairs(self.iter_col_totals())
-            TP = fsum_pairs(self.itervalues())
+            TP = fsum_pairs(self.values())
             FN = actual_positives - TP
             FP = called_positives - TP
             TN = fnum_pairs(self.grand_total) - TP - FP - FN

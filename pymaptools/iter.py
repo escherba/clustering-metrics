@@ -93,7 +93,7 @@ def iter_items(iterable):
         [(0, 'a'), (1, 'b'), (2, 'c')]
     """
     if isinstance(iterable, Mapping):
-        return iterable.iteritems()
+        return iterable.items()
     else:
         return enumerate(iterable)
 
@@ -115,7 +115,7 @@ def iter_vals(iterable):
         ['a', 'b', 'c']
     """
     if isinstance(iterable, Mapping):
-        return iterable.itervalues()
+        return iterable.values()
     elif isinstance(iterable, Iterator):
         return iterable
     else:
@@ -139,7 +139,7 @@ def iter_keys(iterable):
         [0, 1, 2]
     """
     if isinstance(iterable, Mapping):
-        return iterable.iterkeys()
+        return iterable.keys()
     elif isinstance(iterable, Iterator):
         return (idx for idx, _ in enumerate(iterable))
     else:

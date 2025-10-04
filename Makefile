@@ -83,7 +83,7 @@ test: env build_ext
 	# make sure package can be pip-installed from local directory
 	$(PIP) install -e .
 	# run tests
-	$(PYENV) $(ENV_EXTRA) python `which nosetests` $(NOSEARGS)
+	$(PYENV) pytest
 
 shell: extras build_ext
 	$(PYENV) PYTHONSTARTUP=$(SHELL_PRELOAD) ipython
@@ -94,7 +94,7 @@ env/make.extras: $(EXTRAS_REQS) | env
 	touch $@
 
 nuke: clean
-	rm -rf *.egg *.egg-info env bin cover coverage.xml nosetests.xml
+	rm -rf *.egg *.egg-info env bin cover coverage.xml
 
 clean:
 	-python setup.py clean

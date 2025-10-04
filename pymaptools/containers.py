@@ -569,7 +569,7 @@ class CrossTab(object):
         return not self.__eq__(other)
 
     def __len__(self):
-        return plen(self.itervalues())
+        return plen(self.values())
 
     def iterkeys(self):
         for ri, row in iter_items(self.rows):
@@ -578,7 +578,7 @@ class CrossTab(object):
 
     __iter__ = iterkeys
 
-    def itervalues(self):
+    def values(self):
         for row in self.iter_rows():
             for cell in row:
                 yield cell
@@ -587,18 +587,6 @@ class CrossTab(object):
         for ri, row in iter_items(self.rows):
             for ci, cell in iter_items(row):
                 yield (ri, ci), cell
-
-    @doc(dict.keys)
-    def keys(self):
-        return list(self.iterkeys())
-
-    @doc(dict.values)
-    def values(self):
-        return list(self.itervalues())
-
-    @doc(dict.items)
-    def items(self):
-        return list(self.iteritems())
 
     # Other
     def iter_all(self):
@@ -654,7 +642,7 @@ class CrossTab(object):
                 yield rm, cm, cell
 
     def iter_vals_with_margins(self):
-        """Similar to itervalues except prepend row and column margins
+        """Similar to `values()` except prepend row and column margins
 
         ::
 

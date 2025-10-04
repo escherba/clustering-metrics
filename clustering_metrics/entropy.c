@@ -2876,6 +2876,7 @@ static const char __pyx_k_arange[] = "arange";
 static const char __pyx_k_counts[] = "counts";
 static const char __pyx_k_lgamma[] = "lgamma";
 static const char __pyx_k_module[] = "__module__";
+static const char __pyx_k_values[] = "values";
 static const char __pyx_k_array2d[] = "array2d";
 static const char __pyx_k_asarray[] = "asarray";
 static const char __pyx_k_float64[] = "float64";
@@ -2901,7 +2902,6 @@ static const char __pyx_k_contiguous[] = "contiguous";
 static const char __pyx_k_csum_pairs[] = "csum_pairs";
 static const char __pyx_k_fnum_pairs[] = "fnum_pairs";
 static const char __pyx_k_fsum_pairs[] = "fsum_pairs";
-static const char __pyx_k_itervalues[] = "itervalues";
 static const char __pyx_k_ImportError[] = "ImportError";
 static const char __pyx_k_initializing[] = "_initializing";
 static const char __pyx_k_is_coroutine[] = "_is_coroutine";
@@ -2916,10 +2916,10 @@ static const char __pyx_k_ndarray_from_iter[] = "ndarray_from_iter";
 static const char __pyx_k_asyncio_coroutines[] = "asyncio.coroutines";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_clustering_metrics_entropy[] = "clustering_metrics.entropy";
-static const char __pyx_k_1_wawa_1_Q_2S_Bb_1A_uBb_1Cr[] = "\320\000\033\2301\360&\000\005\010\200w\210a\210w\220a\330\010\020\220\005\220[\240\001\340\004\010\210\001\330\004\023\2201\330\004\010\210\005\210Q\330\010\013\2102\210S\220\001\330\014\021\220\021\330\014\034\230B\230b\240\003\2401\240A\360\006\000\005\020\210u\220B\220b\230\003\2301\230C\230r\240\021";
+static const char __pyx_k_1_wawa_WA_1_Q_2S_Bb_1A_uBb_1Cr[] = "\320\000\033\2301\360&\000\005\010\200w\210a\210w\220a\330\010\020\220\005\220W\230A\340\004\010\210\001\330\004\023\2201\330\004\010\210\005\210Q\330\010\013\2102\210S\220\001\330\014\021\220\021\330\014\034\230B\230b\240\003\2401\240A\360\006\000\005\020\210u\220B\220b\230\003\2301\230C\230r\240\021";
+static const char __pyx_k_9_waz_b_F_1_auF_1_b_V1_1_auF_b[] = "\320\000(\320(9\270\021\360\024\000\005\010\200w\210a\210z\230\021\330\010\016\210b\220\t\230\021\230*\240F\250!\330\010\013\2101\330\014\022\220\"\320\024&\240a\240u\250F\260!\330\t\020\220\001\220\032\2301\330\010\016\210b\220\t\230\021\230(\240'\250\024\250V\2601\330\010\013\2101\330\014\022\220\"\320\024&\240a\240u\250F\260!\330\t\n\330\010\016\210b\320\020\"\240!\240:\250V\2601\340\010\016\210b\220\010\230\001\230\032\2406\250\021\330\004\013\2101";
 static const char __pyx_k_clustering_metrics_entropy_pyx[] = "clustering_metrics/entropy.pyx";
-static const char __pyx_k_1_waxq_1_Q_2S_Bb_1A_WBc_Bc_Rq_1[] = "\320\000\033\2301\360&\000\005\010\200w\210a\210x\220q\330\010\021\220\026\220{\240!\340\004\010\210\001\330\004\023\2201\330\004\010\210\005\210Q\330\010\013\2102\210S\220\001\330\014\021\220\021\330\014\034\230B\230b\240\003\2401\240A\330\004\r\210W\220B\220c\230\031\240\"\240B\240c\250\021\250#\250R\250q\330\004\013\2101";
-static const char __pyx_k_9_waz_b_F_1_auF_1_b_T_q_1_auF_b[] = "\320\000(\320(9\270\021\360\024\000\005\010\200w\210a\210z\230\021\330\010\016\210b\220\t\230\021\230*\240F\250!\330\010\013\2101\330\014\022\220\"\320\024&\240a\240u\250F\260!\330\t\020\220\001\220\032\2301\330\010\016\210b\220\t\230\021\230(\240+\250T\260\026\260q\330\010\013\2101\330\014\022\220\"\320\024&\240a\240u\250F\260!\330\t\n\330\010\016\210b\320\020\"\240!\240:\250V\2601\340\010\016\210b\220\010\230\001\230\032\2406\250\021\330\004\013\2101";
+static const char __pyx_k_1_waxq_wa_1_Q_2S_Bb_1A_WBc_Bc_R[] = "\320\000\033\2301\360&\000\005\010\200w\210a\210x\220q\330\010\021\220\026\220w\230a\340\004\010\210\001\330\004\023\2201\330\004\010\210\005\210Q\330\010\013\2102\210S\220\001\330\014\021\220\021\330\014\034\230B\230b\240\003\2401\240A\330\004\r\210W\220B\220c\230\031\240\"\240B\240c\250\021\250#\250R\250q\330\004\013\2101";
 static const char __pyx_k_d_Bd_1_Bd_1_1A_1A_aq_r_Bd_1_j_R[] = "\200\001\340#$\360d\001\000\005\r\210B\210d\220!\2201\330\004\014\210B\210d\220!\2201\340\004\010\210\003\2101\210A\330\004\010\210\003\2101\210A\340\004\010\210\002\210$\210a\210q\330\004\007\200r\210\023\210B\210d\220!\2201\330\010\016\210j\230\001\230\021\360\016\000\005\021\220\001\220\034\230R\230t\2401\240D\250\014\260B\260d\270!\2701\330\004\013\2102\210W\220A\220U\230'\240\022\2405\250\006\250b\260\001\330\004\010\210\001\210\025\210a\360\010\000\005\020\210r\220\024\220Q\220c\230\022\2302\230T\240\021\240!\360\010\000\005\n\210\022\2102\210Q\330\004\t\210\022\2102\210Q\340\004\t\210\022\2102\210Q\330\004\t\210\022\2102\210Q\330\004\023\2207\230!\2304\230r\240\027\250\001\250\023\250B\250c\260\022\2607\270!\2701\330\004\017\210w\220a\220t\2302\230W\240A\240S\250\002\250!\330\004\016\210g\220Q\220e\2302\230Q\360\006\000\005\013\210!\330\004\010\210\005\210V\2201\220A\330\010\017\210r\220\021\220!\330\010\021\220\025\220a\220q\330\010\030\230\014\240A\240Q\330\010\022\220#\220R\220q\330\010\014\210E\220\026\220q\230\001\330\014\023\2202\220Q\220a\330\014\036\230g\240R\240u\250A\250Q\330\014\030\230\016\240b\250\010\260\001\260\021\330\014\031\230\030\240\022\2401\340\014\020\220\007\220v\230U\240%\240t\2502\320->\270f\300A\340\020\021\330\024\"\240!\330\024\027\220x\230q\240\005\240R\240q\330\024\026\220c\230\021\230!\330\030\032\230'\240\021\240!\330\030\032\230.\250\001\250\025\250b\260\001\330\030\032\230.\250\001\250\025\250b\260\001\330\030\032\230.\250\001\250\024\250R\250q\360\006\000\005\014\2101";
 static const char __pyx_k_s_9Cq_q_7_1_s_6_A_q_aq_z_wa_1_6[] = "\200\001\340()\340\004\007\200s\210!\2109\220C\220q\330\010\017\210q\330\004\013\2107\220!\2201\330\004\007\200s\210!\2106\220\023\220A\330\010\017\210q\330\004\n\210$\210a\210q\330\004\007\200z\220\021\220%\220w\230a\330\010\017\320\017#\2401\320$6\260a\330\t\023\2201\220E\230\027\240\001\330\010\017\320\017#\2401\320$6\260a\340\010\016\210i\220q\230\004\230A\230Q";
 static const char __pyx_k_x_must_be_strictly_positive_got[] = "x must be strictly positive, got %f";
@@ -3079,30 +3079,30 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_int64 __pyx_string_tab[39]
 #define __pyx_n_u_is_coroutine __pyx_string_tab[40]
 #define __pyx_n_u_iterable __pyx_string_tab[41]
-#define __pyx_n_u_itervalues __pyx_string_tab[42]
-#define __pyx_n_u_lgamma __pyx_string_tab[43]
-#define __pyx_n_u_log __pyx_string_tab[44]
-#define __pyx_n_u_main __pyx_string_tab[45]
-#define __pyx_n_u_max __pyx_string_tab[46]
-#define __pyx_n_u_maximize __pyx_string_tab[47]
-#define __pyx_n_u_module __pyx_string_tab[48]
-#define __pyx_n_u_n __pyx_string_tab[49]
-#define __pyx_n_u_name __pyx_string_tab[50]
-#define __pyx_n_u_ndarray_from_iter __pyx_string_tab[51]
-#define __pyx_n_u_next __pyx_string_tab[52]
-#define __pyx_n_u_np __pyx_string_tab[53]
-#define __pyx_n_u_numbers __pyx_string_tab[54]
-#define __pyx_n_u_numpy __pyx_string_tab[55]
-#define __pyx_kp_u_numpy__core_multiarray_failed_to __pyx_string_tab[56]
-#define __pyx_kp_u_numpy__core_umath_failed_to_impo __pyx_string_tab[57]
-#define __pyx_n_u_pop __pyx_string_tab[58]
-#define __pyx_n_u_qualname __pyx_string_tab[59]
-#define __pyx_n_u_range __pyx_string_tab[60]
-#define __pyx_n_u_scipy_special __pyx_string_tab[61]
-#define __pyx_n_u_set_name __pyx_string_tab[62]
-#define __pyx_n_u_spec __pyx_string_tab[63]
-#define __pyx_n_u_sum __pyx_string_tab[64]
-#define __pyx_n_u_test __pyx_string_tab[65]
+#define __pyx_n_u_lgamma __pyx_string_tab[42]
+#define __pyx_n_u_log __pyx_string_tab[43]
+#define __pyx_n_u_main __pyx_string_tab[44]
+#define __pyx_n_u_max __pyx_string_tab[45]
+#define __pyx_n_u_maximize __pyx_string_tab[46]
+#define __pyx_n_u_module __pyx_string_tab[47]
+#define __pyx_n_u_n __pyx_string_tab[48]
+#define __pyx_n_u_name __pyx_string_tab[49]
+#define __pyx_n_u_ndarray_from_iter __pyx_string_tab[50]
+#define __pyx_n_u_next __pyx_string_tab[51]
+#define __pyx_n_u_np __pyx_string_tab[52]
+#define __pyx_n_u_numbers __pyx_string_tab[53]
+#define __pyx_n_u_numpy __pyx_string_tab[54]
+#define __pyx_kp_u_numpy__core_multiarray_failed_to __pyx_string_tab[55]
+#define __pyx_kp_u_numpy__core_umath_failed_to_impo __pyx_string_tab[56]
+#define __pyx_n_u_pop __pyx_string_tab[57]
+#define __pyx_n_u_qualname __pyx_string_tab[58]
+#define __pyx_n_u_range __pyx_string_tab[59]
+#define __pyx_n_u_scipy_special __pyx_string_tab[60]
+#define __pyx_n_u_set_name __pyx_string_tab[61]
+#define __pyx_n_u_spec __pyx_string_tab[62]
+#define __pyx_n_u_sum __pyx_string_tab[63]
+#define __pyx_n_u_test __pyx_string_tab[64]
+#define __pyx_n_u_values __pyx_string_tab[65]
 #define __pyx_n_u_x __pyx_string_tab[66]
 #define __pyx_kp_u_x_must_be_strictly_positive_got __pyx_string_tab[67]
 /* #### Code section: module_state_clear ### */
@@ -6243,7 +6243,7 @@ static PyObject *__pyx_f_18clustering_metrics_7entropy_ndarray_from_iter(PyObjec
  *         if contiguous:
  *             arr = np.ascontiguousarray(arr, dtype=dtype)             # <<<<<<<<<<<<<<
  *     elif hasattr(iterable, "__getitem__"):  # Mapping
- *         arr = np.fromiter(iterable.itervalues(), dtype=dtype)
+ *         arr = np.fromiter(iterable.values(), dtype=dtype)
 */
       __pyx_t_5 = NULL;
       __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 136, __pyx_L1_error)
@@ -6301,7 +6301,7 @@ static PyObject *__pyx_f_18clustering_metrics_7entropy_ndarray_from_iter(PyObjec
  *         if contiguous:
  *             arr = np.ascontiguousarray(arr, dtype=dtype)
  *     elif hasattr(iterable, "__getitem__"):  # Mapping             # <<<<<<<<<<<<<<
- *         arr = np.fromiter(iterable.itervalues(), dtype=dtype)
+ *         arr = np.fromiter(iterable.values(), dtype=dtype)
  *         if contiguous:
 */
   __pyx_t_1 = __Pyx_HasAttr(__pyx_v_iterable, __pyx_mstate_global->__pyx_n_u_getitem); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 137, __pyx_L1_error)
@@ -6310,7 +6310,7 @@ static PyObject *__pyx_f_18clustering_metrics_7entropy_ndarray_from_iter(PyObjec
     /* "clustering_metrics/entropy.pyx":138
  *             arr = np.ascontiguousarray(arr, dtype=dtype)
  *     elif hasattr(iterable, "__getitem__"):  # Mapping
- *         arr = np.fromiter(iterable.itervalues(), dtype=dtype)             # <<<<<<<<<<<<<<
+ *         arr = np.fromiter(iterable.values(), dtype=dtype)             # <<<<<<<<<<<<<<
  *         if contiguous:
  *             arr = np.ascontiguousarray(arr, dtype=dtype)
 */
@@ -6325,7 +6325,7 @@ static PyObject *__pyx_f_18clustering_metrics_7entropy_ndarray_from_iter(PyObjec
     __pyx_t_6 = 0;
     {
       PyObject *__pyx_callargs[2] = {__pyx_t_7, NULL};
-      __pyx_t_4 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_itervalues, __pyx_callargs+__pyx_t_6, (1-__pyx_t_6) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+      __pyx_t_4 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_values, __pyx_callargs+__pyx_t_6, (1-__pyx_t_6) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
       if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 138, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
@@ -6360,7 +6360,7 @@ static PyObject *__pyx_f_18clustering_metrics_7entropy_ndarray_from_iter(PyObjec
 
     /* "clustering_metrics/entropy.pyx":139
  *     elif hasattr(iterable, "__getitem__"):  # Mapping
- *         arr = np.fromiter(iterable.itervalues(), dtype=dtype)
+ *         arr = np.fromiter(iterable.values(), dtype=dtype)
  *         if contiguous:             # <<<<<<<<<<<<<<
  *             arr = np.ascontiguousarray(arr, dtype=dtype)
  *     elif contiguous:
@@ -6369,7 +6369,7 @@ static PyObject *__pyx_f_18clustering_metrics_7entropy_ndarray_from_iter(PyObjec
     if (__pyx_t_1) {
 
       /* "clustering_metrics/entropy.pyx":140
- *         arr = np.fromiter(iterable.itervalues(), dtype=dtype)
+ *         arr = np.fromiter(iterable.values(), dtype=dtype)
  *         if contiguous:
  *             arr = np.ascontiguousarray(arr, dtype=dtype)             # <<<<<<<<<<<<<<
  *     elif contiguous:
@@ -6410,7 +6410,7 @@ static PyObject *__pyx_f_18clustering_metrics_7entropy_ndarray_from_iter(PyObjec
 
       /* "clustering_metrics/entropy.pyx":139
  *     elif hasattr(iterable, "__getitem__"):  # Mapping
- *         arr = np.fromiter(iterable.itervalues(), dtype=dtype)
+ *         arr = np.fromiter(iterable.values(), dtype=dtype)
  *         if contiguous:             # <<<<<<<<<<<<<<
  *             arr = np.ascontiguousarray(arr, dtype=dtype)
  *     elif contiguous:
@@ -6421,7 +6421,7 @@ static PyObject *__pyx_f_18clustering_metrics_7entropy_ndarray_from_iter(PyObjec
  *         if contiguous:
  *             arr = np.ascontiguousarray(arr, dtype=dtype)
  *     elif hasattr(iterable, "__getitem__"):  # Mapping             # <<<<<<<<<<<<<<
- *         arr = np.fromiter(iterable.itervalues(), dtype=dtype)
+ *         arr = np.fromiter(iterable.values(), dtype=dtype)
  *         if contiguous:
 */
     goto __pyx_L3;
@@ -7581,7 +7581,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_centropy(P
  *     cdef np.float64_t sum_c_logn_c, result
  * 
  *     if hasattr(counts, "__getitem__"):   # Mapping             # <<<<<<<<<<<<<<
- *         counts = counts.itervalues()
+ *         counts = counts.values()
  * 
 */
   __pyx_t_1 = __Pyx_HasAttr(__pyx_v_counts, __pyx_mstate_global->__pyx_n_u_getitem); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 213, __pyx_L1_error)
@@ -7590,7 +7590,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_centropy(P
     /* "clustering_metrics/entropy.pyx":214
  * 
  *     if hasattr(counts, "__getitem__"):   # Mapping
- *         counts = counts.itervalues()             # <<<<<<<<<<<<<<
+ *         counts = counts.values()             # <<<<<<<<<<<<<<
  * 
  *     n = 0LL
 */
@@ -7599,7 +7599,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_centropy(P
     __pyx_t_4 = 0;
     {
       PyObject *__pyx_callargs[2] = {__pyx_t_3, NULL};
-      __pyx_t_2 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_itervalues, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+      __pyx_t_2 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_values, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 214, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
@@ -7611,13 +7611,13 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_centropy(P
  *     cdef np.float64_t sum_c_logn_c, result
  * 
  *     if hasattr(counts, "__getitem__"):   # Mapping             # <<<<<<<<<<<<<<
- *         counts = counts.itervalues()
+ *         counts = counts.values()
  * 
 */
   }
 
   /* "clustering_metrics/entropy.pyx":216
- *         counts = counts.itervalues()
+ *         counts = counts.values()
  * 
  *     n = 0LL             # <<<<<<<<<<<<<<
  *     sum_c_logn_c = 0.0
@@ -7940,7 +7940,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_fentropy(P
  *     cdef np.float64_t f, s, sum_f_logn_f
  * 
  *     if hasattr(freqs, "__getitem__"):  # Mapping             # <<<<<<<<<<<<<<
- *         freqs = freqs.itervalues()
+ *         freqs = freqs.values()
  * 
 */
   __pyx_t_1 = __Pyx_HasAttr(__pyx_v_freqs, __pyx_mstate_global->__pyx_n_u_getitem); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 245, __pyx_L1_error)
@@ -7949,7 +7949,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_fentropy(P
     /* "clustering_metrics/entropy.pyx":246
  * 
  *     if hasattr(freqs, "__getitem__"):  # Mapping
- *         freqs = freqs.itervalues()             # <<<<<<<<<<<<<<
+ *         freqs = freqs.values()             # <<<<<<<<<<<<<<
  * 
  *     s = 0.0
 */
@@ -7958,7 +7958,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_fentropy(P
     __pyx_t_4 = 0;
     {
       PyObject *__pyx_callargs[2] = {__pyx_t_3, NULL};
-      __pyx_t_2 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_itervalues, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+      __pyx_t_2 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_values, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 246, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
@@ -7970,13 +7970,13 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_fentropy(P
  *     cdef np.float64_t f, s, sum_f_logn_f
  * 
  *     if hasattr(freqs, "__getitem__"):  # Mapping             # <<<<<<<<<<<<<<
- *         freqs = freqs.itervalues()
+ *         freqs = freqs.values()
  * 
 */
   }
 
   /* "clustering_metrics/entropy.pyx":248
- *         freqs = freqs.itervalues()
+ *         freqs = freqs.values()
  * 
  *     s = 0.0             # <<<<<<<<<<<<<<
  *     sum_f_logn_f = 0.0
@@ -10421,7 +10421,6 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_int64, sizeof(__pyx_k_int64), 0, 1, 1}, /* PyObject cname: __pyx_n_u_int64 */
   {__pyx_k_is_coroutine, sizeof(__pyx_k_is_coroutine), 0, 1, 1}, /* PyObject cname: __pyx_n_u_is_coroutine */
   {__pyx_k_iterable, sizeof(__pyx_k_iterable), 0, 1, 1}, /* PyObject cname: __pyx_n_u_iterable */
-  {__pyx_k_itervalues, sizeof(__pyx_k_itervalues), 0, 1, 1}, /* PyObject cname: __pyx_n_u_itervalues */
   {__pyx_k_lgamma, sizeof(__pyx_k_lgamma), 0, 1, 1}, /* PyObject cname: __pyx_n_u_lgamma */
   {__pyx_k_log, sizeof(__pyx_k_log), 0, 1, 1}, /* PyObject cname: __pyx_n_u_log */
   {__pyx_k_main, sizeof(__pyx_k_main), 0, 1, 1}, /* PyObject cname: __pyx_n_u_main */
@@ -10445,6 +10444,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_spec, sizeof(__pyx_k_spec), 0, 1, 1}, /* PyObject cname: __pyx_n_u_spec */
   {__pyx_k_sum, sizeof(__pyx_k_sum), 0, 1, 1}, /* PyObject cname: __pyx_n_u_sum */
   {__pyx_k_test, sizeof(__pyx_k_test), 0, 1, 1}, /* PyObject cname: __pyx_n_u_test */
+  {__pyx_k_values, sizeof(__pyx_k_values), 0, 1, 1}, /* PyObject cname: __pyx_n_u_values */
   {__pyx_k_x, sizeof(__pyx_k_x), 0, 1, 1}, /* PyObject cname: __pyx_n_u_x */
   {__pyx_k_x_must_be_strictly_positive_got, sizeof(__pyx_k_x_must_be_strictly_positive_got), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_x_must_be_strictly_positive_got */
   {0, 0, 0, 0, 0}
@@ -10551,7 +10551,7 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   {
     const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 123, 145};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_iterable, __pyx_mstate->__pyx_n_u_dtype, __pyx_mstate->__pyx_n_u_contiguous};
-    __pyx_mstate_global->__pyx_codeobj_tab[2] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_clustering_metrics_entropy_pyx, __pyx_mstate->__pyx_n_u_ndarray_from_iter, __pyx_k_9_waz_b_F_1_auF_1_b_T_q_1_auF_b, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[2])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[2] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_clustering_metrics_entropy_pyx, __pyx_mstate->__pyx_n_u_ndarray_from_iter, __pyx_k_9_waz_b_F_1_auF_1_b_V1_1_auF_b, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[2])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 148, 24};
@@ -10576,12 +10576,12 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 194, 101};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_counts};
-    __pyx_mstate_global->__pyx_codeobj_tab[7] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_clustering_metrics_entropy_pyx, __pyx_mstate->__pyx_n_u_centropy, __pyx_k_1_waxq_1_Q_2S_Bb_1A_WBc_Bc_Rq_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[7])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[7] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_clustering_metrics_entropy_pyx, __pyx_mstate->__pyx_n_u_centropy, __pyx_k_1_waxq_wa_1_Q_2S_Bb_1A_WBc_Bc_R, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[7])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 226, 92};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_freqs};
-    __pyx_mstate_global->__pyx_codeobj_tab[8] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_clustering_metrics_entropy_pyx, __pyx_mstate->__pyx_n_u_fentropy, __pyx_k_1_wawa_1_Q_2S_Bb_1A_uBb_1Cr, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[8])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[8] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_clustering_metrics_entropy_pyx, __pyx_mstate->__pyx_n_u_fentropy, __pyx_k_1_wawa_WA_1_Q_2S_Bb_1A_uBb_1Cr, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[8])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 259, 482};
