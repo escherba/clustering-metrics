@@ -1,15 +1,23 @@
 # -*- coding: utf-8 -*-
 import random
 import operator
-import string
-from math import log
 from operator import itemgetter
+from math import log
+
+import numpy as np
 from pymaptools.iter import isiterable
 
 
 PINF = float('inf')
 NINF = float('-inf')
 NAN = float('nan')
+
+
+def minmaxr(arr):
+    if len(arr) == 0:
+        return np.inf, -np.inf
+    arr = np.asarray(arr)
+    return arr.min(), arr.max()
 
 
 def _log(x, base=None):

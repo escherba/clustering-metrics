@@ -21,7 +21,7 @@ def run(args):
     reader = csv.reader(args.input, delimiter=args.input_delimiter)
     writer = csv.writer(args.output, delimiter=args.output_delimiter)
     fields = args.fields
-    header = reader.next()
+    header = next(reader)
     get = field_getter(header, fields)
     if args.output_header:
         writer.writerow(get(header))

@@ -11,7 +11,7 @@ def random_seed():
     """Get a number that can be used to seed a random number generator
     """
     try:
-        return int(os.urandom(7).encode('hex'), 16)
+        return int(os.urandom(7).hex(), 16)
     except NotImplementedError:
         return hash(time.time())
 

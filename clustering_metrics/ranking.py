@@ -161,7 +161,7 @@ class LiftCurve(object):
         # ground truth positives
         data = ((len(cluster), sum(is_class_pos(class_label) for class_label in cluster))
                 for cluster in clusters if cluster)
-        scores_pred, scores_true = zip(*data) or ([], [])
+        scores_pred, scores_true = list(zip(*data)) or ([], [])
         return cls.from_counts(scores_true, scores_pred)
 
     @classmethod
@@ -425,7 +425,7 @@ class RocCurve(object):
         """
 
         # num2bool Y labels
-        y_true = map(is_class_pos, labels_true)
+        y_true = list(map(is_class_pos, labels_true))
 
         # calculate axes
         fprs, tprs, thresholds = roc_curve(

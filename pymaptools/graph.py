@@ -18,10 +18,10 @@ maximal bicliques in bipartite graphs described in [1]_.
     >>> h.add_edge(5, -5, weight=10)
     >>> j = g & h
     >>> components = j.find_connected_components()
-    >>> curr = components.next()
+    >>> curr = next(components)
     >>> (sorted(curr.U), sorted(curr.V))
     ([1, 2, 3], [-3, -2, -1])
-    >>> curr = components.next()
+    >>> curr = next(components)
     >>> (sorted(curr.U), sorted(curr.V))
     ([5], [-5])
 
@@ -98,10 +98,10 @@ class Bigraph(SimplePicklableMixin):
         >>> h.add_edge(5, -5, weight=10)
         >>> j = g & h
         >>> components = j.find_connected_components()
-        >>> curr = components.next()
+        >>> curr = next(components)
         >>> (sorted(curr.U), sorted(curr.V))
         ([1, 2, 3], [-3, -2, -1])
-        >>> curr = components.next()
+        >>> curr = next(components)
         >>> (sorted(curr.U), sorted(curr.V))
         ([5], [-5])
     """

@@ -218,7 +218,7 @@ def aggregate_tuples(iterable):
     if not isinstance(iterable, Iterator):
         iterable = iter(iterable)
     try:
-        fst_, snd_ = iterable.next()
+        fst_, snd_ = next(iterable)
     except StopIteration:
         return
     bucket = [snd_]
@@ -444,7 +444,7 @@ def tabulate(function, start=0):
     ::
 
         >>> foo = tabulate(lambda x: x + 5, 10)
-        >>> foo.next()
+        >>> next(foo)
         15
     """
     return map(function, count(start))
@@ -457,7 +457,7 @@ def consume(iterator, n):
 
         >>> myiter = count(5)
         >>> consume(myiter, 4)
-        >>> myiter.next()
+        >>> next(myiter)
         9
         >>> myiter = iter([1, 2, 3])
         >>> consume(myiter, None)

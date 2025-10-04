@@ -62,7 +62,7 @@ def ndjson2col(iterator):
     """
     result = collections.defaultdict(list)
     try:
-        obj = iterator.next()
+        obj = next(iterator)
     except StopIteration:
         return result
     fields = frozenset(obj.iterkeys())
@@ -147,7 +147,7 @@ class FileReader(abc.Iterator):
             self._advance_handle()
 
     def _advance_handle(self):
-        self._curr_filename = self._files.next()
+        self._curr_filename = next(self._files)
         if self._openhook is None:
             self._curr_handle = self._curr_filename \
                 if hasmethod(self._curr_filename, 'next') \
@@ -171,7 +171,7 @@ class FileReader(abc.Iterator):
             raise StopIteration()
         while line is None:
             try:
-                line = self._curr_handle.next()
+                line = next(self._curr_handle)
             except StopIteration:
                 self._advance_handle()
         return self.parse(line)

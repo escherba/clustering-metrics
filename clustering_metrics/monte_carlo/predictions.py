@@ -14,17 +14,10 @@ from pymaptools.sample import discrete_sample, freqs2probas, randround
 from pymaptools.io import GzipFileType, PathArgumentParser, write_json_line, read_json_lines, ndjson2col
 
 from clustering_metrics.monte_carlo import utils
-from clustering_metrics.utils import _div
+from clustering_metrics.utils import _div, minmaxr
 from clustering_metrics.metrics import ClusteringMetrics, ConfusionMatrix2
 from clustering_metrics.ranking import dist_auc
 from clustering_metrics.skutils import auc
-
-
-def minmaxr(arr):
-    if len(arr) == 0:
-        return np.inf, -np.inf
-    arr = np.asarray(arr)
-    return arr.min(), arr.max()
 
 
 def parse_args(args=None):
@@ -281,7 +274,7 @@ def simulate_clustering(galpha=2, gbeta=10, nclusters=20, pos_ratio=0.2,
     if not 0.0 <= p_err <= 1.0:
         raise ValueError(p_err)
 
-    csizes = map(randround, np.random.gamma(galpha, gbeta, nclusters))
+    csizes = list(map(randround, np.random.gamma(galpha, gbeta, nclusters)))
 
     # make sure at least one cluster is generated
     num_pos = sum(csizes)
