@@ -12,7 +12,7 @@ from pkg_resources import resource_string
 # remove the "-Wstrict-prototypes" compiler option (not valid for C++)
 CFG_VARS = distutils.sysconfig.get_config_vars()
 for key, value in CFG_VARS.items():
-    if isinstance(value, basestring):
+    if isinstance(value, str):
         CFG_VARS[key] = value.replace("-Wstrict-prototypes", "")
 
 

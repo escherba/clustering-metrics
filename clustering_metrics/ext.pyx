@@ -76,7 +76,7 @@ cpdef inline hash_combine_murmur(seed, v):
 
 
 cpdef inline hashable(value):
-    if not isinstance(value, basestring):
+    if not isinstance(value, str):
         return repr(value)
     return value
 
