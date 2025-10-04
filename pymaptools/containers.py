@@ -381,7 +381,7 @@ class CrossTab(object):
         ltrue = []
         lpred = []
         for (ri, ci), count in self.iteritems():
-            for _ in xrange(count):
+            for _ in range(count):
                 ltrue.append(ri)
                 lpred.append(ci)
         return ltrue, lpred
@@ -391,7 +391,7 @@ class CrossTab(object):
         """Instantiate from two arrays of observations (labels)
         """
         rows = cls._row_type_2d()
-        for c, k in izip(labels_true, labels_pred):
+        for c, k in zip(labels_true, labels_pred):
             rows[c][k] += 1
         return cls(rows=rows)
 
@@ -429,7 +429,7 @@ class CrossTab(object):
         ptrue = defaultdict(list)
         ppred = defaultdict(list)
         for (ri, ci), count in self.items():
-            for _ in xrange(count):
+            for _ in range(count):
                 ptrue[ri].append(point)
                 ppred[ci].append(point)
                 point += 1
@@ -833,7 +833,7 @@ def labels_to_clusters(labels_true, labels_pred):
 
     """
     result = defaultdict(list)
-    for label_true, label_pred in izip(labels_true, labels_pred):
+    for label_true, label_pred in zip(labels_true, labels_pred):
         result[label_pred].append(label_true)
     return result.values()
 

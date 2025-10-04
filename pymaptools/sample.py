@@ -36,7 +36,7 @@ def random_combination(iterable, r):
     """
     pool = tuple(iterable)
     num = len(pool)
-    indices = sorted(random.sample(xrange(num), r))
+    indices = sorted(random.sample(range(num), r))
     return tuple(pool[i] for i in indices)
 
 
@@ -45,7 +45,7 @@ def random_combination_with_replacement(iterable, r):
     """
     pool = tuple(iterable)
     num = len(pool)
-    indices = sorted(random.randrange(num) for i in xrange(r))
+    indices = sorted(random.randrange(num) for i in range(r))
     return tuple(pool[i] for i in indices)
 
 

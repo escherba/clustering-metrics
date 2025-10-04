@@ -11,7 +11,7 @@ class TestCombiners(unittest.TestCase):
         """PHashCombiner should work on long inputs"""
         vec = [hash(str(x)) for x in range(8)]
         comb = PHashCombiner(8)
-        self.assertEqual(15556957597623732740L, comb.combine(vec))
+        self.assertEqual(15556957597623732740, comb.combine(vec))
 
     def test_hash_combiner_1(self):
         """PHashCombiner should work on long inputs"""
@@ -23,16 +23,16 @@ class TestCombiners(unittest.TestCase):
     def test_hash_combiner_2(self):
         """PHashCombiner should return 0 on empty inputs"""
         comb = PHashCombiner(8)
-        self.assertEqual(0L, comb.combine([]))
+        self.assertEqual(0, comb.combine([]))
 
     def _check_combiner(self, func):
         VEC_SIZE = 8
         vec = [hash(str(x)) for x in range(VEC_SIZE)]
-        result1 = reduce(func, vec, 0L)
+        result1 = reduce(func, vec, 0)
         for val in vec:
             self.assertNotEqual(result1, val)
         vec[VEC_SIZE // 2] = hash("test")
-        result2 = reduce(func, vec, 0L)
+        result2 = reduce(func, vec, 0)
         for val in vec:
             self.assertNotEqual(result2, val)
         self.assertNotEqual(result1, result2)

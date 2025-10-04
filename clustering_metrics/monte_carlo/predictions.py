@@ -5,7 +5,7 @@ import random
 import sys
 import logging
 import scipy
-from itertools import product, izip, chain, cycle
+from itertools import product, chain, cycle
 from collections import defaultdict
 from functools import partial
 from pymaptools.iter import izip_with_cycles, isiterable, take
@@ -254,7 +254,7 @@ def join_clusters(clusters):
     assert len(even) == len(odd)
 
     result = []
-    for c1, c2 in izip(even, odd):
+    for c1, c2 in zip(even, odd):
         result.append(c1 + c2)
     return result
 
@@ -309,7 +309,7 @@ def simulate_clustering(galpha=2, gbeta=10, nclusters=20, pos_ratio=0.2,
 
     # negative case first
     negatives = []
-    for _ in xrange(num_neg):
+    for _ in range(num_neg):
         class_label = sample_with_error(0, error_dist, null_dist)
         negatives.append([class_label])
 
@@ -319,19 +319,19 @@ def simulate_clustering(galpha=2, gbeta=10, nclusters=20, pos_ratio=0.2,
         if csize < 1:
             continue
         cluster = []
-        for _ in xrange(csize):
+        for _ in range(csize):
             class_label = sample_with_error(idx, error_dist, null_dist)
             cluster.append(class_label)
         positives.append(cluster)
 
     if split_join > 0:
-        for _ in xrange(split_join):
+        for _ in range(split_join):
             positives = split_clusters(positives)
     elif split_join < 0:
-        for _ in xrange(-split_join):
+        for _ in range(-split_join):
             positives = join_clusters(positives)
         if join_negatives:
-            for _ in xrange(-split_join):
+            for _ in range(-split_join):
                 negatives = join_clusters(negatives)
 
     return relabel_negatives(positives + negatives)
@@ -420,7 +420,7 @@ class Grid(object):
         return ConfusionMatrix2.from_ccw(*arr)
 
     def iter_grid(self):
-        return enumerate(izip(*self.grid))
+        return enumerate(zip(*self.grid))
 
     iter_clusters = iter_grid
 
@@ -471,7 +471,7 @@ class Grid(object):
 
         classes = np.empty((n, size), dtype=np.int64)
         clusters = np.empty((n, size), dtype=np.int64)
-        for idx in xrange(n):
+        for idx in range(n):
             ltrue, lpred = simulate_labeling(sample_size=size, **kwargs)
             classes[idx, :] = ltrue
             clusters[idx, :] = lpred

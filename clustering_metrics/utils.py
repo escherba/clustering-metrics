@@ -84,7 +84,7 @@ def gapply(n, func, *args, **kwargs):
     :type func: instancemethod
     :rtype: collections.iterable
     """
-    for _ in xrange(n):
+    for _ in range(n):
         yield func(*args, **kwargs)
 
 
@@ -121,7 +121,7 @@ def random_string(length, alphabet="abcdefghijklmnopqrstvwxyz"):
     :return: random string of specified length
     :rtype: str
     """
-    return ''.join(str(random.choice(alphabet)) for _ in xrange(length))
+    return ''.join(str(random.choice(alphabet)) for _ in range(length))
 
 
 def sigsim(x, y, dim):
@@ -136,7 +136,7 @@ def sigsim(x, y, dim):
     :returns: similarity between two signatures
     :rtype: float
     """
-    return sum(imap(operator.eq, x, y)) / float(dim)
+    return sum(map(operator.eq, x, y)) / float(dim)
 
 
 def sort_by_length(els, reverse=True):
@@ -149,6 +149,6 @@ def sort_by_length(els, reverse=True):
     :type reverse: bool
     :rtype: collections.iterable
     """
-    return imap(itemgetter(0),
+    return map(itemgetter(0),
                 sorted(((s, len(s)) for s in els),
                        key=operator.itemgetter(1), reverse=reverse))

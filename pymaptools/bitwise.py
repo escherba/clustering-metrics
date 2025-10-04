@@ -5,7 +5,6 @@ Various bitwise operations
 """
 import ctypes
 import struct
-from itertools import izip
 from functools import partial
 
 PyLong_AsByteArray = ctypes.pythonapi._PyLong_AsByteArray
@@ -95,7 +94,7 @@ def hamming_from_iter(vec1, vec2):
         vec2 += [0] * len_delta
     else:
         vec1 += [0] * (-len_delta)
-    return sum(ch1 != ch2 for ch1, ch2 in izip(vec1, vec2))
+    return sum(ch1 != ch2 for ch1, ch2 in zip(vec1, vec2))
 
 
 def hamming(num1, num2):

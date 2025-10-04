@@ -66,7 +66,7 @@ def test_m1():
 def test_RxC_general():
     """General conteingency-table mathods
     """
-    for _ in xrange(100):
+    for _ in range(100):
         size = np.random.randint(4, 100)
         a = np.random.randint(low=0, high=np.random.randint(low=2, high=100),
                               size=(size,))
@@ -100,7 +100,7 @@ def test_RxC_general():
 def test_RxC_metrics():
     """Alternative implementations should coincide for RxC matrices
     """
-    for _ in xrange(100):
+    for _ in range(100):
         ltrue = np.random.randint(low=0, high=5, size=(20,))
         lpred = np.random.randint(low=0, high=5, size=(20,))
         cm = ClusteringMetrics.from_labels(ltrue, lpred)
@@ -132,7 +132,7 @@ def test_2x2_invariants():
     """Alternative implementations should coincide for 2x2 matrices
     """
 
-    for _ in xrange(100):
+    for _ in range(100):
         cm = ConfusionMatrix2.from_random_counts(low=0, high=10)
 
         # object idempotency

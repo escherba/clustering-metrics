@@ -2,7 +2,6 @@ import warnings
 import numpy as np
 from numpy.testing import assert_array_almost_equal
 from math import sqrt
-from itertools import izip
 from nose.tools import assert_almost_equal, assert_true, assert_equal, assert_greater
 from clustering_metrics.metrics import adjusted_rand_score, \
     homogeneity_completeness_v_measure, fentropy, \
@@ -73,7 +72,7 @@ def _talburt_wang_index(labels_true, labels_pred):
     V = set()
     A = set()
     B = set()
-    for pair in izip(labels_true, labels_pred):
+    for pair in zip(labels_true, labels_pred):
         V.add(pair)
         A.add(pair[0])
         B.add(pair[1])

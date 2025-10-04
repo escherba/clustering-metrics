@@ -2,7 +2,6 @@
 
 import sys
 from struct import unpack
-from itertools import izip
 from hashlib import md5
 
 
@@ -26,14 +25,14 @@ cdef class PHashCombiner(object):
 
     def __cinit__(self, size, prime=31, bits=64):
         # TODO: cdef prime and i to int64 to get speedup
-        self._coeffs = [prime ** i for i in xrange(size)]
+        self._coeffs = [prime ** i for i in range(size)]
         self._mask = (1 << bits) - 1
 
     def combine(self, hashes):
         """Combine a list of integer hashes
         """
         # TODO: cdef h and c to int64 to get speedup
-        ab = sum(h * c for h, c in izip(hashes, self._coeffs))
+        ab = sum(h * c for h, c in zip(hashes, self._coeffs))
         return ab & self._mask
 
 

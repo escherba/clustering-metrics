@@ -26,7 +26,7 @@ def izip_longest(*args, **kwds):
     fillers = repeat(fillvalue)
     iters = [chain(it, sentinel(), fillers) for it in args]
     try:
-        for tup in izip(*iters):
+        for tup in zip(*iters):
             yield tup
     except IndexError:
         pass
@@ -143,7 +143,7 @@ def iter_keys(iterable):
     elif isinstance(iterable, Iterator):
         return (idx for idx, _ in enumerate(iterable))
     else:
-        return xrange(len(iterable))
+        return range(len(iterable))
 
 
 def iter2map(iterable):
@@ -197,7 +197,7 @@ def izip_with_cycles(*args):
         # do not cycle if no iterables found (otherwise won't terminate)
         for arg in args:
             iargs.append([arg])
-    return izip(*iargs)
+    return zip(*iargs)
 
 
 def aggregate_tuples(iterable):
@@ -247,7 +247,7 @@ def intersperse(delimiter, seq):
         >>> list(intersperse(" ", "abc"))
         ['a', ' ', 'b', ' ', 'c']
     """
-    return islice(chain.from_iterable(izip(repeat(delimiter), seq)), 1, None)
+    return islice(chain.from_iterable(zip(repeat(delimiter), seq)), 1, None)
 
 
 def isiterable(obj):
@@ -290,7 +290,7 @@ def ismonotonic(oper, iterable):
     """
     if not hasattr(iterable, '__getitem__'):
         iterable = list(iterable)  # probably a generator
-    return all(oper(x, y) for x, y in izip(iterable, iterable[1:]))
+    return all(oper(x, y) for x, y in zip(iterable, iterable[1:]))
 
 
 def pyramid_slices(lst):
@@ -301,7 +301,7 @@ def pyramid_slices(lst):
         >>> list(pyramid_slices([1, 2, 3]))
         [[1], [1, 2], [1, 2, 3]]
     """
-    for i in xrange(len(lst)):
+    for i in range(len(lst)):
         yield lst[:i + 1]
 
 
@@ -354,7 +354,7 @@ def shinglify(iterable, span, skip=0):
     if not hasattr(iterable, '__getitem__'):
         iterable = list(iterable)  # probably a generator
     if len(iterable) >= span:
-        return izip(*nskip(skip, (iterable[i:] for i in xrange(span))))
+        return zip(*nskip(skip, (iterable[i:] for i in range(span))))
     else:
         return iter([tuple(nskip(skip, iterable))])
 
@@ -424,7 +424,7 @@ def ntuples(n, iterable):
     """
     if not hasattr(iterable, '__getitem__'):
         iterable = list(iterable)  # probably a generator
-    return izip(*[iterable[i::n] for i in xrange(n)])
+    return zip(*[iterable[i::n] for i in range(n)])
 
 
 def take(n, iterable):
@@ -447,7 +447,7 @@ def tabulate(function, start=0):
         >>> foo.next()
         15
     """
-    return imap(function, count(start))
+    return map(function, count(start))
 
 
 def consume(iterator, n):
@@ -492,7 +492,7 @@ def quantify(iterable, pred=bool):
         >>> quantify([1, 2, 3, 4, 5], pred=lambda x: x % 2)
         3
     """
-    return sum(imap(pred, iterable))
+    return sum(map(pred, iterable))
 
 
 def padnone(iterable):
@@ -527,7 +527,7 @@ def dotproduct(vec1, vec2):
         >>> dotproduct([1, 2, 3], [2, 3, 4])
         20
     """
-    return sum(imap(operator.mul, vec1, vec2))
+    return sum(map(operator.mul, vec1, vec2))
 
 
 def symmetric_diff(s1, s2):
@@ -622,7 +622,7 @@ def pairwise(iterable):
     """
     a, b = tee(iterable)
     next(b, None)
-    return izip(a, b)
+    return zip(a, b)
 
 
 def grouper(iterable, n, fillvalue=None):
@@ -704,7 +704,7 @@ def unique_justseen(iterable, key=None):
         >>> list(unique_justseen('ABBCcAD', str.lower))
         ['A', 'B', 'C', 'A', 'D']
     """
-    return imap(next, imap(operator.itemgetter(1), groupby(iterable, key)))
+    return map(next, map(operator.itemgetter(1), groupby(iterable, key)))
 
 
 def iter_except(func, exception, first=None):

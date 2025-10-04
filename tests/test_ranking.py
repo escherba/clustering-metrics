@@ -25,7 +25,7 @@ def test_simulated():
     """
 
     # test lots of small examples
-    for _ in xrange(100):
+    for _ in range(100):
         clusters = simulate_clustering(
             galpha=1, gbeta=2, pos_ratio=0.5, population_size=20)
         lc = LiftCurve.from_clusters(clusters)
@@ -34,7 +34,7 @@ def test_simulated():
         assert_almost_equal(expected_score, actual_score, 4)
 
     # test a few large ones too
-    for _ in xrange(10):
+    for _ in range(10):
         clusters = simulate_clustering()
         lc = LiftCurve.from_clusters(clusters)
         expected_score = lc.aul_score(plot=True)[0]

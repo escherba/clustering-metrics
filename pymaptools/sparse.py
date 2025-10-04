@@ -1,6 +1,5 @@
 import numpy as np
 from functools import partial
-from itertools import izip
 from tqdm import tqdm
 from scipy.sparse import coo_matrix
 from pymaptools.containers import DefaultOrderedDict
@@ -74,7 +73,7 @@ def iter_csr(mat, transpose=False, show_progress=False):
     data = mat.data
     assert indices[0].shape[0] == indices[1].shape[0] == data.shape[0]
     li, ri = (1, 0) if transpose else (0, 1)
-    iterator = izip(indices[li], indices[ri], data)
+    iterator = zip(indices[li], indices[ri], data)
     if show_progress:
         iterator = tqdm(iterator, total=mat.nnz)
     return iterator

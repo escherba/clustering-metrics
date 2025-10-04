@@ -88,6 +88,6 @@ else:
 print "Sanity check:"
 print "\t{} = {}".format(ARGS.method, eval(line))
 
-for idx in xrange(ARGS.num_tests):
+for idx in range(ARGS.num_tests):
     print "Running test {}/{}...".format(idx + 1, ARGS.num_tests)
     ipython.magic("timeit " + line)
