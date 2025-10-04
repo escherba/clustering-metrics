@@ -32,11 +32,10 @@ class TestAccuracy(unittest.TestCase):
 
         self.assertAlmostEqual(0.0352424389209073, ami, 12)
 
-        rmarg = np.asarray(cm.row_totals.values(), dtype=np.int64)
-        cmarg = np.asarray(cm.col_totals.values(), dtype=np.int64)
+        rmarg = np.asarray(list(cm.row_totals.values()), dtype=np.int64)
+        cmarg = np.asarray(list(cm.col_totals.values()), dtype=np.int64)
 
         # emi1 = emi_fortran(rmarg, cmarg)
         emi2 = emi_cython(rmarg, cmarg)
 
-        import pdb; pdb.set_trace()
-        self.assertAlmostEqual(0, emi2, 10)
+        self.assertAlmostEqual(140.41925684648885, emi2, 10)

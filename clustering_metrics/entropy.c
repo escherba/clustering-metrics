@@ -1794,7 +1794,7 @@ struct __pyx_opt_args_18clustering_metrics_7entropy__assignment_cost_lng;
 struct __pyx_opt_args_18clustering_metrics_7entropy__assignment_cost_dbl;
 struct __pyx_opt_args_18clustering_metrics_7entropy_ndarray_from_iter;
 
-/* "clustering_metrics/entropy.pyx":28
+/* "clustering_metrics/entropy.pyx":29
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef assignment_cost(array2d, maximize=False):             # <<<<<<<<<<<<<<
@@ -1806,7 +1806,7 @@ struct __pyx_opt_args_18clustering_metrics_7entropy_assignment_cost {
   PyObject *maximize;
 };
 
-/* "clustering_metrics/entropy.pyx":46
+/* "clustering_metrics/entropy.pyx":47
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cdef np.int64_t _assignment_cost_lng(array2d, maximize=False):             # <<<<<<<<<<<<<<
@@ -1818,7 +1818,7 @@ struct __pyx_opt_args_18clustering_metrics_7entropy__assignment_cost_lng {
   PyObject *maximize;
 };
 
-/* "clustering_metrics/entropy.pyx":78
+/* "clustering_metrics/entropy.pyx":79
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cdef np.float64_t _assignment_cost_dbl(array2d, maximize=False):             # <<<<<<<<<<<<<<
@@ -1830,7 +1830,7 @@ struct __pyx_opt_args_18clustering_metrics_7entropy__assignment_cost_dbl {
   PyObject *maximize;
 };
 
-/* "clustering_metrics/entropy.pyx":123
+/* "clustering_metrics/entropy.pyx":124
  * 
  * 
  * cpdef ndarray_from_iter(iterable, dtype=None, contiguous=False):             # <<<<<<<<<<<<<<
@@ -2290,13 +2290,6 @@ static Py_ssize_t __Pyx_zeros[] = { 0, 0, 0, 0, 0, 0, 0, 0 };
 static void __Pyx_RaiseBufferFallbackError(void);
 
 #define __Pyx_BufPtrFortranContig2d(type, buf, i0, s0, i1, s1) ((type)((char*)buf + i1 * s1) + i0)
-/* HasAttr.proto */
-#if __PYX_LIMITED_VERSION_HEX >= 0x030d0000
-#define __Pyx_HasAttr(o, n)  PyObject_HasAttrWithError(o, n)
-#else
-static CYTHON_INLINE int __Pyx_HasAttr(PyObject *, PyObject *);
-#endif
-
 /* PyObjectFastCallMethod.proto */
 #if CYTHON_VECTORCALL && PY_VERSION_HEX >= 0x03090000
 #define __Pyx_PyObject_FastCallMethod(name, args, nargsf) PyObject_VectorcallMethod(name, args, nargsf, NULL)
@@ -2856,6 +2849,7 @@ static const char __pyx_k_n[] = "n";
 static const char __pyx_k_x[] = "x";
 static const char __pyx_k__2[] = "?";
 static const char __pyx_k_np[] = "np";
+static const char __pyx_k_abc[] = "abc";
 static const char __pyx_k_log[] = "log";
 static const char __pyx_k_max[] = "max";
 static const char __pyx_k_pop[] = "pop";
@@ -2864,7 +2858,6 @@ static const char __pyx_k_Real[] = "Real";
 static const char __pyx_k_func[] = "__func__";
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_name[] = "__name__";
-static const char __pyx_k_next[] = "__next__";
 static const char __pyx_k_spec[] = "__spec__";
 static const char __pyx_k_test[] = "__test__";
 static const char __pyx_k_dtype[] = "dtype";
@@ -2877,14 +2870,15 @@ static const char __pyx_k_counts[] = "counts";
 static const char __pyx_k_lgamma[] = "lgamma";
 static const char __pyx_k_module[] = "__module__";
 static const char __pyx_k_values[] = "values";
+static const char __pyx_k_Mapping[] = "Mapping";
 static const char __pyx_k_array2d[] = "array2d";
 static const char __pyx_k_asarray[] = "asarray";
 static const char __pyx_k_float64[] = "float64";
 static const char __pyx_k_gammaln[] = "gammaln";
-static const char __pyx_k_getitem[] = "__getitem__";
 static const char __pyx_k_numbers[] = "numbers";
 static const char __pyx_k_r_A_j_r[] = "\320\000\031\230\021\360\024\000\005\010\200r\210\023\210A\330\010\016\210j\230\001\320\031?\270r\300\021\330\004\013\210>\230\021\230!";
 static const char __pyx_k_Integral[] = "Integral";
+static const char __pyx_k_Iterator[] = "Iterator";
 static const char __pyx_k_add_note[] = "add_note";
 static const char __pyx_k_centropy[] = "centropy";
 static const char __pyx_k_fentropy[] = "fentropy";
@@ -2903,6 +2897,7 @@ static const char __pyx_k_csum_pairs[] = "csum_pairs";
 static const char __pyx_k_fnum_pairs[] = "fnum_pairs";
 static const char __pyx_k_fsum_pairs[] = "fsum_pairs";
 static const char __pyx_k_ImportError[] = "ImportError";
+static const char __pyx_k_collections[] = "collections";
 static const char __pyx_k_initializing[] = "_initializing";
 static const char __pyx_k_is_coroutine[] = "_is_coroutine";
 static const char __pyx_k_Q_A_Q_Cr_1_4r[] = "\320\000\035\230Q\360\016\000\005\r\210A\330\004\010\210\005\210Q\330\010\022\220\"\220C\220r\230\022\2301\330\004\013\2104\210r\220\021";
@@ -2916,10 +2911,10 @@ static const char __pyx_k_ndarray_from_iter[] = "ndarray_from_iter";
 static const char __pyx_k_asyncio_coroutines[] = "asyncio.coroutines";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_clustering_metrics_entropy[] = "clustering_metrics.entropy";
-static const char __pyx_k_1_wawa_WA_1_Q_2S_Bb_1A_uBb_1Cr[] = "\320\000\033\2301\360&\000\005\010\200w\210a\210w\220a\330\010\020\220\005\220W\230A\340\004\010\210\001\330\004\023\2201\330\004\010\210\005\210Q\330\010\013\2102\210S\220\001\330\014\021\220\021\330\014\034\230B\230b\240\003\2401\240A\360\006\000\005\020\210u\220B\220b\230\003\2301\230C\230r\240\021";
-static const char __pyx_k_9_waz_b_F_1_auF_1_b_V1_1_auF_b[] = "\320\000(\320(9\270\021\360\024\000\005\010\200w\210a\210z\230\021\330\010\016\210b\220\t\230\021\230*\240F\250!\330\010\013\2101\330\014\022\220\"\320\024&\240a\240u\250F\260!\330\t\020\220\001\220\032\2301\330\010\016\210b\220\t\230\021\230(\240'\250\024\250V\2601\330\010\013\2101\330\014\022\220\"\320\024&\240a\240u\250F\260!\330\t\n\330\010\016\210b\320\020\"\240!\240:\250V\2601\340\010\016\210b\220\010\230\001\230\032\2406\250\021\330\004\013\2101";
+static const char __pyx_k_1_z_A_WA_1_Q_2S_Bb_1A_uBb_1Cr[] = "\320\000\033\2301\360&\000\005\010\200z\220\021\220'\230\023\230A\330\010\020\220\005\220W\230A\340\004\010\210\001\330\004\023\2201\330\004\010\210\005\210Q\330\010\013\2102\210S\220\001\330\014\021\220\021\330\014\034\230B\230b\240\003\2401\240A\360\006\000\005\020\210u\220B\220b\230\003\2301\230C\230r\240\021";
 static const char __pyx_k_clustering_metrics_entropy_pyx[] = "clustering_metrics/entropy.pyx";
-static const char __pyx_k_1_waxq_wa_1_Q_2S_Bb_1A_WBc_Bc_R[] = "\320\000\033\2301\360&\000\005\010\200w\210a\210x\220q\330\010\021\220\026\220w\230a\340\004\010\210\001\330\004\023\2201\330\004\010\210\005\210Q\330\010\013\2102\210S\220\001\330\014\021\220\021\330\014\034\230B\230b\240\003\2401\240A\330\004\r\210W\220B\220c\230\031\240\"\240B\240c\250\021\250#\250R\250q\330\004\013\2101";
+static const char __pyx_k_1_z_Q_wa_1_Q_2S_Bb_1A_WBc_Bc_Rq[] = "\320\000\033\2301\360&\000\005\010\200z\220\021\220(\230#\230Q\330\010\021\220\026\220w\230a\340\004\010\210\001\330\004\023\2201\330\004\010\210\005\210Q\330\010\013\2102\210S\220\001\330\014\021\220\021\330\014\034\230B\230b\240\003\2401\240A\330\004\r\210W\220B\220c\230\031\240\"\240B\240c\250\021\250#\250R\250q\330\004\013\2101";
+static const char __pyx_k_9_z_Cq_b_F_1_auF_1Jc_b_V1_1_auF[] = "\320\000(\320(9\270\021\360\024\000\005\010\200z\220\021\220*\230C\230q\330\010\016\210b\220\t\230\021\230*\240F\250!\330\010\013\2101\330\014\022\220\"\320\024&\240a\240u\250F\260!\330\t\023\2201\220J\230c\240\021\330\010\016\210b\220\t\230\021\230(\240'\250\024\250V\2601\330\010\013\2101\330\014\022\220\"\320\024&\240a\240u\250F\260!\330\t\n\330\010\016\210b\320\020\"\240!\240:\250V\2601\340\010\016\210b\220\010\230\001\230\032\2406\250\021\330\004\013\2101";
 static const char __pyx_k_d_Bd_1_Bd_1_1A_1A_aq_r_Bd_1_j_R[] = "\200\001\340#$\360d\001\000\005\r\210B\210d\220!\2201\330\004\014\210B\210d\220!\2201\340\004\010\210\003\2101\210A\330\004\010\210\003\2101\210A\340\004\010\210\002\210$\210a\210q\330\004\007\200r\210\023\210B\210d\220!\2201\330\010\016\210j\230\001\230\021\360\016\000\005\021\220\001\220\034\230R\230t\2401\240D\250\014\260B\260d\270!\2701\330\004\013\2102\210W\220A\220U\230'\240\022\2405\250\006\250b\260\001\330\004\010\210\001\210\025\210a\360\010\000\005\020\210r\220\024\220Q\220c\230\022\2302\230T\240\021\240!\360\010\000\005\n\210\022\2102\210Q\330\004\t\210\022\2102\210Q\340\004\t\210\022\2102\210Q\330\004\t\210\022\2102\210Q\330\004\023\2207\230!\2304\230r\240\027\250\001\250\023\250B\250c\260\022\2607\270!\2701\330\004\017\210w\220a\220t\2302\230W\240A\240S\250\002\250!\330\004\016\210g\220Q\220e\2302\230Q\360\006\000\005\013\210!\330\004\010\210\005\210V\2201\220A\330\010\017\210r\220\021\220!\330\010\021\220\025\220a\220q\330\010\030\230\014\240A\240Q\330\010\022\220#\220R\220q\330\010\014\210E\220\026\220q\230\001\330\014\023\2202\220Q\220a\330\014\036\230g\240R\240u\250A\250Q\330\014\030\230\016\240b\250\010\260\001\260\021\330\014\031\230\030\240\022\2401\340\014\020\220\007\220v\230U\240%\240t\2502\320->\270f\300A\340\020\021\330\024\"\240!\330\024\027\220x\230q\240\005\240R\240q\330\024\026\220c\230\021\230!\330\030\032\230'\240\021\240!\330\030\032\230.\250\001\250\025\250b\260\001\330\030\032\230.\250\001\250\025\250b\260\001\330\030\032\230.\250\001\250\024\250R\250q\360\006\000\005\014\2101";
 static const char __pyx_k_s_9Cq_q_7_1_s_6_A_q_aq_z_wa_1_6[] = "\200\001\340()\340\004\007\200s\210!\2109\220C\220q\330\010\017\210q\330\004\013\2107\220!\2201\330\004\007\200s\210!\2106\220\023\220A\330\010\017\210q\330\004\n\210$\210a\210q\330\004\007\200z\220\021\220%\220w\230a\330\010\017\320\017#\2401\320$6\260a\330\t\023\2201\220E\230\027\240\001\330\010\017\320\017#\2401\320$6\260a\340\010\016\210i\220q\230\004\230A\230Q";
 static const char __pyx_k_x_must_be_strictly_positive_got[] = "x must be strictly positive, got %f";
@@ -2995,7 +2990,7 @@ typedef struct {
   __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_pop;
   PyObject *__pyx_tuple[2];
   PyObject *__pyx_codeobj_tab[10];
-  PyObject *__pyx_string_tab[68];
+  PyObject *__pyx_string_tab[70];
   PyObject *__pyx_float_1_0;
   PyObject *__pyx_int_0;
   PyObject *__pyx_int_0L;
@@ -3040,71 +3035,73 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_kp_u_ __pyx_string_tab[0]
 #define __pyx_n_u_ImportError __pyx_string_tab[1]
 #define __pyx_n_u_Integral __pyx_string_tab[2]
-#define __pyx_kp_u_Note_that_Cython_is_deliberately __pyx_string_tab[3]
-#define __pyx_n_u_Real __pyx_string_tab[4]
-#define __pyx_kp_u_Sums_of_row_and_column_margins_m __pyx_string_tab[5]
-#define __pyx_n_u_TypeError __pyx_string_tab[6]
-#define __pyx_n_u_ValueError __pyx_string_tab[7]
-#define __pyx_kp_u__2 __pyx_string_tab[8]
-#define __pyx_n_u_a __pyx_string_tab[9]
-#define __pyx_kp_u_add_note __pyx_string_tab[10]
-#define __pyx_n_u_arange __pyx_string_tab[11]
-#define __pyx_n_u_array2d __pyx_string_tab[12]
-#define __pyx_n_u_asarray __pyx_string_tab[13]
-#define __pyx_n_u_ascontiguousarray __pyx_string_tab[14]
-#define __pyx_n_u_asfortranarray __pyx_string_tab[15]
-#define __pyx_n_u_assignment_cost __pyx_string_tab[16]
-#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[17]
-#define __pyx_n_u_b __pyx_string_tab[18]
-#define __pyx_n_u_centropy __pyx_string_tab[19]
-#define __pyx_n_u_cline_in_traceback __pyx_string_tab[20]
-#define __pyx_n_u_clustering_metrics_entropy __pyx_string_tab[21]
-#define __pyx_kp_u_clustering_metrics_entropy_pyx __pyx_string_tab[22]
-#define __pyx_n_u_cnum_pairs __pyx_string_tab[23]
-#define __pyx_n_u_contiguous __pyx_string_tab[24]
-#define __pyx_n_u_counts __pyx_string_tab[25]
-#define __pyx_n_u_csum_pairs __pyx_string_tab[26]
-#define __pyx_n_u_dtype __pyx_string_tab[27]
-#define __pyx_n_u_emi_from_margins __pyx_string_tab[28]
-#define __pyx_n_u_fentropy __pyx_string_tab[29]
-#define __pyx_n_u_float64 __pyx_string_tab[30]
-#define __pyx_n_u_fnum_pairs __pyx_string_tab[31]
-#define __pyx_n_u_freqs __pyx_string_tab[32]
-#define __pyx_n_u_fromiter __pyx_string_tab[33]
-#define __pyx_n_u_fsum_pairs __pyx_string_tab[34]
-#define __pyx_n_u_func __pyx_string_tab[35]
-#define __pyx_n_u_gammaln __pyx_string_tab[36]
-#define __pyx_n_u_getitem __pyx_string_tab[37]
-#define __pyx_n_u_initializing __pyx_string_tab[38]
-#define __pyx_n_u_int64 __pyx_string_tab[39]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[40]
-#define __pyx_n_u_iterable __pyx_string_tab[41]
-#define __pyx_n_u_lgamma __pyx_string_tab[42]
-#define __pyx_n_u_log __pyx_string_tab[43]
-#define __pyx_n_u_main __pyx_string_tab[44]
-#define __pyx_n_u_max __pyx_string_tab[45]
-#define __pyx_n_u_maximize __pyx_string_tab[46]
-#define __pyx_n_u_module __pyx_string_tab[47]
-#define __pyx_n_u_n __pyx_string_tab[48]
-#define __pyx_n_u_name __pyx_string_tab[49]
-#define __pyx_n_u_ndarray_from_iter __pyx_string_tab[50]
-#define __pyx_n_u_next __pyx_string_tab[51]
-#define __pyx_n_u_np __pyx_string_tab[52]
-#define __pyx_n_u_numbers __pyx_string_tab[53]
-#define __pyx_n_u_numpy __pyx_string_tab[54]
-#define __pyx_kp_u_numpy__core_multiarray_failed_to __pyx_string_tab[55]
-#define __pyx_kp_u_numpy__core_umath_failed_to_impo __pyx_string_tab[56]
-#define __pyx_n_u_pop __pyx_string_tab[57]
-#define __pyx_n_u_qualname __pyx_string_tab[58]
-#define __pyx_n_u_range __pyx_string_tab[59]
-#define __pyx_n_u_scipy_special __pyx_string_tab[60]
-#define __pyx_n_u_set_name __pyx_string_tab[61]
-#define __pyx_n_u_spec __pyx_string_tab[62]
-#define __pyx_n_u_sum __pyx_string_tab[63]
-#define __pyx_n_u_test __pyx_string_tab[64]
-#define __pyx_n_u_values __pyx_string_tab[65]
-#define __pyx_n_u_x __pyx_string_tab[66]
-#define __pyx_kp_u_x_must_be_strictly_positive_got __pyx_string_tab[67]
+#define __pyx_n_u_Iterator __pyx_string_tab[3]
+#define __pyx_n_u_Mapping __pyx_string_tab[4]
+#define __pyx_kp_u_Note_that_Cython_is_deliberately __pyx_string_tab[5]
+#define __pyx_n_u_Real __pyx_string_tab[6]
+#define __pyx_kp_u_Sums_of_row_and_column_margins_m __pyx_string_tab[7]
+#define __pyx_n_u_TypeError __pyx_string_tab[8]
+#define __pyx_n_u_ValueError __pyx_string_tab[9]
+#define __pyx_kp_u__2 __pyx_string_tab[10]
+#define __pyx_n_u_a __pyx_string_tab[11]
+#define __pyx_n_u_abc __pyx_string_tab[12]
+#define __pyx_kp_u_add_note __pyx_string_tab[13]
+#define __pyx_n_u_arange __pyx_string_tab[14]
+#define __pyx_n_u_array2d __pyx_string_tab[15]
+#define __pyx_n_u_asarray __pyx_string_tab[16]
+#define __pyx_n_u_ascontiguousarray __pyx_string_tab[17]
+#define __pyx_n_u_asfortranarray __pyx_string_tab[18]
+#define __pyx_n_u_assignment_cost __pyx_string_tab[19]
+#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[20]
+#define __pyx_n_u_b __pyx_string_tab[21]
+#define __pyx_n_u_centropy __pyx_string_tab[22]
+#define __pyx_n_u_cline_in_traceback __pyx_string_tab[23]
+#define __pyx_n_u_clustering_metrics_entropy __pyx_string_tab[24]
+#define __pyx_kp_u_clustering_metrics_entropy_pyx __pyx_string_tab[25]
+#define __pyx_n_u_cnum_pairs __pyx_string_tab[26]
+#define __pyx_n_u_collections __pyx_string_tab[27]
+#define __pyx_n_u_contiguous __pyx_string_tab[28]
+#define __pyx_n_u_counts __pyx_string_tab[29]
+#define __pyx_n_u_csum_pairs __pyx_string_tab[30]
+#define __pyx_n_u_dtype __pyx_string_tab[31]
+#define __pyx_n_u_emi_from_margins __pyx_string_tab[32]
+#define __pyx_n_u_fentropy __pyx_string_tab[33]
+#define __pyx_n_u_float64 __pyx_string_tab[34]
+#define __pyx_n_u_fnum_pairs __pyx_string_tab[35]
+#define __pyx_n_u_freqs __pyx_string_tab[36]
+#define __pyx_n_u_fromiter __pyx_string_tab[37]
+#define __pyx_n_u_fsum_pairs __pyx_string_tab[38]
+#define __pyx_n_u_func __pyx_string_tab[39]
+#define __pyx_n_u_gammaln __pyx_string_tab[40]
+#define __pyx_n_u_initializing __pyx_string_tab[41]
+#define __pyx_n_u_int64 __pyx_string_tab[42]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[43]
+#define __pyx_n_u_iterable __pyx_string_tab[44]
+#define __pyx_n_u_lgamma __pyx_string_tab[45]
+#define __pyx_n_u_log __pyx_string_tab[46]
+#define __pyx_n_u_main __pyx_string_tab[47]
+#define __pyx_n_u_max __pyx_string_tab[48]
+#define __pyx_n_u_maximize __pyx_string_tab[49]
+#define __pyx_n_u_module __pyx_string_tab[50]
+#define __pyx_n_u_n __pyx_string_tab[51]
+#define __pyx_n_u_name __pyx_string_tab[52]
+#define __pyx_n_u_ndarray_from_iter __pyx_string_tab[53]
+#define __pyx_n_u_np __pyx_string_tab[54]
+#define __pyx_n_u_numbers __pyx_string_tab[55]
+#define __pyx_n_u_numpy __pyx_string_tab[56]
+#define __pyx_kp_u_numpy__core_multiarray_failed_to __pyx_string_tab[57]
+#define __pyx_kp_u_numpy__core_umath_failed_to_impo __pyx_string_tab[58]
+#define __pyx_n_u_pop __pyx_string_tab[59]
+#define __pyx_n_u_qualname __pyx_string_tab[60]
+#define __pyx_n_u_range __pyx_string_tab[61]
+#define __pyx_n_u_scipy_special __pyx_string_tab[62]
+#define __pyx_n_u_set_name __pyx_string_tab[63]
+#define __pyx_n_u_spec __pyx_string_tab[64]
+#define __pyx_n_u_sum __pyx_string_tab[65]
+#define __pyx_n_u_test __pyx_string_tab[66]
+#define __pyx_n_u_values __pyx_string_tab[67]
+#define __pyx_n_u_x __pyx_string_tab[68]
+#define __pyx_kp_u_x_must_be_strictly_positive_got __pyx_string_tab[69]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -3143,7 +3140,7 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_ptype_5numpy_ufunc);
   for (int i=0; i<2; ++i) { Py_CLEAR(clear_module_state->__pyx_tuple[i]); }
   for (int i=0; i<10; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<68; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<70; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   Py_CLEAR(clear_module_state->__pyx_float_1_0);
   Py_CLEAR(clear_module_state->__pyx_int_0);
   Py_CLEAR(clear_module_state->__pyx_int_0L);
@@ -3186,7 +3183,7 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   Py_VISIT(traverse_module_state->__pyx_ptype_5numpy_ufunc);
   for (int i=0; i<2; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_tuple[i]); }
   for (int i=0; i<10; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<68; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<70; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_float_1_0);
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_int_0);
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_int_0L);
@@ -4931,7 +4928,7 @@ static CYTHON_INLINE NPY_DATETIMEUNIT __pyx_f_5numpy_get_datetime64_unit(PyObjec
   return __pyx_r;
 }
 
-/* "clustering_metrics/entropy.pyx":26
+/* "clustering_metrics/entropy.pyx":27
  * 
  * 
  * @cython.boundscheck(False)             # <<<<<<<<<<<<<<
@@ -4948,7 +4945,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 ); /*proto*/
 static PyObject *__pyx_f_18clustering_metrics_7entropy_assignment_cost(PyObject *__pyx_v_array2d, CYTHON_UNUSED int __pyx_skip_dispatch, struct __pyx_opt_args_18clustering_metrics_7entropy_assignment_cost *__pyx_optional_args) {
 
-  /* "clustering_metrics/entropy.pyx":28
+  /* "clustering_metrics/entropy.pyx":29
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef assignment_cost(array2d, maximize=False):             # <<<<<<<<<<<<<<
@@ -4980,18 +4977,18 @@ static PyObject *__pyx_f_18clustering_metrics_7entropy_assignment_cost(PyObject 
     }
   }
 
-  /* "clustering_metrics/entropy.pyx":30
+  /* "clustering_metrics/entropy.pyx":31
  * cpdef assignment_cost(array2d, maximize=False):
  * 
  *     if len(array2d) == 0:             # <<<<<<<<<<<<<<
  *         return 0
  *     cols = array2d[0]
 */
-  __pyx_t_1 = PyObject_Length(__pyx_v_array2d); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 30, __pyx_L1_error)
+  __pyx_t_1 = PyObject_Length(__pyx_v_array2d); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 31, __pyx_L1_error)
   __pyx_t_2 = (__pyx_t_1 == 0);
   if (__pyx_t_2) {
 
-    /* "clustering_metrics/entropy.pyx":31
+    /* "clustering_metrics/entropy.pyx":32
  * 
  *     if len(array2d) == 0:
  *         return 0             # <<<<<<<<<<<<<<
@@ -5003,7 +5000,7 @@ static PyObject *__pyx_f_18clustering_metrics_7entropy_assignment_cost(PyObject 
     __pyx_r = __pyx_mstate_global->__pyx_int_0;
     goto __pyx_L0;
 
-    /* "clustering_metrics/entropy.pyx":30
+    /* "clustering_metrics/entropy.pyx":31
  * cpdef assignment_cost(array2d, maximize=False):
  * 
  *     if len(array2d) == 0:             # <<<<<<<<<<<<<<
@@ -5012,30 +5009,30 @@ static PyObject *__pyx_f_18clustering_metrics_7entropy_assignment_cost(PyObject 
 */
   }
 
-  /* "clustering_metrics/entropy.pyx":32
+  /* "clustering_metrics/entropy.pyx":33
  *     if len(array2d) == 0:
  *         return 0
  *     cols = array2d[0]             # <<<<<<<<<<<<<<
  *     if len(cols) == 0:
  *         return 0
 */
-  __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_array2d, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 32, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_array2d, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 33, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_v_cols = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "clustering_metrics/entropy.pyx":33
+  /* "clustering_metrics/entropy.pyx":34
  *         return 0
  *     cols = array2d[0]
  *     if len(cols) == 0:             # <<<<<<<<<<<<<<
  *         return 0
  *     fst = cols[0]
 */
-  __pyx_t_1 = PyObject_Length(__pyx_v_cols); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 33, __pyx_L1_error)
+  __pyx_t_1 = PyObject_Length(__pyx_v_cols); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 34, __pyx_L1_error)
   __pyx_t_2 = (__pyx_t_1 == 0);
   if (__pyx_t_2) {
 
-    /* "clustering_metrics/entropy.pyx":34
+    /* "clustering_metrics/entropy.pyx":35
  *     cols = array2d[0]
  *     if len(cols) == 0:
  *         return 0             # <<<<<<<<<<<<<<
@@ -5047,7 +5044,7 @@ static PyObject *__pyx_f_18clustering_metrics_7entropy_assignment_cost(PyObject 
     __pyx_r = __pyx_mstate_global->__pyx_int_0;
     goto __pyx_L0;
 
-    /* "clustering_metrics/entropy.pyx":33
+    /* "clustering_metrics/entropy.pyx":34
  *         return 0
  *     cols = array2d[0]
  *     if len(cols) == 0:             # <<<<<<<<<<<<<<
@@ -5056,35 +5053,35 @@ static PyObject *__pyx_f_18clustering_metrics_7entropy_assignment_cost(PyObject 
 */
   }
 
-  /* "clustering_metrics/entropy.pyx":35
+  /* "clustering_metrics/entropy.pyx":36
  *     if len(cols) == 0:
  *         return 0
  *     fst = cols[0]             # <<<<<<<<<<<<<<
  *     if isinstance(fst, numbers.Integral):
  *         return _assignment_cost_lng(array2d, maximize=maximize)
 */
-  __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_cols, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 35, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_cols, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 36, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_v_fst = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "clustering_metrics/entropy.pyx":36
+  /* "clustering_metrics/entropy.pyx":37
  *         return 0
  *     fst = cols[0]
  *     if isinstance(fst, numbers.Integral):             # <<<<<<<<<<<<<<
  *         return _assignment_cost_lng(array2d, maximize=maximize)
  *     elif isinstance(fst, numbers.Real):
 */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_numbers); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 36, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_numbers); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_Integral); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 36, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_Integral); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_2 = PyObject_IsInstance(__pyx_v_fst, __pyx_t_4); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 36, __pyx_L1_error)
+  __pyx_t_2 = PyObject_IsInstance(__pyx_v_fst, __pyx_t_4); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (__pyx_t_2) {
 
-    /* "clustering_metrics/entropy.pyx":37
+    /* "clustering_metrics/entropy.pyx":38
  *     fst = cols[0]
  *     if isinstance(fst, numbers.Integral):
  *         return _assignment_cost_lng(array2d, maximize=maximize)             # <<<<<<<<<<<<<<
@@ -5094,14 +5091,14 @@ static PyObject *__pyx_f_18clustering_metrics_7entropy_assignment_cost(PyObject 
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_6.__pyx_n = 1;
     __pyx_t_6.maximize = __pyx_v_maximize;
-    __pyx_t_5 = __pyx_f_18clustering_metrics_7entropy__assignment_cost_lng(__pyx_v_array2d, &__pyx_t_6); if (unlikely(__pyx_t_5 == ((__pyx_t_5numpy_int64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 37, __pyx_L1_error)
-    __pyx_t_4 = __Pyx_PyLong_From_npy_int64(__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 37, __pyx_L1_error)
+    __pyx_t_5 = __pyx_f_18clustering_metrics_7entropy__assignment_cost_lng(__pyx_v_array2d, &__pyx_t_6); if (unlikely(__pyx_t_5 == ((__pyx_t_5numpy_int64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 38, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyLong_From_npy_int64(__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 38, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_r = __pyx_t_4;
     __pyx_t_4 = 0;
     goto __pyx_L0;
 
-    /* "clustering_metrics/entropy.pyx":36
+    /* "clustering_metrics/entropy.pyx":37
  *         return 0
  *     fst = cols[0]
  *     if isinstance(fst, numbers.Integral):             # <<<<<<<<<<<<<<
@@ -5110,23 +5107,23 @@ static PyObject *__pyx_f_18clustering_metrics_7entropy_assignment_cost(PyObject 
 */
   }
 
-  /* "clustering_metrics/entropy.pyx":38
+  /* "clustering_metrics/entropy.pyx":39
  *     if isinstance(fst, numbers.Integral):
  *         return _assignment_cost_lng(array2d, maximize=maximize)
  *     elif isinstance(fst, numbers.Real):             # <<<<<<<<<<<<<<
  *         return _assignment_cost_dbl(array2d, maximize=maximize)
  *     else:
 */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_numbers); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 38, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_numbers); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 39, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_Real); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 38, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_Real); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 39, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_2 = PyObject_IsInstance(__pyx_v_fst, __pyx_t_3); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 38, __pyx_L1_error)
+  __pyx_t_2 = PyObject_IsInstance(__pyx_v_fst, __pyx_t_3); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 39, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   if (likely(__pyx_t_2)) {
 
-    /* "clustering_metrics/entropy.pyx":39
+    /* "clustering_metrics/entropy.pyx":40
  *         return _assignment_cost_lng(array2d, maximize=maximize)
  *     elif isinstance(fst, numbers.Real):
  *         return _assignment_cost_dbl(array2d, maximize=maximize)             # <<<<<<<<<<<<<<
@@ -5136,14 +5133,14 @@ static PyObject *__pyx_f_18clustering_metrics_7entropy_assignment_cost(PyObject 
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_8.__pyx_n = 1;
     __pyx_t_8.maximize = __pyx_v_maximize;
-    __pyx_t_7 = __pyx_f_18clustering_metrics_7entropy__assignment_cost_dbl(__pyx_v_array2d, &__pyx_t_8); if (unlikely(__pyx_t_7 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 39, __pyx_L1_error)
-    __pyx_t_3 = PyFloat_FromDouble(__pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 39, __pyx_L1_error)
+    __pyx_t_7 = __pyx_f_18clustering_metrics_7entropy__assignment_cost_dbl(__pyx_v_array2d, &__pyx_t_8); if (unlikely(__pyx_t_7 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 40, __pyx_L1_error)
+    __pyx_t_3 = PyFloat_FromDouble(__pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 40, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_r = __pyx_t_3;
     __pyx_t_3 = 0;
     goto __pyx_L0;
 
-    /* "clustering_metrics/entropy.pyx":38
+    /* "clustering_metrics/entropy.pyx":39
  *     if isinstance(fst, numbers.Integral):
  *         return _assignment_cost_lng(array2d, maximize=maximize)
  *     elif isinstance(fst, numbers.Real):             # <<<<<<<<<<<<<<
@@ -5152,7 +5149,7 @@ static PyObject *__pyx_f_18clustering_metrics_7entropy_assignment_cost(PyObject 
 */
   }
 
-  /* "clustering_metrics/entropy.pyx":41
+  /* "clustering_metrics/entropy.pyx":42
  *         return _assignment_cost_dbl(array2d, maximize=maximize)
  *     else:
  *         raise TypeError(type(fst))             # <<<<<<<<<<<<<<
@@ -5169,15 +5166,15 @@ static PyObject *__pyx_f_18clustering_metrics_7entropy_assignment_cost(PyObject 
       __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_9, __pyx_callargs+__pyx_t_10, (2-__pyx_t_10) | (__pyx_t_10*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 41, __pyx_L1_error)
+      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 42, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
     }
     __Pyx_Raise(__pyx_t_3, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __PYX_ERR(0, 41, __pyx_L1_error)
+    __PYX_ERR(0, 42, __pyx_L1_error)
   }
 
-  /* "clustering_metrics/entropy.pyx":26
+  /* "clustering_metrics/entropy.pyx":27
  * 
  * 
  * @cython.boundscheck(False)             # <<<<<<<<<<<<<<
@@ -5240,24 +5237,24 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_array2d,&__pyx_mstate_global->__pyx_n_u_maximize,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 26, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 27, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 26, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 27, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 26, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 27, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "assignment_cost", 0) < 0) __PYX_ERR(0, 26, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "assignment_cost", 0) < 0) __PYX_ERR(0, 27, __pyx_L3_error)
 
-      /* "clustering_metrics/entropy.pyx":28
+      /* "clustering_metrics/entropy.pyx":29
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef assignment_cost(array2d, maximize=False):             # <<<<<<<<<<<<<<
@@ -5266,17 +5263,17 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 */
       if (!values[1]) values[1] = __Pyx_NewRef(((PyObject *)Py_False));
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("assignment_cost", 0, 1, 2, i); __PYX_ERR(0, 26, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("assignment_cost", 0, 1, 2, i); __PYX_ERR(0, 27, __pyx_L3_error) }
       }
     } else {
       switch (__pyx_nargs) {
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 26, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 27, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 26, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 27, __pyx_L3_error)
         break;
         default: goto __pyx_L5_argtuple_error;
       }
@@ -5287,7 +5284,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("assignment_cost", 0, 1, 2, __pyx_nargs); __PYX_ERR(0, 26, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("assignment_cost", 0, 1, 2, __pyx_nargs); __PYX_ERR(0, 27, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -5300,7 +5297,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __pyx_L4_argument_unpacking_done:;
   __pyx_r = __pyx_pf_18clustering_metrics_7entropy_assignment_cost(__pyx_self, __pyx_v_array2d, __pyx_v_maximize);
 
-  /* "clustering_metrics/entropy.pyx":26
+  /* "clustering_metrics/entropy.pyx":27
  * 
  * 
  * @cython.boundscheck(False)             # <<<<<<<<<<<<<<
@@ -5328,7 +5325,7 @@ static PyObject *__pyx_pf_18clustering_metrics_7entropy_assignment_cost(CYTHON_U
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_2.__pyx_n = 1;
   __pyx_t_2.maximize = __pyx_v_maximize;
-  __pyx_t_1 = __pyx_f_18clustering_metrics_7entropy_assignment_cost(__pyx_v_array2d, 1, &__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 26, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_18clustering_metrics_7entropy_assignment_cost(__pyx_v_array2d, 1, &__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 27, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -5345,7 +5342,7 @@ static PyObject *__pyx_pf_18clustering_metrics_7entropy_assignment_cost(CYTHON_U
   return __pyx_r;
 }
 
-/* "clustering_metrics/entropy.pyx":44
+/* "clustering_metrics/entropy.pyx":45
  * 
  * 
  * @cython.boundscheck(False)             # <<<<<<<<<<<<<<
@@ -5355,7 +5352,7 @@ static PyObject *__pyx_pf_18clustering_metrics_7entropy_assignment_cost(CYTHON_U
 
 static __pyx_t_5numpy_int64_t __pyx_f_18clustering_metrics_7entropy__assignment_cost_lng(PyObject *__pyx_v_array2d, struct __pyx_opt_args_18clustering_metrics_7entropy__assignment_cost_lng *__pyx_optional_args) {
 
-  /* "clustering_metrics/entropy.pyx":46
+  /* "clustering_metrics/entropy.pyx":47
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cdef np.int64_t _assignment_cost_lng(array2d, maximize=False):             # <<<<<<<<<<<<<<
@@ -5399,7 +5396,7 @@ static __pyx_t_5numpy_int64_t __pyx_f_18clustering_metrics_7entropy__assignment_
   __pyx_pybuffernd_contig.data = NULL;
   __pyx_pybuffernd_contig.rcbuffer = &__pyx_pybuffer_contig;
 
-  /* "clustering_metrics/entropy.pyx":55
+  /* "clustering_metrics/entropy.pyx":56
  * 
  *     cdef np.ndarray[np.int64_t, ndim=2, mode='fortran'] contig = \
  *         np.asfortranarray(array2d, dtype=np.int64)             # <<<<<<<<<<<<<<
@@ -5407,14 +5404,14 @@ static __pyx_t_5numpy_int64_t __pyx_f_18clustering_metrics_7entropy__assignment_
  *     if maximize:
 */
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 55, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 56, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_asfortranarray); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 55, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_asfortranarray); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 56, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 55, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 56, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_int64); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 55, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_int64); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 56, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_6 = 1;
@@ -5431,49 +5428,49 @@ static __pyx_t_5numpy_int64_t __pyx_f_18clustering_metrics_7entropy__assignment_
   #endif
   {
     PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_2, __pyx_v_array2d};
-    __pyx_t_3 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 55, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 56, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_dtype, __pyx_t_5, __pyx_t_3, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 55, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_dtype, __pyx_t_5, __pyx_t_3, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 56, __pyx_L1_error)
     __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_4, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_3);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 55, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 56, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 55, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 56, __pyx_L1_error)
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_contig.rcbuffer->pybuffer, (PyObject*)((PyArrayObject *)__pyx_t_1), &__Pyx_TypeInfo_nn___pyx_t_5numpy_int64_t, PyBUF_FORMAT| PyBUF_F_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) {
       __pyx_v_contig = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_contig.rcbuffer->pybuffer.buf = NULL;
-      __PYX_ERR(0, 54, __pyx_L1_error)
+      __PYX_ERR(0, 55, __pyx_L1_error)
     } else {__pyx_pybuffernd_contig.diminfo[0].strides = __pyx_pybuffernd_contig.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_contig.diminfo[0].shape = __pyx_pybuffernd_contig.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_contig.diminfo[1].strides = __pyx_pybuffernd_contig.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_contig.diminfo[1].shape = __pyx_pybuffernd_contig.rcbuffer->pybuffer.shape[1];
     }
   }
   __pyx_v_contig = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "clustering_metrics/entropy.pyx":57
+  /* "clustering_metrics/entropy.pyx":58
  *         np.asfortranarray(array2d, dtype=np.int64)
  * 
  *     if maximize:             # <<<<<<<<<<<<<<
  *         contig = -contig
  * 
 */
-  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_v_maximize); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 57, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_v_maximize); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 58, __pyx_L1_error)
   if (__pyx_t_7) {
 
-    /* "clustering_metrics/entropy.pyx":58
+    /* "clustering_metrics/entropy.pyx":59
  * 
  *     if maximize:
  *         contig = -contig             # <<<<<<<<<<<<<<
  * 
  *     n = contig.shape[0]
 */
-    __pyx_t_1 = PyNumber_Negative(((PyObject *)__pyx_v_contig)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 58, __pyx_L1_error)
+    __pyx_t_1 = PyNumber_Negative(((PyObject *)__pyx_v_contig)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 59, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 58, __pyx_L1_error)
+    if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 59, __pyx_L1_error)
     {
       __Pyx_BufFmt_StackElem __pyx_stack[1];
       __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_contig.rcbuffer->pybuffer);
@@ -5489,12 +5486,12 @@ static __pyx_t_5numpy_int64_t __pyx_f_18clustering_metrics_7entropy__assignment_
         __pyx_t_9 = __pyx_t_10 = __pyx_t_11 = 0;
       }
       __pyx_pybuffernd_contig.diminfo[0].strides = __pyx_pybuffernd_contig.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_contig.diminfo[0].shape = __pyx_pybuffernd_contig.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_contig.diminfo[1].strides = __pyx_pybuffernd_contig.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_contig.diminfo[1].shape = __pyx_pybuffernd_contig.rcbuffer->pybuffer.shape[1];
-      if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 58, __pyx_L1_error)
+      if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 59, __pyx_L1_error)
     }
     __Pyx_DECREF_SET(__pyx_v_contig, ((PyArrayObject *)__pyx_t_1));
     __pyx_t_1 = 0;
 
-    /* "clustering_metrics/entropy.pyx":57
+    /* "clustering_metrics/entropy.pyx":58
  *         np.asfortranarray(array2d, dtype=np.int64)
  * 
  *     if maximize:             # <<<<<<<<<<<<<<
@@ -5503,7 +5500,7 @@ static __pyx_t_5numpy_int64_t __pyx_f_18clustering_metrics_7entropy__assignment_
 */
   }
 
-  /* "clustering_metrics/entropy.pyx":60
+  /* "clustering_metrics/entropy.pyx":61
  *         contig = -contig
  * 
  *     n = contig.shape[0]             # <<<<<<<<<<<<<<
@@ -5512,7 +5509,7 @@ static __pyx_t_5numpy_int64_t __pyx_f_18clustering_metrics_7entropy__assignment_
 */
   __pyx_v_n = (__pyx_f_5numpy_7ndarray_5shape_shape(((PyArrayObject *)__pyx_v_contig))[0]);
 
-  /* "clustering_metrics/entropy.pyx":61
+  /* "clustering_metrics/entropy.pyx":62
  * 
  *     n = contig.shape[0]
  *     m = contig.shape[1]             # <<<<<<<<<<<<<<
@@ -5521,7 +5518,7 @@ static __pyx_t_5numpy_int64_t __pyx_f_18clustering_metrics_7entropy__assignment_
 */
   __pyx_v_m = (__pyx_f_5numpy_7ndarray_5shape_shape(((PyArrayObject *)__pyx_v_contig))[1]);
 
-  /* "clustering_metrics/entropy.pyx":63
+  /* "clustering_metrics/entropy.pyx":64
  *     m = contig.shape[1]
  * 
  *     cdef np.int64_t* assignment = <np.int64_t*> malloc(n*sizeof(np.int64_t))             # <<<<<<<<<<<<<<
@@ -5530,7 +5527,7 @@ static __pyx_t_5numpy_int64_t __pyx_f_18clustering_metrics_7entropy__assignment_
 */
   __pyx_v_assignment = ((__pyx_t_5numpy_int64_t *)malloc((__pyx_v_n * (sizeof(__pyx_t_5numpy_int64_t)))));
 
-  /* "clustering_metrics/entropy.pyx":64
+  /* "clustering_metrics/entropy.pyx":65
  * 
  *     cdef np.int64_t* assignment = <np.int64_t*> malloc(n*sizeof(np.int64_t))
  *     cdef np.int64_t score = 0             # <<<<<<<<<<<<<<
@@ -5539,7 +5536,7 @@ static __pyx_t_5numpy_int64_t __pyx_f_18clustering_metrics_7entropy__assignment_
 */
   __pyx_v_score = 0;
 
-  /* "clustering_metrics/entropy.pyx":66
+  /* "clustering_metrics/entropy.pyx":67
  *     cdef np.int64_t score = 0
  * 
  *     assignmentoptimal_lng(assignment, &score, &contig[0, 0], n, m)             # <<<<<<<<<<<<<<
@@ -5550,7 +5547,7 @@ static __pyx_t_5numpy_int64_t __pyx_f_18clustering_metrics_7entropy__assignment_
   __pyx_t_13 = 0;
   assignmentoptimal_lng(__pyx_v_assignment, (&__pyx_v_score), (&(*__Pyx_BufPtrFortranContig2d(__pyx_t_5numpy_int64_t *, __pyx_pybuffernd_contig.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_contig.diminfo[0].strides, __pyx_t_13, __pyx_pybuffernd_contig.diminfo[1].strides))), __pyx_v_n, __pyx_v_m);
 
-  /* "clustering_metrics/entropy.pyx":68
+  /* "clustering_metrics/entropy.pyx":69
  *     assignmentoptimal_lng(assignment, &score, &contig[0, 0], n, m)
  * 
  *     free(assignment)             # <<<<<<<<<<<<<<
@@ -5559,17 +5556,17 @@ static __pyx_t_5numpy_int64_t __pyx_f_18clustering_metrics_7entropy__assignment_
 */
   free(__pyx_v_assignment);
 
-  /* "clustering_metrics/entropy.pyx":70
+  /* "clustering_metrics/entropy.pyx":71
  *     free(assignment)
  * 
  *     if maximize:             # <<<<<<<<<<<<<<
  *         score = -score
  * 
 */
-  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_v_maximize); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 70, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_v_maximize); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 71, __pyx_L1_error)
   if (__pyx_t_7) {
 
-    /* "clustering_metrics/entropy.pyx":71
+    /* "clustering_metrics/entropy.pyx":72
  * 
  *     if maximize:
  *         score = -score             # <<<<<<<<<<<<<<
@@ -5578,7 +5575,7 @@ static __pyx_t_5numpy_int64_t __pyx_f_18clustering_metrics_7entropy__assignment_
 */
     __pyx_v_score = (-__pyx_v_score);
 
-    /* "clustering_metrics/entropy.pyx":70
+    /* "clustering_metrics/entropy.pyx":71
  *     free(assignment)
  * 
  *     if maximize:             # <<<<<<<<<<<<<<
@@ -5587,7 +5584,7 @@ static __pyx_t_5numpy_int64_t __pyx_f_18clustering_metrics_7entropy__assignment_
 */
   }
 
-  /* "clustering_metrics/entropy.pyx":73
+  /* "clustering_metrics/entropy.pyx":74
  *         score = -score
  * 
  *     return score             # <<<<<<<<<<<<<<
@@ -5597,7 +5594,7 @@ static __pyx_t_5numpy_int64_t __pyx_f_18clustering_metrics_7entropy__assignment_
   __pyx_r = __pyx_v_score;
   goto __pyx_L0;
 
-  /* "clustering_metrics/entropy.pyx":44
+  /* "clustering_metrics/entropy.pyx":45
  * 
  * 
  * @cython.boundscheck(False)             # <<<<<<<<<<<<<<
@@ -5629,7 +5626,7 @@ static __pyx_t_5numpy_int64_t __pyx_f_18clustering_metrics_7entropy__assignment_
   return __pyx_r;
 }
 
-/* "clustering_metrics/entropy.pyx":76
+/* "clustering_metrics/entropy.pyx":77
  * 
  * 
  * @cython.boundscheck(False)             # <<<<<<<<<<<<<<
@@ -5639,7 +5636,7 @@ static __pyx_t_5numpy_int64_t __pyx_f_18clustering_metrics_7entropy__assignment_
 
 static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy__assignment_cost_dbl(PyObject *__pyx_v_array2d, struct __pyx_opt_args_18clustering_metrics_7entropy__assignment_cost_dbl *__pyx_optional_args) {
 
-  /* "clustering_metrics/entropy.pyx":78
+  /* "clustering_metrics/entropy.pyx":79
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cdef np.float64_t _assignment_cost_dbl(array2d, maximize=False):             # <<<<<<<<<<<<<<
@@ -5683,7 +5680,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy__assignmen
   __pyx_pybuffernd_contig.data = NULL;
   __pyx_pybuffernd_contig.rcbuffer = &__pyx_pybuffer_contig;
 
-  /* "clustering_metrics/entropy.pyx":87
+  /* "clustering_metrics/entropy.pyx":88
  * 
  *     cdef np.ndarray[np.float64_t, ndim=2, mode='fortran'] contig = \
  *         np.asfortranarray(array2d, dtype=np.float64)             # <<<<<<<<<<<<<<
@@ -5691,14 +5688,14 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy__assignmen
  *     if maximize:
 */
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 87, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 88, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_asfortranarray); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 87, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_asfortranarray); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 88, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 87, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 88, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_float64); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 87, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_float64); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 88, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_6 = 1;
@@ -5715,49 +5712,49 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy__assignmen
   #endif
   {
     PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_2, __pyx_v_array2d};
-    __pyx_t_3 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 87, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 88, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_dtype, __pyx_t_5, __pyx_t_3, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 87, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_dtype, __pyx_t_5, __pyx_t_3, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 88, __pyx_L1_error)
     __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_4, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_3);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 87, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 88, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 87, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 88, __pyx_L1_error)
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_contig.rcbuffer->pybuffer, (PyObject*)((PyArrayObject *)__pyx_t_1), &__Pyx_TypeInfo_nn___pyx_t_5numpy_float64_t, PyBUF_FORMAT| PyBUF_F_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) {
       __pyx_v_contig = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_contig.rcbuffer->pybuffer.buf = NULL;
-      __PYX_ERR(0, 86, __pyx_L1_error)
+      __PYX_ERR(0, 87, __pyx_L1_error)
     } else {__pyx_pybuffernd_contig.diminfo[0].strides = __pyx_pybuffernd_contig.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_contig.diminfo[0].shape = __pyx_pybuffernd_contig.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_contig.diminfo[1].strides = __pyx_pybuffernd_contig.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_contig.diminfo[1].shape = __pyx_pybuffernd_contig.rcbuffer->pybuffer.shape[1];
     }
   }
   __pyx_v_contig = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "clustering_metrics/entropy.pyx":89
+  /* "clustering_metrics/entropy.pyx":90
  *         np.asfortranarray(array2d, dtype=np.float64)
  * 
  *     if maximize:             # <<<<<<<<<<<<<<
  *         contig = -contig
  * 
 */
-  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_v_maximize); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 89, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_v_maximize); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 90, __pyx_L1_error)
   if (__pyx_t_7) {
 
-    /* "clustering_metrics/entropy.pyx":90
+    /* "clustering_metrics/entropy.pyx":91
  * 
  *     if maximize:
  *         contig = -contig             # <<<<<<<<<<<<<<
  * 
  *     n = contig.shape[0]
 */
-    __pyx_t_1 = PyNumber_Negative(((PyObject *)__pyx_v_contig)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 90, __pyx_L1_error)
+    __pyx_t_1 = PyNumber_Negative(((PyObject *)__pyx_v_contig)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 91, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 90, __pyx_L1_error)
+    if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 91, __pyx_L1_error)
     {
       __Pyx_BufFmt_StackElem __pyx_stack[1];
       __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_contig.rcbuffer->pybuffer);
@@ -5773,12 +5770,12 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy__assignmen
         __pyx_t_9 = __pyx_t_10 = __pyx_t_11 = 0;
       }
       __pyx_pybuffernd_contig.diminfo[0].strides = __pyx_pybuffernd_contig.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_contig.diminfo[0].shape = __pyx_pybuffernd_contig.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_contig.diminfo[1].strides = __pyx_pybuffernd_contig.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_contig.diminfo[1].shape = __pyx_pybuffernd_contig.rcbuffer->pybuffer.shape[1];
-      if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 90, __pyx_L1_error)
+      if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 91, __pyx_L1_error)
     }
     __Pyx_DECREF_SET(__pyx_v_contig, ((PyArrayObject *)__pyx_t_1));
     __pyx_t_1 = 0;
 
-    /* "clustering_metrics/entropy.pyx":89
+    /* "clustering_metrics/entropy.pyx":90
  *         np.asfortranarray(array2d, dtype=np.float64)
  * 
  *     if maximize:             # <<<<<<<<<<<<<<
@@ -5787,7 +5784,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy__assignmen
 */
   }
 
-  /* "clustering_metrics/entropy.pyx":92
+  /* "clustering_metrics/entropy.pyx":93
  *         contig = -contig
  * 
  *     n = contig.shape[0]             # <<<<<<<<<<<<<<
@@ -5796,7 +5793,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy__assignmen
 */
   __pyx_v_n = (__pyx_f_5numpy_7ndarray_5shape_shape(((PyArrayObject *)__pyx_v_contig))[0]);
 
-  /* "clustering_metrics/entropy.pyx":93
+  /* "clustering_metrics/entropy.pyx":94
  * 
  *     n = contig.shape[0]
  *     m = contig.shape[1]             # <<<<<<<<<<<<<<
@@ -5805,7 +5802,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy__assignmen
 */
   __pyx_v_m = (__pyx_f_5numpy_7ndarray_5shape_shape(((PyArrayObject *)__pyx_v_contig))[1]);
 
-  /* "clustering_metrics/entropy.pyx":95
+  /* "clustering_metrics/entropy.pyx":96
  *     m = contig.shape[1]
  * 
  *     cdef np.int64_t* assignment = <np.int64_t*> malloc(n*sizeof(np.int64_t))             # <<<<<<<<<<<<<<
@@ -5814,7 +5811,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy__assignmen
 */
   __pyx_v_assignment = ((__pyx_t_5numpy_int64_t *)malloc((__pyx_v_n * (sizeof(__pyx_t_5numpy_int64_t)))));
 
-  /* "clustering_metrics/entropy.pyx":96
+  /* "clustering_metrics/entropy.pyx":97
  * 
  *     cdef np.int64_t* assignment = <np.int64_t*> malloc(n*sizeof(np.int64_t))
  *     cdef np.float64_t score = 0             # <<<<<<<<<<<<<<
@@ -5823,7 +5820,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy__assignmen
 */
   __pyx_v_score = 0.0;
 
-  /* "clustering_metrics/entropy.pyx":98
+  /* "clustering_metrics/entropy.pyx":99
  *     cdef np.float64_t score = 0
  * 
  *     assignmentoptimal_dbl(assignment, &score, &contig[0, 0], n, m)             # <<<<<<<<<<<<<<
@@ -5834,7 +5831,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy__assignmen
   __pyx_t_13 = 0;
   assignmentoptimal_dbl(__pyx_v_assignment, (&__pyx_v_score), (&(*__Pyx_BufPtrFortranContig2d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_contig.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_contig.diminfo[0].strides, __pyx_t_13, __pyx_pybuffernd_contig.diminfo[1].strides))), __pyx_v_n, __pyx_v_m);
 
-  /* "clustering_metrics/entropy.pyx":100
+  /* "clustering_metrics/entropy.pyx":101
  *     assignmentoptimal_dbl(assignment, &score, &contig[0, 0], n, m)
  * 
  *     free(assignment)             # <<<<<<<<<<<<<<
@@ -5843,17 +5840,17 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy__assignmen
 */
   free(__pyx_v_assignment);
 
-  /* "clustering_metrics/entropy.pyx":102
+  /* "clustering_metrics/entropy.pyx":103
  *     free(assignment)
  * 
  *     if maximize:             # <<<<<<<<<<<<<<
  *         score = -score
  * 
 */
-  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_v_maximize); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 102, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_v_maximize); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 103, __pyx_L1_error)
   if (__pyx_t_7) {
 
-    /* "clustering_metrics/entropy.pyx":103
+    /* "clustering_metrics/entropy.pyx":104
  * 
  *     if maximize:
  *         score = -score             # <<<<<<<<<<<<<<
@@ -5862,7 +5859,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy__assignmen
 */
     __pyx_v_score = (-__pyx_v_score);
 
-    /* "clustering_metrics/entropy.pyx":102
+    /* "clustering_metrics/entropy.pyx":103
  *     free(assignment)
  * 
  *     if maximize:             # <<<<<<<<<<<<<<
@@ -5871,7 +5868,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy__assignmen
 */
   }
 
-  /* "clustering_metrics/entropy.pyx":105
+  /* "clustering_metrics/entropy.pyx":106
  *         score = -score
  * 
  *     return score             # <<<<<<<<<<<<<<
@@ -5881,7 +5878,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy__assignmen
   __pyx_r = __pyx_v_score;
   goto __pyx_L0;
 
-  /* "clustering_metrics/entropy.pyx":76
+  /* "clustering_metrics/entropy.pyx":77
  * 
  * 
  * @cython.boundscheck(False)             # <<<<<<<<<<<<<<
@@ -5913,7 +5910,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy__assignmen
   return __pyx_r;
 }
 
-/* "clustering_metrics/entropy.pyx":108
+/* "clustering_metrics/entropy.pyx":109
  * 
  * 
  * cpdef np.float64_t lgamma(np.float64_t x):             # <<<<<<<<<<<<<<
@@ -5943,7 +5940,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_lgamma(__p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("lgamma", 0);
 
-  /* "clustering_metrics/entropy.pyx":118
+  /* "clustering_metrics/entropy.pyx":119
  *     This function is borrowed verbatim from Scikit-Learn.
  *     """
  *     if x <= 0.0:             # <<<<<<<<<<<<<<
@@ -5953,7 +5950,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_lgamma(__p
   __pyx_t_1 = (__pyx_v_x <= 0.0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "clustering_metrics/entropy.pyx":119
+    /* "clustering_metrics/entropy.pyx":120
  *     """
  *     if x <= 0.0:
  *         raise ValueError("x must be strictly positive, got %f" % x)             # <<<<<<<<<<<<<<
@@ -5963,9 +5960,9 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_lgamma(__p
     __pyx_t_3 = NULL;
     __Pyx_INCREF(__pyx_builtin_ValueError);
     __pyx_t_4 = __pyx_builtin_ValueError; 
-    __pyx_t_5 = PyFloat_FromDouble(__pyx_v_x); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 119, __pyx_L1_error)
+    __pyx_t_5 = PyFloat_FromDouble(__pyx_v_x); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 120, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = PyUnicode_Format(__pyx_mstate_global->__pyx_kp_u_x_must_be_strictly_positive_got, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 119, __pyx_L1_error)
+    __pyx_t_6 = PyUnicode_Format(__pyx_mstate_global->__pyx_kp_u_x_must_be_strictly_positive_got, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 120, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_t_7 = 1;
@@ -5975,14 +5972,14 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_lgamma(__p
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 119, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 120, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(0, 119, __pyx_L1_error)
+    __PYX_ERR(0, 120, __pyx_L1_error)
 
-    /* "clustering_metrics/entropy.pyx":118
+    /* "clustering_metrics/entropy.pyx":119
  *     This function is borrowed verbatim from Scikit-Learn.
  *     """
  *     if x <= 0.0:             # <<<<<<<<<<<<<<
@@ -5991,7 +5988,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_lgamma(__p
 */
   }
 
-  /* "clustering_metrics/entropy.pyx":120
+  /* "clustering_metrics/entropy.pyx":121
  *     if x <= 0.0:
  *         raise ValueError("x must be strictly positive, got %f" % x)
  *     return sklearn_lgamma(x)             # <<<<<<<<<<<<<<
@@ -6001,7 +5998,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_lgamma(__p
   __pyx_r = sklearn_lgamma(__pyx_v_x);
   goto __pyx_L0;
 
-  /* "clustering_metrics/entropy.pyx":108
+  /* "clustering_metrics/entropy.pyx":109
  * 
  * 
  * cpdef np.float64_t lgamma(np.float64_t x):             # <<<<<<<<<<<<<<
@@ -6063,32 +6060,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_x,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 108, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 109, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 108, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 109, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "lgamma", 0) < 0) __PYX_ERR(0, 108, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "lgamma", 0) < 0) __PYX_ERR(0, 109, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("lgamma", 1, 1, 1, i); __PYX_ERR(0, 108, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("lgamma", 1, 1, 1, i); __PYX_ERR(0, 109, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 108, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 109, __pyx_L3_error)
     }
-    __pyx_v_x = __Pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_x == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 108, __pyx_L3_error)
+    __pyx_v_x = __Pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_x == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 109, __pyx_L3_error)
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("lgamma", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 108, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("lgamma", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 109, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -6119,8 +6116,8 @@ static PyObject *__pyx_pf_18clustering_metrics_7entropy_2lgamma(CYTHON_UNUSED Py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("lgamma", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_18clustering_metrics_7entropy_lgamma(__pyx_v_x, 1); if (unlikely(__pyx_t_1 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 108, __pyx_L1_error)
-  __pyx_t_2 = PyFloat_FromDouble(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 108, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_18clustering_metrics_7entropy_lgamma(__pyx_v_x, 1); if (unlikely(__pyx_t_1 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 109, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 109, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
@@ -6137,7 +6134,7 @@ static PyObject *__pyx_pf_18clustering_metrics_7entropy_2lgamma(CYTHON_UNUSED Py
   return __pyx_r;
 }
 
-/* "clustering_metrics/entropy.pyx":123
+/* "clustering_metrics/entropy.pyx":124
  * 
  * 
  * cpdef ndarray_from_iter(iterable, dtype=None, contiguous=False):             # <<<<<<<<<<<<<<
@@ -6158,9 +6155,9 @@ static PyObject *__pyx_f_18clustering_metrics_7entropy_ndarray_from_iter(PyObjec
   PyObject *__pyx_v_arr = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
-  int __pyx_t_1;
+  PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
-  PyObject *__pyx_t_3 = NULL;
+  int __pyx_t_3;
   PyObject *__pyx_t_4 = NULL;
   PyObject *__pyx_t_5 = NULL;
   size_t __pyx_t_6;
@@ -6178,146 +6175,158 @@ static PyObject *__pyx_f_18clustering_metrics_7entropy_ndarray_from_iter(PyObjec
     }
   }
 
-  /* "clustering_metrics/entropy.pyx":133
+  /* "clustering_metrics/entropy.pyx":134
  *     we are interesting in creating a NumPy array from the values.
  *     """
- *     if hasattr(iterable, "__next__"):  # Iterator             # <<<<<<<<<<<<<<
+ *     if isinstance(iterable, abc.Iterator):  # Iterator             # <<<<<<<<<<<<<<
  *         arr = np.fromiter(iterable, dtype=dtype)
  *         if contiguous:
 */
-  __pyx_t_1 = __Pyx_HasAttr(__pyx_v_iterable, __pyx_mstate_global->__pyx_n_u_next); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 133, __pyx_L1_error)
-  if (__pyx_t_1) {
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_abc); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 134, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_Iterator); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 134, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_3 = PyObject_IsInstance(__pyx_v_iterable, __pyx_t_2); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 134, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (__pyx_t_3) {
 
-    /* "clustering_metrics/entropy.pyx":134
+    /* "clustering_metrics/entropy.pyx":135
  *     """
- *     if hasattr(iterable, "__next__"):  # Iterator
+ *     if isinstance(iterable, abc.Iterator):  # Iterator
  *         arr = np.fromiter(iterable, dtype=dtype)             # <<<<<<<<<<<<<<
  *         if contiguous:
  *             arr = np.ascontiguousarray(arr, dtype=dtype)
 */
-    __pyx_t_3 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 134, __pyx_L1_error)
+    __pyx_t_1 = NULL;
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 135, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_fromiter); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 134, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_fromiter); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 135, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_6 = 1;
     #if CYTHON_UNPACK_METHODS
     if (unlikely(PyMethod_Check(__pyx_t_5))) {
-      __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_5);
-      assert(__pyx_t_3);
+      __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_5);
+      assert(__pyx_t_1);
       PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_5);
-      __Pyx_INCREF(__pyx_t_3);
+      __Pyx_INCREF(__pyx_t_1);
       __Pyx_INCREF(__pyx__function);
       __Pyx_DECREF_SET(__pyx_t_5, __pyx__function);
       __pyx_t_6 = 0;
     }
     #endif
     {
-      PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_3, __pyx_v_iterable};
-      __pyx_t_4 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 134, __pyx_L1_error)
+      PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_1, __pyx_v_iterable};
+      __pyx_t_4 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 135, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_dtype, __pyx_v_dtype, __pyx_t_4, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 134, __pyx_L1_error)
+      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_dtype, __pyx_v_dtype, __pyx_t_4, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 135, __pyx_L1_error)
       __pyx_t_2 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_5, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_4);
-      __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+      __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 134, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 135, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __pyx_v_arr = __pyx_t_2;
     __pyx_t_2 = 0;
 
-    /* "clustering_metrics/entropy.pyx":135
- *     if hasattr(iterable, "__next__"):  # Iterator
+    /* "clustering_metrics/entropy.pyx":136
+ *     if isinstance(iterable, abc.Iterator):  # Iterator
  *         arr = np.fromiter(iterable, dtype=dtype)
  *         if contiguous:             # <<<<<<<<<<<<<<
  *             arr = np.ascontiguousarray(arr, dtype=dtype)
- *     elif hasattr(iterable, "__getitem__"):  # Mapping
+ *     elif isinstance(iterable, abc.Mapping):  # Mapping
 */
-    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_contiguous); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 135, __pyx_L1_error)
-    if (__pyx_t_1) {
+    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_v_contiguous); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 136, __pyx_L1_error)
+    if (__pyx_t_3) {
 
-      /* "clustering_metrics/entropy.pyx":136
+      /* "clustering_metrics/entropy.pyx":137
  *         arr = np.fromiter(iterable, dtype=dtype)
  *         if contiguous:
  *             arr = np.ascontiguousarray(arr, dtype=dtype)             # <<<<<<<<<<<<<<
- *     elif hasattr(iterable, "__getitem__"):  # Mapping
+ *     elif isinstance(iterable, abc.Mapping):  # Mapping
  *         arr = np.fromiter(iterable.values(), dtype=dtype)
 */
       __pyx_t_5 = NULL;
-      __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 136, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 137, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_ascontiguousarray); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 136, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_3);
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_ascontiguousarray); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 137, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __pyx_t_6 = 1;
       #if CYTHON_UNPACK_METHODS
-      if (unlikely(PyMethod_Check(__pyx_t_3))) {
-        __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_3);
+      if (unlikely(PyMethod_Check(__pyx_t_1))) {
+        __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_1);
         assert(__pyx_t_5);
-        PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_3);
+        PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_1);
         __Pyx_INCREF(__pyx_t_5);
         __Pyx_INCREF(__pyx__function);
-        __Pyx_DECREF_SET(__pyx_t_3, __pyx__function);
+        __Pyx_DECREF_SET(__pyx_t_1, __pyx__function);
         __pyx_t_6 = 0;
       }
       #endif
       {
         PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_5, __pyx_v_arr};
-        __pyx_t_4 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 136, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 137, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
-        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_dtype, __pyx_v_dtype, __pyx_t_4, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 136, __pyx_L1_error)
-        __pyx_t_2 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_3, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_4);
+        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_dtype, __pyx_v_dtype, __pyx_t_4, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 137, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_1, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_4);
         __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 136, __pyx_L1_error)
+        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 137, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
       }
       __Pyx_DECREF_SET(__pyx_v_arr, __pyx_t_2);
       __pyx_t_2 = 0;
 
-      /* "clustering_metrics/entropy.pyx":135
- *     if hasattr(iterable, "__next__"):  # Iterator
+      /* "clustering_metrics/entropy.pyx":136
+ *     if isinstance(iterable, abc.Iterator):  # Iterator
  *         arr = np.fromiter(iterable, dtype=dtype)
  *         if contiguous:             # <<<<<<<<<<<<<<
  *             arr = np.ascontiguousarray(arr, dtype=dtype)
- *     elif hasattr(iterable, "__getitem__"):  # Mapping
+ *     elif isinstance(iterable, abc.Mapping):  # Mapping
 */
     }
 
-    /* "clustering_metrics/entropy.pyx":133
+    /* "clustering_metrics/entropy.pyx":134
  *     we are interesting in creating a NumPy array from the values.
  *     """
- *     if hasattr(iterable, "__next__"):  # Iterator             # <<<<<<<<<<<<<<
+ *     if isinstance(iterable, abc.Iterator):  # Iterator             # <<<<<<<<<<<<<<
  *         arr = np.fromiter(iterable, dtype=dtype)
  *         if contiguous:
 */
     goto __pyx_L3;
   }
 
-  /* "clustering_metrics/entropy.pyx":137
+  /* "clustering_metrics/entropy.pyx":138
  *         if contiguous:
  *             arr = np.ascontiguousarray(arr, dtype=dtype)
- *     elif hasattr(iterable, "__getitem__"):  # Mapping             # <<<<<<<<<<<<<<
+ *     elif isinstance(iterable, abc.Mapping):  # Mapping             # <<<<<<<<<<<<<<
  *         arr = np.fromiter(iterable.values(), dtype=dtype)
  *         if contiguous:
 */
-  __pyx_t_1 = __Pyx_HasAttr(__pyx_v_iterable, __pyx_mstate_global->__pyx_n_u_getitem); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 137, __pyx_L1_error)
-  if (__pyx_t_1) {
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_abc); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 138, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_Mapping); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 138, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_3 = PyObject_IsInstance(__pyx_v_iterable, __pyx_t_1); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 138, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (__pyx_t_3) {
 
-    /* "clustering_metrics/entropy.pyx":138
+    /* "clustering_metrics/entropy.pyx":139
  *             arr = np.ascontiguousarray(arr, dtype=dtype)
- *     elif hasattr(iterable, "__getitem__"):  # Mapping
+ *     elif isinstance(iterable, abc.Mapping):  # Mapping
  *         arr = np.fromiter(iterable.values(), dtype=dtype)             # <<<<<<<<<<<<<<
  *         if contiguous:
  *             arr = np.ascontiguousarray(arr, dtype=dtype)
 */
-    __pyx_t_3 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 138, __pyx_L1_error)
+    __pyx_t_2 = NULL;
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 139, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_fromiter); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 138, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_fromiter); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 139, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_7 = __pyx_v_iterable;
@@ -6327,48 +6336,48 @@ static PyObject *__pyx_f_18clustering_metrics_7entropy_ndarray_from_iter(PyObjec
       PyObject *__pyx_callargs[2] = {__pyx_t_7, NULL};
       __pyx_t_4 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_values, __pyx_callargs+__pyx_t_6, (1-__pyx_t_6) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 138, __pyx_L1_error)
+      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 139, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
     }
     __pyx_t_6 = 1;
     #if CYTHON_UNPACK_METHODS
     if (unlikely(PyMethod_Check(__pyx_t_5))) {
-      __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_5);
-      assert(__pyx_t_3);
+      __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_5);
+      assert(__pyx_t_2);
       PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_5);
-      __Pyx_INCREF(__pyx_t_3);
+      __Pyx_INCREF(__pyx_t_2);
       __Pyx_INCREF(__pyx__function);
       __Pyx_DECREF_SET(__pyx_t_5, __pyx__function);
       __pyx_t_6 = 0;
     }
     #endif
     {
-      PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_3, __pyx_t_4};
-      __pyx_t_7 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 138, __pyx_L1_error)
+      PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_2, __pyx_t_4};
+      __pyx_t_7 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 139, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_dtype, __pyx_v_dtype, __pyx_t_7, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 138, __pyx_L1_error)
-      __pyx_t_2 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_5, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_7);
-      __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_dtype, __pyx_v_dtype, __pyx_t_7, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 139, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_5, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_7);
+      __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 138, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_2);
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 139, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
     }
-    __pyx_v_arr = __pyx_t_2;
-    __pyx_t_2 = 0;
+    __pyx_v_arr = __pyx_t_1;
+    __pyx_t_1 = 0;
 
-    /* "clustering_metrics/entropy.pyx":139
- *     elif hasattr(iterable, "__getitem__"):  # Mapping
+    /* "clustering_metrics/entropy.pyx":140
+ *     elif isinstance(iterable, abc.Mapping):  # Mapping
  *         arr = np.fromiter(iterable.values(), dtype=dtype)
  *         if contiguous:             # <<<<<<<<<<<<<<
  *             arr = np.ascontiguousarray(arr, dtype=dtype)
  *     elif contiguous:
 */
-    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_contiguous); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 139, __pyx_L1_error)
-    if (__pyx_t_1) {
+    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_v_contiguous); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 140, __pyx_L1_error)
+    if (__pyx_t_3) {
 
-      /* "clustering_metrics/entropy.pyx":140
+      /* "clustering_metrics/entropy.pyx":141
  *         arr = np.fromiter(iterable.values(), dtype=dtype)
  *         if contiguous:
  *             arr = np.ascontiguousarray(arr, dtype=dtype)             # <<<<<<<<<<<<<<
@@ -6376,9 +6385,9 @@ static PyObject *__pyx_f_18clustering_metrics_7entropy_ndarray_from_iter(PyObjec
  *         arr = np.ascontiguousarray(iterable, dtype=dtype)
 */
       __pyx_t_5 = NULL;
-      __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 140, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 141, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_ascontiguousarray); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 140, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_ascontiguousarray); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 141, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __pyx_t_6 = 1;
@@ -6395,21 +6404,21 @@ static PyObject *__pyx_f_18clustering_metrics_7entropy_ndarray_from_iter(PyObjec
       #endif
       {
         PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_5, __pyx_v_arr};
-        __pyx_t_7 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 140, __pyx_L1_error)
+        __pyx_t_7 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 141, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
-        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_dtype, __pyx_v_dtype, __pyx_t_7, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 140, __pyx_L1_error)
-        __pyx_t_2 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_4, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_7);
+        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_dtype, __pyx_v_dtype, __pyx_t_7, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 141, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_4, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_7);
         __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 140, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_2);
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 141, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_1);
       }
-      __Pyx_DECREF_SET(__pyx_v_arr, __pyx_t_2);
-      __pyx_t_2 = 0;
+      __Pyx_DECREF_SET(__pyx_v_arr, __pyx_t_1);
+      __pyx_t_1 = 0;
 
-      /* "clustering_metrics/entropy.pyx":139
- *     elif hasattr(iterable, "__getitem__"):  # Mapping
+      /* "clustering_metrics/entropy.pyx":140
+ *     elif isinstance(iterable, abc.Mapping):  # Mapping
  *         arr = np.fromiter(iterable.values(), dtype=dtype)
  *         if contiguous:             # <<<<<<<<<<<<<<
  *             arr = np.ascontiguousarray(arr, dtype=dtype)
@@ -6417,27 +6426,27 @@ static PyObject *__pyx_f_18clustering_metrics_7entropy_ndarray_from_iter(PyObjec
 */
     }
 
-    /* "clustering_metrics/entropy.pyx":137
+    /* "clustering_metrics/entropy.pyx":138
  *         if contiguous:
  *             arr = np.ascontiguousarray(arr, dtype=dtype)
- *     elif hasattr(iterable, "__getitem__"):  # Mapping             # <<<<<<<<<<<<<<
+ *     elif isinstance(iterable, abc.Mapping):  # Mapping             # <<<<<<<<<<<<<<
  *         arr = np.fromiter(iterable.values(), dtype=dtype)
  *         if contiguous:
 */
     goto __pyx_L3;
   }
 
-  /* "clustering_metrics/entropy.pyx":141
+  /* "clustering_metrics/entropy.pyx":142
  *         if contiguous:
  *             arr = np.ascontiguousarray(arr, dtype=dtype)
  *     elif contiguous:             # <<<<<<<<<<<<<<
  *         arr = np.ascontiguousarray(iterable, dtype=dtype)
  *     else:
 */
-  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_contiguous); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 141, __pyx_L1_error)
-  if (__pyx_t_1) {
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_v_contiguous); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 142, __pyx_L1_error)
+  if (__pyx_t_3) {
 
-    /* "clustering_metrics/entropy.pyx":142
+    /* "clustering_metrics/entropy.pyx":143
  *             arr = np.ascontiguousarray(arr, dtype=dtype)
  *     elif contiguous:
  *         arr = np.ascontiguousarray(iterable, dtype=dtype)             # <<<<<<<<<<<<<<
@@ -6445,9 +6454,9 @@ static PyObject *__pyx_f_18clustering_metrics_7entropy_ndarray_from_iter(PyObjec
  *         arr = np.asarray(iterable, dtype=dtype)
 */
     __pyx_t_4 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 142, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 143, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_ascontiguousarray); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 142, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_ascontiguousarray); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 143, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __pyx_t_6 = 1;
@@ -6464,20 +6473,20 @@ static PyObject *__pyx_f_18clustering_metrics_7entropy_ndarray_from_iter(PyObjec
     #endif
     {
       PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_4, __pyx_v_iterable};
-      __pyx_t_7 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 142, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 143, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_dtype, __pyx_v_dtype, __pyx_t_7, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 142, __pyx_L1_error)
-      __pyx_t_2 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_5, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_7);
+      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_dtype, __pyx_v_dtype, __pyx_t_7, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 143, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_5, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_7);
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 142, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_2);
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 143, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
     }
-    __pyx_v_arr = __pyx_t_2;
-    __pyx_t_2 = 0;
+    __pyx_v_arr = __pyx_t_1;
+    __pyx_t_1 = 0;
 
-    /* "clustering_metrics/entropy.pyx":141
+    /* "clustering_metrics/entropy.pyx":142
  *         if contiguous:
  *             arr = np.ascontiguousarray(arr, dtype=dtype)
  *     elif contiguous:             # <<<<<<<<<<<<<<
@@ -6487,7 +6496,7 @@ static PyObject *__pyx_f_18clustering_metrics_7entropy_ndarray_from_iter(PyObjec
     goto __pyx_L3;
   }
 
-  /* "clustering_metrics/entropy.pyx":144
+  /* "clustering_metrics/entropy.pyx":145
  *         arr = np.ascontiguousarray(iterable, dtype=dtype)
  *     else:
  *         arr = np.asarray(iterable, dtype=dtype)             # <<<<<<<<<<<<<<
@@ -6496,9 +6505,9 @@ static PyObject *__pyx_f_18clustering_metrics_7entropy_ndarray_from_iter(PyObjec
 */
   /*else*/ {
     __pyx_t_5 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 144, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 145, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_asarray); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 144, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_asarray); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 145, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __pyx_t_6 = 1;
@@ -6515,22 +6524,22 @@ static PyObject *__pyx_f_18clustering_metrics_7entropy_ndarray_from_iter(PyObjec
     #endif
     {
       PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_5, __pyx_v_iterable};
-      __pyx_t_7 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 144, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 145, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_dtype, __pyx_v_dtype, __pyx_t_7, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 144, __pyx_L1_error)
-      __pyx_t_2 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_4, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_7);
+      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_dtype, __pyx_v_dtype, __pyx_t_7, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 145, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_4, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_7);
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 144, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_2);
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 145, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
     }
-    __pyx_v_arr = __pyx_t_2;
-    __pyx_t_2 = 0;
+    __pyx_v_arr = __pyx_t_1;
+    __pyx_t_1 = 0;
   }
   __pyx_L3:;
 
-  /* "clustering_metrics/entropy.pyx":145
+  /* "clustering_metrics/entropy.pyx":146
  *     else:
  *         arr = np.asarray(iterable, dtype=dtype)
  *     return arr             # <<<<<<<<<<<<<<
@@ -6542,7 +6551,7 @@ static PyObject *__pyx_f_18clustering_metrics_7entropy_ndarray_from_iter(PyObjec
   __pyx_r = __pyx_v_arr;
   goto __pyx_L0;
 
-  /* "clustering_metrics/entropy.pyx":123
+  /* "clustering_metrics/entropy.pyx":124
  * 
  * 
  * cpdef ndarray_from_iter(iterable, dtype=None, contiguous=False):             # <<<<<<<<<<<<<<
@@ -6552,8 +6561,8 @@ static PyObject *__pyx_f_18clustering_metrics_7entropy_ndarray_from_iter(PyObjec
 
   /* function exit code */
   __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_7);
@@ -6608,44 +6617,44 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_iterable,&__pyx_mstate_global->__pyx_n_u_dtype,&__pyx_mstate_global->__pyx_n_u_contiguous,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 123, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 124, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  3:
         values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 123, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 124, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 123, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 124, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 123, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 124, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "ndarray_from_iter", 0) < 0) __PYX_ERR(0, 123, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "ndarray_from_iter", 0) < 0) __PYX_ERR(0, 124, __pyx_L3_error)
       if (!values[1]) values[1] = __Pyx_NewRef(((PyObject *)Py_None));
       if (!values[2]) values[2] = __Pyx_NewRef(((PyObject *)Py_False));
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("ndarray_from_iter", 0, 1, 3, i); __PYX_ERR(0, 123, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("ndarray_from_iter", 0, 1, 3, i); __PYX_ERR(0, 124, __pyx_L3_error) }
       }
     } else {
       switch (__pyx_nargs) {
         case  3:
         values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 123, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 124, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 123, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 124, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 123, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 124, __pyx_L3_error)
         break;
         default: goto __pyx_L5_argtuple_error;
       }
@@ -6658,7 +6667,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("ndarray_from_iter", 0, 1, 3, __pyx_nargs); __PYX_ERR(0, 123, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("ndarray_from_iter", 0, 1, 3, __pyx_nargs); __PYX_ERR(0, 124, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -6692,7 +6701,7 @@ static PyObject *__pyx_pf_18clustering_metrics_7entropy_4ndarray_from_iter(CYTHO
   __pyx_t_2.__pyx_n = 2;
   __pyx_t_2.dtype = __pyx_v_dtype;
   __pyx_t_2.contiguous = __pyx_v_contiguous;
-  __pyx_t_1 = __pyx_f_18clustering_metrics_7entropy_ndarray_from_iter(__pyx_v_iterable, 1, &__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 123, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_18clustering_metrics_7entropy_ndarray_from_iter(__pyx_v_iterable, 1, &__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 124, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -6709,7 +6718,7 @@ static PyObject *__pyx_pf_18clustering_metrics_7entropy_4ndarray_from_iter(CYTHO
   return __pyx_r;
 }
 
-/* "clustering_metrics/entropy.pyx":148
+/* "clustering_metrics/entropy.pyx":149
  * 
  * 
  * cpdef np.int64_t cnum_pairs(np.int64_t n) nogil:             # <<<<<<<<<<<<<<
@@ -6727,7 +6736,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 static __pyx_t_5numpy_int64_t __pyx_f_18clustering_metrics_7entropy_cnum_pairs(__pyx_t_5numpy_int64_t __pyx_v_n, CYTHON_UNUSED int __pyx_skip_dispatch) {
   __pyx_t_5numpy_int64_t __pyx_r;
 
-  /* "clustering_metrics/entropy.pyx":155
+  /* "clustering_metrics/entropy.pyx":156
  *     those two, the domain here extends into negative integers.
  *     """
  *     return (n * (n - 1LL)) >> 1LL             # <<<<<<<<<<<<<<
@@ -6737,7 +6746,7 @@ static __pyx_t_5numpy_int64_t __pyx_f_18clustering_metrics_7entropy_cnum_pairs(_
   __pyx_r = ((__pyx_v_n * (__pyx_v_n - 1LL)) >> 1LL);
   goto __pyx_L0;
 
-  /* "clustering_metrics/entropy.pyx":148
+  /* "clustering_metrics/entropy.pyx":149
  * 
  * 
  * cpdef np.int64_t cnum_pairs(np.int64_t n) nogil:             # <<<<<<<<<<<<<<
@@ -6790,32 +6799,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_n,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 148, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 149, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 148, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 149, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "cnum_pairs", 0) < 0) __PYX_ERR(0, 148, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "cnum_pairs", 0) < 0) __PYX_ERR(0, 149, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("cnum_pairs", 1, 1, 1, i); __PYX_ERR(0, 148, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("cnum_pairs", 1, 1, 1, i); __PYX_ERR(0, 149, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 148, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 149, __pyx_L3_error)
     }
-    __pyx_v_n = __Pyx_PyLong_As_npy_int64(values[0]); if (unlikely((__pyx_v_n == ((npy_int64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 148, __pyx_L3_error)
+    __pyx_v_n = __Pyx_PyLong_As_npy_int64(values[0]); if (unlikely((__pyx_v_n == ((npy_int64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 149, __pyx_L3_error)
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("cnum_pairs", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 148, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("cnum_pairs", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 149, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -6846,8 +6855,8 @@ static PyObject *__pyx_pf_18clustering_metrics_7entropy_6cnum_pairs(CYTHON_UNUSE
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("cnum_pairs", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_18clustering_metrics_7entropy_cnum_pairs(__pyx_v_n, 1); if (unlikely(__pyx_t_1 == ((__pyx_t_5numpy_int64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 148, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyLong_From_npy_int64(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 148, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_18clustering_metrics_7entropy_cnum_pairs(__pyx_v_n, 1); if (unlikely(__pyx_t_1 == ((__pyx_t_5numpy_int64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 149, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyLong_From_npy_int64(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 149, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
@@ -6864,7 +6873,7 @@ static PyObject *__pyx_pf_18clustering_metrics_7entropy_6cnum_pairs(CYTHON_UNUSE
   return __pyx_r;
 }
 
-/* "clustering_metrics/entropy.pyx":158
+/* "clustering_metrics/entropy.pyx":159
  * 
  * 
  * cpdef np.float64_t fnum_pairs(np.float64_t n) nogil:             # <<<<<<<<<<<<<<
@@ -6882,7 +6891,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_fnum_pairs(__pyx_t_5numpy_float64_t __pyx_v_n, CYTHON_UNUSED int __pyx_skip_dispatch) {
   __pyx_t_5numpy_float64_t __pyx_r;
 
-  /* "clustering_metrics/entropy.pyx":165
+  /* "clustering_metrics/entropy.pyx":166
  *     those two, the domain here extends into negative integers.
  *     """
  *     return 0.5 * (n * (n - 1.0))             # <<<<<<<<<<<<<<
@@ -6892,7 +6901,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_fnum_pairs
   __pyx_r = (0.5 * (__pyx_v_n * (__pyx_v_n - 1.0)));
   goto __pyx_L0;
 
-  /* "clustering_metrics/entropy.pyx":158
+  /* "clustering_metrics/entropy.pyx":159
  * 
  * 
  * cpdef np.float64_t fnum_pairs(np.float64_t n) nogil:             # <<<<<<<<<<<<<<
@@ -6945,32 +6954,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_n,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 158, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 159, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 158, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 159, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "fnum_pairs", 0) < 0) __PYX_ERR(0, 158, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "fnum_pairs", 0) < 0) __PYX_ERR(0, 159, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("fnum_pairs", 1, 1, 1, i); __PYX_ERR(0, 158, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("fnum_pairs", 1, 1, 1, i); __PYX_ERR(0, 159, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 158, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 159, __pyx_L3_error)
     }
-    __pyx_v_n = __Pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_n == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 158, __pyx_L3_error)
+    __pyx_v_n = __Pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_n == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 159, __pyx_L3_error)
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("fnum_pairs", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 158, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("fnum_pairs", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 159, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -7001,8 +7010,8 @@ static PyObject *__pyx_pf_18clustering_metrics_7entropy_8fnum_pairs(CYTHON_UNUSE
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("fnum_pairs", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_18clustering_metrics_7entropy_fnum_pairs(__pyx_v_n, 1); if (unlikely(__pyx_t_1 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 158, __pyx_L1_error)
-  __pyx_t_2 = PyFloat_FromDouble(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 158, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_18clustering_metrics_7entropy_fnum_pairs(__pyx_v_n, 1); if (unlikely(__pyx_t_1 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 159, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 159, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
@@ -7019,7 +7028,7 @@ static PyObject *__pyx_pf_18clustering_metrics_7entropy_8fnum_pairs(CYTHON_UNUSE
   return __pyx_r;
 }
 
-/* "clustering_metrics/entropy.pyx":168
+/* "clustering_metrics/entropy.pyx":169
  * 
  * 
  * cpdef np.int64_t csum_pairs(counts):             # <<<<<<<<<<<<<<
@@ -7049,7 +7058,7 @@ static __pyx_t_5numpy_int64_t __pyx_f_18clustering_metrics_7entropy_csum_pairs(P
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("csum_pairs", 0);
 
-  /* "clustering_metrics/entropy.pyx":175
+  /* "clustering_metrics/entropy.pyx":176
  *     cdef np.int64_t n, total
  * 
  *     total = 0LL             # <<<<<<<<<<<<<<
@@ -7058,7 +7067,7 @@ static __pyx_t_5numpy_int64_t __pyx_f_18clustering_metrics_7entropy_csum_pairs(P
 */
   __pyx_v_total = 0LL;
 
-  /* "clustering_metrics/entropy.pyx":176
+  /* "clustering_metrics/entropy.pyx":177
  * 
  *     total = 0LL
  *     for n in counts:             # <<<<<<<<<<<<<<
@@ -7070,9 +7079,9 @@ static __pyx_t_5numpy_int64_t __pyx_f_18clustering_metrics_7entropy_csum_pairs(P
     __pyx_t_2 = 0;
     __pyx_t_3 = NULL;
   } else {
-    __pyx_t_2 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_v_counts); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 176, __pyx_L1_error)
+    __pyx_t_2 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_v_counts); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 177, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_3 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 176, __pyx_L1_error)
+    __pyx_t_3 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 177, __pyx_L1_error)
   }
   for (;;) {
     if (likely(!__pyx_t_3)) {
@@ -7080,7 +7089,7 @@ static __pyx_t_5numpy_int64_t __pyx_f_18clustering_metrics_7entropy_csum_pairs(P
         {
           Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_1);
           #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 176, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 177, __pyx_L1_error)
           #endif
           if (__pyx_t_2 >= __pyx_temp) break;
         }
@@ -7090,7 +7099,7 @@ static __pyx_t_5numpy_int64_t __pyx_f_18clustering_metrics_7entropy_csum_pairs(P
         {
           Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_1);
           #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 176, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 177, __pyx_L1_error)
           #endif
           if (__pyx_t_2 >= __pyx_temp) break;
         }
@@ -7101,24 +7110,24 @@ static __pyx_t_5numpy_int64_t __pyx_f_18clustering_metrics_7entropy_csum_pairs(P
         #endif
         ++__pyx_t_2;
       }
-      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 176, __pyx_L1_error)
+      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 177, __pyx_L1_error)
     } else {
       __pyx_t_4 = __pyx_t_3(__pyx_t_1);
       if (unlikely(!__pyx_t_4)) {
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
-          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 176, __pyx_L1_error)
+          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 177, __pyx_L1_error)
           PyErr_Clear();
         }
         break;
       }
     }
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_5 = __Pyx_PyLong_As_npy_int64(__pyx_t_4); if (unlikely((__pyx_t_5 == ((npy_int64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 176, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyLong_As_npy_int64(__pyx_t_4); if (unlikely((__pyx_t_5 == ((npy_int64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 177, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_v_n = __pyx_t_5;
 
-    /* "clustering_metrics/entropy.pyx":177
+    /* "clustering_metrics/entropy.pyx":178
  *     total = 0LL
  *     for n in counts:
  *         total += (n * (n - 1LL))             # <<<<<<<<<<<<<<
@@ -7127,7 +7136,7 @@ static __pyx_t_5numpy_int64_t __pyx_f_18clustering_metrics_7entropy_csum_pairs(P
 */
     __pyx_v_total = (__pyx_v_total + (__pyx_v_n * (__pyx_v_n - 1LL)));
 
-    /* "clustering_metrics/entropy.pyx":176
+    /* "clustering_metrics/entropy.pyx":177
  * 
  *     total = 0LL
  *     for n in counts:             # <<<<<<<<<<<<<<
@@ -7137,7 +7146,7 @@ static __pyx_t_5numpy_int64_t __pyx_f_18clustering_metrics_7entropy_csum_pairs(P
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "clustering_metrics/entropy.pyx":178
+  /* "clustering_metrics/entropy.pyx":179
  *     for n in counts:
  *         total += (n * (n - 1LL))
  *     return total >> 1LL             # <<<<<<<<<<<<<<
@@ -7147,7 +7156,7 @@ static __pyx_t_5numpy_int64_t __pyx_f_18clustering_metrics_7entropy_csum_pairs(P
   __pyx_r = (__pyx_v_total >> 1LL);
   goto __pyx_L0;
 
-  /* "clustering_metrics/entropy.pyx":168
+  /* "clustering_metrics/entropy.pyx":169
  * 
  * 
  * cpdef np.int64_t csum_pairs(counts):             # <<<<<<<<<<<<<<
@@ -7206,32 +7215,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_counts,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 168, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 169, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 168, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 169, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "csum_pairs", 0) < 0) __PYX_ERR(0, 168, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "csum_pairs", 0) < 0) __PYX_ERR(0, 169, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("csum_pairs", 1, 1, 1, i); __PYX_ERR(0, 168, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("csum_pairs", 1, 1, 1, i); __PYX_ERR(0, 169, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 168, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 169, __pyx_L3_error)
     }
     __pyx_v_counts = values[0];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("csum_pairs", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 168, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("csum_pairs", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 169, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -7262,8 +7271,8 @@ static PyObject *__pyx_pf_18clustering_metrics_7entropy_10csum_pairs(CYTHON_UNUS
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("csum_pairs", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_18clustering_metrics_7entropy_csum_pairs(__pyx_v_counts, 1); if (unlikely(__pyx_t_1 == ((__pyx_t_5numpy_int64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 168, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyLong_From_npy_int64(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 168, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_18clustering_metrics_7entropy_csum_pairs(__pyx_v_counts, 1); if (unlikely(__pyx_t_1 == ((__pyx_t_5numpy_int64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 169, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyLong_From_npy_int64(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 169, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
@@ -7280,7 +7289,7 @@ static PyObject *__pyx_pf_18clustering_metrics_7entropy_10csum_pairs(CYTHON_UNUS
   return __pyx_r;
 }
 
-/* "clustering_metrics/entropy.pyx":181
+/* "clustering_metrics/entropy.pyx":182
  * 
  * 
  * cpdef np.float64_t fsum_pairs(freqs):             # <<<<<<<<<<<<<<
@@ -7310,7 +7319,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_fsum_pairs
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("fsum_pairs", 0);
 
-  /* "clustering_metrics/entropy.pyx":188
+  /* "clustering_metrics/entropy.pyx":189
  *     cdef np.float64_t n, total
  * 
  *     total = 0.0             # <<<<<<<<<<<<<<
@@ -7319,7 +7328,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_fsum_pairs
 */
   __pyx_v_total = 0.0;
 
-  /* "clustering_metrics/entropy.pyx":189
+  /* "clustering_metrics/entropy.pyx":190
  * 
  *     total = 0.0
  *     for n in freqs:             # <<<<<<<<<<<<<<
@@ -7331,9 +7340,9 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_fsum_pairs
     __pyx_t_2 = 0;
     __pyx_t_3 = NULL;
   } else {
-    __pyx_t_2 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_v_freqs); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 189, __pyx_L1_error)
+    __pyx_t_2 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_v_freqs); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 190, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_3 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 189, __pyx_L1_error)
+    __pyx_t_3 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 190, __pyx_L1_error)
   }
   for (;;) {
     if (likely(!__pyx_t_3)) {
@@ -7341,7 +7350,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_fsum_pairs
         {
           Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_1);
           #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 189, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 190, __pyx_L1_error)
           #endif
           if (__pyx_t_2 >= __pyx_temp) break;
         }
@@ -7351,7 +7360,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_fsum_pairs
         {
           Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_1);
           #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 189, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 190, __pyx_L1_error)
           #endif
           if (__pyx_t_2 >= __pyx_temp) break;
         }
@@ -7362,24 +7371,24 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_fsum_pairs
         #endif
         ++__pyx_t_2;
       }
-      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 189, __pyx_L1_error)
+      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 190, __pyx_L1_error)
     } else {
       __pyx_t_4 = __pyx_t_3(__pyx_t_1);
       if (unlikely(!__pyx_t_4)) {
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
-          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 189, __pyx_L1_error)
+          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 190, __pyx_L1_error)
           PyErr_Clear();
         }
         break;
       }
     }
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_5 = __Pyx_PyFloat_AsDouble(__pyx_t_4); if (unlikely((__pyx_t_5 == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 189, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyFloat_AsDouble(__pyx_t_4); if (unlikely((__pyx_t_5 == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 190, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_v_n = __pyx_t_5;
 
-    /* "clustering_metrics/entropy.pyx":190
+    /* "clustering_metrics/entropy.pyx":191
  *     total = 0.0
  *     for n in freqs:
  *         total += (n * (n - 1.0))             # <<<<<<<<<<<<<<
@@ -7388,7 +7397,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_fsum_pairs
 */
     __pyx_v_total = (__pyx_v_total + (__pyx_v_n * (__pyx_v_n - 1.0)));
 
-    /* "clustering_metrics/entropy.pyx":189
+    /* "clustering_metrics/entropy.pyx":190
  * 
  *     total = 0.0
  *     for n in freqs:             # <<<<<<<<<<<<<<
@@ -7398,7 +7407,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_fsum_pairs
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "clustering_metrics/entropy.pyx":191
+  /* "clustering_metrics/entropy.pyx":192
  *     for n in freqs:
  *         total += (n * (n - 1.0))
  *     return 0.5 * total             # <<<<<<<<<<<<<<
@@ -7408,7 +7417,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_fsum_pairs
   __pyx_r = (0.5 * __pyx_v_total);
   goto __pyx_L0;
 
-  /* "clustering_metrics/entropy.pyx":181
+  /* "clustering_metrics/entropy.pyx":182
  * 
  * 
  * cpdef np.float64_t fsum_pairs(freqs):             # <<<<<<<<<<<<<<
@@ -7467,32 +7476,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_freqs,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 181, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 182, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 181, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 182, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "fsum_pairs", 0) < 0) __PYX_ERR(0, 181, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "fsum_pairs", 0) < 0) __PYX_ERR(0, 182, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("fsum_pairs", 1, 1, 1, i); __PYX_ERR(0, 181, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("fsum_pairs", 1, 1, 1, i); __PYX_ERR(0, 182, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 181, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 182, __pyx_L3_error)
     }
     __pyx_v_freqs = values[0];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("fsum_pairs", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 181, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("fsum_pairs", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 182, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -7523,8 +7532,8 @@ static PyObject *__pyx_pf_18clustering_metrics_7entropy_12fsum_pairs(CYTHON_UNUS
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("fsum_pairs", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_18clustering_metrics_7entropy_fsum_pairs(__pyx_v_freqs, 1); if (unlikely(__pyx_t_1 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 181, __pyx_L1_error)
-  __pyx_t_2 = PyFloat_FromDouble(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 181, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_18clustering_metrics_7entropy_fsum_pairs(__pyx_v_freqs, 1); if (unlikely(__pyx_t_1 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 182, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 182, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
@@ -7541,7 +7550,7 @@ static PyObject *__pyx_pf_18clustering_metrics_7entropy_12fsum_pairs(CYTHON_UNUS
   return __pyx_r;
 }
 
-/* "clustering_metrics/entropy.pyx":194
+/* "clustering_metrics/entropy.pyx":195
  * 
  * 
  * cpdef np.float64_t centropy(counts):             # <<<<<<<<<<<<<<
@@ -7563,9 +7572,9 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_centropy(P
   __pyx_t_5numpy_float64_t __pyx_v_result;
   __pyx_t_5numpy_float64_t __pyx_r;
   __Pyx_RefNannyDeclarations
-  int __pyx_t_1;
+  PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
-  PyObject *__pyx_t_3 = NULL;
+  int __pyx_t_3;
   size_t __pyx_t_4;
   Py_ssize_t __pyx_t_5;
   PyObject *(*__pyx_t_6)(PyObject *);
@@ -7577,46 +7586,52 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_centropy(P
   __Pyx_RefNannySetupContext("centropy", 0);
   __Pyx_INCREF(__pyx_v_counts);
 
-  /* "clustering_metrics/entropy.pyx":213
+  /* "clustering_metrics/entropy.pyx":214
  *     cdef np.float64_t sum_c_logn_c, result
  * 
- *     if hasattr(counts, "__getitem__"):   # Mapping             # <<<<<<<<<<<<<<
+ *     if isinstance(counts, abc.Mapping):   # Mapping             # <<<<<<<<<<<<<<
  *         counts = counts.values()
  * 
 */
-  __pyx_t_1 = __Pyx_HasAttr(__pyx_v_counts, __pyx_mstate_global->__pyx_n_u_getitem); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 213, __pyx_L1_error)
-  if (__pyx_t_1) {
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_abc); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 214, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_Mapping); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 214, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_3 = PyObject_IsInstance(__pyx_v_counts, __pyx_t_2); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 214, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (__pyx_t_3) {
 
-    /* "clustering_metrics/entropy.pyx":214
+    /* "clustering_metrics/entropy.pyx":215
  * 
- *     if hasattr(counts, "__getitem__"):   # Mapping
+ *     if isinstance(counts, abc.Mapping):   # Mapping
  *         counts = counts.values()             # <<<<<<<<<<<<<<
  * 
  *     n = 0LL
 */
-    __pyx_t_3 = __pyx_v_counts;
-    __Pyx_INCREF(__pyx_t_3);
+    __pyx_t_1 = __pyx_v_counts;
+    __Pyx_INCREF(__pyx_t_1);
     __pyx_t_4 = 0;
     {
-      PyObject *__pyx_callargs[2] = {__pyx_t_3, NULL};
+      PyObject *__pyx_callargs[2] = {__pyx_t_1, NULL};
       __pyx_t_2 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_values, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-      __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 214, __pyx_L1_error)
+      __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 215, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __Pyx_DECREF_SET(__pyx_v_counts, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "clustering_metrics/entropy.pyx":213
+    /* "clustering_metrics/entropy.pyx":214
  *     cdef np.float64_t sum_c_logn_c, result
  * 
- *     if hasattr(counts, "__getitem__"):   # Mapping             # <<<<<<<<<<<<<<
+ *     if isinstance(counts, abc.Mapping):   # Mapping             # <<<<<<<<<<<<<<
  *         counts = counts.values()
  * 
 */
   }
 
-  /* "clustering_metrics/entropy.pyx":216
+  /* "clustering_metrics/entropy.pyx":217
  *         counts = counts.values()
  * 
  *     n = 0LL             # <<<<<<<<<<<<<<
@@ -7625,7 +7640,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_centropy(P
 */
   __pyx_v_n = 0LL;
 
-  /* "clustering_metrics/entropy.pyx":217
+  /* "clustering_metrics/entropy.pyx":218
  * 
  *     n = 0LL
  *     sum_c_logn_c = 0.0             # <<<<<<<<<<<<<<
@@ -7634,7 +7649,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_centropy(P
 */
   __pyx_v_sum_c_logn_c = 0.0;
 
-  /* "clustering_metrics/entropy.pyx":218
+  /* "clustering_metrics/entropy.pyx":219
  *     n = 0LL
  *     sum_c_logn_c = 0.0
  *     for c in counts:             # <<<<<<<<<<<<<<
@@ -7646,9 +7661,9 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_centropy(P
     __pyx_t_5 = 0;
     __pyx_t_6 = NULL;
   } else {
-    __pyx_t_5 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_v_counts); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 218, __pyx_L1_error)
+    __pyx_t_5 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_v_counts); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 219, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_6 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 218, __pyx_L1_error)
+    __pyx_t_6 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 219, __pyx_L1_error)
   }
   for (;;) {
     if (likely(!__pyx_t_6)) {
@@ -7656,55 +7671,55 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_centropy(P
         {
           Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_2);
           #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 218, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 219, __pyx_L1_error)
           #endif
           if (__pyx_t_5 >= __pyx_temp) break;
         }
-        __pyx_t_3 = __Pyx_PyList_GetItemRef(__pyx_t_2, __pyx_t_5);
+        __pyx_t_1 = __Pyx_PyList_GetItemRef(__pyx_t_2, __pyx_t_5);
         ++__pyx_t_5;
       } else {
         {
           Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_2);
           #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 218, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 219, __pyx_L1_error)
           #endif
           if (__pyx_t_5 >= __pyx_temp) break;
         }
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_3 = __Pyx_NewRef(PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_5));
+        __pyx_t_1 = __Pyx_NewRef(PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_5));
         #else
-        __pyx_t_3 = __Pyx_PySequence_ITEM(__pyx_t_2, __pyx_t_5);
+        __pyx_t_1 = __Pyx_PySequence_ITEM(__pyx_t_2, __pyx_t_5);
         #endif
         ++__pyx_t_5;
       }
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 218, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 219, __pyx_L1_error)
     } else {
-      __pyx_t_3 = __pyx_t_6(__pyx_t_2);
-      if (unlikely(!__pyx_t_3)) {
+      __pyx_t_1 = __pyx_t_6(__pyx_t_2);
+      if (unlikely(!__pyx_t_1)) {
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
-          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 218, __pyx_L1_error)
+          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 219, __pyx_L1_error)
           PyErr_Clear();
         }
         break;
       }
     }
-    __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_7 = __Pyx_PyLong_As_npy_int64(__pyx_t_3); if (unlikely((__pyx_t_7 == ((npy_int64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 218, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_7 = __Pyx_PyLong_As_npy_int64(__pyx_t_1); if (unlikely((__pyx_t_7 == ((npy_int64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 219, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_v_c = __pyx_t_7;
 
-    /* "clustering_metrics/entropy.pyx":219
+    /* "clustering_metrics/entropy.pyx":220
  *     sum_c_logn_c = 0.0
  *     for c in counts:
  *         if c != 0LL:             # <<<<<<<<<<<<<<
  *             n += c
  *             sum_c_logn_c += c * log(c)
 */
-    __pyx_t_1 = (__pyx_v_c != 0LL);
-    if (__pyx_t_1) {
+    __pyx_t_3 = (__pyx_v_c != 0LL);
+    if (__pyx_t_3) {
 
-      /* "clustering_metrics/entropy.pyx":220
+      /* "clustering_metrics/entropy.pyx":221
  *     for c in counts:
  *         if c != 0LL:
  *             n += c             # <<<<<<<<<<<<<<
@@ -7713,7 +7728,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_centropy(P
 */
       __pyx_v_n = (__pyx_v_n + __pyx_v_c);
 
-      /* "clustering_metrics/entropy.pyx":221
+      /* "clustering_metrics/entropy.pyx":222
  *         if c != 0LL:
  *             n += c
  *             sum_c_logn_c += c * log(c)             # <<<<<<<<<<<<<<
@@ -7722,7 +7737,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_centropy(P
 */
       __pyx_v_sum_c_logn_c = (__pyx_v_sum_c_logn_c + (__pyx_v_c * log(__pyx_v_c)));
 
-      /* "clustering_metrics/entropy.pyx":219
+      /* "clustering_metrics/entropy.pyx":220
  *     sum_c_logn_c = 0.0
  *     for c in counts:
  *         if c != 0LL:             # <<<<<<<<<<<<<<
@@ -7731,7 +7746,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_centropy(P
 */
     }
 
-    /* "clustering_metrics/entropy.pyx":218
+    /* "clustering_metrics/entropy.pyx":219
  *     n = 0LL
  *     sum_c_logn_c = 0.0
  *     for c in counts:             # <<<<<<<<<<<<<<
@@ -7741,22 +7756,22 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_centropy(P
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "clustering_metrics/entropy.pyx":222
+  /* "clustering_metrics/entropy.pyx":223
  *             n += c
  *             sum_c_logn_c += c * log(c)
  *     result = 0.0 if n == 0LL else n * log(n) - sum_c_logn_c             # <<<<<<<<<<<<<<
  *     return result
  * 
 */
-  __pyx_t_1 = (__pyx_v_n == 0LL);
-  if (__pyx_t_1) {
+  __pyx_t_3 = (__pyx_v_n == 0LL);
+  if (__pyx_t_3) {
     __pyx_t_8 = 0.0;
   } else {
     __pyx_t_8 = ((__pyx_v_n * log(__pyx_v_n)) - __pyx_v_sum_c_logn_c);
   }
   __pyx_v_result = __pyx_t_8;
 
-  /* "clustering_metrics/entropy.pyx":223
+  /* "clustering_metrics/entropy.pyx":224
  *             sum_c_logn_c += c * log(c)
  *     result = 0.0 if n == 0LL else n * log(n) - sum_c_logn_c
  *     return result             # <<<<<<<<<<<<<<
@@ -7766,7 +7781,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_centropy(P
   __pyx_r = __pyx_v_result;
   goto __pyx_L0;
 
-  /* "clustering_metrics/entropy.pyx":194
+  /* "clustering_metrics/entropy.pyx":195
  * 
  * 
  * cpdef np.float64_t centropy(counts):             # <<<<<<<<<<<<<<
@@ -7776,8 +7791,8 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_centropy(P
 
   /* function exit code */
   __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_3);
   __Pyx_AddTraceback("clustering_metrics.entropy.centropy", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
@@ -7826,32 +7841,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_counts,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 194, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 195, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 194, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 195, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "centropy", 0) < 0) __PYX_ERR(0, 194, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "centropy", 0) < 0) __PYX_ERR(0, 195, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("centropy", 1, 1, 1, i); __PYX_ERR(0, 194, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("centropy", 1, 1, 1, i); __PYX_ERR(0, 195, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 194, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 195, __pyx_L3_error)
     }
     __pyx_v_counts = values[0];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("centropy", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 194, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("centropy", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 195, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -7882,8 +7897,8 @@ static PyObject *__pyx_pf_18clustering_metrics_7entropy_14centropy(CYTHON_UNUSED
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("centropy", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_18clustering_metrics_7entropy_centropy(__pyx_v_counts, 1); if (unlikely(__pyx_t_1 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 194, __pyx_L1_error)
-  __pyx_t_2 = PyFloat_FromDouble(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 194, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_18clustering_metrics_7entropy_centropy(__pyx_v_counts, 1); if (unlikely(__pyx_t_1 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 195, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 195, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
@@ -7900,7 +7915,7 @@ static PyObject *__pyx_pf_18clustering_metrics_7entropy_14centropy(CYTHON_UNUSED
   return __pyx_r;
 }
 
-/* "clustering_metrics/entropy.pyx":226
+/* "clustering_metrics/entropy.pyx":227
  * 
  * 
  * cpdef np.float64_t fentropy(freqs):             # <<<<<<<<<<<<<<
@@ -7921,9 +7936,9 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_fentropy(P
   __pyx_t_5numpy_float64_t __pyx_v_sum_f_logn_f;
   __pyx_t_5numpy_float64_t __pyx_r;
   __Pyx_RefNannyDeclarations
-  int __pyx_t_1;
+  PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
-  PyObject *__pyx_t_3 = NULL;
+  int __pyx_t_3;
   size_t __pyx_t_4;
   Py_ssize_t __pyx_t_5;
   PyObject *(*__pyx_t_6)(PyObject *);
@@ -7936,46 +7951,52 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_fentropy(P
   __Pyx_RefNannySetupContext("fentropy", 0);
   __Pyx_INCREF(__pyx_v_freqs);
 
-  /* "clustering_metrics/entropy.pyx":245
+  /* "clustering_metrics/entropy.pyx":246
  *     cdef np.float64_t f, s, sum_f_logn_f
  * 
- *     if hasattr(freqs, "__getitem__"):  # Mapping             # <<<<<<<<<<<<<<
+ *     if isinstance(freqs, abc.Mapping):  # Mapping             # <<<<<<<<<<<<<<
  *         freqs = freqs.values()
  * 
 */
-  __pyx_t_1 = __Pyx_HasAttr(__pyx_v_freqs, __pyx_mstate_global->__pyx_n_u_getitem); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 245, __pyx_L1_error)
-  if (__pyx_t_1) {
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_abc); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 246, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_Mapping); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 246, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_3 = PyObject_IsInstance(__pyx_v_freqs, __pyx_t_2); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 246, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (__pyx_t_3) {
 
-    /* "clustering_metrics/entropy.pyx":246
+    /* "clustering_metrics/entropy.pyx":247
  * 
- *     if hasattr(freqs, "__getitem__"):  # Mapping
+ *     if isinstance(freqs, abc.Mapping):  # Mapping
  *         freqs = freqs.values()             # <<<<<<<<<<<<<<
  * 
  *     s = 0.0
 */
-    __pyx_t_3 = __pyx_v_freqs;
-    __Pyx_INCREF(__pyx_t_3);
+    __pyx_t_1 = __pyx_v_freqs;
+    __Pyx_INCREF(__pyx_t_1);
     __pyx_t_4 = 0;
     {
-      PyObject *__pyx_callargs[2] = {__pyx_t_3, NULL};
+      PyObject *__pyx_callargs[2] = {__pyx_t_1, NULL};
       __pyx_t_2 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_values, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-      __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 246, __pyx_L1_error)
+      __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 247, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __Pyx_DECREF_SET(__pyx_v_freqs, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "clustering_metrics/entropy.pyx":245
+    /* "clustering_metrics/entropy.pyx":246
  *     cdef np.float64_t f, s, sum_f_logn_f
  * 
- *     if hasattr(freqs, "__getitem__"):  # Mapping             # <<<<<<<<<<<<<<
+ *     if isinstance(freqs, abc.Mapping):  # Mapping             # <<<<<<<<<<<<<<
  *         freqs = freqs.values()
  * 
 */
   }
 
-  /* "clustering_metrics/entropy.pyx":248
+  /* "clustering_metrics/entropy.pyx":249
  *         freqs = freqs.values()
  * 
  *     s = 0.0             # <<<<<<<<<<<<<<
@@ -7984,7 +8005,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_fentropy(P
 */
   __pyx_v_s = 0.0;
 
-  /* "clustering_metrics/entropy.pyx":249
+  /* "clustering_metrics/entropy.pyx":250
  * 
  *     s = 0.0
  *     sum_f_logn_f = 0.0             # <<<<<<<<<<<<<<
@@ -7993,7 +8014,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_fentropy(P
 */
   __pyx_v_sum_f_logn_f = 0.0;
 
-  /* "clustering_metrics/entropy.pyx":250
+  /* "clustering_metrics/entropy.pyx":251
  *     s = 0.0
  *     sum_f_logn_f = 0.0
  *     for f in freqs:             # <<<<<<<<<<<<<<
@@ -8005,9 +8026,9 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_fentropy(P
     __pyx_t_5 = 0;
     __pyx_t_6 = NULL;
   } else {
-    __pyx_t_5 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_v_freqs); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 250, __pyx_L1_error)
+    __pyx_t_5 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_v_freqs); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 251, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_6 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 250, __pyx_L1_error)
+    __pyx_t_6 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 251, __pyx_L1_error)
   }
   for (;;) {
     if (likely(!__pyx_t_6)) {
@@ -8015,55 +8036,55 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_fentropy(P
         {
           Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_2);
           #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 250, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 251, __pyx_L1_error)
           #endif
           if (__pyx_t_5 >= __pyx_temp) break;
         }
-        __pyx_t_3 = __Pyx_PyList_GetItemRef(__pyx_t_2, __pyx_t_5);
+        __pyx_t_1 = __Pyx_PyList_GetItemRef(__pyx_t_2, __pyx_t_5);
         ++__pyx_t_5;
       } else {
         {
           Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_2);
           #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 250, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 251, __pyx_L1_error)
           #endif
           if (__pyx_t_5 >= __pyx_temp) break;
         }
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_3 = __Pyx_NewRef(PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_5));
+        __pyx_t_1 = __Pyx_NewRef(PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_5));
         #else
-        __pyx_t_3 = __Pyx_PySequence_ITEM(__pyx_t_2, __pyx_t_5);
+        __pyx_t_1 = __Pyx_PySequence_ITEM(__pyx_t_2, __pyx_t_5);
         #endif
         ++__pyx_t_5;
       }
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 250, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 251, __pyx_L1_error)
     } else {
-      __pyx_t_3 = __pyx_t_6(__pyx_t_2);
-      if (unlikely(!__pyx_t_3)) {
+      __pyx_t_1 = __pyx_t_6(__pyx_t_2);
+      if (unlikely(!__pyx_t_1)) {
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
-          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 250, __pyx_L1_error)
+          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 251, __pyx_L1_error)
           PyErr_Clear();
         }
         break;
       }
     }
-    __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_7 = __Pyx_PyFloat_AsDouble(__pyx_t_3); if (unlikely((__pyx_t_7 == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 250, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_7 = __Pyx_PyFloat_AsDouble(__pyx_t_1); if (unlikely((__pyx_t_7 == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 251, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_v_f = __pyx_t_7;
 
-    /* "clustering_metrics/entropy.pyx":251
+    /* "clustering_metrics/entropy.pyx":252
  *     sum_f_logn_f = 0.0
  *     for f in freqs:
  *         if f != 0.0:             # <<<<<<<<<<<<<<
  *             s += f
  *             sum_f_logn_f += f * log(f)
 */
-    __pyx_t_1 = (__pyx_v_f != 0.0);
-    if (__pyx_t_1) {
+    __pyx_t_3 = (__pyx_v_f != 0.0);
+    if (__pyx_t_3) {
 
-      /* "clustering_metrics/entropy.pyx":252
+      /* "clustering_metrics/entropy.pyx":253
  *     for f in freqs:
  *         if f != 0.0:
  *             s += f             # <<<<<<<<<<<<<<
@@ -8072,7 +8093,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_fentropy(P
 */
       __pyx_v_s = (__pyx_v_s + __pyx_v_f);
 
-      /* "clustering_metrics/entropy.pyx":253
+      /* "clustering_metrics/entropy.pyx":254
  *         if f != 0.0:
  *             s += f
  *             sum_f_logn_f += f * log(f)             # <<<<<<<<<<<<<<
@@ -8081,7 +8102,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_fentropy(P
 */
       __pyx_v_sum_f_logn_f = (__pyx_v_sum_f_logn_f + (__pyx_v_f * log(__pyx_v_f)));
 
-      /* "clustering_metrics/entropy.pyx":251
+      /* "clustering_metrics/entropy.pyx":252
  *     sum_f_logn_f = 0.0
  *     for f in freqs:
  *         if f != 0.0:             # <<<<<<<<<<<<<<
@@ -8090,7 +8111,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_fentropy(P
 */
     }
 
-    /* "clustering_metrics/entropy.pyx":250
+    /* "clustering_metrics/entropy.pyx":251
  *     s = 0.0
  *     sum_f_logn_f = 0.0
  *     for f in freqs:             # <<<<<<<<<<<<<<
@@ -8100,7 +8121,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_fentropy(P
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "clustering_metrics/entropy.pyx":256
+  /* "clustering_metrics/entropy.pyx":257
  * 
  *     # ensure non-negative
  *     return max(0.0, s * log(s) - sum_f_logn_f)             # <<<<<<<<<<<<<<
@@ -8109,8 +8130,8 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_fentropy(P
 */
   __pyx_t_7 = ((__pyx_v_s * log(__pyx_v_s)) - __pyx_v_sum_f_logn_f);
   __pyx_t_8 = 0.0;
-  __pyx_t_1 = (__pyx_t_7 > __pyx_t_8);
-  if (__pyx_t_1) {
+  __pyx_t_3 = (__pyx_t_7 > __pyx_t_8);
+  if (__pyx_t_3) {
     __pyx_t_9 = __pyx_t_7;
   } else {
     __pyx_t_9 = __pyx_t_8;
@@ -8118,7 +8139,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_fentropy(P
   __pyx_r = __pyx_t_9;
   goto __pyx_L0;
 
-  /* "clustering_metrics/entropy.pyx":226
+  /* "clustering_metrics/entropy.pyx":227
  * 
  * 
  * cpdef np.float64_t fentropy(freqs):             # <<<<<<<<<<<<<<
@@ -8128,8 +8149,8 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_fentropy(P
 
   /* function exit code */
   __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_3);
   __Pyx_AddTraceback("clustering_metrics.entropy.fentropy", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
@@ -8178,32 +8199,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_freqs,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 226, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 227, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 226, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 227, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "fentropy", 0) < 0) __PYX_ERR(0, 226, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "fentropy", 0) < 0) __PYX_ERR(0, 227, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("fentropy", 1, 1, 1, i); __PYX_ERR(0, 226, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("fentropy", 1, 1, 1, i); __PYX_ERR(0, 227, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 226, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 227, __pyx_L3_error)
     }
     __pyx_v_freqs = values[0];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("fentropy", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 226, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("fentropy", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 227, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -8234,8 +8255,8 @@ static PyObject *__pyx_pf_18clustering_metrics_7entropy_16fentropy(CYTHON_UNUSED
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("fentropy", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_18clustering_metrics_7entropy_fentropy(__pyx_v_freqs, 1); if (unlikely(__pyx_t_1 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 226, __pyx_L1_error)
-  __pyx_t_2 = PyFloat_FromDouble(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 226, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_18clustering_metrics_7entropy_fentropy(__pyx_v_freqs, 1); if (unlikely(__pyx_t_1 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 227, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 227, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
@@ -8252,7 +8273,7 @@ static PyObject *__pyx_pf_18clustering_metrics_7entropy_16fentropy(CYTHON_UNUSED
   return __pyx_r;
 }
 
-/* "clustering_metrics/entropy.pyx":259
+/* "clustering_metrics/entropy.pyx":260
  * 
  * 
  * @cython.boundscheck(False)             # <<<<<<<<<<<<<<
@@ -8394,16 +8415,16 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
   __pyx_pybuffernd_b.rcbuffer = &__pyx_pybuffer_b;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_a.rcbuffer->pybuffer, (PyObject*)__pyx_v_a, &__Pyx_TypeInfo_nn___pyx_t_5numpy_int64_t, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 259, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_a.rcbuffer->pybuffer, (PyObject*)__pyx_v_a, &__Pyx_TypeInfo_nn___pyx_t_5numpy_int64_t, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 260, __pyx_L1_error)
   }
   __pyx_pybuffernd_a.diminfo[0].strides = __pyx_pybuffernd_a.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_a.diminfo[0].shape = __pyx_pybuffernd_a.rcbuffer->pybuffer.shape[0];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_b.rcbuffer->pybuffer, (PyObject*)__pyx_v_b, &__Pyx_TypeInfo_nn___pyx_t_5numpy_int64_t, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 259, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_b.rcbuffer->pybuffer, (PyObject*)__pyx_v_b, &__Pyx_TypeInfo_nn___pyx_t_5numpy_int64_t, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 260, __pyx_L1_error)
   }
   __pyx_pybuffernd_b.diminfo[0].strides = __pyx_pybuffernd_b.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_b.diminfo[0].shape = __pyx_pybuffernd_b.rcbuffer->pybuffer.shape[0];
 
-  /* "clustering_metrics/entropy.pyx":311
+  /* "clustering_metrics/entropy.pyx":312
  *         a1, b1
  * 
  *     log_a = np.log(a)             # <<<<<<<<<<<<<<
@@ -8411,9 +8432,9 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
  * 
 */
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 311, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 312, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_log); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 311, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_log); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 312, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_5 = 1;
@@ -8433,10 +8454,10 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 311, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 312, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 311, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 312, __pyx_L1_error)
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_log_a.rcbuffer->pybuffer);
@@ -8452,12 +8473,12 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
       __pyx_t_7 = __pyx_t_8 = __pyx_t_9 = 0;
     }
     __pyx_pybuffernd_log_a.diminfo[0].strides = __pyx_pybuffernd_log_a.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_log_a.diminfo[0].shape = __pyx_pybuffernd_log_a.rcbuffer->pybuffer.shape[0];
-    if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 311, __pyx_L1_error)
+    if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 312, __pyx_L1_error)
   }
   __pyx_v_log_a = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "clustering_metrics/entropy.pyx":312
+  /* "clustering_metrics/entropy.pyx":313
  * 
  *     log_a = np.log(a)
  *     log_b = np.log(b)             # <<<<<<<<<<<<<<
@@ -8465,9 +8486,9 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
  *     R = len(a)
 */
   __pyx_t_4 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 312, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 313, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_log); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 312, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_log); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 313, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_5 = 1;
@@ -8487,10 +8508,10 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 312, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 313, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 312, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 313, __pyx_L1_error)
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_log_b.rcbuffer->pybuffer);
@@ -8506,32 +8527,32 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
       __pyx_t_9 = __pyx_t_8 = __pyx_t_7 = 0;
     }
     __pyx_pybuffernd_log_b.diminfo[0].strides = __pyx_pybuffernd_log_b.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_log_b.diminfo[0].shape = __pyx_pybuffernd_log_b.rcbuffer->pybuffer.shape[0];
-    if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 312, __pyx_L1_error)
+    if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 313, __pyx_L1_error)
   }
   __pyx_v_log_b = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "clustering_metrics/entropy.pyx":314
+  /* "clustering_metrics/entropy.pyx":315
  *     log_b = np.log(b)
  * 
  *     R = len(a)             # <<<<<<<<<<<<<<
  *     C = len(b)
  * 
 */
-  __pyx_t_10 = PyObject_Length(((PyObject *)__pyx_v_a)); if (unlikely(__pyx_t_10 == ((Py_ssize_t)-1))) __PYX_ERR(0, 314, __pyx_L1_error)
+  __pyx_t_10 = PyObject_Length(((PyObject *)__pyx_v_a)); if (unlikely(__pyx_t_10 == ((Py_ssize_t)-1))) __PYX_ERR(0, 315, __pyx_L1_error)
   __pyx_v_R = __pyx_t_10;
 
-  /* "clustering_metrics/entropy.pyx":315
+  /* "clustering_metrics/entropy.pyx":316
  * 
  *     R = len(a)
  *     C = len(b)             # <<<<<<<<<<<<<<
  * 
  *     N = np.sum(a)
 */
-  __pyx_t_10 = PyObject_Length(((PyObject *)__pyx_v_b)); if (unlikely(__pyx_t_10 == ((Py_ssize_t)-1))) __PYX_ERR(0, 315, __pyx_L1_error)
+  __pyx_t_10 = PyObject_Length(((PyObject *)__pyx_v_b)); if (unlikely(__pyx_t_10 == ((Py_ssize_t)-1))) __PYX_ERR(0, 316, __pyx_L1_error)
   __pyx_v_C = __pyx_t_10;
 
-  /* "clustering_metrics/entropy.pyx":317
+  /* "clustering_metrics/entropy.pyx":318
  *     C = len(b)
  * 
  *     N = np.sum(a)             # <<<<<<<<<<<<<<
@@ -8539,9 +8560,9 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
  *         raise ValueError("Sums of row and column margins must be equal")
 */
   __pyx_t_3 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 317, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 318, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_sum); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 317, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_sum); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 318, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_5 = 1;
@@ -8561,26 +8582,26 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 317, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 318, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
-  __pyx_t_11 = __Pyx_PyLong_As_npy_int64(__pyx_t_1); if (unlikely((__pyx_t_11 == ((npy_int64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 317, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_PyLong_As_npy_int64(__pyx_t_1); if (unlikely((__pyx_t_11 == ((npy_int64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 318, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_N = __pyx_t_11;
 
-  /* "clustering_metrics/entropy.pyx":318
+  /* "clustering_metrics/entropy.pyx":319
  * 
  *     N = np.sum(a)
  *     if N != np.sum(b):             # <<<<<<<<<<<<<<
  *         raise ValueError("Sums of row and column margins must be equal")
  * 
 */
-  __pyx_t_1 = __Pyx_PyLong_From_npy_int64(__pyx_v_N); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 318, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyLong_From_npy_int64(__pyx_v_N); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 319, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_3 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 318, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 319, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_sum); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 318, __pyx_L1_error)
+  __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_sum); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 319, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_12);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_5 = 1;
@@ -8600,17 +8621,17 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
     __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_12, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 318, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 319, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
   }
-  __pyx_t_12 = PyObject_RichCompare(__pyx_t_1, __pyx_t_2, Py_NE); __Pyx_XGOTREF(__pyx_t_12); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 318, __pyx_L1_error)
+  __pyx_t_12 = PyObject_RichCompare(__pyx_t_1, __pyx_t_2, Py_NE); __Pyx_XGOTREF(__pyx_t_12); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 319, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_13 = __Pyx_PyObject_IsTrue(__pyx_t_12); if (unlikely((__pyx_t_13 < 0))) __PYX_ERR(0, 318, __pyx_L1_error)
+  __pyx_t_13 = __Pyx_PyObject_IsTrue(__pyx_t_12); if (unlikely((__pyx_t_13 < 0))) __PYX_ERR(0, 319, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
   if (unlikely(__pyx_t_13)) {
 
-    /* "clustering_metrics/entropy.pyx":319
+    /* "clustering_metrics/entropy.pyx":320
  *     N = np.sum(a)
  *     if N != np.sum(b):
  *         raise ValueError("Sums of row and column margins must be equal")             # <<<<<<<<<<<<<<
@@ -8626,14 +8647,14 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
       __pyx_t_12 = __Pyx_PyObject_FastCall(__pyx_t_1, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 319, __pyx_L1_error)
+      if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 320, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
     }
     __Pyx_Raise(__pyx_t_12, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-    __PYX_ERR(0, 319, __pyx_L1_error)
+    __PYX_ERR(0, 320, __pyx_L1_error)
 
-    /* "clustering_metrics/entropy.pyx":318
+    /* "clustering_metrics/entropy.pyx":319
  * 
  *     N = np.sum(a)
  *     if N != np.sum(b):             # <<<<<<<<<<<<<<
@@ -8642,7 +8663,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
 */
   }
 
-  /* "clustering_metrics/entropy.pyx":326
+  /* "clustering_metrics/entropy.pyx":327
  *     # term1 is nijs.
  *     # While nijs[0] will never be used, having it simplifies the indexing.
  *     max_ab = max(<np.int64_t>np.max(a), <np.int64_t>np.max(b))             # <<<<<<<<<<<<<<
@@ -8650,9 +8671,9 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
  *     nijs[0] = 1.0  # Stops divide by zero warnings. As its not used, no issue.
 */
   __pyx_t_1 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 326, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 327, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_max); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 326, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_max); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 327, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_5 = 1;
@@ -8672,16 +8693,16 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
     __pyx_t_12 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 326, __pyx_L1_error)
+    if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 327, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
   }
-  __pyx_t_11 = __Pyx_PyLong_As_npy_int64(__pyx_t_12); if (unlikely((__pyx_t_11 == ((npy_int64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 326, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_PyLong_As_npy_int64(__pyx_t_12); if (unlikely((__pyx_t_11 == ((npy_int64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 327, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
   __pyx_t_14 = ((__pyx_t_5numpy_int64_t)__pyx_t_11);
   __pyx_t_3 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 326, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 327, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_max); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 326, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_max); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 327, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_5 = 1;
@@ -8701,10 +8722,10 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
     __pyx_t_12 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 326, __pyx_L1_error)
+    if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 327, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
   }
-  __pyx_t_11 = __Pyx_PyLong_As_npy_int64(__pyx_t_12); if (unlikely((__pyx_t_11 == ((npy_int64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 326, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_PyLong_As_npy_int64(__pyx_t_12); if (unlikely((__pyx_t_11 == ((npy_int64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 327, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
   __pyx_t_15 = ((__pyx_t_5numpy_int64_t)__pyx_t_11);
   __pyx_t_13 = (__pyx_t_14 > __pyx_t_15);
@@ -8715,7 +8736,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
   }
   __pyx_v_max_ab = __pyx_t_11;
 
-  /* "clustering_metrics/entropy.pyx":327
+  /* "clustering_metrics/entropy.pyx":328
  *     # While nijs[0] will never be used, having it simplifies the indexing.
  *     max_ab = max(<np.int64_t>np.max(a), <np.int64_t>np.max(b))
  *     nijs = np.arange(0LL, max_ab + 1LL, dtype=np.float64)             # <<<<<<<<<<<<<<
@@ -8723,16 +8744,16 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
  * 
 */
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 327, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 328, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_arange); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 327, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_arange); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 328, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyLong_From_npy_int64((__pyx_v_max_ab + 1LL)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 327, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyLong_From_npy_int64((__pyx_v_max_ab + 1LL)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 328, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 327, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 328, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_16 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_float64); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 327, __pyx_L1_error)
+  __pyx_t_16 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_float64); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 328, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_16);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_5 = 1;
@@ -8749,19 +8770,19 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
   #endif
   {
     PyObject *__pyx_callargs[3 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_2, __pyx_mstate_global->__pyx_int_0L, __pyx_t_3};
-    __pyx_t_4 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 327, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 328, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_dtype, __pyx_t_16, __pyx_t_4, __pyx_callargs+3, 0) < 0) __PYX_ERR(0, 327, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_dtype, __pyx_t_16, __pyx_t_4, __pyx_callargs+3, 0) < 0) __PYX_ERR(0, 328, __pyx_L1_error)
     __pyx_t_12 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_1, __pyx_callargs+__pyx_t_5, (3-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_4);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_16); __pyx_t_16 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 327, __pyx_L1_error)
+    if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 328, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
   }
-  if (!(likely(((__pyx_t_12) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_12, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 327, __pyx_L1_error)
+  if (!(likely(((__pyx_t_12) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_12, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 328, __pyx_L1_error)
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_nijs.rcbuffer->pybuffer);
@@ -8777,12 +8798,12 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
       __pyx_t_7 = __pyx_t_8 = __pyx_t_9 = 0;
     }
     __pyx_pybuffernd_nijs.diminfo[0].strides = __pyx_pybuffernd_nijs.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_nijs.diminfo[0].shape = __pyx_pybuffernd_nijs.rcbuffer->pybuffer.shape[0];
-    if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 327, __pyx_L1_error)
+    if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 328, __pyx_L1_error)
   }
   __pyx_v_nijs = ((PyArrayObject *)__pyx_t_12);
   __pyx_t_12 = 0;
 
-  /* "clustering_metrics/entropy.pyx":328
+  /* "clustering_metrics/entropy.pyx":329
  *     max_ab = max(<np.int64_t>np.max(a), <np.int64_t>np.max(b))
  *     nijs = np.arange(0LL, max_ab + 1LL, dtype=np.float64)
  *     nijs[0] = 1.0  # Stops divide by zero warnings. As its not used, no issue.             # <<<<<<<<<<<<<<
@@ -8792,7 +8813,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
   __pyx_t_17 = 0;
   *__Pyx_BufPtrCContig1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_nijs.rcbuffer->pybuffer.buf, __pyx_t_17, __pyx_pybuffernd_nijs.diminfo[0].strides) = 1.0;
 
-  /* "clustering_metrics/entropy.pyx":332
+  /* "clustering_metrics/entropy.pyx":333
  *     # term2 is log((N*nij) / (a a b)) == log(N * nij) - log(a * b)
  *     # term2 uses log(N * nij)
  *     log_Nnij = np.log(N) + np.log(nijs)             # <<<<<<<<<<<<<<
@@ -8800,12 +8821,12 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
  *     # term3 is large, and involved many factorials. Calculate these in log
 */
   __pyx_t_1 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 333, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_16 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_log); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __pyx_t_16 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_log); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 333, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_16);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyLong_From_npy_int64(__pyx_v_N); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_npy_int64(__pyx_v_N); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 333, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_5 = 1;
   #if CYTHON_UNPACK_METHODS
@@ -8825,13 +8846,13 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_16); __pyx_t_16 = 0;
-    if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 332, __pyx_L1_error)
+    if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 333, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
   }
   __pyx_t_4 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 333, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_log); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_log); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 333, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_5 = 1;
@@ -8851,14 +8872,14 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
     __pyx_t_16 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 332, __pyx_L1_error)
+    if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 333, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_16);
   }
-  __pyx_t_3 = PyNumber_Add(__pyx_t_12, __pyx_t_16); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __pyx_t_3 = PyNumber_Add(__pyx_t_12, __pyx_t_16); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 333, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
   __Pyx_DECREF(__pyx_t_16); __pyx_t_16 = 0;
-  if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 332, __pyx_L1_error)
+  if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 333, __pyx_L1_error)
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_log_Nnij.rcbuffer->pybuffer);
@@ -8874,12 +8895,12 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
       __pyx_t_9 = __pyx_t_8 = __pyx_t_7 = 0;
     }
     __pyx_pybuffernd_log_Nnij.diminfo[0].strides = __pyx_pybuffernd_log_Nnij.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_log_Nnij.diminfo[0].shape = __pyx_pybuffernd_log_Nnij.rcbuffer->pybuffer.shape[0];
-    if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 332, __pyx_L1_error)
+    if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 333, __pyx_L1_error)
   }
   __pyx_v_log_Nnij = ((PyArrayObject *)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "clustering_metrics/entropy.pyx":336
+  /* "clustering_metrics/entropy.pyx":337
  *     # term3 is large, and involved many factorials. Calculate these in log
  *     # space to stop overflows.
  *     N1 = N + 1LL             # <<<<<<<<<<<<<<
@@ -8888,7 +8909,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
 */
   __pyx_v_N1 = (__pyx_v_N + 1LL);
 
-  /* "clustering_metrics/entropy.pyx":337
+  /* "clustering_metrics/entropy.pyx":338
  *     # space to stop overflows.
  *     N1 = N + 1LL
  *     N3 = N + 3LL             # <<<<<<<<<<<<<<
@@ -8897,16 +8918,16 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
 */
   __pyx_v_N3 = (__pyx_v_N + 3LL);
 
-  /* "clustering_metrics/entropy.pyx":339
+  /* "clustering_metrics/entropy.pyx":340
  *     N3 = N + 3LL
  * 
  *     a1 = a + 1LL             # <<<<<<<<<<<<<<
  *     b1 = b + 1LL
  *     gln_ai_Nai_N = gammaln(a1) + gammaln(N1 - a) - gammaln(N1)
 */
-  __pyx_t_3 = PyNumber_Add(((PyObject *)__pyx_v_a), __pyx_mstate_global->__pyx_int_1L); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 339, __pyx_L1_error)
+  __pyx_t_3 = PyNumber_Add(((PyObject *)__pyx_v_a), __pyx_mstate_global->__pyx_int_1L); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 340, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 339, __pyx_L1_error)
+  if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 340, __pyx_L1_error)
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_a1.rcbuffer->pybuffer);
@@ -8922,21 +8943,21 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
       __pyx_t_7 = __pyx_t_8 = __pyx_t_9 = 0;
     }
     __pyx_pybuffernd_a1.diminfo[0].strides = __pyx_pybuffernd_a1.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_a1.diminfo[0].shape = __pyx_pybuffernd_a1.rcbuffer->pybuffer.shape[0];
-    if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 339, __pyx_L1_error)
+    if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 340, __pyx_L1_error)
   }
   __pyx_v_a1 = ((PyArrayObject *)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "clustering_metrics/entropy.pyx":340
+  /* "clustering_metrics/entropy.pyx":341
  * 
  *     a1 = a + 1LL
  *     b1 = b + 1LL             # <<<<<<<<<<<<<<
  *     gln_ai_Nai_N = gammaln(a1) + gammaln(N1 - a) - gammaln(N1)
  *     gln_b_Nb = gammaln(b1) + gammaln(N1 - b)
 */
-  __pyx_t_3 = PyNumber_Add(((PyObject *)__pyx_v_b), __pyx_mstate_global->__pyx_int_1L); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 340, __pyx_L1_error)
+  __pyx_t_3 = PyNumber_Add(((PyObject *)__pyx_v_b), __pyx_mstate_global->__pyx_int_1L); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 341, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 340, __pyx_L1_error)
+  if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 341, __pyx_L1_error)
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_b1.rcbuffer->pybuffer);
@@ -8952,12 +8973,12 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
       __pyx_t_9 = __pyx_t_8 = __pyx_t_7 = 0;
     }
     __pyx_pybuffernd_b1.diminfo[0].strides = __pyx_pybuffernd_b1.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_b1.diminfo[0].shape = __pyx_pybuffernd_b1.rcbuffer->pybuffer.shape[0];
-    if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 340, __pyx_L1_error)
+    if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 341, __pyx_L1_error)
   }
   __pyx_v_b1 = ((PyArrayObject *)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "clustering_metrics/entropy.pyx":341
+  /* "clustering_metrics/entropy.pyx":342
  *     a1 = a + 1LL
  *     b1 = b + 1LL
  *     gln_ai_Nai_N = gammaln(a1) + gammaln(N1 - a) - gammaln(N1)             # <<<<<<<<<<<<<<
@@ -8965,7 +8986,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
  *     gln_nij = gammaln(nijs + 1.0)
 */
   __pyx_t_16 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_gammaln); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 341, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_gammaln); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 342, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_12);
   __pyx_t_5 = 1;
   #if CYTHON_UNPACK_METHODS
@@ -8984,15 +9005,15 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
     __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_12, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_16); __pyx_t_16 = 0;
     __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 341, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 342, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
   }
   __pyx_t_16 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_gammaln); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 341, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_gammaln); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 342, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_1 = __Pyx_PyLong_From_npy_int64(__pyx_v_N1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 341, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyLong_From_npy_int64(__pyx_v_N1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 342, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyNumber_Subtract(__pyx_t_1, ((PyObject *)__pyx_v_a)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 341, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_Subtract(__pyx_t_1, ((PyObject *)__pyx_v_a)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 342, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_5 = 1;
@@ -9013,17 +9034,17 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
     __Pyx_XDECREF(__pyx_t_16); __pyx_t_16 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 341, __pyx_L1_error)
+    if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 342, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
   }
-  __pyx_t_4 = PyNumber_Add(__pyx_t_3, __pyx_t_12); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 341, __pyx_L1_error)
+  __pyx_t_4 = PyNumber_Add(__pyx_t_3, __pyx_t_12); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 342, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
   __pyx_t_3 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_gammaln); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 341, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_gammaln); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 342, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_16 = __Pyx_PyLong_From_npy_int64(__pyx_v_N1); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 341, __pyx_L1_error)
+  __pyx_t_16 = __Pyx_PyLong_From_npy_int64(__pyx_v_N1); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 342, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_16);
   __pyx_t_5 = 1;
   #if CYTHON_UNPACK_METHODS
@@ -9043,14 +9064,14 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_16); __pyx_t_16 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 341, __pyx_L1_error)
+    if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 342, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
   }
-  __pyx_t_2 = PyNumber_Subtract(__pyx_t_4, __pyx_t_12); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 341, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_Subtract(__pyx_t_4, __pyx_t_12); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 342, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-  if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 341, __pyx_L1_error)
+  if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 342, __pyx_L1_error)
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_gln_ai_Nai_N.rcbuffer->pybuffer);
@@ -9066,12 +9087,12 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
       __pyx_t_7 = __pyx_t_8 = __pyx_t_9 = 0;
     }
     __pyx_pybuffernd_gln_ai_Nai_N.diminfo[0].strides = __pyx_pybuffernd_gln_ai_Nai_N.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_gln_ai_Nai_N.diminfo[0].shape = __pyx_pybuffernd_gln_ai_Nai_N.rcbuffer->pybuffer.shape[0];
-    if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 341, __pyx_L1_error)
+    if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 342, __pyx_L1_error)
   }
   __pyx_v_gln_ai_Nai_N = ((PyArrayObject *)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "clustering_metrics/entropy.pyx":342
+  /* "clustering_metrics/entropy.pyx":343
  *     b1 = b + 1LL
  *     gln_ai_Nai_N = gammaln(a1) + gammaln(N1 - a) - gammaln(N1)
  *     gln_b_Nb = gammaln(b1) + gammaln(N1 - b)             # <<<<<<<<<<<<<<
@@ -9079,7 +9100,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
  * 
 */
   __pyx_t_12 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_gammaln); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 342, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_gammaln); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 343, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_5 = 1;
   #if CYTHON_UNPACK_METHODS
@@ -9098,15 +9119,15 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
     __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 342, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 343, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
   }
   __pyx_t_12 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_16, __pyx_mstate_global->__pyx_n_u_gammaln); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 342, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_16, __pyx_mstate_global->__pyx_n_u_gammaln); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 343, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_16);
-  __pyx_t_3 = __Pyx_PyLong_From_npy_int64(__pyx_v_N1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 342, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyLong_From_npy_int64(__pyx_v_N1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 343, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = PyNumber_Subtract(__pyx_t_3, ((PyObject *)__pyx_v_b)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 342, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Subtract(__pyx_t_3, ((PyObject *)__pyx_v_b)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 343, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_5 = 1;
@@ -9127,14 +9148,14 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
     __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_16); __pyx_t_16 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 342, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 343, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
   }
-  __pyx_t_16 = PyNumber_Add(__pyx_t_2, __pyx_t_4); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 342, __pyx_L1_error)
+  __pyx_t_16 = PyNumber_Add(__pyx_t_2, __pyx_t_4); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 343, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_16);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (!(likely(((__pyx_t_16) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_16, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 342, __pyx_L1_error)
+  if (!(likely(((__pyx_t_16) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_16, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 343, __pyx_L1_error)
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_gln_b_Nb.rcbuffer->pybuffer);
@@ -9150,12 +9171,12 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
       __pyx_t_9 = __pyx_t_8 = __pyx_t_7 = 0;
     }
     __pyx_pybuffernd_gln_b_Nb.diminfo[0].strides = __pyx_pybuffernd_gln_b_Nb.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_gln_b_Nb.diminfo[0].shape = __pyx_pybuffernd_gln_b_Nb.rcbuffer->pybuffer.shape[0];
-    if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 342, __pyx_L1_error)
+    if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 343, __pyx_L1_error)
   }
   __pyx_v_gln_b_Nb = ((PyArrayObject *)__pyx_t_16);
   __pyx_t_16 = 0;
 
-  /* "clustering_metrics/entropy.pyx":343
+  /* "clustering_metrics/entropy.pyx":344
  *     gln_ai_Nai_N = gammaln(a1) + gammaln(N1 - a) - gammaln(N1)
  *     gln_b_Nb = gammaln(b1) + gammaln(N1 - b)
  *     gln_nij = gammaln(nijs + 1.0)             # <<<<<<<<<<<<<<
@@ -9163,9 +9184,9 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
  *     # emi itself is a summation over the various values.
 */
   __pyx_t_4 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_gammaln); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 343, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_gammaln); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 344, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = PyNumber_Add(((PyObject *)__pyx_v_nijs), __pyx_mstate_global->__pyx_float_1_0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 343, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Add(((PyObject *)__pyx_v_nijs), __pyx_mstate_global->__pyx_float_1_0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 344, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_5 = 1;
   #if CYTHON_UNPACK_METHODS
@@ -9185,10 +9206,10 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 343, __pyx_L1_error)
+    if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 344, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_16);
   }
-  if (!(likely(((__pyx_t_16) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_16, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 343, __pyx_L1_error)
+  if (!(likely(((__pyx_t_16) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_16, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 344, __pyx_L1_error)
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_gln_nij.rcbuffer->pybuffer);
@@ -9204,12 +9225,12 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
       __pyx_t_7 = __pyx_t_8 = __pyx_t_9 = 0;
     }
     __pyx_pybuffernd_gln_nij.diminfo[0].strides = __pyx_pybuffernd_gln_nij.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_gln_nij.diminfo[0].shape = __pyx_pybuffernd_gln_nij.rcbuffer->pybuffer.shape[0];
-    if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 343, __pyx_L1_error)
+    if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 344, __pyx_L1_error)
   }
   __pyx_v_gln_nij = ((PyArrayObject *)__pyx_t_16);
   __pyx_t_16 = 0;
 
-  /* "clustering_metrics/entropy.pyx":346
+  /* "clustering_metrics/entropy.pyx":347
  * 
  *     # emi itself is a summation over the various values.
  *     emi = 0.0             # <<<<<<<<<<<<<<
@@ -9218,7 +9239,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
 */
   __pyx_v_emi = 0.0;
 
-  /* "clustering_metrics/entropy.pyx":347
+  /* "clustering_metrics/entropy.pyx":348
  *     # emi itself is a summation over the various values.
  *     emi = 0.0
  *     for i in xrange(R):             # <<<<<<<<<<<<<<
@@ -9230,7 +9251,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
   for (__pyx_t_19 = 0; __pyx_t_19 < __pyx_t_18; __pyx_t_19+=1) {
     __pyx_v_i = __pyx_t_19;
 
-    /* "clustering_metrics/entropy.pyx":348
+    /* "clustering_metrics/entropy.pyx":349
  *     emi = 0.0
  *     for i in xrange(R):
  *         ai_1 = a1[i]             # <<<<<<<<<<<<<<
@@ -9240,7 +9261,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
     __pyx_t_17 = __pyx_v_i;
     __pyx_v_ai_1 = (*__Pyx_BufPtrCContig1d(__pyx_t_5numpy_int64_t *, __pyx_pybuffernd_a1.rcbuffer->pybuffer.buf, __pyx_t_17, __pyx_pybuffernd_a1.diminfo[0].strides));
 
-    /* "clustering_metrics/entropy.pyx":349
+    /* "clustering_metrics/entropy.pyx":350
  *     for i in xrange(R):
  *         ai_1 = a1[i]
  *         log_ai = log_a[i]             # <<<<<<<<<<<<<<
@@ -9250,7 +9271,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
     __pyx_t_17 = __pyx_v_i;
     __pyx_v_log_ai = (*__Pyx_BufPtrCContig1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_log_a.rcbuffer->pybuffer.buf, __pyx_t_17, __pyx_pybuffernd_log_a.diminfo[0].strides));
 
-    /* "clustering_metrics/entropy.pyx":350
+    /* "clustering_metrics/entropy.pyx":351
  *         ai_1 = a1[i]
  *         log_ai = log_a[i]
  *         gln_ai_Nai_Ni = gln_ai_Nai_N[i]             # <<<<<<<<<<<<<<
@@ -9260,7 +9281,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
     __pyx_t_17 = __pyx_v_i;
     __pyx_v_gln_ai_Nai_Ni = (*__Pyx_BufPtrCContig1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_gln_ai_Nai_N.rcbuffer->pybuffer.buf, __pyx_t_17, __pyx_pybuffernd_gln_ai_Nai_N.diminfo[0].strides));
 
-    /* "clustering_metrics/entropy.pyx":351
+    /* "clustering_metrics/entropy.pyx":352
  *         log_ai = log_a[i]
  *         gln_ai_Nai_Ni = gln_ai_Nai_N[i]
  *         N3_ai_1 = N3 - ai_1             # <<<<<<<<<<<<<<
@@ -9269,7 +9290,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
 */
     __pyx_v_N3_ai_1 = (__pyx_v_N3 - __pyx_v_ai_1);
 
-    /* "clustering_metrics/entropy.pyx":352
+    /* "clustering_metrics/entropy.pyx":353
  *         gln_ai_Nai_Ni = gln_ai_Nai_N[i]
  *         N3_ai_1 = N3 - ai_1
  *         for j in xrange(C):             # <<<<<<<<<<<<<<
@@ -9281,7 +9302,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
     for (__pyx_t_22 = 0; __pyx_t_22 < __pyx_t_21; __pyx_t_22+=1) {
       __pyx_v_j = __pyx_t_22;
 
-      /* "clustering_metrics/entropy.pyx":353
+      /* "clustering_metrics/entropy.pyx":354
  *         N3_ai_1 = N3 - ai_1
  *         for j in xrange(C):
  *             bj_1 = b1[j]             # <<<<<<<<<<<<<<
@@ -9291,7 +9312,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
       __pyx_t_17 = __pyx_v_j;
       __pyx_v_bj_1 = (*__Pyx_BufPtrCContig1d(__pyx_t_5numpy_int64_t *, __pyx_pybuffernd_b1.rcbuffer->pybuffer.buf, __pyx_t_17, __pyx_pybuffernd_b1.diminfo[0].strides));
 
-      /* "clustering_metrics/entropy.pyx":354
+      /* "clustering_metrics/entropy.pyx":355
  *         for j in xrange(C):
  *             bj_1 = b1[j]
  *             log_ab_outer_ij = log_ai + log_b[j]             # <<<<<<<<<<<<<<
@@ -9301,7 +9322,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
       __pyx_t_17 = __pyx_v_j;
       __pyx_v_log_ab_outer_ij = (__pyx_v_log_ai + (*__Pyx_BufPtrCContig1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_log_b.rcbuffer->pybuffer.buf, __pyx_t_17, __pyx_pybuffernd_log_b.diminfo[0].strides)));
 
-      /* "clustering_metrics/entropy.pyx":355
+      /* "clustering_metrics/entropy.pyx":356
  *             bj_1 = b1[j]
  *             log_ab_outer_ij = log_ai + log_b[j]
  *             outer_sum = gln_ai_Nai_Ni + gln_b_Nb[j]             # <<<<<<<<<<<<<<
@@ -9311,7 +9332,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
       __pyx_t_17 = __pyx_v_j;
       __pyx_v_outer_sum = (__pyx_v_gln_ai_Nai_Ni + (*__Pyx_BufPtrCContig1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_gln_b_Nb.rcbuffer->pybuffer.buf, __pyx_t_17, __pyx_pybuffernd_gln_b_Nb.diminfo[0].strides)));
 
-      /* "clustering_metrics/entropy.pyx":356
+      /* "clustering_metrics/entropy.pyx":357
  *             log_ab_outer_ij = log_ai + log_b[j]
  *             outer_sum = gln_ai_Nai_Ni + gln_b_Nb[j]
  *             N3_ai_bj_1 = N3_ai_1 - bj_1             # <<<<<<<<<<<<<<
@@ -9320,7 +9341,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
 */
       __pyx_v_N3_ai_bj_1 = (__pyx_v_N3_ai_1 - __pyx_v_bj_1);
 
-      /* "clustering_metrics/entropy.pyx":358
+      /* "clustering_metrics/entropy.pyx":359
  *             N3_ai_bj_1 = N3_ai_1 - bj_1
  * 
  *             for nij in xrange(max(1LL, 1LL - N3_ai_bj_1), min(ai_1, bj_1)):             # <<<<<<<<<<<<<<
@@ -9348,7 +9369,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
       for (__pyx_t_24 = __pyx_t_14; __pyx_t_24 < __pyx_t_15; __pyx_t_24+=1) {
         __pyx_v_nij = __pyx_t_24;
 
-        /* "clustering_metrics/entropy.pyx":362
+        /* "clustering_metrics/entropy.pyx":363
  *                 emi += (
  *                     <np.float64_t>nij                    # term1
  *                     * (log_Nnij[nij] - log_ab_outer_ij)  # term2             # <<<<<<<<<<<<<<
@@ -9357,7 +9378,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
 */
         __pyx_t_17 = __pyx_v_nij;
 
-        /* "clustering_metrics/entropy.pyx":364
+        /* "clustering_metrics/entropy.pyx":365
  *                     * (log_Nnij[nij] - log_ab_outer_ij)  # term2
  *                     * exp(outer_sum                      # term3
  *                         - gln_nij[nij]             # <<<<<<<<<<<<<<
@@ -9366,7 +9387,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
 */
         __pyx_t_25 = __pyx_v_nij;
 
-        /* "clustering_metrics/entropy.pyx":360
+        /* "clustering_metrics/entropy.pyx":361
  *             for nij in xrange(max(1LL, 1LL - N3_ai_bj_1), min(ai_1, bj_1)):
  *                 # Numerators are positive, denominators are negative.
  *                 emi += (             # <<<<<<<<<<<<<<
@@ -9378,7 +9399,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
     }
   }
 
-  /* "clustering_metrics/entropy.pyx":370
+  /* "clustering_metrics/entropy.pyx":371
  *                           )
  *                 )
  *     return emi             # <<<<<<<<<<<<<<
@@ -9386,7 +9407,7 @@ static __pyx_t_5numpy_float64_t __pyx_f_18clustering_metrics_7entropy_emi_from_m
   __pyx_r = __pyx_v_emi;
   goto __pyx_L0;
 
-  /* "clustering_metrics/entropy.pyx":259
+  /* "clustering_metrics/entropy.pyx":260
  * 
  * 
  * @cython.boundscheck(False)             # <<<<<<<<<<<<<<
@@ -9488,39 +9509,39 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_a,&__pyx_mstate_global->__pyx_n_u_b,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 259, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 260, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 259, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 260, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 259, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 260, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "emi_from_margins", 0) < 0) __PYX_ERR(0, 259, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "emi_from_margins", 0) < 0) __PYX_ERR(0, 260, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("emi_from_margins", 1, 2, 2, i); __PYX_ERR(0, 259, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("emi_from_margins", 1, 2, 2, i); __PYX_ERR(0, 260, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 2)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 259, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 260, __pyx_L3_error)
       values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 259, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 260, __pyx_L3_error)
     }
     __pyx_v_a = ((PyArrayObject *)values[0]);
     __pyx_v_b = ((PyArrayObject *)values[1]);
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("emi_from_margins", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 259, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("emi_from_margins", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 260, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -9531,8 +9552,8 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_a), __pyx_mstate_global->__pyx_ptype_5numpy_ndarray, 1, "a", 0))) __PYX_ERR(0, 262, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_b), __pyx_mstate_global->__pyx_ptype_5numpy_ndarray, 1, "b", 0))) __PYX_ERR(0, 263, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_a), __pyx_mstate_global->__pyx_ptype_5numpy_ndarray, 1, "a", 0))) __PYX_ERR(0, 263, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_b), __pyx_mstate_global->__pyx_ptype_5numpy_ndarray, 1, "b", 0))) __PYX_ERR(0, 264, __pyx_L1_error)
   __pyx_r = __pyx_pf_18clustering_metrics_7entropy_18emi_from_margins(__pyx_self, __pyx_v_a, __pyx_v_b);
 
   /* function exit code */
@@ -9575,17 +9596,17 @@ static PyObject *__pyx_pf_18clustering_metrics_7entropy_18emi_from_margins(CYTHO
   __pyx_pybuffernd_b.rcbuffer = &__pyx_pybuffer_b;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_a.rcbuffer->pybuffer, (PyObject*)__pyx_v_a, &__Pyx_TypeInfo_nn___pyx_t_5numpy_int64_t, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 259, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_a.rcbuffer->pybuffer, (PyObject*)__pyx_v_a, &__Pyx_TypeInfo_nn___pyx_t_5numpy_int64_t, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 260, __pyx_L1_error)
   }
   __pyx_pybuffernd_a.diminfo[0].strides = __pyx_pybuffernd_a.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_a.diminfo[0].shape = __pyx_pybuffernd_a.rcbuffer->pybuffer.shape[0];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_b.rcbuffer->pybuffer, (PyObject*)__pyx_v_b, &__Pyx_TypeInfo_nn___pyx_t_5numpy_int64_t, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 259, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_b.rcbuffer->pybuffer, (PyObject*)__pyx_v_b, &__Pyx_TypeInfo_nn___pyx_t_5numpy_int64_t, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 260, __pyx_L1_error)
   }
   __pyx_pybuffernd_b.diminfo[0].strides = __pyx_pybuffernd_b.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_b.diminfo[0].shape = __pyx_pybuffernd_b.rcbuffer->pybuffer.shape[0];
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_18clustering_metrics_7entropy_emi_from_margins(__pyx_v_a, __pyx_v_b, 1); if (unlikely(__pyx_t_1 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 259, __pyx_L1_error)
-  __pyx_t_2 = PyFloat_FromDouble(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 259, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_18clustering_metrics_7entropy_emi_from_margins(__pyx_v_a, __pyx_v_b, 1); if (unlikely(__pyx_t_1 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 260, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 260, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
@@ -10137,188 +10158,206 @@ __Pyx_RefNannySetupContext("PyInit_entropy", 0);
   (void)__Pyx_modinit_function_import_code(__pyx_mstate);
   /*--- Execution code ---*/
 
-  /* "clustering_metrics/entropy.pyx":6
+  /* "clustering_metrics/entropy.pyx":5
+ * # cython: wraparound=False
  * 
+ * from collections import abc             # <<<<<<<<<<<<<<
+ * from libc.math cimport exp, log
+ * from scipy.special import gammaln
+*/
+  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_abc); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 5, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_collections, __pyx_t_2, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 5, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_abc); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 5, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_abc, __pyx_t_2) < 0) __PYX_ERR(0, 5, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+
+  /* "clustering_metrics/entropy.pyx":7
+ * from collections import abc
  * from libc.math cimport exp, log
  * from scipy.special import gammaln             # <<<<<<<<<<<<<<
  * import numbers
  * import numpy as np
 */
-  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_gammaln); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 6, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_scipy_special, __pyx_t_2, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 6, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_gammaln); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 7, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_gammaln); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 6, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_scipy_special, __pyx_t_3, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 7, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_gammaln, __pyx_t_2) < 0) __PYX_ERR(0, 6, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_gammaln); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 7, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_gammaln, __pyx_t_3) < 0) __PYX_ERR(0, 7, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "clustering_metrics/entropy.pyx":7
+  /* "clustering_metrics/entropy.pyx":8
  * from libc.math cimport exp, log
  * from scipy.special import gammaln
  * import numbers             # <<<<<<<<<<<<<<
  * import numpy as np
  * cimport numpy as np
 */
-  __pyx_t_3 = __Pyx_ImportDottedModule(__pyx_mstate_global->__pyx_n_u_numbers, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 7, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_numbers, __pyx_t_3) < 0) __PYX_ERR(0, 7, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_2 = __Pyx_ImportDottedModule(__pyx_mstate_global->__pyx_n_u_numbers, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_numbers, __pyx_t_2) < 0) __PYX_ERR(0, 8, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "clustering_metrics/entropy.pyx":8
+  /* "clustering_metrics/entropy.pyx":9
  * from scipy.special import gammaln
  * import numbers
  * import numpy as np             # <<<<<<<<<<<<<<
  * cimport numpy as np
  * cimport cython
 */
-  __pyx_t_3 = __Pyx_ImportDottedModule(__pyx_mstate_global->__pyx_n_u_numpy, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 8, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_np, __pyx_t_3) < 0) __PYX_ERR(0, 8, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_2 = __Pyx_ImportDottedModule(__pyx_mstate_global->__pyx_n_u_numpy, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_np, __pyx_t_2) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "clustering_metrics/entropy.pyx":14
+  /* "clustering_metrics/entropy.pyx":15
  * from libc.stdlib cimport malloc, free
  * 
  * np.import_array()             # <<<<<<<<<<<<<<
  * 
  * 
 */
-  __pyx_t_4 = __pyx_f_5numpy_import_array(); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(0, 14, __pyx_L1_error)
+  __pyx_t_4 = __pyx_f_5numpy_import_array(); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(0, 15, __pyx_L1_error)
 
-  /* "clustering_metrics/entropy.pyx":26
+  /* "clustering_metrics/entropy.pyx":27
  * 
  * 
  * @cython.boundscheck(False)             # <<<<<<<<<<<<<<
  * @cython.wraparound(False)
  * cpdef assignment_cost(array2d, maximize=False):
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_18clustering_metrics_7entropy_1assignment_cost, 0, __pyx_mstate_global->__pyx_n_u_assignment_cost, NULL, __pyx_mstate_global->__pyx_n_u_clustering_metrics_entropy, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 26, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_3, __pyx_mstate_global->__pyx_tuple[0]);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_assignment_cost, __pyx_t_3) < 0) __PYX_ERR(0, 26, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_18clustering_metrics_7entropy_1assignment_cost, 0, __pyx_mstate_global->__pyx_n_u_assignment_cost, NULL, __pyx_mstate_global->__pyx_n_u_clustering_metrics_entropy, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 27, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_2, __pyx_mstate_global->__pyx_tuple[0]);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_assignment_cost, __pyx_t_2) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "clustering_metrics/entropy.pyx":108
+  /* "clustering_metrics/entropy.pyx":109
  * 
  * 
  * cpdef np.float64_t lgamma(np.float64_t x):             # <<<<<<<<<<<<<<
  *     """Log of gamma function for scalar double x
  * 
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_18clustering_metrics_7entropy_3lgamma, 0, __pyx_mstate_global->__pyx_n_u_lgamma, NULL, __pyx_mstate_global->__pyx_n_u_clustering_metrics_entropy, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 108, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_lgamma, __pyx_t_3) < 0) __PYX_ERR(0, 108, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_18clustering_metrics_7entropy_3lgamma, 0, __pyx_mstate_global->__pyx_n_u_lgamma, NULL, __pyx_mstate_global->__pyx_n_u_clustering_metrics_entropy, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 109, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_lgamma, __pyx_t_2) < 0) __PYX_ERR(0, 109, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "clustering_metrics/entropy.pyx":123
+  /* "clustering_metrics/entropy.pyx":124
  * 
  * 
  * cpdef ndarray_from_iter(iterable, dtype=None, contiguous=False):             # <<<<<<<<<<<<<<
  *     """Create NumPy arrays from different object types
  * 
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_18clustering_metrics_7entropy_5ndarray_from_iter, 0, __pyx_mstate_global->__pyx_n_u_ndarray_from_iter, NULL, __pyx_mstate_global->__pyx_n_u_clustering_metrics_entropy, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 123, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_3, __pyx_mstate_global->__pyx_tuple[1]);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_ndarray_from_iter, __pyx_t_3) < 0) __PYX_ERR(0, 123, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_18clustering_metrics_7entropy_5ndarray_from_iter, 0, __pyx_mstate_global->__pyx_n_u_ndarray_from_iter, NULL, __pyx_mstate_global->__pyx_n_u_clustering_metrics_entropy, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 124, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_2, __pyx_mstate_global->__pyx_tuple[1]);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_ndarray_from_iter, __pyx_t_2) < 0) __PYX_ERR(0, 124, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "clustering_metrics/entropy.pyx":148
+  /* "clustering_metrics/entropy.pyx":149
  * 
  * 
  * cpdef np.int64_t cnum_pairs(np.int64_t n) nogil:             # <<<<<<<<<<<<<<
  *     """Binomial coefficient for k=2 (integer)
  * 
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_18clustering_metrics_7entropy_7cnum_pairs, 0, __pyx_mstate_global->__pyx_n_u_cnum_pairs, NULL, __pyx_mstate_global->__pyx_n_u_clustering_metrics_entropy, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 148, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_cnum_pairs, __pyx_t_3) < 0) __PYX_ERR(0, 148, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_18clustering_metrics_7entropy_7cnum_pairs, 0, __pyx_mstate_global->__pyx_n_u_cnum_pairs, NULL, __pyx_mstate_global->__pyx_n_u_clustering_metrics_entropy, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 149, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_cnum_pairs, __pyx_t_2) < 0) __PYX_ERR(0, 149, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "clustering_metrics/entropy.pyx":158
+  /* "clustering_metrics/entropy.pyx":159
  * 
  * 
  * cpdef np.float64_t fnum_pairs(np.float64_t n) nogil:             # <<<<<<<<<<<<<<
  *     """Binomial coefficient for k=2 (floating point)
  * 
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_18clustering_metrics_7entropy_9fnum_pairs, 0, __pyx_mstate_global->__pyx_n_u_fnum_pairs, NULL, __pyx_mstate_global->__pyx_n_u_clustering_metrics_entropy, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[4])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 158, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_fnum_pairs, __pyx_t_3) < 0) __PYX_ERR(0, 158, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_18clustering_metrics_7entropy_9fnum_pairs, 0, __pyx_mstate_global->__pyx_n_u_fnum_pairs, NULL, __pyx_mstate_global->__pyx_n_u_clustering_metrics_entropy, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[4])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 159, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_fnum_pairs, __pyx_t_2) < 0) __PYX_ERR(0, 159, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "clustering_metrics/entropy.pyx":168
+  /* "clustering_metrics/entropy.pyx":169
  * 
  * 
  * cpdef np.int64_t csum_pairs(counts):             # <<<<<<<<<<<<<<
  *     """Count sum of possible pairs (integer)
  * 
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_18clustering_metrics_7entropy_11csum_pairs, 0, __pyx_mstate_global->__pyx_n_u_csum_pairs, NULL, __pyx_mstate_global->__pyx_n_u_clustering_metrics_entropy, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[5])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 168, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_csum_pairs, __pyx_t_3) < 0) __PYX_ERR(0, 168, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_18clustering_metrics_7entropy_11csum_pairs, 0, __pyx_mstate_global->__pyx_n_u_csum_pairs, NULL, __pyx_mstate_global->__pyx_n_u_clustering_metrics_entropy, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[5])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 169, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_csum_pairs, __pyx_t_2) < 0) __PYX_ERR(0, 169, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "clustering_metrics/entropy.pyx":181
+  /* "clustering_metrics/entropy.pyx":182
  * 
  * 
  * cpdef np.float64_t fsum_pairs(freqs):             # <<<<<<<<<<<<<<
  *     """Count sum of possible pairs (floating points)
  * 
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_18clustering_metrics_7entropy_13fsum_pairs, 0, __pyx_mstate_global->__pyx_n_u_fsum_pairs, NULL, __pyx_mstate_global->__pyx_n_u_clustering_metrics_entropy, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[6])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 181, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_fsum_pairs, __pyx_t_3) < 0) __PYX_ERR(0, 181, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_18clustering_metrics_7entropy_13fsum_pairs, 0, __pyx_mstate_global->__pyx_n_u_fsum_pairs, NULL, __pyx_mstate_global->__pyx_n_u_clustering_metrics_entropy, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[6])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 182, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_fsum_pairs, __pyx_t_2) < 0) __PYX_ERR(0, 182, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "clustering_metrics/entropy.pyx":194
+  /* "clustering_metrics/entropy.pyx":195
  * 
  * 
  * cpdef np.float64_t centropy(counts):             # <<<<<<<<<<<<<<
  *     """Entropy of an iterable of counts (integers)
  * 
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_18clustering_metrics_7entropy_15centropy, 0, __pyx_mstate_global->__pyx_n_u_centropy, NULL, __pyx_mstate_global->__pyx_n_u_clustering_metrics_entropy, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[7])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 194, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_centropy, __pyx_t_3) < 0) __PYX_ERR(0, 194, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_18clustering_metrics_7entropy_15centropy, 0, __pyx_mstate_global->__pyx_n_u_centropy, NULL, __pyx_mstate_global->__pyx_n_u_clustering_metrics_entropy, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[7])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 195, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_centropy, __pyx_t_2) < 0) __PYX_ERR(0, 195, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "clustering_metrics/entropy.pyx":226
+  /* "clustering_metrics/entropy.pyx":227
  * 
  * 
  * cpdef np.float64_t fentropy(freqs):             # <<<<<<<<<<<<<<
  *     """Entropy of an iterable of frequencies (floating point)
  * 
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_18clustering_metrics_7entropy_17fentropy, 0, __pyx_mstate_global->__pyx_n_u_fentropy, NULL, __pyx_mstate_global->__pyx_n_u_clustering_metrics_entropy, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[8])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 226, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_fentropy, __pyx_t_3) < 0) __PYX_ERR(0, 226, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_18clustering_metrics_7entropy_17fentropy, 0, __pyx_mstate_global->__pyx_n_u_fentropy, NULL, __pyx_mstate_global->__pyx_n_u_clustering_metrics_entropy, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[8])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 227, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_fentropy, __pyx_t_2) < 0) __PYX_ERR(0, 227, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "clustering_metrics/entropy.pyx":259
+  /* "clustering_metrics/entropy.pyx":260
  * 
  * 
  * @cython.boundscheck(False)             # <<<<<<<<<<<<<<
  * @cython.wraparound(False)
  * cpdef np.float64_t emi_from_margins(
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_18clustering_metrics_7entropy_19emi_from_margins, 0, __pyx_mstate_global->__pyx_n_u_emi_from_margins, NULL, __pyx_mstate_global->__pyx_n_u_clustering_metrics_entropy, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[9])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 259, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_emi_from_margins, __pyx_t_3) < 0) __PYX_ERR(0, 259, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_18clustering_metrics_7entropy_19emi_from_margins, 0, __pyx_mstate_global->__pyx_n_u_emi_from_margins, NULL, __pyx_mstate_global->__pyx_n_u_clustering_metrics_entropy, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[9])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 260, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_emi_from_margins, __pyx_t_2) < 0) __PYX_ERR(0, 260, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "clustering_metrics/entropy.pyx":1
  * # cython: cdivision=True             # <<<<<<<<<<<<<<
  * # cython: boundscheck=False
  * # cython: wraparound=False
 */
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_test, __pyx_t_3) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_test, __pyx_t_2) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /*--- Wrapped vars code ---*/
 
@@ -10382,6 +10421,8 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_, sizeof(__pyx_k_), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_ */
   {__pyx_k_ImportError, sizeof(__pyx_k_ImportError), 0, 1, 1}, /* PyObject cname: __pyx_n_u_ImportError */
   {__pyx_k_Integral, sizeof(__pyx_k_Integral), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Integral */
+  {__pyx_k_Iterator, sizeof(__pyx_k_Iterator), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Iterator */
+  {__pyx_k_Mapping, sizeof(__pyx_k_Mapping), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Mapping */
   {__pyx_k_Note_that_Cython_is_deliberately, sizeof(__pyx_k_Note_that_Cython_is_deliberately), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_Note_that_Cython_is_deliberately */
   {__pyx_k_Real, sizeof(__pyx_k_Real), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Real */
   {__pyx_k_Sums_of_row_and_column_margins_m, sizeof(__pyx_k_Sums_of_row_and_column_margins_m), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_Sums_of_row_and_column_margins_m */
@@ -10389,6 +10430,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_ValueError, sizeof(__pyx_k_ValueError), 0, 1, 1}, /* PyObject cname: __pyx_n_u_ValueError */
   {__pyx_k__2, sizeof(__pyx_k__2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__2 */
   {__pyx_k_a, sizeof(__pyx_k_a), 0, 1, 1}, /* PyObject cname: __pyx_n_u_a */
+  {__pyx_k_abc, sizeof(__pyx_k_abc), 0, 1, 1}, /* PyObject cname: __pyx_n_u_abc */
   {__pyx_k_add_note, sizeof(__pyx_k_add_note), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_add_note */
   {__pyx_k_arange, sizeof(__pyx_k_arange), 0, 1, 1}, /* PyObject cname: __pyx_n_u_arange */
   {__pyx_k_array2d, sizeof(__pyx_k_array2d), 0, 1, 1}, /* PyObject cname: __pyx_n_u_array2d */
@@ -10403,6 +10445,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_clustering_metrics_entropy, sizeof(__pyx_k_clustering_metrics_entropy), 0, 1, 1}, /* PyObject cname: __pyx_n_u_clustering_metrics_entropy */
   {__pyx_k_clustering_metrics_entropy_pyx, sizeof(__pyx_k_clustering_metrics_entropy_pyx), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_clustering_metrics_entropy_pyx */
   {__pyx_k_cnum_pairs, sizeof(__pyx_k_cnum_pairs), 0, 1, 1}, /* PyObject cname: __pyx_n_u_cnum_pairs */
+  {__pyx_k_collections, sizeof(__pyx_k_collections), 0, 1, 1}, /* PyObject cname: __pyx_n_u_collections */
   {__pyx_k_contiguous, sizeof(__pyx_k_contiguous), 0, 1, 1}, /* PyObject cname: __pyx_n_u_contiguous */
   {__pyx_k_counts, sizeof(__pyx_k_counts), 0, 1, 1}, /* PyObject cname: __pyx_n_u_counts */
   {__pyx_k_csum_pairs, sizeof(__pyx_k_csum_pairs), 0, 1, 1}, /* PyObject cname: __pyx_n_u_csum_pairs */
@@ -10416,7 +10459,6 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_fsum_pairs, sizeof(__pyx_k_fsum_pairs), 0, 1, 1}, /* PyObject cname: __pyx_n_u_fsum_pairs */
   {__pyx_k_func, sizeof(__pyx_k_func), 0, 1, 1}, /* PyObject cname: __pyx_n_u_func */
   {__pyx_k_gammaln, sizeof(__pyx_k_gammaln), 0, 1, 1}, /* PyObject cname: __pyx_n_u_gammaln */
-  {__pyx_k_getitem, sizeof(__pyx_k_getitem), 0, 1, 1}, /* PyObject cname: __pyx_n_u_getitem */
   {__pyx_k_initializing, sizeof(__pyx_k_initializing), 0, 1, 1}, /* PyObject cname: __pyx_n_u_initializing */
   {__pyx_k_int64, sizeof(__pyx_k_int64), 0, 1, 1}, /* PyObject cname: __pyx_n_u_int64 */
   {__pyx_k_is_coroutine, sizeof(__pyx_k_is_coroutine), 0, 1, 1}, /* PyObject cname: __pyx_n_u_is_coroutine */
@@ -10430,7 +10472,6 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_n, sizeof(__pyx_k_n), 0, 1, 1}, /* PyObject cname: __pyx_n_u_n */
   {__pyx_k_name, sizeof(__pyx_k_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_name */
   {__pyx_k_ndarray_from_iter, sizeof(__pyx_k_ndarray_from_iter), 0, 1, 1}, /* PyObject cname: __pyx_n_u_ndarray_from_iter */
-  {__pyx_k_next, sizeof(__pyx_k_next), 0, 1, 1}, /* PyObject cname: __pyx_n_u_next */
   {__pyx_k_np, sizeof(__pyx_k_np), 0, 1, 1}, /* PyObject cname: __pyx_n_u_np */
   {__pyx_k_numbers, sizeof(__pyx_k_numbers), 0, 1, 1}, /* PyObject cname: __pyx_n_u_numbers */
   {__pyx_k_numpy, sizeof(__pyx_k_numpy), 0, 1, 1}, /* PyObject cname: __pyx_n_u_numpy */
@@ -10456,9 +10497,9 @@ static int __Pyx_InitStrings(__Pyx_StringTabEntry const *t, PyObject **target, c
 
 static int __Pyx_InitCachedBuiltins(__pyx_mstatetype *__pyx_mstate) {
   CYTHON_UNUSED_VAR(__pyx_mstate);
-  __pyx_builtin_TypeError = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_TypeError); if (!__pyx_builtin_TypeError) __PYX_ERR(0, 41, __pyx_L1_error)
-  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 119, __pyx_L1_error)
-  __pyx_builtin_xrange = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_range); if (!__pyx_builtin_xrange) __PYX_ERR(0, 347, __pyx_L1_error)
+  __pyx_builtin_TypeError = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_TypeError); if (!__pyx_builtin_TypeError) __PYX_ERR(0, 42, __pyx_L1_error)
+  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 120, __pyx_L1_error)
+  __pyx_builtin_xrange = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_range); if (!__pyx_builtin_xrange) __PYX_ERR(0, 348, __pyx_L1_error)
   __pyx_builtin_ImportError = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_ImportError); if (!__pyx_builtin_ImportError) __PYX_ERR(1, 1051, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
@@ -10471,25 +10512,25 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
   CYTHON_UNUSED_VAR(__pyx_mstate);
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "clustering_metrics/entropy.pyx":26
+  /* "clustering_metrics/entropy.pyx":27
  * 
  * 
  * @cython.boundscheck(False)             # <<<<<<<<<<<<<<
  * @cython.wraparound(False)
  * cpdef assignment_cost(array2d, maximize=False):
 */
-  __pyx_mstate_global->__pyx_tuple[0] = PyTuple_Pack(1, Py_False); if (unlikely(!__pyx_mstate_global->__pyx_tuple[0])) __PYX_ERR(0, 26, __pyx_L1_error)
+  __pyx_mstate_global->__pyx_tuple[0] = PyTuple_Pack(1, Py_False); if (unlikely(!__pyx_mstate_global->__pyx_tuple[0])) __PYX_ERR(0, 27, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_tuple[0]);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_tuple[0]);
 
-  /* "clustering_metrics/entropy.pyx":123
+  /* "clustering_metrics/entropy.pyx":124
  * 
  * 
  * cpdef ndarray_from_iter(iterable, dtype=None, contiguous=False):             # <<<<<<<<<<<<<<
  *     """Create NumPy arrays from different object types
  * 
 */
-  __pyx_mstate_global->__pyx_tuple[1] = PyTuple_Pack(2, Py_None, Py_False); if (unlikely(!__pyx_mstate_global->__pyx_tuple[1])) __PYX_ERR(0, 123, __pyx_L1_error)
+  __pyx_mstate_global->__pyx_tuple[1] = PyTuple_Pack(2, Py_None, Py_False); if (unlikely(!__pyx_mstate_global->__pyx_tuple[1])) __PYX_ERR(0, 124, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_tuple[1]);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_tuple[1]);
   __Pyx_RefNannyFinishContext();
@@ -10539,52 +10580,52 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   PyObject* tuple_dedup_map = PyDict_New();
   if (unlikely(!tuple_dedup_map)) return -1;
   {
-    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 26, 122};
+    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 27, 122};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_array2d, __pyx_mstate->__pyx_n_u_maximize};
     __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_clustering_metrics_entropy_pyx, __pyx_mstate->__pyx_n_u_assignment_cost, __pyx_k_s_9Cq_q_7_1_s_6_A_q_aq_z_wa_1_6, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 108, 39};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 109, 39};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_x};
     __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_clustering_metrics_entropy_pyx, __pyx_mstate->__pyx_n_u_lgamma, __pyx_k_r_A_j_r, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 123, 145};
+    const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 124, 149};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_iterable, __pyx_mstate->__pyx_n_u_dtype, __pyx_mstate->__pyx_n_u_contiguous};
-    __pyx_mstate_global->__pyx_codeobj_tab[2] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_clustering_metrics_entropy_pyx, __pyx_mstate->__pyx_n_u_ndarray_from_iter, __pyx_k_9_waz_b_F_1_auF_1_b_V1_1_auF_b, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[2])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[2] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_clustering_metrics_entropy_pyx, __pyx_mstate->__pyx_n_u_ndarray_from_iter, __pyx_k_9_z_Cq_b_F_1_auF_1Jc_b_V1_1_auF, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[2])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 148, 24};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 149, 24};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_n};
     __pyx_mstate_global->__pyx_codeobj_tab[3] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_clustering_metrics_entropy_pyx, __pyx_mstate->__pyx_n_u_cnum_pairs, __pyx_k_1_Bc_2V3a, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[3])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 158, 24};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 159, 24};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_n};
     __pyx_mstate_global->__pyx_codeobj_tab[4] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_clustering_metrics_entropy_pyx, __pyx_mstate->__pyx_n_u_fnum_pairs, __pyx_k_Q_4s_Cr_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[4])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 168, 41};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 169, 41};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_counts};
     __pyx_mstate_global->__pyx_codeobj_tab[5] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_clustering_metrics_entropy_pyx, __pyx_mstate->__pyx_n_u_csum_pairs, __pyx_k_1_A_Q_Cr_1_6_A, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[5])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 181, 41};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 182, 41};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_freqs};
     __pyx_mstate_global->__pyx_codeobj_tab[6] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_clustering_metrics_entropy_pyx, __pyx_mstate->__pyx_n_u_fsum_pairs, __pyx_k_Q_A_Q_Cr_1_4r, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[6])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 194, 101};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 195, 103};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_counts};
-    __pyx_mstate_global->__pyx_codeobj_tab[7] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_clustering_metrics_entropy_pyx, __pyx_mstate->__pyx_n_u_centropy, __pyx_k_1_waxq_wa_1_Q_2S_Bb_1A_WBc_Bc_R, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[7])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[7] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_clustering_metrics_entropy_pyx, __pyx_mstate->__pyx_n_u_centropy, __pyx_k_1_z_Q_wa_1_Q_2S_Bb_1A_WBc_Bc_Rq, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[7])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 226, 92};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 227, 94};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_freqs};
-    __pyx_mstate_global->__pyx_codeobj_tab[8] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_clustering_metrics_entropy_pyx, __pyx_mstate->__pyx_n_u_fentropy, __pyx_k_1_wawa_WA_1_Q_2S_Bb_1A_uBb_1Cr, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[8])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[8] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_clustering_metrics_entropy_pyx, __pyx_mstate->__pyx_n_u_fentropy, __pyx_k_1_z_A_WA_1_Q_2S_Bb_1A_uBb_1Cr, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[8])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 259, 482};
+    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 260, 482};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_a, __pyx_mstate->__pyx_n_u_b};
     __pyx_mstate_global->__pyx_codeobj_tab[9] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_clustering_metrics_entropy_pyx, __pyx_mstate->__pyx_n_u_emi_from_margins, __pyx_k_d_Bd_1_Bd_1_1A_1A_aq_r_Bd_1_j_R, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[9])) goto bad;
   }
@@ -12908,25 +12949,6 @@ fail:;
   PyErr_SetString(PyExc_ValueError,
      "Buffer acquisition failed on assignment; and then reacquiring the old buffer failed too!");
 }
-
-/* HasAttr */
-  #if __PYX_LIMITED_VERSION_HEX < 0x030d0000
-static CYTHON_INLINE int __Pyx_HasAttr(PyObject *o, PyObject *n) {
-    PyObject *r;
-    if (unlikely(!PyUnicode_Check(n))) {
-        PyErr_SetString(PyExc_TypeError,
-                        "hasattr(): attribute name must be string");
-        return -1;
-    }
-    r = __Pyx_PyObject_GetAttrStrNoError(o, n);
-    if (!r) {
-        return (unlikely(PyErr_Occurred())) ? -1 : 0;
-    } else {
-        Py_DECREF(r);
-        return 1;
-    }
-}
-#endif
 
 /* PyObjectFastCallMethod */
   #if !CYTHON_VECTORCALL || PY_VERSION_HEX < 0x03090000

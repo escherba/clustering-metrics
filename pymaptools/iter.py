@@ -3,7 +3,7 @@ Many definitions here are from https://docs.python.org/2/library/itertools.html
 """
 from typing import Mapping, Iterator
 import operator
-from collections import deque, defaultdict
+from collections import abc, deque, defaultdict
 from itertools import islice, chain, starmap, count, \
     repeat, groupby, cycle, tee, combinations
 from pymaptools.func import identity, compose
@@ -288,7 +288,7 @@ def ismonotonic(oper, iterable):
         >>> ismonotonic(operator.ge, [2, 4])
         False
     """
-    if not hasattr(iterable, '__getitem__'):
+    if not isinstance(iterable, abc.Mapping):
         iterable = list(iterable)  # probably a generator
     return all(oper(x, y) for x, y in zip(iterable, iterable[1:]))
 
@@ -351,7 +351,7 @@ def shinglify(iterable, span, skip=0):
         [('a',)]
 
     """
-    if not hasattr(iterable, '__getitem__'):
+    if not isinstance(iterable, abc.Mapping):
         iterable = list(iterable)  # probably a generator
     if len(iterable) >= span:
         return zip(*nskip(skip, (iterable[i:] for i in range(span))))
@@ -422,7 +422,7 @@ def ntuples(n, iterable):
         >>> list(ntuples(2, "abcd"))
         [('a', 'b'), ('c', 'd')]
     """
-    if not hasattr(iterable, '__getitem__'):
+    if not isinstance(iterable, abc.Mapping):
         iterable = list(iterable)  # probably a generator
     return zip(*[iterable[i::n] for i in range(n)])
 

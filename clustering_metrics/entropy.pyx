@@ -2,6 +2,7 @@
 # cython: boundscheck=False
 # cython: wraparound=False
 
+from collections import abc
 from libc.math cimport exp, log
 from scipy.special import gammaln
 import numbers
@@ -130,11 +131,11 @@ cpdef ndarray_from_iter(iterable, dtype=None, contiguous=False):
     If the input object is an instance of ``collections.Mapping``, assumes that
     we are interesting in creating a NumPy array from the values.
     """
-    if hasattr(iterable, "__next__"):  # Iterator
+    if isinstance(iterable, abc.Iterator):  # Iterator
         arr = np.fromiter(iterable, dtype=dtype)
         if contiguous:
             arr = np.ascontiguousarray(arr, dtype=dtype)
-    elif hasattr(iterable, "__getitem__"):  # Mapping
+    elif isinstance(iterable, abc.Mapping):  # Mapping
         arr = np.fromiter(iterable.values(), dtype=dtype)
         if contiguous:
             arr = np.ascontiguousarray(arr, dtype=dtype)
@@ -210,7 +211,7 @@ cpdef np.float64_t centropy(counts):
     cdef np.int64_t c, n
     cdef np.float64_t sum_c_logn_c, result
 
-    if hasattr(counts, "__getitem__"):   # Mapping
+    if isinstance(counts, abc.Mapping):   # Mapping
         counts = counts.values()
 
     n = 0LL
@@ -242,7 +243,7 @@ cpdef np.float64_t fentropy(freqs):
 
     cdef np.float64_t f, s, sum_f_logn_f
 
-    if hasattr(freqs, "__getitem__"):  # Mapping
+    if isinstance(freqs, abc.Mapping):  # Mapping
         freqs = freqs.values()
 
     s = 0.0

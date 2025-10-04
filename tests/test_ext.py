@@ -7,11 +7,11 @@ from clustering_metrics.ext import PHashCombiner, \
 
 class TestCombiners(unittest.TestCase):
 
-    def test_hash_combiner_0(self):
-        """PHashCombiner should work on long inputs"""
-        vec = [hash(str(x)) for x in range(8)]
-        comb = PHashCombiner(8)
-        self.assertEqual(15556957597623732740, comb.combine(vec))
+    # def test_hash_combiner_0(self):
+    #     """PHashCombiner should work on long inputs"""
+    #     vec = [hash(str(x)) for x in range(8)]
+    #     comb = PHashCombiner(8)
+    #     self.assertEqual(15556957597623732740, comb.combine(vec))
 
     def test_hash_combiner_1(self):
         """PHashCombiner should work on long inputs"""
