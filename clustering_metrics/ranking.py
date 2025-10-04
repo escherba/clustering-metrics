@@ -99,6 +99,9 @@ from pymaptools.containers import labels_to_clusters
 from clustering_metrics.skutils import auc, roc_curve
 
 
+NINF = float("-inf")
+
+
 def num2bool(num):
     """True if zero or positive real, False otherwise
 
@@ -358,9 +361,9 @@ class RocCurve(object):
 
         >>> c = RocCurve.from_labels([0, 0, 1, 1],
         ...                          [0.1, 0.4, 0.35, 0.8])
-        >>> c.auc_score()
+        >>> float(c.auc_score())
         0.75
-        >>> c.max_informedness()
+        >>> float(c.max_informedness())
         0.5
 
     """
@@ -472,7 +475,7 @@ class RocCurve(object):
 
         The scoring method must take two arguments: fpr and tpr.
         """
-        max_index = np.NINF
+        max_index = NINF
         opt_pair = (np.nan, np.nan)
         for pair in zip(self.fprs, self.tprs):
             index = scoring_method(*pair)
