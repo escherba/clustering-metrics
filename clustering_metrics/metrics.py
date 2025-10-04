@@ -1687,15 +1687,13 @@ class ConfusionMatrix2(ContingencyTable, OrderedCrossTab):
 
         if n == 0.0:
             k0, k1, k2 = np.nan, np.nan, np.nan
-        elif a == n or d == n:
+        elif n in [a, d]:
             k0, k1, k2 = 0.5, 0.5, 0.5
         elif b == n:
             k0, k1, k2 = -1.0, -0.0, -0.0
         elif c == n:
             k0, k1, k2 = -0.0, -1.0, -0.0
-        elif p1 == n or q2 == n:
-            k0, k1, k2 = 0.0, 0.0, 0.0
-        elif p2 == n or q1 == n:
+        elif n in [p1, p2, q1, q2]:
             k0, k1, k2 = 0.0, 0.0, 0.0
         elif cov > 0.0:
             k0 = _div(cov, p2 * q1)
