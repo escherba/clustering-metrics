@@ -86,7 +86,7 @@ def iter_items(iterable):
     ::
 
         >>> d = {"a": 10, "b": 20}
-        >>> list(iter_items(d)) == d.items()
+        >>> list(iter_items(d)) == list(d.items())
         True
         >>> l = ["a", "b", "c"]
         >>> list(iter_items(l))
@@ -106,7 +106,7 @@ def iter_vals(iterable):
     ::
 
         >>> d = {"a": 10, "b": 20}
-        >>> list(iter_vals(d)) == d.values()
+        >>> list(iter_vals(d)) == list(d.values())
         True
         >>> l = ["a", "b", "c"]
         >>> list(iter_vals(l))
@@ -130,7 +130,7 @@ def iter_keys(iterable):
     ::
 
         >>> d = {"a": 10, "b": 20}
-        >>> list(iter_keys(d)) == d.keys()
+        >>> list(iter_keys(d)) == list(d.keys())
         True
         >>> l = ["a", "b", "c"]
         >>> list(iter_keys(l))
