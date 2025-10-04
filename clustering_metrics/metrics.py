@@ -701,14 +701,14 @@ class ContingencyTable(CrossTab):
         score independent of the number of clusters::
 
             >>> t2 = ClusteringMetrics(rows=10 * np.ones((2, 2), dtype=int))
-            >>> t2.split_join_similarity(model=None)
+            >>> float(t2.split_join_similarity(model=None))
             0.5
-            >>> t2.split_join_similarity(model='m1')
+            >>> float(t2.split_join_similarity(model='m1'))
             0.0
             >>> t8 = ClusteringMetrics(rows=10 * np.ones((8, 8), dtype=int))
-            >>> t8.split_join_similarity(model=None)
+            >>> float(t8.split_join_similarity(model=None))
             0.125
-            >>> t8.split_join_similarity(model='m1')
+            >>> float(t8.split_join_similarity(model='m1'))
             0.0
 
         See Also
