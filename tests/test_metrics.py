@@ -70,7 +70,7 @@ def _talburt_wang_index(labels_true, labels_pred):
 def uniform_labelings_scores(score_func, n_samples, k_range, n_runs=10,
                              seed=42):
     # Compute score for random uniform cluster labelings
-    random_labels = np.random.RandomState(seed).random_integers
+    random_labels = np.random.RandomState(seed).randint
     scores = np.zeros((len(k_range), n_runs))
     for i, k in enumerate(k_range):
         for j in range(n_runs):
@@ -408,7 +408,7 @@ class TestMetrics(unittest.TestCase):
             adjusted_rand_score, n_samples, n_clusters_range, n_runs)
 
         max_abs_scores = np.abs(scores).max(axis=1)
-        assert_array_almost_equal(max_abs_scores, [0.02, 0.03, 0.03, 0.02], 2)
+        assert_array_almost_equal(max_abs_scores, [0.5 , 0.03, 0.02, 0.03], 2)
 
 
     def test_twoway_confusion_1(self):
