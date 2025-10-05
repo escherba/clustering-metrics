@@ -269,7 +269,7 @@ def split_clusters(clusters):
 
 def simulate_clustering(galpha=2, gbeta=10, nclusters=20, pos_ratio=0.2,
                         p_err=0.05, population_size=2000, split_join=0,
-                        join_negatives=False, with_warnings=True):
+                        join_negatives=False, with_warnings=True, verbose=0):
 
     if not 0.0 <= p_err <= 1.0:
         raise ValueError(p_err)
@@ -289,7 +289,7 @@ def simulate_clustering(galpha=2, gbeta=10, nclusters=20, pos_ratio=0.2,
             raise ValueError(pos_ratio)
         expected_num_neg = num_pos * _div(1.0 - pos_ratio, pos_ratio)
         actual_neg_ratio = _div(num_neg - expected_num_neg, expected_num_neg)
-        if abs(actual_neg_ratio) > 0.2:
+        if verbose > 0 and abs(actual_neg_ratio) > 0.2:
             warnings.warn(
                 "{:.1%} {} negatives than expected. Got: {} "
                 "(expected: {}. Recommended population_size: {})"

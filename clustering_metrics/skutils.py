@@ -172,7 +172,7 @@ def auc(x, y, reorder=False):
                 raise ValueError("Reordering is not turned on, and "
                                  "the x array is not increasing: %s" % x)
 
-    area = direction * np.trapz(y, x)
+    area = direction * np.trapezoid(y, x)
     if isinstance(area, np.memmap):
         # Reductions such as .sum used internally in np.trapz do not return a
         # scalar by default for numpy.memmap instances contrary to

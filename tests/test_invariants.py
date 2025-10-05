@@ -34,17 +34,17 @@ def assignment_score_slow(cm, normalize=True, rpad=False, cpad=False):
 
 class TestInvariants(unittest.TestCase):
 
-    def _check_with_nans(self, num1, num2, places=None, msg=None, delta=None, ensure_nans=True):
+    def _check_with_nans(self, num1, num2, places=None, msg=None, delta=None, ensure_nans=True, verbose=0):
         nancheck_msg = "NaN check failed for '%s'" % msg
         if np.isnan(num1):
             if ensure_nans:
                 assert_true(np.isnan(num2), msg=nancheck_msg)
-            elif not np.isnan(num2):
+            elif verbose > 0 and not np.isnan(num2):
                 warnings.warn(nancheck_msg)
         elif np.isnan(num2):
             if ensure_nans:
                 assert_true(np.isnan(num1), msg=nancheck_msg)
-            elif not np.isnan(num1):
+            elif verbose > 0 and not np.isnan(num1):
                 warnings.warn(nancheck_msg)
         else:
             self.assertAlmostEqual(num1, num2, places=places, msg=msg, delta=delta)
