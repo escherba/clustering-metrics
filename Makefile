@@ -5,6 +5,10 @@ PYPI_HOST := pypi
 DISTRIBUTE := sdist bdist_wheel
 SHELL_PRELOAD := $(PYMODULE)/_workspace.py
 
+BUILD_STAMP = .build_stamp
+ENV_STAMP = env/bin/activate
+INTERPRETER := python3
+
 SRC_ROOT := $(patsubst %/,%,$(dir $(abspath $(lastword $(MAKEFILE_LIST)))))
 SHELL_PRELOAD := $(SRC_ROOT)/$(SHELL_PRELOAD)
 
@@ -25,10 +29,14 @@ PYTHON := $(PYENV) python
 PIP := $(PYENV) pip
 HTML_DOCS := docs/_build/html
 
+VENV_OPTS=""
+ifeq ($(PIP_SYSTEM_SITE_PACKAGES),1)
+VENV_OPTS="--system-site-packages"
+endif
+
+BROWSER := x-www-browser
 ifeq ($(shell uname -s), Darwin)
-	BROWSER := open
-else
-	BROWSER := x-www-browser
+BROWSER := open
 endif
 
 doc-sources:
@@ -75,7 +83,7 @@ test: env build_ext
 	# make sure package can be pip-installed from local directory
 	$(PIP) install -e .
 	# run tests
-	$(PYENV) $(ENV_EXTRA) python `which nosetests` $(NOSEARGS)
+	$(PYENV) pytest --disable-warnings
 
 shell: extras build_ext
 	$(PYENV) PYTHONSTARTUP=$(SHELL_PRELOAD) ipython
@@ -86,7 +94,7 @@ env/make.extras: $(EXTRAS_REQS) | env
 	touch $@
 
 nuke: clean
-	rm -rf *.egg *.egg-info env bin cover coverage.xml nosetests.xml
+	rm -rf *.egg *.egg-info env bin cover coverage.xml
 
 clean:
 	-python setup.py clean
@@ -106,17 +114,13 @@ develop: build_ext
 	-pip uninstall --yes $(PYMODULE)
 	pip install -e .
 
-ifeq ($(PIP_SYSTEM_SITE_PACKAGES),1)
-VENV_OPTS="--system-site-packages"
-else
-VENV_OPTS="--no-site-packages"
-endif
-
-env virtualenv: env/bin/activate
-env/bin/activate: dev-requirements.txt requirements.txt | setup.py
-	test -f $@ || virtualenv $(VENV_OPTS) env
-	$(PYENV) easy_install -U pip
-	$(PIP) install -U wheel cython
-	$(PYENV) for reqfile in $^; do pip install -r $$reqfile; done
+.PRECIOUS: $(ENV_STAMP)
+.PHONY: env
+env: $(ENV_STAMP)  ## set up a virtual environment
+$(ENV_STAMP): setup.py requirements.txt
+	test -f $@ || $(INTERPRETER) -m venv $(VENV_OPTS) env
+	$(PIP) install -U pip wheel
+	export SETUPTOOLS_USE_DISTUTILS=stdlib; $(PIP) install -r requirements.txt
+	$(PIP) freeze > pip-freeze.txt
 	$(PIP) install -e .
 	touch $@

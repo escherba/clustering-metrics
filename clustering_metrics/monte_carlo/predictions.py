@@ -5,18 +5,16 @@ import random
 import sys
 import logging
 import scipy
-from itertools import product, izip, chain, cycle
+from itertools import product, chain, cycle
 from collections import defaultdict
 from functools import partial
 from pymaptools.iter import izip_with_cycles, isiterable, take
 from pymaptools.containers import labels_to_clusters, clusters_to_labels
 from pymaptools.sample import discrete_sample, freqs2probas, randround
 from pymaptools.io import GzipFileType, PathArgumentParser, write_json_line, read_json_lines, ndjson2col
-from pymaptools.benchmark import PMTimer
 
 from clustering_metrics.monte_carlo import utils
-from clustering_metrics.fent import minmaxr
-from clustering_metrics.utils import _div
+from clustering_metrics.utils import _div, minmaxr
 from clustering_metrics.metrics import ClusteringMetrics, ConfusionMatrix2
 from clustering_metrics.ranking import dist_auc
 from clustering_metrics.skutils import auc
@@ -92,10 +90,8 @@ def do_mapper(args):
     )
     h0 = Grid.with_sim_clusters(p_err=args.h0_err, **params)
     h1 = Grid.with_sim_clusters(p_err=args.h1_err, **params)
-    with PMTimer() as timer:
-        results = h0.compare(h1, args.metrics)
+    results = h0.compare(h1, args.metrics)
     for result in results:
-        result.update(timer.to_dict())
         result.update(utils.serialize_args(args))
         write_json_line(args.output, result)
 
@@ -251,7 +247,7 @@ def join_clusters(clusters):
     assert len(even) == len(odd)
 
     result = []
-    for c1, c2 in izip(even, odd):
+    for c1, c2 in zip(even, odd):
         result.append(c1 + c2)
     return result
 
@@ -273,12 +269,12 @@ def split_clusters(clusters):
 
 def simulate_clustering(galpha=2, gbeta=10, nclusters=20, pos_ratio=0.2,
                         p_err=0.05, population_size=2000, split_join=0,
-                        join_negatives=False, with_warnings=True):
+                        join_negatives=False, with_warnings=True, verbose=0):
 
     if not 0.0 <= p_err <= 1.0:
         raise ValueError(p_err)
 
-    csizes = map(randround, np.random.gamma(galpha, gbeta, nclusters))
+    csizes = list(map(randround, np.random.gamma(galpha, gbeta, nclusters)))
 
     # make sure at least one cluster is generated
     num_pos = sum(csizes)
@@ -293,7 +289,7 @@ def simulate_clustering(galpha=2, gbeta=10, nclusters=20, pos_ratio=0.2,
             raise ValueError(pos_ratio)
         expected_num_neg = num_pos * _div(1.0 - pos_ratio, pos_ratio)
         actual_neg_ratio = _div(num_neg - expected_num_neg, expected_num_neg)
-        if abs(actual_neg_ratio) > 0.2:
+        if verbose > 0 and abs(actual_neg_ratio) > 0.2:
             warnings.warn(
                 "{:.1%} {} negatives than expected. Got: {} "
                 "(expected: {}. Recommended population_size: {})"
@@ -306,7 +302,7 @@ def simulate_clustering(galpha=2, gbeta=10, nclusters=20, pos_ratio=0.2,
 
     # negative case first
     negatives = []
-    for _ in xrange(num_neg):
+    for _ in range(num_neg):
         class_label = sample_with_error(0, error_dist, null_dist)
         negatives.append([class_label])
 
@@ -316,19 +312,19 @@ def simulate_clustering(galpha=2, gbeta=10, nclusters=20, pos_ratio=0.2,
         if csize < 1:
             continue
         cluster = []
-        for _ in xrange(csize):
+        for _ in range(csize):
             class_label = sample_with_error(idx, error_dist, null_dist)
             cluster.append(class_label)
         positives.append(cluster)
 
     if split_join > 0:
-        for _ in xrange(split_join):
+        for _ in range(split_join):
             positives = split_clusters(positives)
     elif split_join < 0:
-        for _ in xrange(-split_join):
+        for _ in range(-split_join):
             positives = join_clusters(positives)
         if join_negatives:
-            for _ in xrange(-split_join):
+            for _ in range(-split_join):
                 negatives = join_clusters(negatives)
 
     return relabel_negatives(positives + negatives)
@@ -417,7 +413,7 @@ class Grid(object):
         return ConfusionMatrix2.from_ccw(*arr)
 
     def iter_grid(self):
-        return enumerate(izip(*self.grid))
+        return enumerate(zip(*self.grid))
 
     iter_clusters = iter_grid
 
@@ -434,7 +430,7 @@ class Grid(object):
             tup = tuple(get_conf(matrix).to_ccw())
             max_idx = tup.index(max(tup))
             if max_idx != 2:
-                print idx, tup
+                print(idx, tup)
 
     def fill_clusters(self, n=None, size=None, max_classes=None):
         if n is None:
@@ -468,7 +464,7 @@ class Grid(object):
 
         classes = np.empty((n, size), dtype=np.int64)
         clusters = np.empty((n, size), dtype=np.int64)
-        for idx in xrange(n):
+        for idx in range(n):
             ltrue, lpred = simulate_labeling(sample_size=size, **kwargs)
             classes[idx, :] = ltrue
             clusters[idx, :] = lpred
@@ -543,7 +539,7 @@ class Grid(object):
                 colors = colorbrewer.get_map('Set1', 'qualitative', 9).mpl_colors
 
             result_row = {}
-            for score_name, scores0 in result0.iteritems():
+            for score_name, scores0 in result0.items():
                 scores1 = result1[score_name]
                 auc_score = dist_auc(scores0, scores1)
                 result_row[score_name] = auc_score

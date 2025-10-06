@@ -63,7 +63,7 @@ def linear_sum_assignment(cost_matrix):
         >>> row_ind, col_ind = linear_sum_assignment(cost)
         >>> col_ind
         array([1, 0, 2])
-        >>> cost[row_ind, col_ind].sum()
+        >>> int(cost[row_ind, col_ind].sum())
         5
 
     References

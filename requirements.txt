@@ -1,6 +1,11 @@
-virtualenv
 cython
-regex
+joblib
 numpy
+pytest
+regex
 scipy
-git+https://github.com/escherba/pymaptools#egg=pymaptools-0.2.31
+PyYAML>=3.10
+scikit-learn
+tqdm
+virtualenv
+unicodecsv

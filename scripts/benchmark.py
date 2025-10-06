@@ -11,11 +11,12 @@ import os
 import sys
 import argparse
 import numpy as np
-import cPickle as pickle
+import pickle
 from IPython import get_ipython
 
 
 METHODS = {
+    'kappa': ['pairwise_hcv', 'pairwise_hcv'],
     'hcv': ('homogeneity_completeness_v_measure', 'entropy_scores'),
     'ami': ('adjusted_mutual_info_score', 'adjusted_mutual_info'),
     'ari': ('adjusted_rand_score', 'adjusted_rand_index')
@@ -47,7 +48,7 @@ ARGS = parse_args()
 
 ipython = get_ipython()
 if ipython is None:
-    print "You should run this script with ``ipython`` interpreter"
+    print("You should run this script with ``ipython`` interpreter")
     sys.exit(0)
 
 
@@ -56,15 +57,15 @@ PATH = "out-c%d-k%d-s%d.pickle" % (
 
 
 if os.path.exists(PATH):
-    print "Loading data from %s" % PATH
-    with open(PATH, 'r') as fh:
+    print("Loading data from %s" % PATH)
+    with open(PATH, 'rb') as fh:
         ltrue, lpred = pickle.load(fh)
 else:
     shape = (ARGS.num_samples,)
     ltrue = np.random.randint(low=0, high=ARGS.max_classes, size=shape)
     lpred = np.random.randint(low=0, high=ARGS.max_clusters, size=shape)
-    print "Saving generated data to %s" % PATH
-    with open(PATH, 'w') as fh:
+    print("Saving generated data to %s" % PATH)
+    with open(PATH, 'wb') as fh:
         pickle.dump((ltrue, lpred), fh, protocol=pickle.HIGHEST_PROTOCOL)
 
 
@@ -85,9 +86,9 @@ else:
     raise argparse.ArgumentError('Unknown value for --implementation')
 
 
-print "Sanity check:"
-print "\t{} = {}".format(ARGS.method, eval(line))
+print("Sanity check:")
+print("\t{} = {}".format(ARGS.method, eval(line)))
 
-for idx in xrange(ARGS.num_tests):
-    print "Running test {}/{}...".format(idx + 1, ARGS.num_tests)
+for idx in range(ARGS.num_tests):
+    print("Running test {}/{}...".format(idx + 1, ARGS.num_tests))
     ipython.magic("timeit " + line)

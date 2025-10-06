@@ -5,8 +5,9 @@
 
 import warnings
 import numpy as np
+from typing import Set
 from math import log, sqrt, copysign
-from collections import Set, namedtuple
+from collections import namedtuple
 from pymaptools.containers import CrossTab, OrderedCrossTab
 from pymaptools.iter import iter_items, isiterable
 from pymaptools.sample import randround
@@ -14,6 +15,9 @@ from clustering_metrics.utils import _div, _log
 from clustering_metrics.entropy import fentropy, fnum_pairs, fsum_pairs, \
     emi_from_margins, assignment_cost
 from scipy.stats import fisher_exact
+
+
+NINF = float("-inf")
 
 
 def jaccard_similarity(iterable1, iterable2):
@@ -212,7 +216,7 @@ class ContingencyTable(CrossTab):
             rows = self._row_type_2d()
 
             # create a sparse instance
-            for (ri, ci), expected in continuous.iteritems():
+            for (ri, ci), expected in continuous.items():
                 expected = randround(expected)
                 if expected != 0:
                     rows[ri][ci] = expected
@@ -339,7 +343,7 @@ class ContingencyTable(CrossTab):
         """
         H_C = fentropy(self.row_totals)
         H_K = fentropy(self.col_totals)
-        H_actual = fentropy(self.itervalues())
+        H_actual = fentropy(self.values())
         H_expected = H_C + H_K
         I_CK = H_expected - H_actual
         return H_C, H_K, I_CK
@@ -554,12 +558,12 @@ class ContingencyTable(CrossTab):
         elif (not discrete) and model == 'm2r':
             # fixed row margin, assignment also doesn't matter
             sum_top_rows = N if R <= C else \
-                sum(sorted(self.row_totals.itervalues(), reverse=True)[:C])
+                sum(sorted(self.row_totals.values(), reverse=True)[:C])
             null_cost = sum_top_rows / float(C)
         elif (not discrete) and model == 'm2c':
             # fixed column margin, assignment also doesn't matter
             sum_top_cols = N if C <= R else \
-                sum(sorted(self.col_totals.itervalues(), reverse=True)[:R])
+                sum(sorted(self.col_totals.values(), reverse=True)[:R])
             null_cost = sum_top_cols / float(R)
         else:
             # all margins fixed, assignment matters
@@ -697,14 +701,14 @@ class ContingencyTable(CrossTab):
         score independent of the number of clusters::
 
             >>> t2 = ClusteringMetrics(rows=10 * np.ones((2, 2), dtype=int))
-            >>> t2.split_join_similarity(model=None)
+            >>> float(t2.split_join_similarity(model=None))
             0.5
-            >>> t2.split_join_similarity(model='m1')
+            >>> float(t2.split_join_similarity(model='m1'))
             0.0
             >>> t8 = ClusteringMetrics(rows=10 * np.ones((8, 8), dtype=int))
-            >>> t8.split_join_similarity(model=None)
+            >>> float(t8.split_join_similarity(model=None))
             0.125
-            >>> t8.split_join_similarity(model='m1')
+            >>> float(t8.split_join_similarity(model='m1'))
             0.0
 
         See Also
@@ -732,13 +736,13 @@ class ContingencyTable(CrossTab):
         elif model == 'm1':         # only N is fixed
             null_score = N / float(R) + N / float(C)
         elif model == 'm2r':        # fixed row margin
-            null_score = max(self.row_totals.itervalues()) + N / float(C)
+            null_score = max(self.row_totals.values()) + N / float(C)
         elif model == 'm2c':        # fixed column margin
-            null_score = N / float(R) + max(self.col_totals.itervalues())
+            null_score = N / float(R) + max(self.col_totals.values())
         elif model == 'm3':         # both row and column margins fixed
             null_score = \
-                max(self.row_totals.itervalues()) + \
-                max(self.col_totals.itervalues())
+                max(self.row_totals.values()) + \
+                max(self.col_totals.values())
         else:
             expected = self.expected(model)
             null_score = expected.split_join_similarity(normalize=False, model=None)
@@ -922,7 +926,7 @@ class ClusteringMetrics(ContingencyTable):
         if pairwise is None:
             actual_positives = fsum_pairs(self.iter_row_totals())
             called_positives = fsum_pairs(self.iter_col_totals())
-            TP = fsum_pairs(self.itervalues())
+            TP = fsum_pairs(self.values())
             FN = actual_positives - TP
             FP = called_positives - TP
             TN = fnum_pairs(self.grand_total) - TP - FP - FN
@@ -1683,15 +1687,13 @@ class ConfusionMatrix2(ContingencyTable, OrderedCrossTab):
 
         if n == 0.0:
             k0, k1, k2 = np.nan, np.nan, np.nan
-        elif a == n or d == n:
+        elif n in [a, d]:
             k0, k1, k2 = 0.5, 0.5, 0.5
         elif b == n:
             k0, k1, k2 = -1.0, -0.0, -0.0
         elif c == n:
             k0, k1, k2 = -0.0, -1.0, -0.0
-        elif p1 == n or q2 == n:
-            k0, k1, k2 = 0.0, 0.0, 0.0
-        elif p2 == n or q1 == n:
+        elif n in [p1, p2, q1, q2]:
             k0, k1, k2 = 0.0, 0.0, 0.0
         elif cov > 0.0:
             k0 = _div(cov, p2 * q1)
@@ -1738,9 +1740,9 @@ class ConfusionMatrix2(ContingencyTable, OrderedCrossTab):
         if a == n or d == n:
             k0, k1 = np.nan, np.nan
         elif b == n:
-            k0, k1 = np.NINF, -0.0
+            k0, k1 = NINF, -0.0
         elif c == n:
-            k0, k1 = -0.0, np.NINF
+            k0, k1 = -0.0, NINF
         elif p1 == n or q2 == n:
             k0, k1 = np.nan, 0.0
         elif p2 == n or q1 == n:
@@ -2202,6 +2204,13 @@ def homogeneity_completeness_v_measure(labels_true, labels_pred):
     """
     ct = ContingencyTable.from_labels(labels_true, labels_pred)
     return ct.entropy_scores()
+
+
+def pairwise_hcv(labels_true, labels_pred):
+    """Memory-efficient replacement for equivalently named Scikit-Learn function
+    """
+    ct = ConfusionMatrix2.from_labels(labels_true, labels_pred)
+    return ct.pairwise_hcv()
 
 
 def adjusted_rand_score(labels_true, labels_pred):

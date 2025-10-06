@@ -92,11 +92,14 @@ References
 
 import warnings
 import numpy as np
-from itertools import izip, chain
+from itertools import chain
 from operator import itemgetter
 from pymaptools.iter import aggregate_tuples
 from pymaptools.containers import labels_to_clusters
 from clustering_metrics.skutils import auc, roc_curve
+
+
+NINF = float("-inf")
 
 
 def num2bool(num):
@@ -135,7 +138,7 @@ class LiftCurve(object):
         """
 
         # convert input to a series of tuples
-        count_groups = izip(counts_pred, counts_true)
+        count_groups = zip(counts_pred, counts_true)
 
         # sort tuples by predicted count in descending order
         count_groups = sorted(count_groups, key=itemgetter(0), reverse=True)
@@ -161,7 +164,7 @@ class LiftCurve(object):
         # ground truth positives
         data = ((len(cluster), sum(is_class_pos(class_label) for class_label in cluster))
                 for cluster in clusters if cluster)
-        scores_pred, scores_true = zip(*data) or ([], [])
+        scores_pred, scores_true = list(zip(*data)) or ([], [])
         return cls.from_counts(scores_true, scores_pred)
 
     @classmethod
@@ -358,9 +361,9 @@ class RocCurve(object):
 
         >>> c = RocCurve.from_labels([0, 0, 1, 1],
         ...                          [0.1, 0.4, 0.35, 0.8])
-        >>> c.auc_score()
+        >>> float(c.auc_score())
         0.75
-        >>> c.max_informedness()
+        >>> float(c.max_informedness())
         0.5
 
     """
@@ -425,7 +428,7 @@ class RocCurve(object):
         """
 
         # num2bool Y labels
-        y_true = map(is_class_pos, labels_true)
+        y_true = list(map(is_class_pos, labels_true))
 
         # calculate axes
         fprs, tprs, thresholds = roc_curve(
@@ -472,9 +475,9 @@ class RocCurve(object):
 
         The scoring method must take two arguments: fpr and tpr.
         """
-        max_index = np.NINF
+        max_index = NINF
         opt_pair = (np.nan, np.nan)
-        for pair in izip(self.fprs, self.tprs):
+        for pair in zip(self.fprs, self.tprs):
             index = scoring_method(*pair)
             if index > max_index:
                 opt_pair = pair

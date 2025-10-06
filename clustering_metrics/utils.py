@@ -1,16 +1,23 @@
 # -*- coding: utf-8 -*-
 import random
 import operator
-import string
-from math import log
-from itertools import imap
 from operator import itemgetter
+from math import log
+
+import numpy as np
 from pymaptools.iter import isiterable
 
 
 PINF = float('inf')
 NINF = float('-inf')
 NAN = float('nan')
+
+
+def minmaxr(arr):
+    if len(arr) == 0:
+        return np.inf, -np.inf
+    arr = np.asarray(arr)
+    return arr.min(), arr.max()
 
 
 def _log(x, base=None):
@@ -85,7 +92,7 @@ def gapply(n, func, *args, **kwargs):
     :type func: instancemethod
     :rtype: collections.iterable
     """
-    for _ in xrange(n):
+    for _ in range(n):
         yield func(*args, **kwargs)
 
 
@@ -112,7 +119,7 @@ def randset(value_range=(0, 10), sample_range=(5, 20)):
     return tuple(sorted(set(gapply(n, random.choice, source))))
 
 
-def random_string(length, alphabet=string.letters):
+def random_string(length, alphabet="abcdefghijklmnopqrstvwxyz"):
     """Generate a random string
 
     :param length: length of the string
@@ -122,7 +129,7 @@ def random_string(length, alphabet=string.letters):
     :return: random string of specified length
     :rtype: str
     """
-    return ''.join(str(random.choice(alphabet)) for _ in xrange(length))
+    return ''.join(str(random.choice(alphabet)) for _ in range(length))
 
 
 def sigsim(x, y, dim):
@@ -137,7 +144,7 @@ def sigsim(x, y, dim):
     :returns: similarity between two signatures
     :rtype: float
     """
-    return sum(imap(operator.eq, x, y)) / float(dim)
+    return sum(map(operator.eq, x, y)) / float(dim)
 
 
 def sort_by_length(els, reverse=True):
@@ -150,6 +157,6 @@ def sort_by_length(els, reverse=True):
     :type reverse: bool
     :rtype: collections.iterable
     """
-    return imap(itemgetter(0),
+    return map(itemgetter(0),
                 sorted(((s, len(s)) for s in els),
                        key=operator.itemgetter(1), reverse=reverse))

@@ -2,9 +2,9 @@
 # cython: boundscheck=False
 # cython: wraparound=False
 
+from collections import abc
 from libc.math cimport exp, log
 from scipy.special import gammaln
-from collections import Mapping, Iterator
 import numbers
 import numpy as np
 cimport numpy as np
@@ -131,12 +131,12 @@ cpdef ndarray_from_iter(iterable, dtype=None, contiguous=False):
     If the input object is an instance of ``collections.Mapping``, assumes that
     we are interesting in creating a NumPy array from the values.
     """
-    if isinstance(iterable, Iterator):
+    if isinstance(iterable, abc.Iterator):  # Iterator
         arr = np.fromiter(iterable, dtype=dtype)
         if contiguous:
             arr = np.ascontiguousarray(arr, dtype=dtype)
-    elif isinstance(iterable, Mapping):
-        arr = np.fromiter(iterable.itervalues(), dtype=dtype)
+    elif isinstance(iterable, abc.Mapping):  # Mapping
+        arr = np.fromiter(iterable.values(), dtype=dtype)
         if contiguous:
             arr = np.ascontiguousarray(arr, dtype=dtype)
     elif contiguous:
@@ -211,8 +211,8 @@ cpdef np.float64_t centropy(counts):
     cdef np.int64_t c, n
     cdef np.float64_t sum_c_logn_c, result
 
-    if isinstance(counts, Mapping):
-        counts = counts.itervalues()
+    if isinstance(counts, abc.Mapping):   # Mapping
+        counts = counts.values()
 
     n = 0LL
     sum_c_logn_c = 0.0
@@ -243,8 +243,8 @@ cpdef np.float64_t fentropy(freqs):
 
     cdef np.float64_t f, s, sum_f_logn_f
 
-    if isinstance(freqs, Mapping):
-        freqs = freqs.itervalues()
+    if isinstance(freqs, abc.Mapping):  # Mapping
+        freqs = freqs.values()
 
     s = 0.0
     sum_f_logn_f = 0.0

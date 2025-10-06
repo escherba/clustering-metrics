@@ -2,7 +2,6 @@
 
 import sys
 from struct import unpack
-from itertools import izip
 from hashlib import md5
 
 
@@ -26,14 +25,14 @@ cdef class PHashCombiner(object):
 
     def __cinit__(self, size, prime=31, bits=64):
         # TODO: cdef prime and i to int64 to get speedup
-        self._coeffs = [prime ** i for i in xrange(size)]
+        self._coeffs = [prime ** i for i in range(size)]
         self._mask = (1 << bits) - 1
 
     def combine(self, hashes):
         """Combine a list of integer hashes
         """
         # TODO: cdef h and c to int64 to get speedup
-        ab = sum(h * c for h, c in izip(hashes, self._coeffs))
+        ab = sum(h * c for h, c in zip(hashes, self._coeffs))
         return ab & self._mask
 
 
@@ -76,7 +75,7 @@ cpdef inline hash_combine_murmur(seed, v):
 
 
 cpdef inline hashable(value):
-    if not isinstance(value, basestring):
+    if not isinstance(value, str):
         return repr(value)
     return value
 
@@ -93,7 +92,7 @@ cpdef uint64 hash_md5_64(x, uint64 seed=0):
 cpdef hash_md5_128(x, seed=0):
     """Return value is 128 bits
     """
-    ab = hash_combine_boost(seed, long(md5(hashable(x)).hexdigest(), 16))
+    ab = hash_combine_boost(seed, int(md5(hashable(x)).hexdigest(), 16))
     return ab & ((1 << 128) - 1)
 
 
@@ -164,5 +163,5 @@ cpdef long2int(num):
 
     """
 
-    smi1 = sys.maxint + 1
+    smi1 = sys.maxsize + 1
     return int(num % (smi1 + smi1) - smi1)
